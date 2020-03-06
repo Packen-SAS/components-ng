@@ -1,0 +1,17 @@
+<button [ngClass]="classButton" style="margin-top: 10px; position: relative;" (click)="buttonClick()">
+    <i-feather *ngIf="icon && type === 'icon'" name="{{icon}}" [style.width.px]="getWithIcon()"></i-feather>
+
+    <!-- Boton con texto e icono -->
+    <i-feather *ngIf="icon && type === 'regular' && positionIcon === 'left'" name="{{icon}}" [ngClass]="classIcon"
+        style="position: absolute; left:0;" [ngStyle]="getMarginIcons()" [style.width.px]="getWidthIconRegular()">
+    </i-feather>
+
+    <span *ngIf="type === 'regular'" class="titleButton">{{title}}</span>
+
+    <i-feather *ngIf="icon && type === 'regular' && positionIcon === 'right'" name="{{icon}}" [ngClass]="classIcon"
+        style="position: absolute; right: 0;" class="iconRight" [ngStyle]="getMarginIcons()" [style.width.px]="getWidthIconRegular()">
+    </i-feather>
+    <!-- Botones con texto e icono -->
+
+</button>
+<!-- <button class="buttonDisabled buttonDisabled--btnDangerDisabled">Prueba</button> -->
