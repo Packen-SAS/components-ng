@@ -1,17 +1,18 @@
-
 <button [ngClass]="classButton" style="margin-top: 10px; position: relative;" (click)="buttonClick()">
     <span *ngIf="icon && type === 'icon'" [class]="icon" [style.font-size.px]="getWithIcon()"></span>
-
     <!-- Boton con texto e icono -->
-    <span [class]="icon" *ngIf="icon && type === 'regular' && positionIcon === 'left'"
+        <span [class]="icon" class="iconAlignVertical" *ngIf="icon && type === 'regular' && positionIcon === 'left'"
         [ngClass]="classIcon" style="position: absolute; left:0;" [ngStyle]="getMarginIcons()"
         [style.font-size.px]="getWidthIconRegular()"></span>
-
     <span *ngIf="type === 'regular'" [ngStyle]="getPaddingLabel()" class="titleButton">{{title}}</span>
     
-    <span [class]="icon" [ngClass]="classIcon"
+    <span [class]="icon" class="iconAlignVertical" [ngClass]="classIcon"
         *ngIf="icon && type === 'regular' && positionIcon === 'right'" [style.font-size.px]="getWidthIconRegular()"
         style="position: absolute; right: 0;" [ngStyle]="getMarginIcons()"></span>
     <!-- Botones con texto e icono -->
 
 </button>
+
+<!-- margin-left: 22px;
+    top: 50%;
+    transform: translateY(-50%); -->

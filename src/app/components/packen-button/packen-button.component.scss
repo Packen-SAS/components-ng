@@ -9,36 +9,39 @@
   font-family: 'Muli';
   font-weight: bold;
   font-style: normal;
-  line-height: 12px;
+}
+
+.iconAlignVertical{
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .sizeButtonRegular{
   &--buttonTiny{
-    min-width: 111px;
+    
     height: 24px;
     font-size: $size_tiny;
   }
 
   &--buttonSmall{
-    min-width: 144px;
+    
     height: 32px;
     font-size: $size_small;
   }
 
   &--buttonMedium{
-    min-width: 156px;
     height: 40px;
     font-size: $size_medium;
   }
 
   &--buttonLarge{
     height: 48px;
-    min-width: 184px;
+    
     font-size: $size_large;
   }
 
   &--buttonGiant{
-    min-width: 229px;
+    
     height: 56px;
     font-size: $size_giant;
   }

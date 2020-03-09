@@ -286,27 +286,27 @@ describe('PackenButtonComponent', () => {
   //Render width icon when type button is regular
   it('render width icon when button is regular and size is tiny', async () =>{
     component.size = 'tiny';
-    expect(component.getWidthIconRegular()).toEqual(11);
+    expect(component.getWidthIconRegular()).toEqual(15);
   });
 
   it('render width icon when button is regular and size is small', async () =>{
     component.size = 'small';
-    expect(component.getWidthIconRegular()).toEqual(13);
+    expect(component.getWidthIconRegular()).toEqual(20);
   });
 
   it('render width icon when button is regular and size is medium', async () =>{
     component.size = 'medium';
-    expect(component.getWidthIconRegular()).toEqual(14);
+    expect(component.getWidthIconRegular()).toEqual(23);
   });
 
   it('render width icon when button is regular and size is large', async () =>{
     component.size = 'large';
-    expect(component.getWidthIconRegular()).toEqual(16);
+    expect(component.getWidthIconRegular()).toEqual(25);
   });
 
   it('render width icon when button is regular and size is giant', async () =>{
     component.size = 'giant';
-    expect(component.getWidthIconRegular()).toEqual(24);
+    expect(component.getWidthIconRegular()).toEqual(30);
   });
 
   it('render width icon when button is regular and size is other', async () =>{
@@ -324,22 +324,22 @@ describe('PackenButtonComponent', () => {
 
   it('render width icon when type button is icon and size is small', async () =>{
     component.size = 'small';
-    expect(component.getWithIcon()).toEqual(13);
+    expect(component.getWithIcon()).toEqual(16);
   });
 
   it('render width icon when type button is icon and size is medium', async () =>{
     component.size = 'medium';
-    expect(component.getWithIcon()).toEqual(16);
+    expect(component.getWithIcon()).toEqual(20);
   });
 
   it('render width icon when type button is icon and size is large', async () =>{
     component.size = 'large';
-    expect(component.getWithIcon()).toEqual(20);
+    expect(component.getWithIcon()).toEqual(24);
   });
 
   it('render width icon when type button is icon and size is other', async () =>{
     component.size = 'other';
-    expect(component.getWithIcon()).toEqual(13);
+    expect(component.getWithIcon()).toEqual(16);
   });
   //Render width icon when type button is icon
 
