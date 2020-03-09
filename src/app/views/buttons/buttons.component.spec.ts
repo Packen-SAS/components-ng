@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ButtonsComponent } from './buttons.component';
+import { NO_ERRORS_SCHEMA } from '@angular/compiler';
 
 describe('ButtonsComponent', () => {
   let component: ButtonsComponent;
@@ -8,7 +9,8 @@ describe('ButtonsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ButtonsComponent ]
+      declarations: [ ButtonsComponent ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));

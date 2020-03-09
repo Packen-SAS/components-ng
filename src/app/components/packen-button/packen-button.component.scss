@@ -12,31 +12,31 @@
 
 .sizeButtonRegular{
   &--buttonTiny{
-    width: 111px;
+    min-width: 111px;
     height: 24px;
     font-size: $size_tiny;
   }
 
   &--buttonSmall{
-    width: 144px;
+    min-width: 144px;
     height: 32px;
     font-size: $size_small;
   }
 
   &--buttonMedium{
-    width: 156px;
+    min-width: 156px;
     height: 40px;
     font-size: $size_medium;
   }
 
   &--buttonLarge{
     height: 48px;
-    width: 184px;
+    min-width: 184px;
     font-size: $size_large;
   }
 
   &--buttonGiant{
-    width: 229px;
+    min-width: 229px;
     height: 56px;
     font-size: $size_giant;
   }

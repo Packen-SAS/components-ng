@@ -88,11 +88,15 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstra.min.css"
+              "src/styles.scss"
             ],
             "scripts": []
-          }
+          },
+          "codeOverage": true,
+          "codeCoverageExclude":[
+            "src/app/app-component.spec.ts",
+            "src/app/app-component.ts"
+          ]
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",

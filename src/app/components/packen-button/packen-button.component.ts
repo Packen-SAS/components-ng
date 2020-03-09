@@ -6,15 +6,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./packen-button.component.scss']
 })
 export class PackenButtonComponent implements OnInit {
-  @Input() type: any;
-  @Input() level: any;
+  @Input() type: any = null;
+  @Input() level: any = null;
   @Input() icon: any = null;
   @Input() positionIcon: any = null;
-  @Input() size: any;
+  @Input() size: any = null;
   @Input() disabled: any = null;
-  @Input() title: any = null;
+  @Input() title: any = '';
   @Output() outputClick = new EventEmitter<any>();
-
 
   classButton: any = "";
   classIcon: any = "";
@@ -24,6 +23,7 @@ export class PackenButtonComponent implements OnInit {
     if (this.disabled !== 'true') {
       this.outputClick.emit();
     }
+    return true;
   }
 
   ngOnInit(): void {
@@ -55,6 +55,8 @@ export class PackenButtonComponent implements OnInit {
         this.classIcon += "sizeIconLarge";
         break;
     }
+
+    return true;
   }
 
   loadLevelButton = () => {
@@ -96,8 +98,9 @@ export class PackenButtonComponent implements OnInit {
           this.classButton += " button button--btnPrimary";
         }
         break;
-
     }
+
+    return true;
   }
 
   loadStylesButtonsRegular = () => {
@@ -118,7 +121,6 @@ export class PackenButtonComponent implements OnInit {
       case 'giant':
         this.classButton += "sizeButtonRegular--buttonGiant";
         break;
-
     }
   }
 
@@ -141,12 +143,16 @@ export class PackenButtonComponent implements OnInit {
         case 'giant':
           margin = 22;
           break;
+        default:
+          margin = 10;
+          break;
       }
     }
-
     if (this.positionIcon === 'left') {
       return { 'margin-left': `${margin}px` };
     } else if (this.positionIcon === 'right') {
+      return { 'margin-right': `${margin}px` }
+    }else{
       return { 'margin-right': `${margin}px` }
     }
   }
@@ -168,8 +174,8 @@ export class PackenButtonComponent implements OnInit {
     }
   }
 
-  getWithIcon = () =>{
-    switch(this.size){
+  getWithIcon = () => {
+    switch (this.size) {
       case 'tiny':
         return 11;
       case 'small':
@@ -183,18 +189,30 @@ export class PackenButtonComponent implements OnInit {
     }
   }
 
-  /* switch (this.size) {
-    case 'tiny':
-      this.classIcon += "sizeIconTiny";
-      break;
-    case 'small':
-      this.classButton += "sizeButtonSmall";
-      this.classIcon += "sizeIconSmall";
-      break;
-    case 'medium':
-      this.classButton += "sizeButtonMedium"
-      this.classIcon += "sizeIconMedium";
-      break;
-    case 'large': */
+  getPaddingLabel = () => {
+    let padding = 0;
+    switch (this.size) {
+      case 'tiny':
+        padding = 32;
+        break;
+      case 'small':
+        padding = 44;
+        break;
+      case 'medium':
+        padding = 46;
+        break;
+      case 'large':
+        padding = 56;
+        break;
+      case 'giant':
+        padding = 74;
+        break;
+      default:
+        padding = 32;
+        break;
+    }
+
+    return { 'margin-left': `${padding}px`, 'margin-right': `${padding}px` }
+  }
 
 }

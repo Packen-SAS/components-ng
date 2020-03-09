@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ButtonsComponent } from './views/buttons/buttons.component';
@@ -19,10 +19,11 @@ import { allIcons } from 'angular-feather/icons';
     BrowserModule,
     FeatherModule.pick(allIcons)
   ],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent],
   exports:[
     FeatherModule
-  ]
+  ],
 })
 export class AppModule { }
