@@ -1,5 +1,7 @@
 @import '../../styles/colors.scss';
 @import '../../styles/typography.scss';
+@import "../../../assets/icons/style.css";
+@import "../../../assets/icons/scss/icons.scss";
 
 .titleButton{
   letter-spacing: 1px;
@@ -67,6 +69,7 @@
 
 .button{
   border: 0;
+  line-height: 1;
   &--btnDanger{
     color: $white;
     background-color: $danger_default;
@@ -142,5 +145,6 @@
     background-color: $disabled_alt;
     color:$white_opacity0_5;    
   }
+
   
 }  

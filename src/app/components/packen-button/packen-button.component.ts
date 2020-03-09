@@ -164,7 +164,7 @@ export class PackenButtonComponent implements OnInit {
       case 'small':
         return 13;
       case 'medium':
-        return 14;
+        return 14;  
       case 'large':
         return 16;
       case 'giant':
@@ -177,13 +177,13 @@ export class PackenButtonComponent implements OnInit {
   getWithIcon = () => {
     switch (this.size) {
       case 'tiny':
-        return 11;
+        return 8;
       case 'small':
-        return 13;
+        return 11;
       case 'medium':
-        return 16;
+        return 13;
       case 'large':
-        return 20;
+        return 16;
       default:
         return 13;
     }
