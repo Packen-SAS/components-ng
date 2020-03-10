@@ -9,6 +9,8 @@ import { ButtonsComponent } from './views/buttons/buttons.component';
 import { PackenButtonComponent } from './components/packen-button/packen-button.component';
 import { AvatarsComponent } from './views/avatars/avatars.component';
 import { PackenAvatarComponent } from './components/packen-avatar/packen-avatar.component';
+import { DividersComponent } from './views/dividers/dividers.component';
+import { PackenDividerComponent } from './components/packen-divider/packen-divider.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { PackenAvatarComponent } from './components/packen-avatar/packen-avatar.
     ButtonsComponent,
     PackenButtonComponent,
     AvatarsComponent,
-    PackenAvatarComponent
+    PackenAvatarComponent,
+    DividersComponent,
+    PackenDividerComponent
   ],
   imports: [
     BrowserModule,
