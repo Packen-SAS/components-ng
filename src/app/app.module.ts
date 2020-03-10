@@ -8,6 +8,7 @@ import { allIcons } from 'angular-feather/icons';
 import { ButtonsComponent } from './views/buttons/buttons.component';
 import { PackenButtonComponent } from './components/packen-button/packen-button.component';
 import { AvatarsComponent } from './views/avatars/avatars.component';
+import { PackenAvatarComponent } from './components/packen-avatar/packen-avatar.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { AvatarsComponent } from './views/avatars/avatars.component';
     AppComponent,
     ButtonsComponent,
     PackenButtonComponent,
-    AvatarsComponent
+    AvatarsComponent,
+    PackenAvatarComponent
   ],
   imports: [
     BrowserModule,

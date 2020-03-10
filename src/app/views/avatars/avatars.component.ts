@@ -13,4 +13,8 @@ export class AvatarsComponent implements OnInit {
     
   }
 
+  clickComponent = () =>{
+    alert("acción emitida");
+  }
+
 }

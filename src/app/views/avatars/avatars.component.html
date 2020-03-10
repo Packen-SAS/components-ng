@@ -1,1 +1,31 @@
-<p>avatars works!</p>
+<h2>Avatars</h2>
+<div class="row">
+    <div class="col-sm">
+        <div class="contentImage mt-3">
+            <app-packen-avatar size="tiny" src="../../../assets/images/avatar.jpg" (outputClick)="clickComponent()"></app-packen-avatar>
+            <p>tiny</p>
+        </div>
+        <br>
+        <div class="contentImage mt-3">
+            <app-packen-avatar size="small" src="../../../assets/images/avatar.jpg"></app-packen-avatar>
+            <p>small</p>
+        </div>
+        <br>
+        <div class="contentImage mt-3">
+            <app-packen-avatar size="medium" src="../../../assets/images/avatar.jpg"></app-packen-avatar>
+            <p>medium</p>
+        </div>
+        <br>
+    </div>
+    <div class="col-sm">
+        <div class="contentImage mt-3">
+            <app-packen-avatar size="large" src="../../../assets/images/avatar.jpg"></app-packen-avatar>
+            <p>large</p>
+        </div>
+        <br>
+        <div class="contentImage mt-3">
+            <app-packen-avatar size="xlarge" src="../../../assets/images/avatar.jpg" (outputClick)="clickComponent()"></app-packen-avatar>
+            <p>xlarge</p>
+        </div>
+    </div>
+</div>

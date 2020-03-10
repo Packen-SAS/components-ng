@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PackenButtonComponent } from './packen-button.component';
-import { CUSTOM_ELEMENTS_SCHEMA, Input, } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 describe('PackenButtonComponent', () => {
   let component: PackenButtonComponent;
