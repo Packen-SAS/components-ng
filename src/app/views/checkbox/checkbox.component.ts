@@ -10,7 +10,7 @@ export class CheckboxComponent implements OnInit {
 
   checkboxes: Array<CheckItem> = [
     { id: 1, label: 'Label 1', state: 'checked', disabled: false },
-    { id: 2, label: 'Label 2', state: 'unchecked', disabled: true },
+    { id: 2, label: 'Label 2', state: 'checked', disabled: true },
     { id: 3, label: 'Label 3', state: 'unchecked', disabled: true }
   ];
   

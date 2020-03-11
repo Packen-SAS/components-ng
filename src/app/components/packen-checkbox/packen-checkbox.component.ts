@@ -20,13 +20,11 @@ export class PackenCheckboxComponent implements OnInit {
       case 'checked':
         return IconsCheck.checked;
       case 'unchecked':
-        return IconsCheck.unchecked
-      default:
-        return IconsCheck.unchecked;
+        return IconsCheck.unchecked 
     }
   }
 
-  changeStateCheck = (check) => {
+  changeStateCheck = (check: CheckItem) => {
     if (!check.disabled) {
       let newStatus = '';
       if (check.state === 'checked') {
@@ -36,27 +34,20 @@ export class PackenCheckboxComponent implements OnInit {
       }
       this.outputChangeCheck.emit({ id: check.id, state: newStatus });
     }
-
   }
 
-  getClassCheckBox = (c): string => {
+  getClassCheckBox = (c:CheckItem): string => {
     switch (c.state) {
       case 'checked':
         return c.disabled ? CheckBoxStyles.checkboxDisabled : CheckBoxStyles.checkboxActive;
       case 'unchecked':
         return c.disabled ? CheckBoxStyles.uncheckDisabled : CheckBoxStyles.checkboxDefault;
-
     }
-  }
-
-  getTypeCursor = (state: StatesChecks): string => {
-    return state ? 'contentCheckbox--disabled' : 'contentCheckbox--default';
   }
 }
 
 class IconsCheck {
   static readonly checked = 'icon-checkmark';
-  static readonly default = 'icon-minus';
   static readonly unchecked = '';
 }
 
