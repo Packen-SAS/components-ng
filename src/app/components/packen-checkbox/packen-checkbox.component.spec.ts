@@ -73,10 +73,21 @@ describe('PackenCheckboxComponent', () => {
     let objCheck:CheckItem = {id: 2, label :'label', disabled: false, state: 'unchecked' }
     expect(component.getClassCheckBox(objCheck)).toEqual('contentCheckbox__checkbox--default')
   });
-
   //Render class of checkbox
   
 
+  //Render type of cursor when check is disabled
+  it('render type class cursor when check is disabled', () =>{
+    let objCheck: CheckItem ={id: 3, label: 'label', disabled: true, state: 'checked'};
+    expect(component.getTypeCursor(objCheck)).toEqual('contentCheckbox--disabled');
+  });
+
+  it('render type class cursor when check is not disabled', () =>{
+    let objCheck: CheckItem ={id: 3, label: 'label', disabled: false, state: 'checked'};
+    expect(component.getTypeCursor(objCheck)).toEqual('contentCheckbox--default');
+  });
+  
+  //Render type of cursor when check is disabled
 
 
 });

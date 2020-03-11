@@ -44,6 +44,9 @@ export class PackenCheckboxComponent implements OnInit {
         return c.disabled ? CheckBoxStyles.uncheckDisabled : CheckBoxStyles.checkboxDefault;
     }
   }
+  getTypeCursor =(c:CheckItem): string =>{
+      return c.disabled ? CheckBoxCursorStyle.cursorDefault :CheckBoxCursorStyle.cursorPointer;
+  }
 }
 
 class IconsCheck {
@@ -56,6 +59,11 @@ class CheckBoxStyles {
   static readonly checkboxActive = 'contentCheckbox__checkbox--active';
   static readonly checkboxDefault = 'contentCheckbox__checkbox--default';
   static readonly uncheckDisabled = 'contentCheckbox__checkbox--uncheckDisabled';
+}
+
+class CheckBoxCursorStyle{
+  static readonly  cursorDefault = 'contentCheckbox--disabled';
+  static readonly cursorPointer = 'contentCheckbox--default';
 }
 
 type StatesChecks = 'checked' | 'unchecked';
