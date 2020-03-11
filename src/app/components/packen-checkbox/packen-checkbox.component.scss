@@ -1,0 +1,70 @@
+@import "../../../assets/icons/style.css";
+@import "../../styles/colors.scss";
+
+p {
+  margin: 0;
+}
+
+.contentCheckbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-right: 10px;
+
+  &--disabled{
+    cursor: default;
+  }
+
+  &--default{
+    cursor: pointer;
+  }
+
+  &__checkbox {
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    display: table;
+    border-radius: 3px;
+
+    &--active {
+      background-color: $primary_default;
+    }
+
+    &--disabled{
+        background-color: $disabled;
+    }
+
+    &--default{
+        background-color: $brand_primary_snw;
+        border: 1px solid $brand_primary_drk;
+    }
+
+    &--uncheckDisabled{
+        background-color: $ghost_hover;
+        border: 1px solid $disabled;
+    }
+
+    &__icon {
+      display: table-cell;
+      vertical-align: middle;
+      font-size: 13px;
+      color: $white;
+      font-weight: 600;
+    }
+
+    &__labelChek{
+        font-family: Muli; 
+        font-size: normal; 
+        font-weight: normal; 
+        font-size: 14px;
+        margin-left: 5px;
+        &--default{
+            color: $base_default_alt;
+          }
+    
+          &--disabled{
+            color: $disabled_alt_drk;
+          }
+    }
+  }
+}

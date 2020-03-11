@@ -13,6 +13,8 @@ import { DividersComponent } from './views/dividers/dividers.component';
 import { PackenDividerComponent } from './components/packen-divider/packen-divider.component';
 import { TabsComponent } from './views/tabs/tabs.component';
 import { PackenTabsComponent } from './components/packen-tabs/packen-tabs.component';
+import { CheckboxComponent } from './views/checkbox/checkbox.component';
+import { PackenCheckboxComponent } from './components/packen-checkbox/packen-checkbox.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { PackenTabsComponent } from './components/packen-tabs/packen-tabs.compon
     DividersComponent,
     PackenDividerComponent,
     TabsComponent,
-    PackenTabsComponent
+    PackenTabsComponent,
+    CheckboxComponent,
+    PackenCheckboxComponent
   ],
   imports: [
     BrowserModule,
