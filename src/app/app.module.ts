@@ -11,6 +11,8 @@ import { AvatarsComponent } from './views/avatars/avatars.component';
 import { PackenAvatarComponent } from './components/packen-avatar/packen-avatar.component';
 import { DividersComponent } from './views/dividers/dividers.component';
 import { PackenDividerComponent } from './components/packen-divider/packen-divider.component';
+import { TabsComponent } from './views/tabs/tabs.component';
+import { PackenTabsComponent } from './components/packen-tabs/packen-tabs.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { PackenDividerComponent } from './components/packen-divider/packen-divid
     AvatarsComponent,
     PackenAvatarComponent,
     DividersComponent,
-    PackenDividerComponent
+    PackenDividerComponent,
+    TabsComponent,
+    PackenTabsComponent
   ],
   imports: [
     BrowserModule,
