@@ -1,4 +1,4 @@
-<div [ngStyle]="orientation == 'horizontal' && {'display' : 'flex'}" >
+<div [ngStyle]="orientation == 'horizontal' && {'display' : 'flex', 'flex-wrap': 'wrap'}" >
     <div class="contentCheckbox" *ngFor="let c of checkboxes" (click)="changeStateCheck(c)"
         [ngClass]="getTypeCursor(c)">
         <div class="contentCheckbox__checkbox" [ngClass]="getClassCheckBox(c)">
