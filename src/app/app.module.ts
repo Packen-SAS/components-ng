@@ -17,6 +17,8 @@ import { CheckboxComponent } from './views/checkbox/checkbox.component';
 import { PackenCheckboxComponent } from './components/packen-checkbox/packen-checkbox.component';
 import { RadioComponent } from './views/radio/radio.component';
 import { PackenRadioComponent } from './components/packen-radio/packen-radio.component';
+import { TogglesComponent } from './views/toggles/toggles.component';
+import { PackenToggleComponent } from './components/packen-toggle/packen-toggle.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { PackenRadioComponent } from './components/packen-radio/packen-radio.com
     CheckboxComponent,
     PackenCheckboxComponent,
     RadioComponent,
-    PackenRadioComponent
+    PackenRadioComponent,
+    TogglesComponent,
+    PackenToggleComponent
   ],
   imports: [
     BrowserModule,
