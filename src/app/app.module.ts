@@ -15,6 +15,8 @@ import { TabsComponent } from './views/tabs/tabs.component';
 import { PackenTabsComponent } from './components/packen-tabs/packen-tabs.component';
 import { CheckboxComponent } from './views/checkbox/checkbox.component';
 import { PackenCheckboxComponent } from './components/packen-checkbox/packen-checkbox.component';
+import { RadioComponent } from './views/radio/radio.component';
+import { PackenRadioComponent } from './components/packen-radio/packen-radio.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { PackenCheckboxComponent } from './components/packen-checkbox/packen-che
     TabsComponent,
     PackenTabsComponent,
     CheckboxComponent,
-    PackenCheckboxComponent
+    PackenCheckboxComponent,
+    RadioComponent,
+    PackenRadioComponent
   ],
   imports: [
     BrowserModule,
