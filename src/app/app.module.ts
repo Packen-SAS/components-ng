@@ -19,6 +19,8 @@ import { RadioComponent } from './views/radio/radio.component';
 import { PackenRadioComponent } from './components/packen-radio/packen-radio.component';
 import { TogglesComponent } from './views/toggles/toggles.component';
 import { PackenToggleComponent } from './components/packen-toggle/packen-toggle.component';
+import { InputsComponent } from './views/inputs/inputs.component';
+import { PackenInputComponent } from './components/packen-input/packen-input.component';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { PackenToggleComponent } from './components/packen-toggle/packen-toggle.
     RadioComponent,
     PackenRadioComponent,
     TogglesComponent,
-    PackenToggleComponent
+    PackenToggleComponent,
+    InputsComponent,
+    PackenInputComponent
   ],
   imports: [
     BrowserModule,
