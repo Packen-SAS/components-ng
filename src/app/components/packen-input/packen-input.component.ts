@@ -41,9 +41,6 @@ export class PackenInputComponent implements OnInit {
       case 'giant':
         stylesClass += InputSyzesClass.large;
         break;
-      default:
-        stylesClass += InputSyzesClass.small;
-        break;
     }
 
     if (this.textMessage !== '') {
@@ -62,8 +59,6 @@ export class PackenInputComponent implements OnInit {
         return ThemeMessageClass.primary;
       case 'success':
         return ThemeMessageClass.succeess;
-      default:
-        return ThemeMessageClass.warning;
     }
   }
 
@@ -78,8 +73,6 @@ export class PackenInputComponent implements OnInit {
         return LabelClass.titleLarge;
       case 'giant':
         return LabelClass.titleGiant;
-      default:
-        return LabelClass.titleSmall;
     }
   }
 
