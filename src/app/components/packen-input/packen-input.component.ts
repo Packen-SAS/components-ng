@@ -15,6 +15,7 @@ export class PackenInputComponent implements OnInit {
   @Input() iconMessage: string = '';
   @Input() themeMessage: StatesThemeMessage = 'warning';
   @Input() disabled: string = 'false';
+  @Input() icon: string = '';
   @Input() textArea: string = 'false';
   classContentTextArea: string = '';
 
@@ -23,6 +24,23 @@ export class PackenInputComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getClassSizeIconRight = (type: StatesSizesInput): string => {
+    let resClass = this.icon + " ";
+    console.log(resClass);
+    switch (type) {
+      case 'tiny':
+        return resClass += SizeIconInput.tiny;
+      case 'small':
+        return resClass += SizeIconInput.small;
+      case 'medium':
+        return resClass += SizeIconInput.medium;
+      case 'large':
+        return resClass += SizeIconInput.large;
+      case 'giant':
+        return resClass += SizeIconInput.giant;
+    }
+  }
+  
   getClassStylesInput = (size: StatesSizesInput): string => {
     let stylesClass: string = '';
     switch (size) {
@@ -141,7 +159,7 @@ class TextAreaClass {
   static readonly focus = 'content__contentTextArea--focus'
 }
 
-class ContentTextArea{
+class ContentTextArea {
   static readonly error = 'content__contentTextArea--error';
   static readonly disabled = 'content__contentTextArea__textArea--disabled';
 }
@@ -154,3 +172,12 @@ class InputSyzesClass {
   static readonly error = ' content__input-container__input--error';
 }
 
+
+class SizeIconInput {
+  static readonly tiny = 'content__input-container__icon--tiny';
+  static readonly small = 'content__input-container__icon--small';
+  static readonly medium = 'content__input-container__icon--medium';
+  static readonly large ='content__input-container__icon--large';
+  static readonly giant ='content__input-container__icon--giant';
+
+}

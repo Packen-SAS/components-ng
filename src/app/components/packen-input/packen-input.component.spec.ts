@@ -128,7 +128,24 @@ describe('PackenInputComponent', () => {
     component.disabled = 'false';
     expect(component.getColorText());
   });
-
-
   //Render the the colorText of textArea
+
+  
+  //Render the size class of icon input
+  it('render the class of icon when size is tiny', () =>{
+    expect(component.getClassSizeIconRight('tiny')).toEqual(' content__input-container__icon--tiny');
+  });
+
+  it('render the class of icon when size is medium', () =>{
+    expect(component.getClassSizeIconRight('medium')).toEqual(' content__input-container__icon--medium');
+  });
+
+  it('render the class of icon when size is medium', () =>{
+    expect(component.getClassSizeIconRight('large')).toEqual(' content__input-container__icon--large');
+  });
+
+  it('render the class of icon when size is giant', () =>{
+    expect(component.getClassSizeIconRight('giant')).toEqual(' content__input-container__icon--giant');
+  });
+  //Render the size class of icon input
 });

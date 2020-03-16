@@ -6,7 +6,7 @@
             [type]="type"
             [value]="value" [placeholder]="placeholder" 
             [attr.disabled]="disabled == 'true' ? true : null">
-        <span class="icon-lock content__input-container__icon content__input-container__icon--tiny"></span>
+        <span [ngClass]="getClassSizeIconRight(size)" class="content__input-container__icon"></span>
     </div>
 
     <div [ngClass]="getClassStylesTextArea(size)" class="content__contentTextArea" 
