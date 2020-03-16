@@ -5,6 +5,7 @@
             [ngClass]="getClassStylesInput(size)" 
             [type]="type"
             [value]="value" [placeholder]="placeholder" 
+            (keyup)="changeTextInput($event.target.value)"
             [attr.disabled]="disabled == 'true' ? true : null">
         <span [ngClass]="getClassSizeIconRight(size)" class="content__input-container__icon"></span>
     </div>

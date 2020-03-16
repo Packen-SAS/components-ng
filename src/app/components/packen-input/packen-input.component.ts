@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-packen-input',
@@ -17,6 +17,7 @@ export class PackenInputComponent implements OnInit {
   @Input() disabled: string = 'false';
   @Input() icon: string = '';
   @Input() textArea: string = 'false';
+  @Output() outputChangeValue = new EventEmitter<any>();
   classContentTextArea: string = '';
 
   constructor() { }
@@ -26,7 +27,6 @@ export class PackenInputComponent implements OnInit {
 
   getClassSizeIconRight = (type: StatesSizesInput): string => {
     let resClass = this.icon + " ";
-    console.log(resClass);
     switch (type) {
       case 'tiny':
         return resClass += SizeIconInput.tiny;
@@ -132,6 +132,10 @@ export class PackenInputComponent implements OnInit {
     if (this.disabled == 'true') {
       return ContentTextArea.disabled;
     }
+  }
+
+  changeTextInput = (value) =>{
+    this.outputChangeValue.emit(value);
   }
 }
 type StatesSizesInput = 'tiny' | 'small' | 'medium' | 'large' | 'giant';

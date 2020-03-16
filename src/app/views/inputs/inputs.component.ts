@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inputs.component.scss']
 })
 export class InputsComponent implements OnInit {
-
+  valueTest = "Value test";
   constructor() { }
 
+
   ngOnInit(): void {
+  }
+
+  changeTextInput = (data) => {
+    this.valueTest = data;
   }
 
 }
