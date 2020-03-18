@@ -40,8 +40,6 @@ export class PackenDropdownComponent implements OnInit {
       let radio = this.items.find((item) => item.id == this.selectedItemId);
       if(radio){
         this.itemSelected.title = radio.label;
-      }else{
-        this.itemSelected.title ="Selecciona un radio";
       }
     }
 
@@ -121,7 +119,9 @@ export class PackenDropdownComponent implements OnInit {
 
   changeRadio = (data): void => {
     let radio = this.items.find((i) => data == i.id);
-    this.itemSelected.title =radio.label;
+    if(radio){
+      this.itemSelected.title = radio.label;
+    }
     this.outputChangeItem.emit(data);
   }
 

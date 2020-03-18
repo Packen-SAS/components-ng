@@ -40,8 +40,28 @@ describe('PackenDropdownComponent', () => {
       disabled: false,
       title: 'Menu item 2'
     }];
-
     expect(component.getItemSelected());
+  });
+
+  it('rener item selected when but the type is radio', () =>{
+    component.items = [{
+      id: 1,
+      left: false,
+      right: false,
+      disabled: false,
+      title: 'Menu item'
+    },
+    {
+      id: 2,
+      left: false,
+      right: false,
+      disabled: false,
+      title: 'Menu item 2'
+    }];
+    
+    component.type = 'radio';
+    component.selectedItemId = 1;
+    expect(component.getItemSelected())
   });
 
   it('render class of item when is disabled', () => {
@@ -234,7 +254,15 @@ describe('PackenDropdownComponent', () => {
   });
 
   it('render function change select radio ', () => {
-    expect(component.changeRadio(1)).toBeUndefined();
+    component.items = [{ id: 1, label: 'Label 1', disabled: false },
+    { id: 2, label: 'Label 2', disabled: false }];
+    expect(component.changeRadio(1));
+  });
+
+  it('render function change select radio and not isset ', () => {
+    component.items = [{ id: 1, label: 'Label 1', disabled: false },
+    { id: 2, label: 'Label 2', disabled: false }];
+    expect(component.changeRadio(4));
   });
 
   it('render function when action onCLick is outside of content', () => {
