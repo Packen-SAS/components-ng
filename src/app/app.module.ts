@@ -21,6 +21,9 @@ import { TogglesComponent } from './views/toggles/toggles.component';
 import { PackenToggleComponent } from './components/packen-toggle/packen-toggle.component';
 import { InputsComponent } from './views/inputs/inputs.component';
 import { PackenInputComponent } from './components/packen-input/packen-input.component';
+import { DropdownsComponent } from './views/dropdowns/dropdowns.component';
+import { PackenDropdownComponent } from './components/packen-dropdown/packen-dropdown.component';
+import {ClickOutsideModule} from 'ng-click-outside';
 
 
 @NgModule({
@@ -41,11 +44,14 @@ import { PackenInputComponent } from './components/packen-input/packen-input.com
     TogglesComponent,
     PackenToggleComponent,
     InputsComponent,
-    PackenInputComponent
+    PackenInputComponent,
+    DropdownsComponent,
+    PackenDropdownComponent
   ],
   imports: [
     BrowserModule,
-    FeatherModule.pick(allIcons)
+    FeatherModule.pick(allIcons),
+    ClickOutsideModule
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
