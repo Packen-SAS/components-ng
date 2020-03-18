@@ -3,7 +3,7 @@
         textArea="false" textMessage="" themeMessage="warning" iconMessage="icon-info" disabled="false"
         (click)="clickInput()" [value]="value != '' ? value : itemSelected.title">
     </app-packen-input>
-
+    
     <div class="content animated fadeIn fast" *ngIf="showMenuList">
         <div *ngIf="type == 'default'">
             <div class="content__item" *ngFor="let i of items" [ngClass]="getClassItem(i)" (click)="selectItem(i)"

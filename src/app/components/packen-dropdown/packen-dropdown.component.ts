@@ -31,13 +31,19 @@ export class PackenDropdownComponent implements OnInit {
 
   ngOnInit(): void {
     this.getItemSelected();
-    console.log(this.items)
-    console.log("Tamaño ", this.size);
-
   }
 
   getItemSelected = async () => {
-    this.itemSelected = await this.items.find((item) => item.id == this.selected);
+    if(this.type !== 'radio' && this.type !== 'checkbox'){
+      this.itemSelected = await this.items.find((item) => item.id == this.selected);
+    }else{
+      let radio = this.items.find((item) => item.id == this.selectedItemId);
+      if(radio){
+        this.itemSelected.title = radio.label;
+      }else{
+        this.itemSelected.title ="Selecciona un radio";
+      }
+    }
 
   }
 
@@ -91,7 +97,7 @@ export class PackenDropdownComponent implements OnInit {
     if (i.disabled) {
       return IconStyles.disabled;
     }
-    
+
     if (i.id == this.selected) {
       return IconStyles.selected;
     }
@@ -114,6 +120,8 @@ export class PackenDropdownComponent implements OnInit {
   }
 
   changeRadio = (data): void => {
+    let radio = this.items.find((i) => data == i.id);
+    this.itemSelected.title =radio.label;
     this.outputChangeItem.emit(data);
   }
 

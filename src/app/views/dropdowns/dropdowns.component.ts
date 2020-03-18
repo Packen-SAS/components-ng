@@ -180,7 +180,6 @@ export class DropdownsComponent implements OnInit {
 
   changeRadio = (data): void => {
     this.selectIdRadio = data;
-    console.log("En dropdown ", data);
   }
 
   ngOnInit(): void {
