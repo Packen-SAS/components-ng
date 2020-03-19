@@ -24,6 +24,8 @@ import { PackenInputComponent } from './components/packen-input/packen-input.com
 import { DropdownsComponent } from './views/dropdowns/dropdowns.component';
 import { PackenDropdownComponent } from './components/packen-dropdown/packen-dropdown.component';
 import {ClickOutsideModule} from 'ng-click-outside';
+import { PackenPinMapComponent } from './components/packen-pin-map/packen-pin-map.component';
+import { PinMapComponent } from './views/pin-map/pin-map.component';
 
 
 @NgModule({
@@ -46,7 +48,9 @@ import {ClickOutsideModule} from 'ng-click-outside';
     InputsComponent,
     PackenInputComponent,
     DropdownsComponent,
-    PackenDropdownComponent
+    PackenDropdownComponent,
+    PackenPinMapComponent,
+    PinMapComponent
   ],
   imports: [
     BrowserModule,
