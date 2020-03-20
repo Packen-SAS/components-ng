@@ -1,0 +1,23 @@
+<div class="content">
+    <label name="packenInput" class="content__title" [ngClass]="getClassStylesLable(size)">{{label}}</label>
+    <div class="content__input-container" *ngIf="textArea != 'true'">
+        <input name="packenInput" class="content__input-container__input" 
+            [ngClass]="getClassStylesInput(size)" 
+            [type]="type"
+            [value]="value" [placeholder]="placeholder" 
+            (keyup)="changeTextInput($event.target.value)"
+            [attr.disabled]="disabled == 'true' ? true : null">
+        <span [ngClass]="getClassSizeIconRight(size)" class="content__input-container__icon"></span>
+    </div>
+
+    <div [ngClass]="getClassStylesTextArea(size)" class="content__contentTextArea" 
+        [attr.disabled]="disabled == 'true' ? true : null" [class]="classContentTextArea" *ngIf="textArea == 'true'">
+        <textarea class="content__contentTextArea__textArea" 
+            [attr.disabled]="disabled == 'true' ? true : null" [ngClass]="getColorText()"
+            (focus)="focus()" (focusout)="focusOut()">{{value}}</textarea>
+    </div>
+
+    <p *ngIf="textMessage !== ''" class="content__messageError" [ngClass]="getClassStylesTextArea(size)"
+        [ngClass]="getClassStylesMessageError(themeMessage)">
+        <span [ngClass]="iconMessage != '' ? iconMessage : 'icon-info'" class=""></span>{{textMessage}}</p>
+</div>

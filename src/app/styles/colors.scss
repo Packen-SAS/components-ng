@@ -1,0 +1,72 @@
+//Danger
+$danger_default: #FE5860;
+$danger_hover: #B94146;
+$danger_lgt: #FEEFF0;
+
+
+//Ghost
+$ghost_default: rgba(255, 255, 255,0);
+$ghost_hover: rgba(48, 77, 109, 0.05);
+
+
+//Base
+$base_default: #222B45; 
+$base_default_alt: #304D6D;
+$base_default_drk: #1F3246;
+$base_default_lgt: #EDF1F7;
+$white: #FFFFFF;
+$white_opacity0_5:#EBEDF0;
+$disabled: rgba(48, 77, 109, 0.2);
+$disabled_alt: rgba(48, 77, 109, 0.2);
+$disabled_alt_drk: rgba(48, 77, 109, 0.4);
+$transparent: rgba(255, 255, 255, 0);
+$gray : #7B8DA2;
+$gray_drk: #A0AEBC;
+$gray_alt: #C6CED7;
+
+//Tertiary
+$tertiary_default: #556D87;
+$textiary_hover: #304D6D; 
+
+//Secondary
+$secondary_default: #F5F7F8;
+$secondary_default_drk: #556D87;
+$secondary_hover: #C6CED7;
+
+//Primary
+$primary_default: #00B3DB;
+$primary_hover: #007FAC;
+
+//Basic
+$basic_white_dft: #FFFFFF;
+$basic_white_med: #F9FAFB;
+$basic_white_drk: #F5F7F8;
+$basic_gray_dft: #C6CED7;
+$basic_gray_lgt: #ECEEF1;
+$basic_gray_drk: #A0AEBC;
+$basic_gray_bck: #F6F5F5;
+$basic_independece_dft: #556D87;
+$basic_independece_lgt: #7B8DA2;
+$basic_independece_drk: #304D6D;
+$basic_yankees_dft: #1F3246;
+$basic_black_dft: #000000;
+$basic_disable: #8F9BB3;
+
+//Brand
+$brand_primary_dft: #00E5FF;
+$brand_primary_drk: #00B3DB;
+$brand_primary_udrk: #0087B7;
+$brand_primary_lgt: #8BF3FF;
+$brand_primary_ulgt: #B9F7FF;
+$brand_primary_snw: #E7FCFF;
+$brand_secondary_dft: #0D73FF;
+$brand_secondary_drk: #094AA3;
+$brand_secondary_lgt: #9AC2FE;
+$brand_secondary_ulgt: #BDD8FF;
+$brand_secondary_snw: #E9F2FF;
+
+//Default
+$default_default: #A0AEBC;
+
+//Success
+$success_default: #20D292;

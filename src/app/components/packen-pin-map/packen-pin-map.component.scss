@@ -1,0 +1,121 @@
+@import "../../styles/colors.scss";
+@import "../../../assets/icons/style.css";
+
+.content {
+  height: 50px;
+  display: flex;
+  position: relative;
+  width: fit-content;
+  font-family: Muli;
+
+  &__direction {
+    height: 32px;
+    position: relative;
+
+    &--default {
+      color: #304D6D;
+      background-color: white;
+      box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1), 0px 3px 14px rgba(0, 0, 0, 0.1);
+    }
+
+    &--active {
+      color: white;
+      background-color: #0d73ff;
+    }
+
+    &__text {
+      font-family: Muli;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 16px;
+      margin-left: 12px;
+      margin-right: 12px;
+      margin-top: 9px;
+
+      &--labelActive {
+        color: #00e5ff;
+      }
+
+      &--labelDefault{
+          color: #304D6D;
+      }
+    }
+  }
+
+  &__iconAndPoint {
+    position: relative;
+    height: fit-content;
+
+    &__contentIcon {
+      width: 32px;
+      height: 32px;
+      position: relative;
+      background-color: #304d6d;
+
+      &--refresh{
+        background-color: #0D73FF;  
+      }
+
+      &__text {
+        top: 50%;
+        transform: translateY(-50%);
+        position: absolute;
+        width: 100%;
+        text-align: center;
+
+        &--icon {
+          font-size: 16px;
+          color: #00e5ff;
+          
+          &--refresh{
+            color: white !important;
+          }
+        }
+      }
+    }
+
+    &__point {
+      width: 7px;
+      height: 7px;
+      border: 2px solid #000;
+      background-color: #00e5ff;
+      border-radius: 50%;
+      position: absolute;
+
+      &--down {
+        top: 130%;
+        transform: translateY(-130%);
+        margin-left: 14px;
+      }
+
+      &--right {
+        top: 50%;
+        right: 0;
+        margin-right: -10px;
+        transform: translateY(-50%);
+      }
+
+      &--top {
+        top: 0%;
+        margin-top: -8px;
+        margin-left: 14px;
+        transform: translateY(-0%);
+      }
+
+      &--left {
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: -10px;
+      }
+
+      &--none{
+        display: none
+      }
+    }
+  }
+}
+
+p {
+  margin: 0;
+}

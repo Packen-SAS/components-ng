@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "uiComponentsWeb": {
@@ -24,7 +24,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -88,10 +88,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss",
+              "src/assets/icons/style.css"
             ],
             "scripts": []
-          }
+          },
+          "codeOverage": true,
+          "codeCoverageExclude":[
+            "src/app/app-component.spec.ts",
+            "src/app/app-component.ts"
+          ]
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -119,6 +125,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "uiComponentsWeb"
+    }
+  },
+  "defaultProject": "uiComponentsWeb",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
