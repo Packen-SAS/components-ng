@@ -1,0 +1,10 @@
+<h2>Radios</h2>
+<div style="width: 250px;">
+    <app-packen-radio [radios]="radios" [selectedItemId]="selectedItemId" (outputChangeRadio)="changeRadio($event)"
+        orientation="horizontal"></app-packen-radio>
+</div>
+
+<br>
+
+<app-packen-radio [radios]="radios" [selectedItemId]="selectedItemId" (outputChangeRadio)="changeRadio($event)"
+    orientation="vertical"></app-packen-radio>

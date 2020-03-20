@@ -1,0 +1,17 @@
+<div class="content">
+    <div class="content__tab" *ngFor="let tab of tabs">
+        <div class="content__tab__subtab" (click)="clickTab(tab.id)" tabindex="0"
+            [ngClass]="(tab.id == activeTabId) ? 'content__tab__subtab--active': 'content__tab__subtab--inactive'">
+            <p class="content__tab__label">
+                <span class="icon-arrowhead-right" style="font-size: 14px;"></span>
+                {{tab.label}}
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- [ngClass]="(tab.id == activeTabId) ? 'active':'inactive'" -->

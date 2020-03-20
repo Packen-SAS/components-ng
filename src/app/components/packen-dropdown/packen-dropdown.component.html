@@ -1,0 +1,51 @@
+<div style="width: 100%; position: relative;" clickOutside (clickOutside)="clickOutsideContent()">
+    <app-packen-input [size]="size" [label]="label" icon="icon-arrow-ios-down" placeholder="placeholder" type="text"
+        textArea="false" textMessage="" themeMessage="warning" iconMessage="icon-info" disabled="false"
+        (click)="clickInput()" [value]="value != '' ? value : itemSelected.title">
+    </app-packen-input>
+    
+    <div class="content animated fadeIn fast" *ngIf="showMenuList">
+        <div *ngIf="type == 'default'">
+            <div class="content__item" *ngFor="let i of items" [ngClass]="getClassItem(i)" (click)="selectItem(i)"
+                [attr.disabled]="i.disabled ? true : null" [attr.enabled]="i.id == selected ? true : null">
+                <span *ngIf="i.left && i.left.type == 'icon'"
+                    [ngClass]="getColorIconWhenItemIsSelected(i) + ' '+i.left.name"
+                    class="content__item__icon content__item__icon--left"></span>
+                <div>
+                    <img *ngIf="i.left && i.left.type == 'avatar'" [ngClass]="getOpacityImageItemDisabled(i)"
+                    class="content__item__avatar" [src]="i.left.src">
+                </div>
+
+                <div class="content__item__contentText">
+                    <p class="content__item__contentText__textP" [ngClass]="getClassText(i)">
+                        <span class="content__item__contentText__textP__title"
+                            [ngClass]="getClassTitle(i)" *ngIf="i.title">{{i.title}}</span>
+                        <br *ngIf="i.subTitle">
+                        <span class="content__item__contentText__textP__subTitle"
+                            [ngClass]="getColorSubTitleWhenItemIsSelected(i)" *ngIf="i.subTitle">{{i.subTitle}}</span>
+
+                        <br *ngIf="i.info">
+                        <span class="content__item__contentText__textP__info" [ngClass]="getColorInfoType(i)"
+                            *ngIf="i.info">{{i.info}}</span>
+                    </p>
+                </div>
+
+                <span *ngIf="i.right" class="content__item__icon content__item__icon--right"
+                    [ngClass]="getColorIconWhenItemIsSelected(i) + ' '+ i.right.name"></span>
+                <span
+                    class="icon-checkmark content__item__icon content__item__icon--right content__item__icon--selected"
+                    *ngIf="i.id == selected && i.left == false && i.right == false"></span>
+            </div>
+        </div>
+        <div style="margin-top: 10px; margin-left: 10px;" *ngIf="type == 'checkbox'">
+            <app-packen-checkbox [checkboxes]="items" (outputChangeCheck)="changeStateCheckBox($event)">
+            </app-packen-checkbox>
+        </div>
+
+        <div style="margin-top: 10px ;margin-left: 10px;" *ngIf="type == 'radio'">
+            <app-packen-radio [radios]="items" (outputChangeRadio)="changeRadio($event)"
+                [selectedItemId]="selectedItemId" orientation="vertical">
+            </app-packen-radio>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div [ngStyle]="orientation == 'horizontal' && {'display' : 'flex', 'flex-wrap': 'wrap'}" >
+    <div class="contentCheckbox" *ngFor="let c of checkboxes" (click)="changeStateCheck(c)"
+        [ngClass]="getTypeCursor(c)">
+        <div class="contentCheckbox__checkbox" [ngClass]="getClassCheckBox(c)">
+            <span [ngClass]="getClassIcon(c.state)" class=" contentCheckbox__checkbox__icon"></span>
+        </div>
+        <p class="contentCheckbox__checkbox__labelChek"
+            [ngClass]="c.disabled ? 'contentCheckbox__checkbox__labelChek--disabled' : 'contentCheckbox__checkbox__labelChek--default'">
+            {{c.label}}</p>
+    </div>
+</div>

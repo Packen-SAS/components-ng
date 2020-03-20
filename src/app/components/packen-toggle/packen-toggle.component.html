@@ -1,0 +1,15 @@
+<div [ngStyle]="orientation == 'horizontal' && {'display' : 'flex', 'flex-wrap': 'wrap'}">
+    <div *ngFor="let t of toggles" class="contentToggle">
+        <label for="toggle" class="switch" (click)="changeToggle(t)">
+            <input class="switch__input" type="checkbox" [attr.disabled]="t.disabled ? '' : null"
+                [attr.checked]="t.status == 'checked' ? '' : null" name="toggle" />
+            <span class="switch__slider " [ngClass]="getClassStylesColor(t)">
+
+                <span class="switch__label switch__label--left" [ngClass]="t.disabled ? 'switch__label--disabled': ''"
+                    *ngIf="t.status == 'checked'">{{t.onLabel}}</span>
+                <span class="switch__label switch__label--right" [ngClass]="t.disabled ? 'switch__label--disabled': ''"
+                    *ngIf="t.status != 'checked'">{{t.offLabel}}</span>
+            </span>
+        </label>
+    </div>
+</div>
