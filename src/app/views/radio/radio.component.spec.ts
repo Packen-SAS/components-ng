@@ -22,4 +22,8 @@ describe('RadioComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('render when change radio ', () =>{
+    expect(component.changeRadio(1));
+  });
 });

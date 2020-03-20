@@ -148,4 +148,8 @@ describe('PackenInputComponent', () => {
     expect(component.getClassSizeIconRight('giant')).toEqual(' content__input-container__icon--giant');
   });
   //Render the size class of icon input
+
+  it('render function when emit click ', () =>{
+    expect(component.changeTextInput('Value')).toBeUndefined();
+  });
 });

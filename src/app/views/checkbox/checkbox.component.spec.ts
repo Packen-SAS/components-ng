@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CheckboxComponent } from './checkbox.component';
+import { CheckItem } from 'src/app/interfaces/check-item';
 
 describe('CheckboxComponent', () => {
   let component: CheckboxComponent;
@@ -22,4 +23,11 @@ describe('CheckboxComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('render when change state of checkbox ', () =>{
+    let check:CheckItem={id: 1, disabled: false, state: 'checked', label: 'Label'};
+    expect(component.changeStateCheckBox(check)).toBeUndefined();
+  });
+
 });
+

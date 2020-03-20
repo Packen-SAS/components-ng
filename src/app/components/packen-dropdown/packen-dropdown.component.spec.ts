@@ -43,7 +43,7 @@ describe('PackenDropdownComponent', () => {
     expect(component.getItemSelected());
   });
 
-  it('rener item selected when but the type is radio', () =>{
+  it('render item selected when the type is radio', () => {
     component.items = [{
       id: 1,
       left: false,
@@ -58,7 +58,7 @@ describe('PackenDropdownComponent', () => {
       disabled: false,
       title: 'Menu item 2'
     }];
-    
+
     component.type = 'radio';
     component.selectedItemId = 1;
     expect(component.getItemSelected())
@@ -85,6 +85,15 @@ describe('PackenDropdownComponent', () => {
       info: 'Info text',
       left: false, right: false, title: 'title'
     };
+    expect(component.getClassItem(objDropdown));
+  });
+
+  it('render class of item when not is disabled, not has info and not is selected ', () => {
+    let objDropdown: DropdownItem = {
+      id: 1, disabled: false,
+      left: false, right: false, title: 'title'
+    };
+    component.selected = 2;
     expect(component.getClassItem(objDropdown));
   });
 

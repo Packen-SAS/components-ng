@@ -22,4 +22,8 @@ describe('TabsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('render function when change id tab', () =>{
+    expect(component.changeTab(1));
+  });
 });

@@ -24,4 +24,8 @@ describe('ButtonsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('render when click in button ', () =>{
+    expect(component.clickButton()).toBeUndefined();
+  });
 });
