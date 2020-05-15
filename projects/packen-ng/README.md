@@ -62,12 +62,12 @@ This component represent a marker inside a map (google map).
 
 #### Options
 
- - **typeIcon**: It defines the content of the smallest box. Posibles values to use: <span style="color: #007FAC">*(default|icon|letter)*</span>.
- - **type**: It defines the style of the largest box. Posibles values to use: *(default|active|refresh)*.
- - **icon**: It puts the icon to show inside the small box. It should be used with *typeIcon=icon*.
- - **letter**: It puts a letter to show inside the small box. It should be used with *typeIcon=letter*.
- - **iconPosition**: It defines where the small box will be. Posibles values to use: *(left|right)*.
- - **dotPosition**: It represents a small point arround the small box. The value to specify indicate where this point will be. Posibles values to use: *(left|right|top|down|none)*. **NOTE**: If the value is *none*, the point does not appear.
+ - **typeIcon**: It defines the content of the smallest box. Posibles values to use: `(default|icon|letter)`.
+ - **type**: It defines the style of the largest box. Posibles values to use: `(default|active|refresh)`.
+ - **icon**: It puts the icon to show inside the small box. It should be used with `typeIcon=icon`.
+ - **letter**: It puts a letter to show inside the small box. It should be used with `typeIcon=letter`.
+ - **iconPosition**: It defines where the small box will be. Posibles values to use: `(left|right)`.
+ - **dotPosition**: It represents a small point arround the small box. The value to specify indicate where this point will be. Posibles values to use: `(left|right|top|down|none)`. **NOTE**: If the value is `none`, the point does not appear.
  - **label**: It defines a prefix for the content that will show in the largest box.
- - **direction**: It defines the content that will show in the largest box. **NOTE**: If this value and *letter* value are empty, the largest box does not appear.
- - **letter**: It defines the content that will show in the largest box.**NOTE**: If this value and *direction* value are empty, the largest box does not appear.
+ - **direction**: It defines the content that will show in the largest box. **NOTE**: If this value and `letter` value are empty, the largest box does not appear.
+ - **letter**: It defines the content that will show in the largest box.**NOTE**: If this value and `direction` value are empty, the largest box does not appear.
