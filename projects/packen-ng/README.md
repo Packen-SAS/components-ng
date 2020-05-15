@@ -1,24 +1,41 @@
 # PackenNg
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.5.
+This library contain all ui components for [Packen](https://packen.co) brand.
 
-## Code scaffolding
+## Getting started
 
-Run `ng generate component component-name --project packen-ng` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project packen-ng`.
-> Note: Don't forget to add `--project packen-ng` or else it will be added to the default project in your `angular.json` file. 
+To use it first install it:
 
-## Build
+> npm i packen-ng --save
 
-Run `ng build packen-ng` to build the project. The build artifacts will be stored in the `dist/` directory.
+Then import the module to use its available components in your `app.module.ts` :
 
-## Publishing
+> import { PackenNgModule } from 'packen-ng'; 
+> @NgModule({
 
-After building your library with `ng build packen-ng`, go to the dist folder `cd dist/packen-ng` and run `npm publish`.
+  declarations: [
+  ], 
+  imports: [
 
-## Running unit tests
+    PackenNgModule
 
-Run `ng test packen-ng` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  ], 
+  providers: [
+  ]
+})
 
-## Further help
+## Available components
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+The [PackenNgModule] contain follow components:
+
+* ButtonsComponent
+* AvatarsComponent
+* DividersComponent
+* TabsComponent
+* CheckboxComponent
+* RadioComponent
+* TogglesComponent
+* InputsComponent
+* DropdownsComponent
+* PinMapComponent
+
