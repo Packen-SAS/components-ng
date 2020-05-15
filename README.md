@@ -27,7 +27,7 @@ import { PackenNgModule } from 'packen-ng';
 The **PackenNgModule** contain follow components:
 
 >
-> * [PinMapComponent](###PinMapComponent)
+> * [PinMapComponent](#PinMapComponent)
 > * ButtonsComponent
 > * AvatarsComponent
 > * DividersComponent
