@@ -1,0 +1,153 @@
+@import "../../assets/icons/style.css";
+@import "../../styles/colors.scss";
+
+.content {
+  width: 100%;
+  max-height: 200px;
+  overflow-y: scroll;
+  position: absolute;
+  z-index: 1;
+  background-color: $white;
+
+  &__item {
+    width: 100%;
+    position: relative;
+    display: inline-flex;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: $white;
+    cursor: pointer;
+    &--selected {
+      background-color: $primary_default;
+    }
+
+    &--disabled {
+      cursor: default !important;
+      background-color: $white;
+    }
+
+    &__icon {
+      font-size: 25px;
+      color: $basic_independece_dft;
+      &--right {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        float: right;
+        right: 0;
+        margin-right: 10px;
+      }
+
+      &--left {
+        margin-left: 10px;
+      }
+
+      &--selected {
+        color: $white !important;
+      }
+
+      &--disabled {
+        color: $basic_gray_lgt !important;
+      }
+    }
+
+    &__avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-left: 10px;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      &--disabled {
+        opacity: 0.3;
+      }
+    }
+
+    &__contentText {
+      position: relative;
+      margin-left: 15px;
+      width: inherit;
+      font-family: "Muli";
+      font-style: normal;
+      font-weight: normal;
+      line-height: 15px;
+
+      &__textP {
+        position: inherit;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        &--disabled {
+          opacity: 0.3;
+        }
+
+        &__title {
+          color: $tertiary_default;
+          &--selected {
+            color: $white !important;
+          }
+
+          &--selectedMenuItem {
+            color: yellow;
+          }
+        }
+
+        &__subTitle {
+          color: $basic_gray_drk;
+          font-size: 12px;
+          &--selected {
+            color: $white !important;
+          }
+        }
+
+        &__info {
+          font-size: 11px;
+          background-color: $basic_gray_bck;
+          padding: 2px 5px 2px 5px;
+          border-radius: 3px;
+          color: $basic_independece_lgt;
+          margin-left: 5px;
+          &--active {
+            color: $primary_default;
+          }
+        }
+      }
+    }
+  }
+
+  &__item:hover:not([disabled]):not([enabled]) {
+    background-color: $brand_primary_snw;
+  }
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.fast {
+  -webkit-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}

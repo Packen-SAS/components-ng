@@ -1,0 +1,147 @@
+@import "../../styles/colors.scss";
+@import "../../styles/typography.scss";
+@import "../../assets/icons/style.css";
+@import "../../assets/icons/scss/icons.scss";
+
+.titleButton {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: "Muli";
+  font-weight: bold;
+  font-style: normal;
+}
+
+.iconAlignVertical {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sizeButtonRegular {
+  &--buttonTiny {
+    height: 24px;
+    font-size: $size_tiny;
+  }
+
+  &--buttonSmall {
+    height: 32px;
+    font-size: $size_small;
+  }
+
+  &--buttonMedium {
+    height: 40px;
+    font-size: $size_medium;
+  }
+
+  &--buttonLarge {
+    height: 48px;
+
+    font-size: $size_large;
+  }
+
+  &--buttonGiant {
+    height: 56px;
+    font-size: $size_giant;
+  }
+}
+
+.sizeButtonIcon {
+  &--buttonTiny {
+    width: 24px;
+    height: 24px;
+  }
+
+  &--buttonSmall {
+    width: 32px;
+    height: 32px;
+  }
+
+  &--butonMedium {
+    width: 40px;
+    height: 40px;
+  }
+
+  &--buttonLarge {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+.button {
+  border: 0;
+  line-height: 1;
+  &--btnDanger {
+    color: $white;
+    background-color: $danger_default;
+  }
+
+  &--btnDanger:hover {
+    background-color: $danger_hover;
+  }
+
+  &--btnGhost {
+    color: $tertiary_default;
+    background-color: $ghost_default;
+  }
+
+  &--btnGhost:hover {
+    background-color: $ghost_hover;
+  }
+
+  &--btnTertiary {
+    background-color: $tertiary_default;
+    color: $white;
+  }
+
+  &--btnTertiary:hover {
+    background-color: $textiary_hover;
+  }
+
+  &--btnSecondary {
+    background-color: $secondary_default;
+    color: $secondary_default_drk;
+  }
+
+  &--btnSecondary:hover {
+    background-color: $secondary_hover;
+  }
+
+  &--btnPrimary {
+    background-color: $primary_default;
+    color: $white;
+  }
+
+  &--btnPrimary:hover {
+    background-color: $primary_hover;
+  }
+}
+
+.buttonDisabled {
+  border: 0;
+  cursor: default;
+  outline: 0;
+
+  &--btnDangerDisabled {
+    background-color: $disabled;
+    color: $white_opacity0_5;
+  }
+
+  &--btnGhostDisabled {
+    background-color: $ghost_default;
+    color: $disabled_alt;
+  }
+
+  &--btnTertiaryDisabled {
+    background-color: $disabled_alt;
+    color: $white_opacity0_5;
+  }
+
+  &--btnSecondaryDisabled {
+    background-color: $disabled_alt;
+    color: $white_opacity0_5;
+  }
+
+  &--btnPrimaryDisabled {
+    background-color: $disabled_alt;
+    color: $white_opacity0_5;
+  }
+}

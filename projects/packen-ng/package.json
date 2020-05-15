@@ -1,0 +1,20 @@
+{
+  "name": "packen-ng",
+  "version": "1.0.0",
+  "description": "Ui components library of Packen.",
+  "main": "index.js",
+  "scripts": {
+    "test": "ng test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github https://github.com/Packen-SAS/components-ng.git"
+  },
+  "author": "packen",
+  "license": "ISC",
+  "peerDependencies": {
+    "@angular/common": "^9.0.5",
+    "@angular/core": "^9.0.5",
+    "tslib": "^1.10.0"
+  }
+}
