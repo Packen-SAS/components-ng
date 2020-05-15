@@ -58,7 +58,7 @@ This component represent a marker inside a map (google map).
 
 #### Component appearance
 
-![](src/assets/examples/packen-pin.png)
+![](https://github.com/Packen-SAS/components-ng/blob/master/src/assets/examples/packen-pin.png)
 
 #### Options
 
