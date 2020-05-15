@@ -13,6 +13,7 @@ export class PackenPinMapComponent implements OnInit {
   @Input() typeIcon: string = 'icon';
   @Input() type: string = 'default';
   @Input() dotPosition: string = '';
+  @Input() letter: string = '';
   constructor() { }
 
   ngOnInit(): void {
@@ -37,7 +38,6 @@ export class PackenPinMapComponent implements OnInit {
   }
 
   getClassPointPosition = (position) => {
-    console.log("Position enviada", position);
     switch (position) {
       case 'left':
         return PositionPointStyle.left;

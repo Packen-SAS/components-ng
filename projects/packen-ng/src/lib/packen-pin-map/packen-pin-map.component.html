@@ -1,30 +1,32 @@
 <div class="content">
-    <div class="content__iconAndPoint" *ngIf="iconPosition == 'left'"> 
+    <div class="content__iconAndPoint" *ngIf="iconPosition == 'left'">
         <div class="content__iconAndPoint__contentIcon" [ngClass]="getColorContentIcon(type)">
             <p class="content__iconAndPoint__contentIcon__text">
-                <span style="font-size: 16px; color: #00E5FF;" [class]="icon"></span>
+                <img *ngIf="typeIcon == 'default'" style="width: 25px;" src="../../../assets/images/icons/cube.svg" />
+                <span *ngIf="typeIcon == 'icon'" [ngClass]="getColorIcon(type)" [class]="icon"></span>
+                <span *ngIf="typeIcon == 'letter'" [ngClass]="getColorIcon(type)" class="letter">{{letter}}</span>
             </p>
         </div>
         <div class="content__iconAndPoint__point" [ngClass]="getClassPointPosition(dotPosition)"></div>
     </div>
-    
-    <div class="content__direction" 
-    *ngIf="label != '' || direction != ''"
-    [ngClass]="getClassTypeContentDirection(type)">
+
+    <div class="content__direction" *ngIf="label != '' || direction != ''"
+        [ngClass]="getClassTypeContentDirection(type)">
         <p class="content__direction__text ">
             <span [ngClass]="getClassLabel(type)">{{label}}</span>
             <span style="margin-left: 3px;">{{direction}}</span>
         </p>
     </div>
 
-    <div class="content__iconAndPoint" *ngIf="iconPosition == 'right'"> 
+    <div class="content__iconAndPoint" *ngIf="iconPosition == 'right'">
         <div class="content__iconAndPoint__contentIcon" [ngClass]="getColorContentIcon(type)">
             <p class="content__iconAndPoint__contentIcon__text">
+                <img *ngIf="typeIcon == 'default'" style="width: 25px;" src="../../../assets/images/icons/cube.svg" />
                 <span *ngIf="typeIcon == 'icon'" [ngClass]="getColorIcon(type)" [class]="icon"></span>
-                <span *ngIf="typeIcon == 'letter'" [ngClass]="getColorIcon(type)" style="font-size: 16px; color: #00E5FF; font-weight: bold;">A</span>
+                <span *ngIf="typeIcon == 'letter'" [ngClass]="getColorIcon(type)" class="letter">{{letter}}</span>
             </p>
         </div>
-        
+
         <div class="content__iconAndPoint__point" [ngClass]="getClassPointPosition(dotPosition)"></div>
     </div>
 </div>

@@ -87,6 +87,7 @@
         top: 130%;
         transform: translateY(-130%);
         margin-left: 14px;
+        margin-top: 3px;
       }
 
       &--right {
@@ -114,6 +115,12 @@
       }
     }
   }
+}
+
+.letter {
+  font-size: 16px;
+  color: #00e5ff;
+  font-weight: bold;
 }
 
 p {
