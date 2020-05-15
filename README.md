@@ -62,7 +62,7 @@ This component represent a marker inside a map (google map).
 
 #### Options
 
- - **typeIcon**: It defines the content of the smallest box. Posibles values to use: <span style="color: #007FAC">*(default|icon|letter)*</span>.
+ - **typeIcon**: It defines the content of the smallest box. Posibles values to use: <span style="color:blue">*(default|icon|letter)*</span>.
  - **type**: It defines the style of the largest box. Posibles values to use: *(default|active|refresh)*.
  - **icon**: It puts the icon to show inside the small box. It should be used with *typeIcon=icon*.
  - **letter**: It puts a letter to show inside the small box. It should be used with *typeIcon=letter*.
