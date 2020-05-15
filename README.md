@@ -1,27 +1,41 @@
-# UiComponentsWeb
+# PackenNg
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.5.
+This library contain all ui components for [Packen](https://packen.co) brand.
 
-## Development server
+## Getting started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+To use it first install it:
 
-## Code scaffolding
+> npm i packen-ng --save
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Then import the module to use its available components in your `app.module.ts` :
 
-## Build
+> import { PackenNgModule } from 'packen-ng'; 
+> @NgModule({
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+  declarations: [
+  ], 
+  imports: [
 
-## Running unit tests
+    PackenNgModule
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  ], 
+  providers: [
+  ]
+})
 
-## Running end-to-end tests
+## Available components
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+The [PackenNgModule] contain follow components:
 
-## Further help
+* ButtonsComponent
+* AvatarsComponent
+* DividersComponent
+* TabsComponent
+* CheckboxComponent
+* RadioComponent
+* TogglesComponent
+* InputsComponent
+* DropdownsComponent
+* PinMapComponent
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
