@@ -12,17 +12,14 @@ Then import the module to use its available components in your `app.module.ts` :
 
 > import { PackenNgModule } from 'packen-ng'; 
 > @NgModule({
-
-  declarations: [
-  ], 
-  imports: [
-
-    PackenNgModule
-
-  ], 
-  providers: [
-  ]
-})
+> declarations: [
+> ], 
+> imports: [
+> **PackenNgModule**
+> ], 
+> providers: [
+> ]
+> })
 
 ## Available components
 
@@ -38,4 +35,3 @@ The [PackenNgModule] contain follow components:
 * InputsComponent
 * DropdownsComponent
 * PinMapComponent
-
