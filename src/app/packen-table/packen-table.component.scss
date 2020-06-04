@@ -1,0 +1,190 @@
+@import "../styles/colors.scss";
+
+.table-desktop {
+    display: none;
+    justify-content: center;
+    font-family: Muli;
+    font-style: normal;
+    font-weight: normal;
+    margin: 50px 0px 10px 0px;
+
+    &_th-tr {
+        border-bottom: 0.5px solid $separator-gray;
+    }
+
+    &_th {
+        min-width: 70px;
+        padding: 0px 10px;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 24px;
+        color: $base_default_drk;
+        text-align: center;
+    }
+
+    &_td {
+        min-width: 100px;
+        padding: 10px;
+
+        &_text {
+            display: flex;
+        }
+    }
+
+    &_img-detail {
+        cursor: pointer;
+    }
+}
+
+.table-mobile {
+    display: none;
+
+    &_head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 0px;
+        margin: 0px 10px;
+        border-bottom: 0.5px solid $separator-gray;
+
+        &_left {
+            display: flex;
+        }
+
+        &_section {
+            display: flex;
+            font-family: Muli;
+            font-style: normal;
+
+            &_head {
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 20px;
+                color: $base_default_drk;
+            }
+
+            &_text {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0px 20px 0px 10px;
+
+                font-weight: normal;
+                font-size: 10px;
+                line-height: 18px;
+                color: $tertiary_default;
+            }
+        }
+    }
+
+    &_content {
+        font-family: Muli;
+        font-style: normal;
+        margin: 0px 10px;
+
+        &_section {
+            display: flex;
+            flex-wrap: wrap;
+
+            &_box {
+                width: 50%;
+                padding: 10px 0px;
+                border-bottom: 0.5px solid $separator-gray-lgt;
+
+                &_head {
+                    font-weight: 600;
+                    font-size: 14px;
+                    line-height: 20px;
+                    color: $base_default_drk;
+                }
+
+                &_text {
+                    display: flex;
+                    font-weight: normal;
+                    font-size: 13px;
+                    line-height: 18px;
+                    color: $gray;
+                }
+            }
+        }
+    }
+
+    &_section-sep {
+        border-bottom: 14px solid $basic_white_med;
+    }
+}
+
+.hide {
+    display: none;
+}
+
+.box-def {
+    padding: 0px 8px;
+}
+
+.blue-box {
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 18px;
+    background: $blue-box;
+    border-radius: 3px;
+    padding: 0px 8px;
+    margin: 0px 5px;
+    color: $primary_hover;
+}
+
+.gray-box {
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 18px;
+    background: $basic_gray_bck;
+    border-radius: 3px;
+    padding: 0px 8px;
+    margin: 0px 5px;
+    color: $basic_independece_lgt;
+}
+
+.blue-gray-box {
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 18px;
+    background: $basic_gray_bck;
+    border-radius: 3px;
+    padding: 0px 8px;
+    margin: 0px 5px;
+    color: $primary_default;
+}
+
+.no-margin {
+    margin: 0px !important;
+}
+
+.left-margin {
+    margin-left: 5px !important;
+}
+
+.first-text {
+    font-size: 16px;
+    line-height: 20px;
+    color: $tertiary_default;
+}
+
+.others-text {
+    font-size: 12px;
+    line-height: 16px;
+    color: $basic_gray_drk;
+}
+
+/*======================== DESKTOP =========================*/
+
+@media screen and (max-width: $breakpoint-mobile) {
+    .only-mobile {
+        display: block !important;
+    }
+}
+
+@media screen and (min-width: $breakpoint-mobile) {
+    .only-desktop {
+        display: flex !important;
+    }
+}

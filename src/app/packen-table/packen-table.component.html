@@ -1,0 +1,59 @@
+<!-- Tabla pra dispositivos desktop -->
+<div class="table-desktop only-desktop">
+    <table>
+        <tr class="table-desktop_th-tr">
+            <th class="table-desktop_th" *ngFor="let item of list[0].columns">
+                {{ item.key }}
+            </th>
+        </tr>
+    
+        <tr *ngFor="let row of list">
+            <td class="table-desktop_td" *ngFor="let col of row.columns">
+                <div [ngClass]="getClassTdDesktop(i)" *ngFor="let celda of col.value; let i = index">
+                    <div *ngIf="celda.showInDesktop">{{ celda.key ? celda.key + ':' : '' }}</div>
+                    <div [ngClass]="getPropertyDesktopStyle(celda)">{{ celda.value }}</div>
+                </div>
+            </td>
+            <td>
+                <img class="table-desktop_img-detail" src="../../assets/icons/eye.svg" />
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!-- Tabla pra dispositivos mobile -->
+<div class="table-mobile only-mobile" *ngFor="let row of list">
+    <div class="table-mobile_head">
+        <div class="table-mobile_head_left">
+            <div *ngFor="let col of row.columns">
+                <div *ngIf="col.headInMobile">
+                    <div class="table-mobile_head_section">
+                        <div class="table-mobile_head_section_head">{{ col.key ? col.key : '' }}</div>
+
+                        <div class="table-mobile_head_section_text" *ngFor="let celda of col.value">
+                            <div>{{ celda.key ? celda.key : '' }}</div>
+                            <div [ngClass]="getPropertyStyle(celda)">{{ celda.value }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <img src="../../assets/icons/eye.svg" />
+        </div>
+    </div>
+
+    <div class="table-mobile_content">
+        <div class="table-mobile_content_section">
+            <div [ngClass]="getClassTextItem(col)" *ngFor="let col of row.columns">
+                <div class="table-mobile_content_section_box_head">{{ col.key ? col.key : '' }}</div>
+
+                <div class="table-mobile_content_section_box_text" *ngFor="let celda of col.value">
+                    <div>{{ celda.key ? celda.key + ':' : '' }}</div>
+                    <div [ngClass]="getPropertyStyle(celda)">{{ celda.value }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="table-mobile_section-sep"></div>
+</div>
