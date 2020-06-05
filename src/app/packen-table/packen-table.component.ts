@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ItemInfo, TableColumn, TableRow, listTable } from '../interfaces/table-item';
+import { ItemInfo, TableColumn, TableRow, listTable, PageItem } from '../interfaces/table-item';
 
 @Component({
   selector: 'app-packen-table',
@@ -8,12 +8,38 @@ import { ItemInfo, TableColumn, TableRow, listTable } from '../interfaces/table-
 })
 export class PackenTableComponent implements OnInit {
 
+  // Atributos de la tabla
   @Input() list: TableRow[];
+
+  // Atributos de la paginación
+  @Input() numPages: number = 40;
+  listPages: PageItem[] = [];
+
+  objectStyle = { 'transform': `translate(0px)` };
+  numBase = 5;
+  transition = 0;
 
   constructor() { }
 
   ngOnInit() {
     this.list = listTable;
+    this.createPagesList();
+  }
+
+  /**
+   * Método para crear lista de numeros de la paginación
+   */
+  createPagesList() {
+    for (let i = 0; i < this.numPages; i++) {
+      const page = new PageItem();
+      page.num = i + 1;
+      page.classes = "pagination_item";
+
+      if (i == 0) {
+        page.classes += " page-active";
+      }
+      this.listPages.push(page);
+    }
   }
 
   /**
@@ -79,4 +105,32 @@ export class PackenTableComponent implements OnInit {
     }
     return style;
   }
+
+  /**
+   * Método para poner el page activo
+   * @param item El item page a activar
+   */
+  setActiveItem(item: PageItem) {
+    this.listPages.forEach(page => {
+      if (page.num == item.num) {
+        page.classes = "pagination_item page-active";
+      } else {
+        page.classes = "pagination_item";
+      }
+    });
+
+    const minbase = 5;
+    if (item.num > minbase) {
+      if (item.num < this.numBase) {
+        this.transition += 80;
+      } else {
+        this.transition -= 80;
+      }
+    } else if (this.numBase > minbase) {
+      this.transition += 80;
+    }
+    this.numBase = item.num;
+    this.objectStyle = { 'transform': `translate(${this.transition}px)` };
+  }
+
 }

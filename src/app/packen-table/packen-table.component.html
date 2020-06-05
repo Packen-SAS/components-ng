@@ -1,4 +1,4 @@
-<!-- Tabla pra dispositivos desktop -->
+<!-- Tabla para dispositivos desktop -->
 <div class="table-desktop only-desktop">
     <table>
         <tr class="table-desktop_th-tr">
@@ -6,7 +6,7 @@
                 {{ item.key }}
             </th>
         </tr>
-    
+
         <tr *ngFor="let row of list">
             <td class="table-desktop_td" *ngFor="let col of row.columns">
                 <div [ngClass]="getClassTdDesktop(i)" *ngFor="let celda of col.value; let i = index">
@@ -21,7 +21,7 @@
     </table>
 </div>
 
-<!-- Tabla pra dispositivos mobile -->
+<!-- Tabla para dispositivos mobile -->
 <div class="table-mobile only-mobile" *ngFor="let row of list">
     <div class="table-mobile_head">
         <div class="table-mobile_head_left">
@@ -56,4 +56,15 @@
         </div>
     </div>
     <div class="table-mobile_section-sep"></div>
+</div>
+
+<!-- Paginación de la tabla -->
+<div class="pagination">
+    <div class="pagination_box">
+        <div class="pagination_box_inside" [ngStyle]="objectStyle">
+            <div [ngClass]="page.classes" *ngFor="let page of listPages" (click)="setActiveItem(page)">
+                {{ page.num }}
+            </div>
+        </div>
+    </div>
 </div>

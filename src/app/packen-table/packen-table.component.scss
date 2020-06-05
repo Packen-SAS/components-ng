@@ -114,6 +114,51 @@
     }
 }
 
+.pagination {
+    font-family: Muli;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    justify-content: flex-end;
+
+    &_box {
+        width: 200px;
+        overflow-x: hidden;
+
+        &_inside {
+            display: flex;
+            margin-bottom: 10px;
+            transition: all .5s;
+        }
+    }
+
+    &_item {
+        cursor: pointer;
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0px 10px;
+        color: $basic_independece_lgt;
+
+        &:hover {
+            border-radius: 2px;
+            background: $brand_primary_drk;
+            color: $basic_white_dft;
+        }
+    }
+}
+
+.page-active {
+    border-radius: 2px;
+    background: $brand_primary_drk;
+    color: $basic_white_dft;
+}
+
 .hide {
     display: none;
 }

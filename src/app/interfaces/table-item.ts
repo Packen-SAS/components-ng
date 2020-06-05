@@ -21,6 +21,10 @@ export class ItemInfo {
     showInDesktop: boolean;
 }
 
+export class PageItem {
+    num: number;
+    classes: string;
+}
 
 // ---------------------------------------------------------------------
 // Mock de lista creada con base a la estructura
