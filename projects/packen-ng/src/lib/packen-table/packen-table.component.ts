@@ -1,0 +1,176 @@
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ItemInfo, TableColumn, TableRow, PageItem } from '../../interfaces/table-item';
+
+@Component({
+  selector: 'app-packen-table',
+  templateUrl: './packen-table.component.html',
+  styleUrls: ['./packen-table.component.scss']
+})
+export class PackenTableComponent implements OnInit {
+
+  // Atributos de la tabla
+  @Input() list: TableRow[];
+  numColumns = 0;
+
+  // Atributos de la paginación
+  @Output() onChangePage = new EventEmitter<number>();
+  @Input() pagination: string = 'pag-right';
+  @Input() numPages: number;
+  listPages: PageItem[] = [];
+  activePage: PageItem;
+
+  objectStyle = { 'transform': `translate(0px)` };
+  baseMin = 1;
+  baseMax = 7;
+  transition = 0;
+
+  constructor() { }
+
+  ngOnInit() {
+    this.numColumns = this.list[0].columns.length + 1;
+    this.createPagesList();
+  }
+
+  /**
+   * Método para crear lista de numeros de la paginación
+   */
+  createPagesList() {
+    for (let i = 0; i < this.numPages; i++) {
+      const page = new PageItem();
+      page.num = i + 1;
+      page.classes = "pagination_item";
+
+      if (i == 0) {
+        page.classes += " page-active";
+        this.activePage = Object.assign({}, page);
+      }
+      this.listPages.push(page);
+    }
+  }
+
+  /**
+   * Método para definir estilos adicionales en mobile
+   * @param item El item a evaluar
+   */
+  getPropertyStyle(item: ItemInfo) {
+    if (item.style === 'blue-box') {
+      return ' blue-box';
+    } else if (item.style === 'gray-box') {
+      return ' gray-box';
+    } else if (item.style === 'blue-gray-box') {
+      return ' blue-gray-box';
+    }
+
+    if (item.key) {
+      return 'box-def';
+    }
+    return '';
+  }
+
+  /**
+   * Método para definir estilos adicionales en desktop
+   * @param item El item a evaluar
+   */
+  getPropertyDesktopStyle(item: ItemInfo) {
+    if (item.style === 'blue-box') {
+      return ' blue-box no-margin';
+    } else if (item.style === 'gray-box') {
+      return ' gray-box no-margin';
+    } else if (item.style === 'blue-gray-box') {
+      return ' blue-gray-box no-margin';
+    }
+
+    if (item.key && item.showInDesktop) {
+      return 'left-margin';
+    }
+    return '';
+  }
+
+  /**
+   * Método para obtener el estilo de una columna
+   * @param column La columna a dar el estilo
+   */
+  getClassTextItem(column: TableColumn) {
+    let style = 'table-mobile_content_section_box';
+    if (column.headInMobile) {
+      style += ' hide';
+    }
+    return style;
+  }
+
+  /**
+   * Método para obtener el estilo de un td en desktop
+   * @param index EL indice del contenido a evaluar
+   */
+  getClassTdDesktop(index: number) {
+    let style = "table-desktop_td_text";
+    if (index == 0) {
+      style += " first-text";
+    } else {
+      style += " others-text";
+    }
+    return style;
+  }
+
+  /**
+   * Método para obtener la clase de posicionamiento de paginacion
+   */
+  getClassPagination() {
+    return "pagination-main " + this.pagination;
+  }
+
+  /**
+   * Método para mover la pagina a la derecha
+   */
+  movePageToRight() {
+    if (this.activePage.num != this.listPages.length) {
+      const pageTemp = new PageItem();
+      pageTemp.num = this.activePage.num + 1;
+      this.setActivePage(pageTemp);
+    }
+  }
+
+  /**
+   * Método para mover la pagina a la izquierda
+   */
+  movePageToLeft() {
+    if (this.activePage.num != 1) {
+      const pageTemp = new PageItem();
+      pageTemp.num = this.activePage.num - 1;
+      this.setActivePage(pageTemp);
+    }
+  }
+
+  /**
+   * Método para poner el page activo
+   * @param item El item page a activar
+   */
+  setActivePage(item: PageItem) {
+    if (item.num != this.activePage.num) {
+      this.activePage = Object.assign({}, item);
+
+      this.listPages.forEach(page => {
+        if (page.num == item.num) {
+          page.classes = "pagination_item page-active";
+        } else {
+          page.classes = "pagination_item";
+        }
+      });
+
+      if (item.num === this.baseMax) {
+        this.baseMin = this.baseMax;
+        this.baseMax = this.baseMax + 5;
+        this.transition -= 140;
+        this.objectStyle = { 'transform': `translate(${this.transition}px)` };
+      } else if (item.num === (this.baseMin - 1) && item.num != 1) {
+        this.baseMax = this.baseMin;
+        this.baseMin = this.baseMin - 5;
+        this.transition += 140;
+        this.objectStyle = { 'transform': `translate(${this.transition}px)` };
+      }
+
+      this.onChangePage.emit(this.activePage.num);
+    }
+  }
+
+}

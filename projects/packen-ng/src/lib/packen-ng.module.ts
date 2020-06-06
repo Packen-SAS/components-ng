@@ -11,6 +11,7 @@ import { PackenPinMapComponent } from './packen-pin-map/packen-pin-map.component
 import { PackenRadioComponent } from './packen-radio/packen-radio.component';
 import { PackenTabsComponent } from './packen-tabs/packen-tabs.component';
 import { PackenToggleComponent } from './packen-toggle/packen-toggle.component';
+import { PackenTableComponent } from './packen-table/packen-table.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PackenToggleComponent } from './packen-toggle/packen-toggle.component';
     PackenPinMapComponent,
     PackenRadioComponent,
     PackenTabsComponent,
-    PackenToggleComponent
+    PackenToggleComponent,
+    PackenTableComponent
   ],
   imports: [
     CommonModule
@@ -38,7 +40,8 @@ import { PackenToggleComponent } from './packen-toggle/packen-toggle.component';
     PackenPinMapComponent,
     PackenRadioComponent,
     PackenTabsComponent,
-    PackenToggleComponent
+    PackenToggleComponent,
+    PackenTableComponent
   ]
 })
 export class PackenNgModule { }

@@ -3,11 +3,9 @@ $danger_default: #FE5860;
 $danger_hover: #B94146;
 $danger_lgt: #FEEFF0;
 
-
 //Ghost
 $ghost_default: rgba(255, 255, 255,0);
 $ghost_hover: rgba(48, 77, 109, 0.05);
-
 
 //Base
 $base_default: #222B45; 
@@ -76,7 +74,9 @@ $blue-box: rgba(0, 180, 199, 0.37);
 $separator-gray: #E4E4E4;
 $separator-gray-lgt: #F1F1F1;
 
-// BREAKPOINTS
+
+/*======================== BREAKPOINTS =========================*/
+
 $breakpoint-mobile: 660px;
 $breakpoint-mini-tablet: 768px;
 $breakpoint-tablet: 960px;
