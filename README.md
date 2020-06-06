@@ -61,7 +61,7 @@ This component represent a marker inside a map (google map).
 
 #### Component appearance
 
-![](https://github.com/Packen-SAS/components-ng/blob/master/src/assets/examples/packen-pin.png?raw=true)
+![](https://packenco.s3.amazonaws.com/packen_ng/packen_pinmap/packen-pin.png)
 
 #### Options
 
@@ -92,8 +92,8 @@ This component is a custom responsive table for Packen.
 
 #### Component appearance
 
-![](https://github.com/Packen-SAS/components-ng/blob/master/src/assets/examples/table-desktop.png?raw=true)
-![](https://github.com/Packen-SAS/components-ng/blob/master/src/assets/examples/table-mobile.png?raw=true)
+![](https://packenco.s3.amazonaws.com/packen_ng/packen_table/table-desktop.png)
+![](https://packenco.s3.amazonaws.com/packen_ng/packen_table/table-mobile.png)
 
 #### Options
 
