@@ -17,7 +17,7 @@ import { InputsComponent } from './views/inputs/inputs.component';
 import { DropdownsComponent } from './views/dropdowns/dropdowns.component';
 import { PinMapComponent } from './views/pin-map/pin-map.component';
 import { PackenNgModule } from '../../projects/packen-ng/src/lib/packen-ng.module';
-import { PackenTableComponent } from './packen-table/packen-table.component';
+import { TableComponent } from './views/table/table.component';
 
 
 @NgModule({
@@ -33,7 +33,7 @@ import { PackenTableComponent } from './packen-table/packen-table.component';
     InputsComponent,
     DropdownsComponent,
     PinMapComponent,
-    PackenTableComponent
+    TableComponent,
   ],
   imports: [
     BrowserModule,

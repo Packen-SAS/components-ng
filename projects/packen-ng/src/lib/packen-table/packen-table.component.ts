@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ItemInfo, TableColumn, TableRow, listTable, PageItem } from '../interfaces/table-item';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ItemInfo, TableColumn, TableRow, PageItem } from '../../interfaces/table-item';
 
 @Component({
   selector: 'app-packen-table',
@@ -10,19 +10,24 @@ export class PackenTableComponent implements OnInit {
 
   // Atributos de la tabla
   @Input() list: TableRow[];
+  numColumns = 0;
 
   // Atributos de la paginación
-  @Input() numPages: number = 40;
+  @Output() onChangePage = new EventEmitter<number>();
+  @Input() pagination: string = 'pag-right';
+  @Input() numPages: number;
   listPages: PageItem[] = [];
+  activePage: PageItem;
 
   objectStyle = { 'transform': `translate(0px)` };
-  numBase = 5;
+  baseMin = 1;
+  baseMax = 7;
   transition = 0;
 
   constructor() { }
 
   ngOnInit() {
-    this.list = listTable;
+    this.numColumns = this.list[0].columns.length + 1;
     this.createPagesList();
   }
 
@@ -37,6 +42,7 @@ export class PackenTableComponent implements OnInit {
 
       if (i == 0) {
         page.classes += " page-active";
+        this.activePage = Object.assign({}, page);
       }
       this.listPages.push(page);
     }
@@ -107,30 +113,64 @@ export class PackenTableComponent implements OnInit {
   }
 
   /**
+   * Método para obtener la clase de posicionamiento de paginacion
+   */
+  getClassPagination() {
+    return "pagination-main " + this.pagination;
+  }
+
+  /**
+   * Método para mover la pagina a la derecha
+   */
+  movePageToRight() {
+    if (this.activePage.num != this.listPages.length) {
+      const pageTemp = new PageItem();
+      pageTemp.num = this.activePage.num + 1;
+      this.setActivePage(pageTemp);
+    }
+  }
+
+  /**
+   * Método para mover la pagina a la izquierda
+   */
+  movePageToLeft() {
+    if (this.activePage.num != 1) {
+      const pageTemp = new PageItem();
+      pageTemp.num = this.activePage.num - 1;
+      this.setActivePage(pageTemp);
+    }
+  }
+
+  /**
    * Método para poner el page activo
    * @param item El item page a activar
    */
-  setActiveItem(item: PageItem) {
-    this.listPages.forEach(page => {
-      if (page.num == item.num) {
-        page.classes = "pagination_item page-active";
-      } else {
-        page.classes = "pagination_item";
-      }
-    });
+  setActivePage(item: PageItem) {
+    if (item.num != this.activePage.num) {
+      this.activePage = Object.assign({}, item);
 
-    const minbase = 5;
-    if (item.num > minbase) {
-      if (item.num < this.numBase) {
-        this.transition += 80;
-      } else {
-        this.transition -= 80;
+      this.listPages.forEach(page => {
+        if (page.num == item.num) {
+          page.classes = "pagination_item page-active";
+        } else {
+          page.classes = "pagination_item";
+        }
+      });
+
+      if (item.num === this.baseMax) {
+        this.baseMin = this.baseMax;
+        this.baseMax = this.baseMax + 5;
+        this.transition -= 140;
+        this.objectStyle = { 'transform': `translate(${this.transition}px)` };
+      } else if (item.num === (this.baseMin - 1) && item.num != 1) {
+        this.baseMax = this.baseMin;
+        this.baseMin = this.baseMin - 5;
+        this.transition += 140;
+        this.objectStyle = { 'transform': `translate(${this.transition}px)` };
       }
-    } else if (this.numBase > minbase) {
-      this.transition += 80;
+
+      this.onChangePage.emit(this.activePage.num);
     }
-    this.numBase = item.num;
-    this.objectStyle = { 'transform': `translate(${this.transition}px)` };
   }
 
 }

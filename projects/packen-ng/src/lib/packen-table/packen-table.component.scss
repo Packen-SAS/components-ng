@@ -1,4 +1,4 @@
-@import "../styles/colors.scss";
+@import "../../styles/colors.scss";
 
 .table-desktop {
     display: none;
@@ -114,7 +114,26 @@
     }
 }
 
+.pagination-main {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.pag-center {
+    justify-content: center;
+}
+
+.pag-left {
+    justify-content: flex-start;
+}
+
+.pag-right {
+    justify-content: flex-end;
+}
+
 .pagination {
+    display: none;
     font-family: Muli;
     font-style: normal;
     font-weight: bold;
@@ -124,6 +143,12 @@
     text-transform: uppercase;
     justify-content: flex-end;
 
+    &_img {
+        height: 28px;
+        padding: 0px 5px;
+        cursor: pointer;
+    }
+
     &_box {
         width: 200px;
         overflow-x: hidden;
@@ -131,7 +156,7 @@
         &_inside {
             display: flex;
             margin-bottom: 10px;
-            transition: all .5s;
+            transition: all 0.5s;
         }
     }
 
@@ -143,6 +168,7 @@
         align-items: center;
         justify-content: center;
         padding: 0px 10px;
+        font-size: 12px !important;
         color: $basic_independece_lgt;
 
         &:hover {
@@ -225,6 +251,9 @@
 @media screen and (max-width: $breakpoint-mobile) {
     .only-mobile {
         display: block !important;
+    }
+    .only-pag-mobile {
+        display: flex !important;
     }
 }
 
