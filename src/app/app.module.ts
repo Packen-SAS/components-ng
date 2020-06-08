@@ -16,9 +16,8 @@ import { TogglesComponent } from './views/toggles/toggles.component';
 import { InputsComponent } from './views/inputs/inputs.component';
 import { DropdownsComponent } from './views/dropdowns/dropdowns.component';
 import { PinMapComponent } from './views/pin-map/pin-map.component';
-import { PackenNgModule } from '../../projects/packen-ng/src/lib/packen-ng.module';
 import { TableComponent } from './views/table/table.component';
-
+import { PackenNgModule } from 'packen-ng';
 
 @NgModule({
   declarations: [
@@ -33,7 +32,7 @@ import { TableComponent } from './views/table/table.component';
     InputsComponent,
     DropdownsComponent,
     PinMapComponent,
-    TableComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
@@ -41,10 +40,10 @@ import { TableComponent } from './views/table/table.component';
     ClickOutsideModule,
     PackenNgModule
   ],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent],
-  exports:[
+  exports: [
     FeatherModule
   ],
 })
