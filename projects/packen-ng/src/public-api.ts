@@ -1,6 +1,3 @@
-// Export Classes
-export * from './classes/table.class';
-
 // Export each Component
 export * from './lib/packen-avatar/packen-avatar.component';
 export * from './lib/packen-button/packen-button.component';
