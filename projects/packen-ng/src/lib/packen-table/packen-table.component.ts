@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ItemInfo, TableColumn, TableRow, PageItem } from '../../interfaces/table-item';
+import { ItemInfo, TableColumn, TableRow, PageItem } from '../../classes/table.class';
 
 @Component({
   selector: 'app-packen-table',
