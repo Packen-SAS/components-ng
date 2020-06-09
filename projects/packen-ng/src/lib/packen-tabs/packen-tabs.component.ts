@@ -9,6 +9,7 @@ export class PackenTabsComponent implements OnInit {
   @Input() tabs: any = [];
   @Input() activeTabId: any = 0;
   @Output() outputClick = new EventEmitter<any>();
+
   constructor() { }
 
   ngOnInit(): void {
