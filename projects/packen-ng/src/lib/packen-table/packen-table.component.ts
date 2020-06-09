@@ -10,7 +10,7 @@ export class PackenTableComponent implements OnInit {
 
   // Atributos de la tabla
   @Input() list: TableRow[];
-  numColumns = 0;
+  @Input() numColumns;
 
   // Atributos de la paginación
   @Output() onChangePage = new EventEmitter<number>();
@@ -27,7 +27,6 @@ export class PackenTableComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.numColumns = this.list[0].columns.length + 1;
     this.createPagesList();
   }
 
