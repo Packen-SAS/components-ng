@@ -1,5 +1,5 @@
 <div class="mb-4">
     <h2>Tabs</h2>
     <p>Tab activo: {{activeTabId}}</p>
-    <app-packen-tabs [tabs]="tabs" [activeTabId]=activeTabId (outputClick)="changeTab($event)"></app-packen-tabs>
+    <app-packen-tabs [tabs]="tabs" [activeTabId]=activeTabId (outputClick)="activeTabId = $event"></app-packen-tabs>
 </div>
