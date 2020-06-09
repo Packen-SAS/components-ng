@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -35,6 +36,7 @@ import { PackenNgModule } from 'packen-ng';
     TableComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     FeatherModule.pick(allIcons),
     ClickOutsideModule,

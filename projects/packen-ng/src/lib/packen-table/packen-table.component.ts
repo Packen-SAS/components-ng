@@ -11,7 +11,9 @@ export class PackenTableComponent implements OnInit {
   // Atributos de la tabla
   @Input() headers: TableHeader[];
   @Input() list: TableRow[];
-  spanFoot: number = 0;
+  @Input() showLoading: boolean;
+  @Output() onSelectRow = new EventEmitter<TableRow>();
+  spanFoot: number;
 
   // Atributos de la paginación
   @Output() onChangePage = new EventEmitter<number>();
@@ -54,18 +56,25 @@ export class PackenTableComponent implements OnInit {
    * @param item El item a evaluar
    */
   getPropertyStyle(item: ItemInfo) {
-    if (item.style === 'blue-box') {
-      return ' blue-box';
-    } else if (item.style === 'gray-box') {
-      return ' gray-box';
-    } else if (item.style === 'blue-gray-box') {
-      return ' blue-gray-box';
+    let cap = "";
+    if (item.capitalize) {
+      cap = ' capitalize';
+    }
+
+    if (item.value) {
+      if (item.style === 'blue-box') {
+        return ' blue-box' + cap;
+      } else if (item.style === 'gray-box') {
+        return ' gray-box' + cap;
+      } else if (item.style === 'blue-gray-box') {
+        return ' blue-gray-box' + cap;
+      }
     }
 
     if (item.key) {
-      return 'box-def';
+      return 'box-def' + cap;
     }
-    return '';
+    return '' + cap;
   }
 
   /**
@@ -73,18 +82,25 @@ export class PackenTableComponent implements OnInit {
    * @param item El item a evaluar
    */
   getPropertyDesktopStyle(item: ItemInfo) {
-    if (item.style === 'blue-box') {
-      return ' blue-box no-margin';
-    } else if (item.style === 'gray-box') {
-      return ' gray-box no-margin';
-    } else if (item.style === 'blue-gray-box') {
-      return ' blue-gray-box no-margin';
+    let cap = "";
+    if (item.capitalize) {
+      cap = ' capitalize';
+    }
+
+    if (item.value) {
+      if (item.style === 'blue-box') {
+        return ' blue-box no-margin' + cap;
+      } else if (item.style === 'gray-box') {
+        return ' gray-box no-margin' + cap;
+      } else if (item.style === 'blue-gray-box') {
+        return ' blue-gray-box no-margin' + cap;
+      }
     }
 
     if (item.key && item.showInDesktop) {
-      return 'left-margin';
+      return 'left-margin' + cap;
     }
-    return '';
+    return '' + cap;
   }
 
   /**
@@ -93,7 +109,7 @@ export class PackenTableComponent implements OnInit {
    */
   getClassTextItem(column: TableColumn) {
     let style = 'table-mobile_content_section_box';
-    if (column.headInMobile) {
+    if (column.headInMobile || column.hideInMobile) {
       style += ' hide';
     }
     return style;
@@ -102,13 +118,18 @@ export class PackenTableComponent implements OnInit {
   /**
    * Método para obtener el estilo de un td en desktop
    * @param index EL indice del contenido a evaluar
+   * @param item El item a evaluar
    */
-  getClassTdDesktop(index: number) {
+  getClassTdDesktop(index: number, item: ItemInfo) {
     let style = "table-desktop_td_text";
     if (index == 0) {
       style += " first-text";
     } else {
       style += " others-text";
+    }
+
+    if (item.hideInDesktop) {
+      style += ' hide';
     }
     return style;
   }
@@ -172,6 +193,14 @@ export class PackenTableComponent implements OnInit {
 
       this.onChangePage.emit(this.activePage.num);
     }
+  }
+
+  /**
+   * Método para emitir la fila seleccionada
+   * @param row La fila seleccionada
+   */
+  sendSelectRow(row: TableRow) {
+    this.onSelectRow.emit(row);
   }
 
 }

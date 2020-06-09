@@ -9,16 +9,24 @@
             </tr>
         </thead>
 
-        <tbody>
+        <tbody *ngIf="showLoading">
+            <tr class="table-desktop_loading">
+                <td attr.colspan="{{ spanFoot }}">
+                    <img src="https://packenco.s3.amazonaws.com/packen_ng/packen_table/loader.gif" />
+                </td>
+            </tr>
+        </tbody>
+        <tbody *ngIf="!showLoading">
             <tr *ngFor="let row of list">
                 <td class="table-desktop_td" *ngFor="let col of row.columns">
-                    <div [ngClass]="getClassTdDesktop(i)" *ngFor="let celda of col.value; let i = index">
+                    <div [ngClass]="getClassTdDesktop(i, celda)" *ngFor="let celda of col.value; let i = index">
                         <div *ngIf="celda.showInDesktop">{{ celda.key ? celda.key + ':' : '' }}</div>
-                        <div [ngClass]="getPropertyDesktopStyle(celda)">{{ celda.value }}</div>
+                        <div [ngClass]="getPropertyDesktopStyle(celda)">
+                            {{ celda.capitalize ? celda.value.toLowerCase() : celda.value  }}</div>
                     </div>
                 </td>
                 <td>
-                    <img class="table-desktop_img-detail"
+                    <img class="table-desktop_img-detail" (click)="sendSelectRow(row)"
                         src="https://packenco.s3.amazonaws.com/packen_ng/packen_table/eye.svg" />
                 </td>
             </tr>
@@ -26,7 +34,7 @@
 
         <tfoot>
             <tr>
-                <td attr.colspan="{{spanFoot}}">
+                <td attr.colspan="{{ spanFoot }}">
                     <div [ngClass]="getClassPagination()">
                         <div class="pagination only-desktop">
                             <img class="pagination_img" (click)="movePageToLeft()"
@@ -50,40 +58,48 @@
 </div>
 
 <!-- Tabla para dispositivos mobile -->
-<div class="table-mobile only-mobile" *ngFor="let row of list">
-    <div class="table-mobile_head">
-        <div class="table-mobile_head_left">
-            <div *ngFor="let col of row.columns">
-                <div *ngIf="col.headInMobile">
-                    <div class="table-mobile_head_section">
-                        <div class="table-mobile_head_section_head">{{ col.key ? col.key : '' }}</div>
+<div class="table-mobile_loading only-mobile">
+    <img *ngIf="showLoading" class="table-mobile_loading_img" src="https://packenco.s3.amazonaws.com/packen_ng/packen_table/loader.gif" />
+</div>
 
-                        <div class="table-mobile_head_section_text" *ngFor="let celda of col.value">
-                            <div>{{ celda.key ? celda.key : '' }}</div>
-                            <div [ngClass]="getPropertyStyle(celda)">{{ celda.value }}</div>
+<div *ngIf="!showLoading">
+    <div class="table-mobile only-mobile" *ngFor="let row of list">
+        <div class="table-mobile_head">
+            <div class="table-mobile_head_left">
+                <div *ngFor="let col of row.columns">
+                    <div *ngIf="col.headInMobile">
+                        <div class="table-mobile_head_section">
+                            <div class="table-mobile_head_section_head">{{ col.key ? col.key : '' }}</div>
+
+                            <div class="table-mobile_head_section_text" *ngFor="let celda of col.value">
+                                <div>{{ celda.key ? celda.key : '' }}</div>
+                                <div [ngClass]="getPropertyStyle(celda)">{{ celda.value }}</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div>
+                <img src="https://packenco.s3.amazonaws.com/packen_ng/packen_table/eye.svg"
+                    (click)="sendSelectRow(row)" />
+            </div>
         </div>
-        <div>
-            <img src="https://packenco.s3.amazonaws.com/packen_ng/packen_table/eye.svg" />
-        </div>
-    </div>
 
-    <div class="table-mobile_content">
-        <div class="table-mobile_content_section">
-            <div [ngClass]="getClassTextItem(col)" *ngFor="let col of row.columns">
-                <div class="table-mobile_content_section_box_head">{{ col.key ? col.key : '' }}</div>
+        <div class="table-mobile_content">
+            <div class="table-mobile_content_section">
+                <div [ngClass]="getClassTextItem(col)" *ngFor="let col of row.columns">
+                    <div class="table-mobile_content_section_box_head">{{ col.key ? col.key : '' }}</div>
 
-                <div class="table-mobile_content_section_box_text" *ngFor="let celda of col.value">
-                    <div>{{ celda.key ? celda.key + ':' : '' }}</div>
-                    <div [ngClass]="getPropertyStyle(celda)">{{ celda.value }}</div>
+                    <div class="table-mobile_content_section_box_text" *ngFor="let celda of col.value">
+                        <div>{{ celda.key ? celda.key + ':' : '' }}</div>
+                        <div [ngClass]="getPropertyStyle(celda)">
+                            {{ celda.capitalize ? celda.value.toLowerCase() : celda.value }}</div>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="table-mobile_section-sep"></div>
     </div>
-    <div class="table-mobile_section-sep"></div>
 </div>
 
 <div [ngClass]="getClassPagination()">

@@ -86,7 +86,7 @@ This component is a custom responsive table for Packen.
 #### Use it in HTML
 
 ``` html
-<app-packen-table [list]="listContent" [numPages]="numPages" [pagination]="'pag-center'" [headers]="listHeaders" (onChangePage)="getListFromBackend($event)">
+<app-packen-table [list]="listContent" [numPages]="numPages" [pagination]="'pag-center'" [headers]="listHeaders" [showLoading]="loading" (onChangePage)="getListFromBackend($event)" (onSelectRow)="showSelectedRow($event)">
 </app-packen-table>
 ```
 
@@ -100,11 +100,13 @@ This component is a custom responsive table for Packen.
  - **list**: It defines the table content. The list must have the structure `TableRow` .
  - **numPages**: It defines the pages num to show in the paginator.
  - **pagination**: It defines paginator position. Posibles values to use: `(pag-left|pag-center|pag-right)` .
- - **listHeaders**: It defines the table headers. The list must have a `TableHeader` list.
+ - **headers**: It defines the table headers. The list must have a `TableHeader` list.
+ - **showLoading**: It defines the loading behavior that depends on the content request.
 
 #### Events
 
  - **onChangePage**: It throw the selected page to update the content information in property `list` .
+ - **onSelectRow**: It throw the selected row when you click the eye button.
 
 #### TableRow structure 
 
@@ -117,14 +119,17 @@ interface TableRow {
 interface TableColumn {
     key: string;
     value: ItemInfo[];
-    headInMobile?: boolean;
+    headInMobile ? : boolean;
+    hideInMobile ? : boolean;
 }
 
 interface ItemInfo {
     key: string;
     value: string;
-    style?: string;
-    showInDesktop?: boolean;
+    style ? : string;
+    showInDesktop ? : boolean;
+    hideInDesktop ? : boolean;
+    capitalize ? : boolean;
 }
 
 interface TableHeader {
@@ -139,6 +144,8 @@ interface TableHeader {
  - **b) value**: It defines the content after `:` .
  - **c) showInDesktop**: It defines whether the `key` value will be displayed on the desktop or not. Posibles values to use: `(true|false)` .
  - **d) style**: It defines box style of `value` property. Posibles values to use: `(blue-box|gray-box|blue-gray-box)` .
+ - **e) hideInDesktop**: Defines if this cell will be hidden when it is on desktop.
+ - **f) capitalize**: Defines if this cell text will be transform in capitalize.
 
 #### **TableColumn** class description
 
@@ -146,6 +153,7 @@ interface TableHeader {
  - **a) key**: It defines the column name.
  - **b) value**: It defines the content of the cell ( `ItemInfo` list).
  - **c) headInMobile**: Defines if this cell will be in the header section when it is on mobile.
+ - **d) hideInMobile**: Defines if this cell will be hidden when it is on mobile.
 
 #### **TableRow** class description
 

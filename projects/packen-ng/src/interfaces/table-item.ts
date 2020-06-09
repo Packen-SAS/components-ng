@@ -11,6 +11,7 @@ export interface TableColumn {
     key: string;
     value: ItemInfo[];
     headInMobile?: boolean;
+    hideInMobile?: boolean;
 }
 
 export interface ItemInfo {
@@ -18,6 +19,8 @@ export interface ItemInfo {
     value: string;
     style?: string;
     showInDesktop?: boolean;
+    hideInDesktop?: boolean;
+    capitalize?: boolean;
 }
 
 export interface TableHeader {

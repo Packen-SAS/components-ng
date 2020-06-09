@@ -11,6 +11,7 @@ export interface TableColumn {
     key: string;
     value: ItemInfo[];
     headInMobile?: boolean;
+    hideInMobile?: boolean;
 }
 
 export interface ItemInfo {
@@ -18,10 +19,62 @@ export interface ItemInfo {
     value: string;
     style?: string;
     showInDesktop?: boolean;
+    hideInDesktop?: boolean;
 }
 
 export interface TableHeader {
     name: string;
+}
+
+export class ShipmentList {
+    success: boolean;
+    message: boolean;
+    pagination: ShipmentPagination;
+    data: ShipmentInfo[];
+}
+
+export class ShipmentPagination {
+    current_page: number;
+    total_pages: number;
+    previous_page: number;
+    next_page: number
+}
+
+export class ShipmentInfo {
+    id: number;
+    cost: string;
+    service_type: string;
+    current_service_status: string;
+    current_billing_status: string;
+    created_at: string;
+    finished_at: string;
+    is_finished: boolean;
+    user_resource_data: ShipmentUserData;
+    driver_data: ShipmentDriverData;
+    admin_creator: ShipmentAdminData
+}
+
+export class ShipmentUserData {
+    full_name: string;
+    cellphone_number: string;
+    document_number: string;
+}
+
+export class ShipmentDriverData {
+    full_name: string;
+    allied: string;
+    vehicle: ShipmentVehicleData;
+}
+
+export class ShipmentVehicleData {
+    vehicle_type: string;
+    license_plate: string;
+}
+
+export class ShipmentAdminData {
+    id: number;
+    email: string;
+    full_name: string;
 }
 
 // ---------------------------------------------------------------------

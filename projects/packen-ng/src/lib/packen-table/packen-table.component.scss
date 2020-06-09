@@ -8,6 +8,11 @@
     font-weight: normal;
     margin: 50px 0px 10px 0px;
 
+    &_loading {
+        text-align: center;
+        transform: scale(0.2);
+    }
+
     &_th-tr {
         border-bottom: 0.5px solid $separator-gray;
     }
@@ -38,6 +43,16 @@
 
 .table-mobile {
     display: none;
+
+    &_loading {
+        display: none;
+        text-align: center;
+        
+        &_img {
+            height: 190px;
+            transform: scale(.7);
+        }
+    }
 
     &_head {
         display: flex;
@@ -187,6 +202,10 @@
 
 .hide {
     display: none;
+}
+
+.capitalize {
+    text-transform: capitalize;
 }
 
 .box-def {
