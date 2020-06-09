@@ -108,22 +108,22 @@ This component is a custom responsive table for Packen.
 #### TableRow structure 
 
 ``` javascript
-class TableRow {
+interface TableRow {
     index: number;
     columns: TableColumn[];
 }
 
-class TableColumn {
+interface TableColumn {
     key: string;
     value: ItemInfo[];
-    headInMobile: boolean;
+    headInMobile?: boolean;
 }
 
-class ItemInfo {
+interface ItemInfo {
     key: string;
     value: string;
-    style: string;
-    showInDesktop: boolean;
+    style?: string;
+    showInDesktop?: boolean;
 }
 ```
 
