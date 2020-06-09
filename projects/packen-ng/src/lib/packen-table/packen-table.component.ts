@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ItemInfo, TableColumn, TableRow } from '../../interfaces/table-item';
+import { ItemInfo, TableColumn, TableRow, TableHeader } from '../../interfaces/table-item';
 
 @Component({
   selector: 'app-packen-table',
@@ -9,8 +9,9 @@ import { ItemInfo, TableColumn, TableRow } from '../../interfaces/table-item';
 export class PackenTableComponent implements OnInit {
 
   // Atributos de la tabla
+  @Input() headers: TableHeader[];
   @Input() list: TableRow[];
-  @Input() numColumns;
+  spanFoot: number = 0;
 
   // Atributos de la paginación
   @Output() onChangePage = new EventEmitter<number>();
@@ -34,6 +35,7 @@ export class PackenTableComponent implements OnInit {
    * Método para crear lista de numeros de la paginación
    */
   createPagesList() {
+    this.spanFoot = this.headers.length + 1;
     for (let i = 0; i < this.numPages; i++) {
       const page = new PageItem();
       page.num = i + 1;

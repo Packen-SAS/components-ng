@@ -19,3 +19,7 @@ export interface ItemInfo {
     style?: string;
     showInDesktop?: boolean;
 }
+
+export interface TableHeader {
+    name: string;
+}

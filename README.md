@@ -86,7 +86,7 @@ This component is a custom responsive table for Packen.
 #### Use it in HTML
 
 ``` html
-<app-packen-table [list]="listContent" [numPages]="numPages" [pagination]="'pag-center'" [numColumns]="7" (onChangePage)="getListFromBackend($event)">
+<app-packen-table [list]="listContent" [numPages]="numPages" [pagination]="'pag-center'" [headers]="listHeaders" (onChangePage)="getListFromBackend($event)">
 </app-packen-table>
 ```
 
@@ -100,7 +100,7 @@ This component is a custom responsive table for Packen.
  - **list**: It defines the table content. The list must have the structure `TableRow` .
  - **numPages**: It defines the pages num to show in the paginator.
  - **pagination**: It defines paginator position. Posibles values to use: `(pag-left|pag-center|pag-right)` .
- - **numColumns**: It defines the columns number to display in the table.
+ - **listHeaders**: It defines the table headers. The list must have a `TableHeader` list.
 
 #### Events
 
@@ -125,6 +125,10 @@ interface ItemInfo {
     value: string;
     style?: string;
     showInDesktop?: boolean;
+}
+
+interface TableHeader {
+    name: string;
 }
 ```
 

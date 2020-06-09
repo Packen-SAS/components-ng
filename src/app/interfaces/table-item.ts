@@ -20,6 +20,10 @@ export interface ItemInfo {
     showInDesktop?: boolean;
 }
 
+export interface TableHeader {
+    name: string;
+}
+
 // ---------------------------------------------------------------------
 // Mock de lista creada con base a la estructura
 // ---------------------------------------------------------------------
@@ -107,3 +111,6 @@ let row1: TableRow = {
 
 let list = [row1, row1];
 export let listTable = list;
+
+let headers: TableHeader[] = [{ name: "Cod." }, { name: "Cliente" }, { name: "Coductor" }, { name: "Vehículo" }, { name: "Servicio" }, { name: "Tarifa" }];
+export let listHeaders = headers;

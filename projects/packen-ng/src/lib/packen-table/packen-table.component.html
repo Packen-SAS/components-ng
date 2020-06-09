@@ -3,8 +3,8 @@
     <table>
         <thead>
             <tr class="table-desktop_th-tr">
-                <th class="table-desktop_th" *ngFor="let item of list[0].columns">
-                    {{ item.key }}
+                <th class="table-desktop_th" *ngFor="let item of headers">
+                    {{ item.name }}
                 </th>
             </tr>
         </thead>
@@ -18,17 +18,19 @@
                     </div>
                 </td>
                 <td>
-                    <img class="table-desktop_img-detail" src="https://packenco.s3.amazonaws.com/packen_ng/packen_table/eye.svg" />
+                    <img class="table-desktop_img-detail"
+                        src="https://packenco.s3.amazonaws.com/packen_ng/packen_table/eye.svg" />
                 </td>
             </tr>
         </tbody>
 
         <tfoot>
             <tr>
-                <td attr.colspan="{{numColumns}}">
+                <td attr.colspan="{{spanFoot}}">
                     <div [ngClass]="getClassPagination()">
                         <div class="pagination only-desktop">
-                            <img class="pagination_img" (click)="movePageToLeft()" src="https://packenco.s3.amazonaws.com/packen_ng/packen_table/arrow-circle-left.svg" />
+                            <img class="pagination_img" (click)="movePageToLeft()"
+                                src="https://packenco.s3.amazonaws.com/packen_ng/packen_table/arrow-circle-left.svg" />
                             <div class="pagination_box">
                                 <div class="pagination_box_inside" [ngStyle]="objectStyle">
                                     <div [ngClass]="page.classes" *ngFor="let page of listPages"
@@ -37,7 +39,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <img class="pagination_img" (click)="movePageToRight()" src="https://packenco.s3.amazonaws.com/packen_ng/packen_table/arrow-circle-right.svg" />
+                            <img class="pagination_img" (click)="movePageToRight()"
+                                src="https://packenco.s3.amazonaws.com/packen_ng/packen_table/arrow-circle-right.svg" />
                         </div>
                     </div>
                 </td>
@@ -85,7 +88,8 @@
 
 <div [ngClass]="getClassPagination()">
     <div class="pagination only-pag-mobile">
-        <img class="pagination_img" (click)="movePageToLeft()" src="https://packenco.s3.amazonaws.com/packen_ng/packen_table/arrow-circle-left.svg" />
+        <img class="pagination_img" (click)="movePageToLeft()"
+            src="https://packenco.s3.amazonaws.com/packen_ng/packen_table/arrow-circle-left.svg" />
         <div class="pagination_box">
             <div class="pagination_box_inside" [ngStyle]="objectStyle">
                 <div [ngClass]="page.classes" *ngFor="let page of listPages" (click)="setActivePage(page)">
@@ -93,6 +97,7 @@
                 </div>
             </div>
         </div>
-        <img class="pagination_img" (click)="movePageToRight()" src="https://packenco.s3.amazonaws.com/packen_ng/packen_table/arrow-circle-right.svg" />
+        <img class="pagination_img" (click)="movePageToRight()"
+            src="https://packenco.s3.amazonaws.com/packen_ng/packen_table/arrow-circle-right.svg" />
     </div>
 </div>

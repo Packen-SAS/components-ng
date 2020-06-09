@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TableRow,listTable } from '../../interfaces/table-item';
+import { TableRow,listTable, listHeaders } from '../../interfaces/table-item';
+import { TableHeader } from 'projects/packen-ng/src/interfaces/table-item';
 
 @Component({
   selector: 'app-table',
@@ -9,10 +10,12 @@ import { TableRow,listTable } from '../../interfaces/table-item';
 export class TableComponent implements OnInit {
 
   mocklistForTable: TableRow[];
+  mocklistHeaders: TableHeader[];
 
   constructor() { }
 
   ngOnInit() {
+    this.mocklistHeaders = listHeaders;
     this.mocklistForTable = listTable;
   }
 
