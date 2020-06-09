@@ -6,7 +6,7 @@
     font-family: Muli;
     font-style: normal;
     font-weight: normal;
-    margin: 50px 0px 10px 0px;
+    margin: 50px 30px 10px;
 
     &_loading {
         text-align: center;
@@ -43,6 +43,7 @@
 
 .table-mobile {
     display: none;
+    margin: 0px 16px;
 
     &_loading {
         display: none;
@@ -273,6 +274,9 @@
     }
     .only-pag-mobile {
         display: flex !important;
+    }
+    .pagination {
+        justify-content: center !important;
     }
 }
 
