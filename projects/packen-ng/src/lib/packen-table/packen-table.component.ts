@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ItemInfo, TableColumn, TableRow, PageItem } from '../../classes/table.class';
+import { ItemInfo, TableColumn, TableRow } from '../../interfaces/table-item';
 
 @Component({
   selector: 'app-packen-table',
@@ -173,4 +173,9 @@ export class PackenTableComponent implements OnInit {
     }
   }
 
+}
+
+class PageItem {
+  num: number;
+  classes: string;
 }

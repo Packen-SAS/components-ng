@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { listTable } from 'projects/packen-ng/src/interfaces/table-item';
-import { TableRow } from 'dist/packen-ng/interfaces/table-item';
+import { TableRow,listTable } from '../../interfaces/table-item';
 
 @Component({
   selector: 'app-table',

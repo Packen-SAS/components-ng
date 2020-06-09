@@ -1,5 +1,2 @@
-/*
- * Public API Surface of packen-ng
- */
+// Export complete Module
 export * from './lib/packen-ng.module';
-export * from './classes/table.class';
