@@ -102,6 +102,7 @@ This component is a custom responsive table for Packen.
  - **pagination**: It defines paginator position. Posibles values to use: `(pag-left|pag-center|pag-right)` .
  - **headers**: It defines the table headers. The list must have a `TableHeader` list.
  - **showLoading**: It defines the loading behavior that depends on the content request.
+ - **emptyText**: Text to display when there is no results.
 
 #### Events
 

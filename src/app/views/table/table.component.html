@@ -1,6 +1,6 @@
 <h2>Table</h2>
 
 <app-packen-table *ngIf="requestDone" [showLoading]="!gotPage" [list]="listTable" [numPages]="totalPages"
-    [pagination]="'pag-center'" [headers]="listHeaders" (onChangePage)="getServicesList($event)"
-    (onSelectRow)="showSelectedRow($event)">
+    [pagination]="'pag-center'" [headers]="listHeaders" [emptyText]="'No hay registros'"
+    (onChangePage)="getServicesList($event)" (onSelectRow)="showSelectedRow($event)">
 </app-packen-table>

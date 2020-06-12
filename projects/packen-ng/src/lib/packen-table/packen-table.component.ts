@@ -12,6 +12,7 @@ export class PackenTableComponent implements OnInit {
   @Input() headers: TableHeader[];
   @Input() list: TableRow[];
   @Input() showLoading: boolean;
+  @Input() emptyText: string;
   @Output() onSelectRow = new EventEmitter<TableRow>();
   spanFoot: number;
 

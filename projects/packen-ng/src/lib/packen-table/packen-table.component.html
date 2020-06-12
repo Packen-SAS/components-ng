@@ -30,6 +30,11 @@
                         src="https://packenco.s3.amazonaws.com/packen_ng/packen_table/eye.svg" />
                 </td>
             </tr>
+            <tr *ngIf="list.length === 0">
+                <td class="table-desktop_td-empty" attr.colspan="{{ spanFoot }}">
+                    {{ emptyText }}
+                </td>
+            </tr>
         </tbody>
 
         <tfoot>
@@ -59,7 +64,8 @@
 
 <!-- Tabla para dispositivos mobile -->
 <div class="table-mobile_loading only-mobile">
-    <img *ngIf="showLoading" class="table-mobile_loading_img" src="https://packenco.s3.amazonaws.com/packen_ng/packen_table/loader.gif" />
+    <img *ngIf="showLoading" class="table-mobile_loading_img"
+        src="https://packenco.s3.amazonaws.com/packen_ng/packen_table/loader.gif" />
 </div>
 
 <div *ngIf="!showLoading">

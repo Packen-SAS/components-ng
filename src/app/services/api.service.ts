@@ -19,10 +19,10 @@ export class ApiService {
     params = params.append('page', page);
 
     const sesion = {
-      client: "eYMokjmQ4KipBCb5aoOyqg",
+      client: "qUD-WQYsgcvctwLfOThfBw",
       keepSession: true,
-      token: "GH8UCEdBiUzlZnvkBTDLag",
-      uid: "juan.contreras@packen.co",
+      token: "tRAeovKiZGR02ye3i1yj5w",
+      uid: "juan.contreras@packen.co"
     }
 
     let headers: HttpHeaders = new HttpHeaders();

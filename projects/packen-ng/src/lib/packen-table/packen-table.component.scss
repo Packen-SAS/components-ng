@@ -36,6 +36,11 @@
         }
     }
 
+    &_td-empty {
+        text-align: center;
+        padding: 20px 0px;
+    }
+
     &_img-detail {
         cursor: pointer;
     }
@@ -48,10 +53,10 @@
     &_loading {
         display: none;
         text-align: center;
-        
+
         &_img {
             height: 190px;
-            transform: scale(.7);
+            transform: scale(0.7);
         }
     }
 
