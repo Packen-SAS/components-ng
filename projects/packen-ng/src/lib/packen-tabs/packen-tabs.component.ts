@@ -6,11 +6,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./packen-tabs.component.scss']
 })
 export class PackenTabsComponent implements OnInit {
+
   @Input() tabs: any = [];
   @Input() activeTabId: any = 0;
   @Output() outputClick = new EventEmitter<any>();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

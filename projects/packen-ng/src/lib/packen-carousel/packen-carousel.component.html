@@ -1,0 +1,35 @@
+<div class="content">
+    <div class="content__image">
+        <img *ngIf="principalImage" loading="lazy" [className]="fadeIn" [src]="principalImage">
+        <div class="content__image__description">
+            <div class="content__image__description__icon-left" (click)="nextOrPreviusImage(-1)">
+                <img loading="lazy" src="https://packenco.s3.amazonaws.com/packen_ng/packen-carousel/circle-arrow-left.svg">
+            </div>
+            <div class="content__image__description__details">
+                <p class="content__image__description__details__title">Descripción</p>
+                <p class="content__image__description__details__text">Producto recogido en origen en condiciones
+                    adecuadas.</p>
+            </div>
+            <div class="content__image__description__icon-right">
+                <img loading="lazy" src="https://packenco.s3.amazonaws.com/packen_ng/packen-carousel/circle-arrow-right.svg"
+                    (click)="nextOrPreviusImage(1)">
+            </div>
+        </div>
+    </div>
+
+    <div class="content__list">
+        <div *ngFor="let i of images; let cont = index" [className]="loadClassStyles(i)" (click)="changeImage(cont)">
+            <img loading="lazy" [src]="i.url">
+        </div>
+    </div>
+    <div class="content__descrption-movil">
+        <p class="content__descrption-movil__title">Descripción</p>
+        <p class="content__descrption-movil__text">Producto recogido en Origen en condiciones adecuadas.</p>
+    </div>
+
+    <div class="content__list-movil">
+        <div *ngFor="let i of images;  let cont = index" [className]="loadClassStylesMovil(i)"
+            (click)="changeImage(cont)"></div>
+    </div>
+
+</div>

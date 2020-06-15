@@ -37,7 +37,7 @@
             </tr>
         </tbody>
 
-        <tfoot>
+        <tfoot *ngIf="list.length !== 0">
             <tr>
                 <td attr.colspan="{{ spanFoot }}">
                     <div [ngClass]="getClassPagination()">
