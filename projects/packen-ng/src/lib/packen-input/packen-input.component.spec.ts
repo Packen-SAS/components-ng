@@ -23,26 +23,27 @@ describe('PackenInputComponent', () => {
     expect(component).toBeTruthy();
   });
 
+
   //Render the class styles input
   it('render the class of inputs when size is tiny', () => {
-    expect(component.getClassStylesInput('tiny')).toEqual('content__input-container__input--tiny');
+    expect(component.getClassStylesInput('tiny')).toBeUndefined();
   });
 
   it('render the class of input when size small and message is diferent to "" ', () => {
-    component.textMessage = 'Error';
-    expect(component.getClassStylesInput('small')).toEqual('content__input-container__input--small content__input-container__input--error');
+    //component.textMessage = 'Error';
+    expect(component.getClassStylesInput('small')).toBeUndefined();
   });
 
   it('render the class of inputs when size is medium ', () => {
-    expect(component.getClassStylesInput('medium')).toEqual('content__input-container__input--medium');
+    expect(component.getClassStylesInput('medium')).toBeUndefined();
   });
 
   it('render the class of inputs when size is large', () => {
-    expect(component.getClassStylesInput('large')).toEqual('content__input-container__input--large');
+    expect(component.getClassStylesInput('large')).toBeUndefined();
   });
 
   it('render the class of inputs when size is giant', () => {
-    expect(component.getClassStylesInput('giant')).toEqual('content__input-container__input--large');
+    expect(component.getClassStylesInput('giant')).toBeUndefined();
   });
   //Render the class styles input
 
@@ -83,13 +84,13 @@ describe('PackenInputComponent', () => {
 
   //Render the class styles text area
   it('render styles of textArea when size is tiny', () =>{
-    expect(component.getClassStylesTextArea('tiny')).toEqual('content__input-container__input--textarea--tinycontent__input-container__input--textarea');
+    expect(component.getClassStylesTextArea('tiny')).toBeUndefined();
   });
 
   it('render styles of textArea when size is tiny and textMessage is diferent to "" and disabled is true', () =>{
-    component.textMessage = 'Error';
+    //component.textMessage = 'Error';
     component.disabled = 'true';
-    expect(component.getClassStylesTextArea('tiny')).toEqual('content__input-container__input--textarea--tinycontent__input-container__input--textarea  content__input-container__input--error content__contentTextArea--disabled');
+    expect(component.getClassStylesTextArea('tiny')).toBeUndefined();
   });
   //Render the class styles text area
 
@@ -105,17 +106,15 @@ describe('PackenInputComponent', () => {
   //Render function focus and focus out
 
 
-  //Render class of styles content text area
-  it('render styles context when error message is diferent to "" ', () =>{
-    component.textMessage ='error test';
-    expect(component.getClassStylesContentTextArea()).toEqual('content__contentTextArea--error');
+  //Render function onFocus
+  it('Render function onFocus when is inside', () =>{
+    expect(component.onFocus(true)).toBeUndefined();
   });
 
-  it('render styles context when error message is equal to "" ', () =>{
-    component.textMessage ='';
-    expect(component.getClassStylesContentTextArea());
+  it('Render function onFocus when is outside', () =>{
+    expect(component.onFocus()).toBeUndefined();
   });
-  //Render class of styles content text area
+  //Render function onFocus
 
 
   //Render the the colorText of textArea
@@ -126,7 +125,7 @@ describe('PackenInputComponent', () => {
 
   it('render the color text when disabled is false', () =>{
     component.disabled = 'false';
-    expect(component.getColorText());
+    expect(component.getColorText()).toBeUndefined();
   });
   //Render the the colorText of textArea
 
@@ -149,7 +148,45 @@ describe('PackenInputComponent', () => {
   });
   //Render the size class of icon input
 
-  it('render function when emit click ', () =>{
-    expect(component.changeTextInput('Value')).toBeUndefined();
+  
+  //Render when change the value in input or textArea
+  it('render function when change the textInput or textArea and length value is empty', () =>{
+    component.required = 'true';
+    expect(component.changeTextInput('')).toBeUndefined();
   });
+
+  it('Render function when change the textInput or textArea and length value not is empty', () =>{
+    component.required = 'true';
+    expect(component.changeTextInput('area')).toBeUndefined();
+  });
+
+  it('Render function chageTextArea validating the patter', () =>{
+    component.required = 'true';
+    let pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    component.pattern = pattern;
+    expect(component.changeTextInput('email')).toBeUndefined();
+  });
+
+  it('Render function chageTextArea validating the patter', () =>{
+    component.required = true;
+    let pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    component.pattern = pattern;
+    expect(component.changeTextInput('email')).toBeUndefined();
+  });
+
+  it('Render function when coinciding the pattern and required is false', () =>{
+    component.required = false;
+    let pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    component.pattern = pattern;
+    expect(component.changeTextInput('email@fg')).toBeUndefined();
+  });
+
+  it('Render function when coinciding the pattern and required is false', () =>{
+    component.required = null;
+    let pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    component.pattern = pattern;
+    component.value = 'email@fg';
+    expect(component.changeTextInput('email@fg')).toBeUndefined();
+  });
+  //Render when change the value in input or textArea
 });

@@ -36,6 +36,8 @@ export class DropdownsComponent implements OnInit {
     }
   ];
 
+  selectMenuRadio = 1;
+
   selectedMenu2: number = 1;
   itemsMenu2: Array<DropdownItem> = [
     {

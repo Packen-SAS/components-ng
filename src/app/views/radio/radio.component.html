@@ -1,10 +1,7 @@
 <h2>Radios</h2>
+Valor: {{selectedItemId}}
 <div style="width: 250px;">
-    <app-packen-radio [radios]="radios" [selectedItemId]="selectedItemId" (outputChangeRadio)="changeRadio($event)"
-        orientation="horizontal"></app-packen-radio>
+    <app-packen-radio [radios]="radios" [(value)]="selectedItemId" orientation="horizontal"></app-packen-radio>
 </div>
-
 <br>
-
-<app-packen-radio [radios]="radios" [selectedItemId]="selectedItemId" (outputChangeRadio)="changeRadio($event)"
-    orientation="vertical"></app-packen-radio>
+<app-packen-radio [radios]="radios" [(value)]="selectedItemId" orientation="vertical"></app-packen-radio>

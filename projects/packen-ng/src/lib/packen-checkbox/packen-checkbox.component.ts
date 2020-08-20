@@ -9,7 +9,19 @@ import { CheckItem } from '../../interfaces/check-item';
 export class PackenCheckboxComponent implements OnInit {
   @Input() checkboxes: Array<CheckItem> = [];
   @Input() orientation: string = 'vertical';
-  @Output() outputChangeCheck = new EventEmitter<any>();
+
+  temporaryValues: any = null;
+  @Output()
+  valuesChange = new EventEmitter<any>();
+
+  @Input()
+  get values() {
+    return this.temporaryValues;
+  }
+  set values(val) {
+    this.temporaryValues = val;
+    this.valuesChange.emit(this.temporaryValues);
+  }
 
   constructor() { }
 
@@ -33,7 +45,15 @@ export class PackenCheckboxComponent implements OnInit {
       } else {
         newStatus = 'checked';
       }
-      this.outputChangeCheck.emit({ id: check.id, state: newStatus });
+
+      this.values.forEach((item: CheckItem) => {
+        if (item.id === check.id) {
+          item.state = newStatus;
+        }
+      })
+
+      this.temporaryValues = this.values;
+      this.valuesChange.emit(this.temporaryValues);
     }
   }
 

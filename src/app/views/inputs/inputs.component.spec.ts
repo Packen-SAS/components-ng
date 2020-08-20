@@ -22,9 +22,4 @@ describe('InputsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('render function when change text input ', () =>{
-    expect(component.changeTextInput('New value')).toBeUndefined();
-  });
-
 });

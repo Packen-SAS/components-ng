@@ -2,32 +2,31 @@
 
 <div class="row">
     <div class="col-sm-5">
-        <app-packen-dropdown [selected]="selectedMenu1" [items]="itemsMenu1" size="medium"
-            (outputChangeItem)="changeItemMenu1($event)" label="Menu 1" type="default"></app-packen-dropdown>
+
+        <app-packen-dropdown [selected]="selectedMenu1" [(value)]="selectedMenu1" [items]="itemsMenu1" size="medium"
+            label="Menu 1" type="default"></app-packen-dropdown>
         <br>
 
-        <app-packen-dropdown [selected]="selectedMenu2" [items]="itemsMenu2" size="medium"
-            (outputChangeItem)="changeItemMenu2($event)" label="Menu 2" type="default"></app-packen-dropdown>
+        <app-packen-dropdown [selected]="selectedMenu2" [(value)]="selectedMenu2" [items]="itemsMenu2" size="medium"
+            label="Menu 2" type="default"></app-packen-dropdown>
         <br>
 
-        <app-packen-dropdown [selected]="selectedMenu3" [items]="itemsMenu3" size="medium"
-            (outputChangeItem)="changeItemMenu3($event)" label="Menu 3" type="default"></app-packen-dropdown>
+        <app-packen-dropdown [selected]="selectedMenu3" [(value)]="selectedMenu3" [items]="itemsMenu3" size="medium"
+            label="Menu 3" type="default"></app-packen-dropdown>
         <br>
 
-        <app-packen-dropdown [selected]="selectedMenu3" [items]="itemsMenu4" size="medium"
-            (outputChangeItem)="changeItemMenu3($event)" label="Menu item" type="default"></app-packen-dropdown>
+        <app-packen-dropdown [selected]="selectedMenu3" [(value)]="selectedMenu3" [items]="itemsMenu4" size="medium"
+            label="Menu item" type="default"></app-packen-dropdown>
         <br>
 
-        <app-packen-dropdown [items]="checkboxes" size="medium" 
-            (outputChangeItem)="changeCheckbox($event)"
-            label="Menu Checkbox" value="Value not change" type="checkbox"></app-packen-dropdown>
+        <app-packen-dropdown [items]="checkboxes" size="medium" label="Menu Checkbox" value="Value not change"
+      type="checkbox"></app-packen-dropdown> 
         <br>
 
-        <app-packen-dropdown [items]="radios" size="large" 
-        [selectedItemId]="selectIdRadio" (outputChangeItem)="changeRadio($event)"
-            label="Menu radios" type="radio"></app-packen-dropdown>
+        <app-packen-dropdown [items]="radios" [(value)]="selectMenuRadio" size="large" label="Menu radios" type="radio">
+        </app-packen-dropdown>
         <br>
-
+        
     </div>
     <div class="col-sm"></div>
 </div>

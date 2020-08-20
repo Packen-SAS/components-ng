@@ -6,18 +6,33 @@ import { RadioItem } from '../../interfaces/radio-item';
   templateUrl: './packen-radio.component.html',
   styleUrls: ['./packen-radio.component.scss']
 })
+
 export class PackenRadioComponent implements OnInit {
   @Input() radios: Array<RadioItem> = [];
   @Input() selectedItemId: number = 0;
   @Input() orientation: string = 'vertical';
-  @Output() outputChangeRadio = new EventEmitter<any>();
+  @Output() changeRadio = new EventEmitter<any>();
+  temporaryValue: any = null;
+
+  @Output()
+  valueChange = new EventEmitter<any>();
+
+  @Input()
+  get value() {
+    return this.temporaryValue;
+  }
+  set value(val) {
+    this.temporaryValue = val;
+    this.valueChange.emit(this.temporaryValue);
+  }
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
   getClassRadio = (r: RadioItem): string => {
-    if (r.id == this.selectedItemId) {
+    if (r.id == this.value) {
       return r.disabled ? StylesRadio.checkBoxSelectedDisabled : StylesRadio.checkBoxSelectedNotDisabled;
     } else {
       return r.disabled ? StylesRadio.checkBoxDefaultDisabled : StylesRadio.checkboxDefaultNotDisabled;
@@ -26,7 +41,9 @@ export class PackenRadioComponent implements OnInit {
 
   selectRadio(radio: RadioItem) {
     if (!radio.disabled) {
-      this.outputChangeRadio.emit(radio.id);
+      this.temporaryValue = radio.id;
+      this.valueChange.emit(radio.id);
+      this.changeRadio.emit(radio);
     }
   }
 

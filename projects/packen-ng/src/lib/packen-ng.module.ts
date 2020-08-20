@@ -13,6 +13,7 @@ import { PackenTabsComponent } from './packen-tabs/packen-tabs.component';
 import { PackenToggleComponent } from './packen-toggle/packen-toggle.component';
 import { PackenTableComponent } from './packen-table/packen-table.component';
 import { PackenCarouselComponent } from './packen-carousel/packen-carousel.component';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PackenCarouselComponent } from './packen-carousel/packen-carousel.compo
     PackenCarouselComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ClickOutsideModule
   ],
   exports: [
     PackenAvatarComponent,

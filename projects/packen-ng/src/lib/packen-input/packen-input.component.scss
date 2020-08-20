@@ -1,5 +1,6 @@
-@import "../../assets/icons/style.css";
+//@import "../../assets/icons/style.css";
 @import "../../styles/colors.scss";
+@import "../../styles/icons/style.css";
 
 .content {
   &__title {
@@ -50,32 +51,35 @@
       border: none;
       background-color: transparent;
 
-      &--disabled {
-        color: $basic_gray_dft;
+      &--disabled{
+        color: $basic_gray_dft ;
       }
     }
-    &--hover {
+    &--hover{
       background-color: $basic_white_drk;
     }
 
-    &--focus {
+    &--focus{
       border: 2px solid $basic_independece_dft;
       background-color: white !important;
     }
 
-    &--error {
-      border: 2px solid $danger_default;
+    &--error{
+      border: 2px solid $danger_default !important;
     }
 
-    &--disabled {
+    &--disabled{
       border: 2px solid $basic_gray_lgt;
       background-color: $basic_white_drk;
+
     }
   }
 
-  &__contentTextArea:hover:not([disabled]) {
+  &__contentTextArea:hover:not([disabled]){
     background-color: $basic_white_drk;
   }
+
+
 
   &__input-container {
     display: -ms-flexbox; /* IE10 */
@@ -85,6 +89,7 @@
     margin-right: 10px;
     caret-color: $primary_default;
 
+    
     &__icon {
       position: absolute;
       color: $tertiary_default;
@@ -169,7 +174,7 @@
       }
 
       &--error {
-        border: 2px solid $danger_default;
+        border: 2px solid $danger_default !important;
       }
     }
 

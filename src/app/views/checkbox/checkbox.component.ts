@@ -19,8 +19,4 @@ export class CheckboxComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  changeStateCheckBox = (check) =>{
-    let checkboxCambio = this.checkboxes.find((c) => c.id === check.id);
-    checkboxCambio.state = check.state;     
-  }
 }

@@ -11,11 +11,26 @@ export class PackenDropdownComponent implements OnInit {
   @Input() selected: number = 1;
   @Input() label: string = '';
   @Input() type: string = 'default';
-  @Input() value: string = '';
   @Input() selectedItemId: number = 0;
   @Input() size: string = 'tiny'
   @Output() outputChangeItem = new EventEmitter<any>();
   @Output() changeCheckbox = new EventEmitter<any>();
+
+  temporaryData = null;
+  temporaryChecks = null;
+
+  @Output()
+  valueChange = new EventEmitter<any>();
+  @Input()
+  get value() {
+    return this.temporaryData;
+  }
+  set value(val) {
+    this.temporaryData = val;
+    this.valueChange.emit(this.temporaryData);
+  }
+
+  textInput = '';
 
   itemSelected: DropdownItem = {
     id: 0,
@@ -24,25 +39,29 @@ export class PackenDropdownComponent implements OnInit {
     left: false,
     right: false
   };
+
   showMenuList: boolean = false;
   hoverItem: string = '';
-  constructor() {
-  }
+  temporaryItemsList: any = [];
+
+  constructor() { }
 
   ngOnInit(): void {
+    this.temporaryItemsList = this.items;
     this.getItemSelected();
   }
 
   getItemSelected = async () => {
     if (this.type !== 'radio' && this.type !== 'checkbox') {
-      this.itemSelected = await this.items.find((item) => item.id == this.selected);
+      this.itemSelected = await this.items.find((item) => item.id == this.value);
+      this.textInput = this.itemSelected.title;
     } else {
       let radio = this.items.find((item) => item.id == this.selectedItemId);
       if (radio) {
         this.itemSelected.title = radio.label;
+        this.textInput = radio.label;
       }
     }
-
   }
 
   getClassItem = (i: DropdownItem): string => {
@@ -67,8 +86,9 @@ export class PackenDropdownComponent implements OnInit {
 
   selectItem = (item: DropdownItem): void => {
     if (!item.disabled) {
-      this.outputChangeItem.emit(item.id);
+      this.valueChange.emit(item.id);
       this.itemSelected = item;
+      this.textInput = item.title;
       this.showMenuList = false;
     }
   }
@@ -80,7 +100,9 @@ export class PackenDropdownComponent implements OnInit {
   }
 
   clickInput = (): void => {
-    this.showMenuList = !this.showMenuList;
+    if (!this.showMenuList) {
+      this.showMenuList = true;
+    }
   }
 
   getColorSubTitleWhenItemIsSelected = (i: DropdownItem): string => {
@@ -117,17 +139,29 @@ export class PackenDropdownComponent implements OnInit {
     this.outputChangeItem.emit(data);
   }
 
-  changeRadio = (data): void => {
-    let radio = this.items.find((i) => data == i.id);
-    if (radio) {
-      this.itemSelected.title = radio.label;
-    }
-    this.outputChangeItem.emit(data);
-  }
-
-
   clickOutsideContent = (): void => {
     this.showMenuList = false;
+  }
+
+  changeRadio(radio) {
+    this.textInput = radio.label;
+    this.showMenuList = false;
+  }
+
+  keyUpInput(text) {
+    let newArray = [];
+    this.items.forEach((item) => {
+      if (this.type !== 'radio' && this.type !== 'checkbox') {
+        if(item.title.toUpperCase().includes(text.toUpperCase())){
+          newArray.push(item);
+        }
+      } else {
+        if (item.label.toUpperCase().includes(text.toUpperCase())) {
+          newArray.push(item);
+        }
+      }
+    });
+    this.temporaryItemsList = newArray;
   }
 }
 
