@@ -31,6 +31,7 @@ The **PackenNgModule** contain follow components:
 >
 > * [PinMapComponent](#PinMapComponent)
 > * [TableComponent](#TableComponent)
+> * [InputsComponent](#InputComponent)
 > * ButtonsComponent
 > * AvatarsComponent
 > * DividersComponent
@@ -38,7 +39,6 @@ The **PackenNgModule** contain follow components:
 > * CheckboxComponent
 > * RadioComponent
 > * TogglesComponent
-> * InputsComponent
 > * DropdownsComponent
 >
 
@@ -161,3 +161,330 @@ interface TableHeader {
  - **TableRow**: It defines the table content.
  - **a) index**: It defines the row number.
  - **b) columns**: It represents each row to display in the table. It is a `TableColumn` list.
+
+
+### InputComponent
+
+``` 
+This component is for input or textarea
+```
+
+#### Use it in HTML
+
+``` html
+<app-packen-input size="tiny" label="Normal tiny required and pattern" icon="icon-lock" [(value)]="valueTest"
+    placeholder="placeholder" type="text" textArea="false" required="true"
+    messageErrorValidation="Error de validación" themeMessage="warning" iconMessage="icon-info" disabled="false"
+    messageErrorPattern="Error de pattern" [pattern]="patternTest"></app-packen-input>
+```
+
+#### Component appearance
+
+![](https://packenco.s3.amazonaws.com/packen_ng/packen_input/input-normal.png)
+![](https://packenco.s3.amazonaws.com/packen_ng/packen_input/input-disabled.png)
+![](https://packenco.s3.amazonaws.com/packen_ng/packen_input/input-required.png)
+![](https://packenco.s3.amazonaws.com/packen_ng/packen_input/textarea-normal.png)
+![](https://packenco.s3.amazonaws.com/packen_ng/packen_input/text-area-disabled.png)
+![](https://packenco.s3.amazonaws.com/packen_ng/packen_input/text-area-required.png)
+
+
+
+#### Options
+
+ - **size**: It defines the size of font and input. Posibles values to use: `(tiny|small|medium|large|giant)` .
+ - **label**: It defines the title or label of the input.
+ - **icon**: Name of the icon to place on the right side `('icon-lock', 'icon-arrow-circle-right', 'icon-archive', etc)` .
+ - **value**: Input value to show and change.
+ - **placeholder**: placeholder of the input to show ` Examples:(Enter your password, enter you value, etc)` .
+ - **textArea**: This defines if the field is textarea or not: `(true|false)`.
+ - **required**: It defines if the input is required or not `(true|false)`.
+ - **messageErrorValidation**: This message show when value inpus is empty.
+ - **themeMessage**: It define the theme of message to show `(warning|default|primary|success)`.
+ - **iconMessage**: It defines the icon of message to show. `('icon-info', 'icon-archive', etc)`  **NOTE**: If this name icon not isset the icon is empty.
+ - **disabled**: It define if the input is disabled      `(true|false)`.
+ - **messageErrorPattern**: This message show when not validate the pattern.
+ - **pattern**: Pattern for validate the value `Examples:('/\d/', '/^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/', etc)`.
+
+
+### RadioComponent
+
+``` 
+This component represent a radio
+```
+
+#### Use it in HTML
+
+``` html
+<app-packen-radio [radios]="radios" [(value)]="radioId" orientation="horizontal"></app-packen-radio>
+```
+
+#### Component appearance
+![](https://packenco.s3.amazonaws.com/packen_ng/packen_radio/radios.png)
+
+
+#### Options
+
+ - **radios**: It defines list of radios to show.
+ - **value**: it defines the selected radio with the id.
+ - **orientation**: It defines the orientation of the radios: `(horizontal|vetical)` .
+
+#### Events
+ - **valueChage**: Emits when value is changed **NOTE**: this event is optional.
+
+#### Radio object structure 
+
+``` javascript
+ interface RadioItem {
+    id:number,
+    label:string,
+    disabled: boolean
+}
+```
+
+### CheckboxComponent
+
+``` 
+This component represent a checkbox
+```
+#### Use it in HTML
+
+``` html
+<app-packen-checkbox [(values)]="checkboxes" orientation="horizontal"></app-packen-checkbox>
+```
+
+#### Component appearance
+![](https://packenco.s3.amazonaws.com/packen_ng/packen_checkbox/checkbox.png)
+
+
+#### Options
+
+ - **values**: It defines list of checkbox to show `(Array of CheckItem)`.
+ - **orientation**: It defines the orientation of the checkbox: `(horizontal|vetical)` .
+
+ #### Checkbox object structure 
+
+``` javascript
+interface CheckItem {
+    id: number,
+    label: string,
+    state: string,
+    disabled: boolean
+}
+```
+
+### AvatarComponent
+
+``` 
+This component represent avatar or avatar input
+```
+#### Use it in HTML
+
+``` html
+<app-packen-avatar size="tiny" src="https://cdn.pixabay.com/photo/2020/06/24/19/41/cat-5337501_960_720.jpg" 
+    type="input" [(value)]="imageFile" title="Cambiar foto"></app-packen-avatar>
+```
+
+#### Component appearance
+![](https://packenco.s3.amazonaws.com/packen_ng/packen_avatar/avatars.png)
+
+
+#### Options
+
+ - **size**: It defines the size of the image: `(tiny|small|medium|large)`.
+ - **src**: It defines the source or image route. 
+ - **type**: It defines if the image is default or input: `(default|input)`.
+ - **value**: It defines the file value **NOTE**: this is required when type is `input`.
+ - **title**: It defines the title or label of image: **NOTE**: is optional
+
+### DropdownComponent
+
+``` 
+This component represent a dropdown
+```
+#### Use it in HTML
+
+``` html
+<app-packen-dropdown [(value)]="itemId" [items]="items" size="medium"
+    label="Dropdown" type="default"></app-packen-dropdown>
+
+<app-packen-dropdown [items]="checkboxes" size="medium" label="Dropdown checkbox" value="Value not change"
+    type="checkbox"></app-packen-dropdown>
+
+<app-packen-dropdown [items]="radios" [(value)]="itemId" size="large" label="Driodown radio" 
+    type="radio"></app-packen-dropdown>
+```
+
+#### Options
+
+ - **value**: It defines the value of the items **NOTE**: this item is required when type is `radio` or `default`. 
+ - **items**: It defines the list of: ` (radios, checkbox, dropdown) (Array of Radios, Checkbox and Dropdown)`. 
+ - **size**: It defines the size of the dropdown: `(tiny|small|medium|large|giant)`.
+ - **label**: It defines the label or title of dropdown.
+ - **type**: It defines the type of dropdown: `(default,checkbox,radio)`.
+
+#### Dropdown Possibles Structures 
+
+``` javascript
+interface DropdownItem {
+    id:number,
+    left: Object|boolean,
+    right: Object|boolean,
+    disabled: boolean,
+    title: string,
+    subTitle?: string,
+    info?: string,
+    typeInfo?:string        
+}
+
+interface RadioItem {
+    id:number,
+    label:string,
+    disabled: boolean
+}
+
+interface CheckItem {
+    id: number,
+    label: string,
+    state: string,
+    disabled: boolean
+}
+```
+
+### Examples
+
+#### 1. Basic Dropdown.
+![](https://packenco.s3.amazonaws.com/packen_ng/packen-dropdown/dropdown-normal.png)
+```html
+let dropdownNormal = Array<DropdownItem> = [
+    {
+      id: 1,
+      left: false,
+      right: false,
+      disabled: false,
+      title: 'Menu item'
+    },
+    {
+      id: 2,
+      left: false,
+      right: false,
+      disabled: false,
+      title: 'Menu item 2'
+    },
+    {
+      id: 3,
+      left: false,
+      right: false,
+      disabled: true,
+      title: 'Menu item 3'
+    }
+];
+```
+
+#### 2. Icons (from font) Dropdown. 
+
+![](https://packenco.s3.amazonaws.com/packen_ng/packen-dropdown/dropdown.png)
+
+```html
+let dropdownIcons: Array<DropdownItem> = [
+    {
+      id: 1,
+      left: false,
+      right: {
+        type: 'icon',
+        name: 'icon-archive'
+      },
+      disabled: false,
+      title: 'Title 1',
+      subTitle: 'Sub title',
+    },
+    {
+      id: 2,
+      left: {
+        type: 'icon',
+        name: 'icon-battery'
+      },
+      right: false,
+      disabled: true,
+      title: 'Title 2',
+      subTitle: '',
+    },
+    {
+      id: 3,
+      left: {
+        type: 'icon',
+        name: 'icon-settings-2'
+      },
+      right: {
+        type: 'icon',
+        name: 'icon-attach-2'
+      },
+      disabled: false,
+      title: 'Title 3',
+      subTitle: 'Sub title',
+    }
+  ];
+
+```
+
+#### 3. Image (from url) Dropdown.
+
+![](https://packenco.s3.amazonaws.com/packen_ng/packen-dropdown/dropdown-image.png)
+  ```html
+
+let dropdownImages: Array<DropdownItem> = [
+    {
+      id: 1,
+      left: {
+        type: 'avatar',
+        src: "../../../assets/images/avatar.jpg"
+      },
+      right: false,
+      disabled: false,
+      title: 'Title 1',
+      subTitle: 'Sub title',
+    },
+    {
+      id: 2,
+      left: {
+        type: 'avatar',
+        src: "../../../assets/images/avatar.jpg"
+      },
+      right: false,
+      disabled: true,
+      title: 'Title 2',
+      subTitle: 'Sub title',
+    },
+    {
+      id: 3,
+      left: {
+        type: 'avatar',
+        src: "../../../assets/images/avatar.jpg"
+      },
+      right: false,
+      disabled: false,
+      title: 'Title 3',
+      subTitle: 'Sub title',
+    }
+  ];
+```
+
+#### 4. Checkbox (Array of CheckItem) Dropdown.
+![](https://packenco.s3.amazonaws.com/packen_ng/packen-dropdown/dropdown-checkbox.png)
+```html
+let checkboxes: Array<CheckItem> = [
+    { id: 1, label: 'Label 1', state: 'checked', disabled: false },
+    { id: 2, label: 'Label 2', state: 'checked', disabled: true },
+    { id: 3, label: 'Label 3', state: 'unchecked', disabled: true }
+  ];
+```
+
+#### 5. Radio (Array of RadioItem) Dropdown.
+![](https://packenco.s3.amazonaws.com/packen_ng/packen-dropdown/dropdown-radio.png)
+```html
+let radios: Array<RadioItem> = [
+    { id: 1, label: 'Label 1', disabled: false },
+    { id: 2, label: 'Label 2', disabled: false },
+    { id: 3, label: 'Label 3', disabled: false },
+    { id: 4, label: 'Label 4', disabled: true }
+  ];
+```

@@ -44,7 +44,7 @@ export class DropdownsComponent implements OnInit {
       id: 1,
       left: {
         type: 'avatar',
-        src: "../../../assets/images/avatar.jpg"
+        src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/1024px-Missing_avatar.svg.png"
       },
       right: false,
       disabled: false,
@@ -55,7 +55,7 @@ export class DropdownsComponent implements OnInit {
       id: 2,
       left: {
         type: 'avatar',
-        src: "../../../assets/images/avatar.jpg"
+        src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/1024px-Missing_avatar.svg.png"
       },
       right: false,
       disabled: true,
@@ -66,7 +66,7 @@ export class DropdownsComponent implements OnInit {
       id: 3,
       left: {
         type: 'avatar',
-        src: "../../../assets/images/avatar.jpg"
+        src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/1024px-Missing_avatar.svg.png"
       },
       right: false,
       disabled: false,
@@ -186,5 +186,9 @@ export class DropdownsComponent implements OnInit {
 
   ngOnInit(): void {
 
+  }
+
+  toString(value){
+    return JSON.stringify(value);
   }
 }
