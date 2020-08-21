@@ -2,29 +2,39 @@
 <div class="row">
     <div class="col-sm">
         <div class="contentImage mt-3">
-            <app-packen-avatar size="tiny" src="https://cdn.pixabay.com/photo/2020/06/24/19/41/cat-5337501_960_720.jpg" (outputClick)="clickComponent()"></app-packen-avatar>
+            <app-packen-avatar size="tiny"
+                src="https://cdn.pixabay.com/photo/2020/06/24/19/41/cat-5337501_960_720.jpg" type="input"
+                [(value)]="imageFile" title="Cambiar foto"></app-packen-avatar>
+
             <p>tiny</p>
         </div>
         <br>
         <div class="contentImage mt-3">
-            <app-packen-avatar size="small" src="https://cdn.pixabay.com/photo/2020/06/24/19/41/cat-5337501_960_720.jpg"></app-packen-avatar>
+            <app-packen-avatar size="small" 
+                src="https://cdn.pixabay.com/photo/2020/06/24/19/41/cat-5337501_960_720.jpg"></app-packen-avatar>
             <p>small</p>
         </div>
         <br>
         <div class="contentImage mt-3">
-            <app-packen-avatar size="medium" src="https://cdn.pixabay.com/photo/2020/07/20/06/42/english-bulldog-5422018_960_720.jpg"></app-packen-avatar>
+            <app-packen-avatar title="Puedo cambiar" size="medium" type="input"
+                src="https://cdn.pixabay.com/photo/2020/07/20/06/42/english-bulldog-5422018_960_720.jpg">
+            </app-packen-avatar>
             <p>medium</p>
         </div>
         <br>
     </div>
     <div class="col-sm">
         <div class="contentImage mt-3">
-            <app-packen-avatar size="large" src="https://cdn.pixabay.com/photo/2020/07/20/06/42/english-bulldog-5422018_960_720.jpg"></app-packen-avatar>
+            <app-packen-avatar size="large" title="Titulo(no cambio)"
+                src="https://cdn.pixabay.com/photo/2020/07/20/06/42/english-bulldog-5422018_960_720.jpg">
+            </app-packen-avatar>
             <p>large</p>
         </div>
         <br>
         <div class="contentImage mt-3">
-            <app-packen-avatar size="xlarge" src="https://cdn.pixabay.com/photo/2020/07/20/06/42/english-bulldog-5422018_960_720.jpg" (outputClick)="clickComponent()"></app-packen-avatar>
+            <app-packen-avatar size="xlarge"
+                src="https://cdn.pixabay.com/photo/2020/07/20/06/42/english-bulldog-5422018_960_720.jpg"
+                (outputClick)="clickComponent()"></app-packen-avatar>
             <p>xlarge</p>
         </div>
     </div>

@@ -7,34 +7,63 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class PackenAvatarComponent implements OnInit {
   @Input() size: any = null;
-  @Input() src: any = null;
-  @Output() outputClick = new EventEmitter<any>();
+  @Input() type: string = "default";
+  @Input() src: string = '';
+  @Input() title: string= null;
+
+  sizeImage: number = null;
+  imageSelected: any = '';
+
+  valueTemporaly:any = null;
+  @Output()
+  valueChange = new EventEmitter<string>();
+  @Input()
+  get value() {
+    return this.valueTemporaly;
+  }
+  set value(val) {
+    this.valueTemporaly = val;
+    this.valueChange.emit(this.valueTemporaly);
+  }
 
   constructor() { }
 
   ngOnInit(): void {
+    this.imageSelected = this.src;
+    this.defineSizeImage(this.size);
   }
 
-  defineSizeImage = (sizesImages: SizesImages): number => {
+  defineSizeImage(sizesImages: SizesImages) {
     switch (sizesImages) {
       case 'tiny':
-        return PackenAvatarSizes.tiny;
+        this.sizeImage = PackenAvatarSizes.tiny;
+        break;
       case 'small':
-        return PackenAvatarSizes.small;
+        this.sizeImage = PackenAvatarSizes.small;
+        break;
       case 'medium':
-        return PackenAvatarSizes.medium;
+        this.sizeImage = PackenAvatarSizes.medium;
+        break;
       case 'large':
-        return PackenAvatarSizes.large;
+        this.sizeImage = PackenAvatarSizes.large;
+        break;
       case 'xlarge':
-        return PackenAvatarSizes.xlarge;
+        this.sizeImage = PackenAvatarSizes.xlarge;
+        break;
       default:
-        return PackenAvatarSizes.tiny;
+        this.sizeImage = PackenAvatarSizes.tiny;
     }
   }
 
-  clickImage = (): void => {
-    this.outputClick.emit();
-
+  fileChange(event){
+    this.valueChange.emit(event.target.files[0]);
+    if (event.target.files && event.target.files[0]) {
+      let reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onloadend = (event) => {
+        this.imageSelected = event.target.result;
+      }
+    }
   }
 }
 

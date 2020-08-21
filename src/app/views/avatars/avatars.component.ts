@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./avatars.component.scss']
 })
 export class AvatarsComponent implements OnInit {
-
+  imageFile:any = null;
   constructor() { }
 
   ngOnInit(): void {

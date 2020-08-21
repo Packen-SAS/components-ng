@@ -25,12 +25,10 @@ export class PackenInputComponent implements OnInit {
 
   @Output()
   valueChange = new EventEmitter<string>();
-
   @Input()
   get value() {
     return this.messageValue;
   }
-
   set value(val) {
     this.messageValue = val;
     this.valueChange.emit(this.messageValue);
