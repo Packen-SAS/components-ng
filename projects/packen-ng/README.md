@@ -32,15 +32,14 @@ The **PackenNgModule** contain follow components:
 > * [PinMapComponent](#PinMapComponent)
 > * [TableComponent](#TableComponent)
 > * [InputsComponent](#InputComponent)
+> * [AvatarsComponent](#AvatarComponent)
+> * [CheckboxComponent](#CheckboxComponent)
+> * [RadioComponent](#RadioComponent)
+> * [DropdownComponent](#DropdownComponent)
 > * ButtonsComponent
-> * AvatarsComponent
 > * DividersComponent
 > * TabsComponent
-> * CheckboxComponent
-> * RadioComponent
 > * TogglesComponent
-> * DropdownsComponent
->
 
 ## How to use each component
 
@@ -261,7 +260,7 @@ This component represent a checkbox
  - **values**: It defines list of checkbox to show `(Array of CheckItem)`.
  - **orientation**: It defines the orientation of the checkbox: `(horizontal|vetical)` .
 
- #### Checkbox object structure 
+#### Checkbox object structure 
 
 ``` javascript
 interface CheckItem {
