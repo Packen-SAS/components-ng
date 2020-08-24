@@ -19,6 +19,8 @@ export class PackenInputComponent implements OnInit {
   @Input() textArea: string = 'false';
   @Input() required: boolean = false;
   @Input() pattern: any = null;
+  @Input() maxlength:number = 0;
+  @Input() minlength:number = 0;
   @Output() keyUpInput = new EventEmitter<any>();
 
   messageValue: string;

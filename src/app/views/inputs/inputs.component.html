@@ -2,7 +2,8 @@
 
 <div class="row" style="width: 100%;">
     <div class="col-sm-8">
-        <app-packen-input size="tiny" label="Normal tiny required and pattern" icon="icon-lock" [(value)]="valueTest"
+        <app-packen-input size="tiny" label="Normal tiny required and pattern" icon="icon-lock" 
+            [(value)]="valueTest"
             placeholder="placeholder" type="text" textArea="false" required="true"
             messageErrorValidation="Error de validación" themeMessage="warning" iconMessage="icon-info" disabled="false"
             messageErrorPattern="Error de pattern" [pattern]="patternTest">
@@ -34,7 +35,8 @@
         <br>
         <app-packen-input size="tiny" label="TextArea" icon="icon-lock" [(value)]="valueTest" 
             placeholder="placeholder" required="false" type="text" 
-            textArea="true" themeMessage="warning" iconMessage="icon-info" disabled="false">
+            textArea="true" themeMessage="warning" iconMessage="icon-info" disabled="false"
+            [maxlength]="6" [minlength]="5">
         </app-packen-input>
 
         <br>
