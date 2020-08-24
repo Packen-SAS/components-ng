@@ -175,7 +175,7 @@ This component is for input or textarea
     placeholder="placeholder" type="text" textArea="false" required="true"
     messageErrorValidation="Error de validación" themeMessage="warning" iconMessage="icon-info" disabled="false"
     messageErrorPattern="Error de pattern" [pattern]="patternTest" [maxlength]="6" [minlength]="5"></app-packen-input>
-```
+``` 
 
 #### Component appearance
 
