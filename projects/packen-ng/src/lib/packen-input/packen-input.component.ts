@@ -14,10 +14,10 @@ export class PackenInputComponent implements OnInit {
   @Input() messageErrorValidation: string = '';
   @Input() messageErrorPattern: string = '';
   @Input() themeMessage: StatesThemeMessage = 'warning';
-  @Input() disabled: string = 'false';
+  @Input() disabled: boolean = false;
   @Input() icon: string = '';
   @Input() textArea: string = 'false';
-  @Input() required: any = false;
+  @Input() required: boolean = false;
   @Input() pattern: any = null;
   @Output() keyUpInput = new EventEmitter<any>();
 
@@ -125,7 +125,7 @@ export class PackenInputComponent implements OnInit {
       default:
         this.classTextArea += TextAreaClass.tiny;
     }
-    if (this.disabled == 'true') {
+    if (this.disabled == true) {
       this.classTextArea += TextAreaClass.disabled;
     }
   }
@@ -141,7 +141,7 @@ export class PackenInputComponent implements OnInit {
   }
 
   getColorText = (): string => {
-    if (this.disabled == 'true') {
+    if (this.disabled == true) {
       return ContentTextArea.disabled;
     }
   }
@@ -156,7 +156,7 @@ export class PackenInputComponent implements OnInit {
     this.getClassStylesTextArea(this.size);
 
     //Validate required 
-    if (this.required === 'true') {
+    if (this.required) {
       if (value.length === 0) {
         this.classTextArea += TextAreaClass.error;
         this.classInput += " content__input-container__input--error";
@@ -169,11 +169,11 @@ export class PackenInputComponent implements OnInit {
     //Validate pattern
     this.showMessagePattern = false;
     if (this.pattern && !this.pattern.test(value)) {
-      if ((this.required === 'true' || this.required === true) && this.value.length > 0) {
+      if (this.required === true && this.value.length > 0) {
         this.classTextArea += TextAreaClass.error;
         this.classInput += " content__input-container__input--error";
         this.showMessagePattern = true;
-      } else if (this.required === 'false' || this.required === false) {
+      } else if (this.required === false) {
         this.classTextArea += TextAreaClass.error;
         this.classInput += " content__input-container__input--error";
         this.showMessagePattern = true;

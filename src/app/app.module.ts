@@ -19,6 +19,8 @@ import { DropdownsComponent } from './views/dropdowns/dropdowns.component';
 import { PinMapComponent } from './views/pin-map/pin-map.component';
 import { TableComponent } from './views/table/table.component';
 import { PackenNgModule } from 'packen-ng';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { PackenNgModule } from 'packen-ng';
   imports: [
     HttpClientModule,
     BrowserModule,
+    CommonModule,
+    FormsModule,
     FeatherModule.pick(allIcons),
     ClickOutsideModule,
     PackenNgModule
