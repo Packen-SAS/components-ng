@@ -24,7 +24,7 @@ describe('PackenAvatarComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  //Define size avatar image
+  // Define size avatar image
   it('Render width and height of avatar when size is tiny', () => {
     expect(component.defineSizeImage('tiny')).toBeUndefined();
   });
@@ -46,7 +46,7 @@ describe('PackenAvatarComponent', () => {
   });
 
   it('Render function fileChange()', () => {
-    let event = {
+    const event = {
       target: {
         files: [
           {
@@ -55,15 +55,14 @@ describe('PackenAvatarComponent', () => {
             name: 'Screenshot from 2020-10-10',
             size: 41707,
             type: 'image/png',
-            webkitRelativePath: ""
+            webkitRelativePath: ''
           }
         ]
       }
     };
     component.value = {};
 
-    let temporaly = component.value;
-    let mockFileReader = {
+    const mockFileReader = {
       target: { result: '' },
       readAsDataURL: (blobInput) => { },
       onloadend: (value) => { }
@@ -72,13 +71,13 @@ describe('PackenAvatarComponent', () => {
     spyOn<any>(window, 'FileReader').and.returnValue(mockFileReader);
 
     spyOn(mockFileReader, 'onloadend').and.callFake(() => {
-      return of({ target: {} })
+      return of({ target: {} });
     });
     expect(component.fileChange(event)).toBeUndefined();
   });
 
   it('Render function fileChange() when not has files', () => {
-    let event = { target: { files: [] } };
+    const event = { target: { files: [] } };
     expect(component.fileChange(event)).toBeUndefined();
   });
 });

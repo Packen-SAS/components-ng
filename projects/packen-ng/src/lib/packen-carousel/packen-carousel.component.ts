@@ -33,7 +33,7 @@ export class PackenCarouselComponent implements OnInit {
    * @param position position of image
    */
   changeImage = (position: number) => {
-    if (this.images[position].url != this.principalImage) {
+    if (this.images[position].url !== this.principalImage) {
       this.lastPosition = position;
       this.fadeIn = '';
       this.principalImage = this.images[position].url;
@@ -47,7 +47,7 @@ export class PackenCarouselComponent implements OnInit {
    * Function load the styles of container images footer
    */
   loadClassStyles(image) {
-    if (image.url == this.principalImage) {
+    if (image.url === this.principalImage) {
       return StylesImagesFooter.selected;
     }
     return StylesImagesFooter.default;
@@ -55,13 +55,13 @@ export class PackenCarouselComponent implements OnInit {
 
   /**
    * Function change the image with the controls
-   * @param number if is positive is the next image and if is negative is the previus image 
+   * @param number if is positive is the next image and if is negative is the previus image
    */
   nextOrPreviusImage(number: number) {
-    let nextImage = number + this.lastPosition;
+    const nextImage = number + this.lastPosition;
     if (nextImage < 0) {
       this.changeImage(this.images.length - 1);
-    } else if (nextImage == this.images.length) {
+    } else if (nextImage === this.images.length) {
       this.changeImage(0);
     } else {
       this.changeImage(nextImage);
@@ -72,7 +72,7 @@ export class PackenCarouselComponent implements OnInit {
    * Function load the styles of container images footer when is mobile
    */
   loadClassStylesMovil(image) {
-    if (image.url == this.principalImage) {
+    if (image.url === this.principalImage) {
       return StylesItemsFooterMovil.selected;
     }
     return StylesItemsFooterMovil.default;

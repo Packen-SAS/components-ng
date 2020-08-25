@@ -19,9 +19,9 @@ export class ApiService {
     params = params.append('page', page);
 
     const sesion = {
-      client: 'qUD-WQYsgcvctwLfOThfBw',
+      client: 'hYkqRV4EepOPRd5kR0XZbw',
       keepSession: true,
-      token: 'tRAeovKiZGR02ye3i1yj5w',
+      token: 'UlhtCyEjh329Hd9hqJY3OA',
       uid: 'juan.contreras@packen.co'
     };
 
@@ -31,7 +31,7 @@ export class ApiService {
       .set('uid', sesion.uid);
     headers = headers.set('Content-Type', 'application/json');
 
-    return this.http.get('https://packen-api-dev.herokuapp.com/api/v2/shipments/admin/list', { headers: headers, params: params, responseType: 'json' });
+    return this.http.get('https://packen-api-dev.herokuapp.com/api/v2/shipments/admin/list', { headers, params, responseType: 'json' });
   }
 
 }

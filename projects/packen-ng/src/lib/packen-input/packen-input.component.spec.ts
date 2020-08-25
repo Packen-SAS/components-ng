@@ -28,7 +28,7 @@ describe('PackenInputComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  //Render the class styles input
+  // Render the class styles input
   it('render the class of inputs when size is tiny', () => {
     expect(component.getClassStylesInput('tiny')).toBeUndefined();
   });
@@ -49,7 +49,7 @@ describe('PackenInputComponent', () => {
     expect(component.getClassStylesInput('giant')).toBeUndefined();
   });
 
-  //Render the class styles message error
+  // Render the class styles message error
   it('render the theme of message error when theme is default', () => {
     expect(component.getClassStylesMessageError('default')).toEqual('content__messageError--default');
   });
@@ -66,7 +66,7 @@ describe('PackenInputComponent', () => {
     expect(component.getClassStylesMessageError('success')).toEqual('content__messageError--success');
   });
 
-  //Render the class styles of label
+  // Render the class styles of label
   it('render syles of label when size is tiny', () => {
     expect(component.getClassStylesLable('tiny')).toEqual('content__title--tiny');
   });
@@ -79,7 +79,7 @@ describe('PackenInputComponent', () => {
     expect(component.getClassStylesLable('giant')).toEqual('content__title--giant');
   });
 
-  //Render the class styles text area
+  // Render the class styles text area
   it('render styles of textArea when size is tiny', () => {
     expect(component.getClassStylesTextArea('tiny')).toBeUndefined();
   });
@@ -89,7 +89,7 @@ describe('PackenInputComponent', () => {
     expect(component.getClassStylesTextArea('tiny')).toBeUndefined();
   });
 
-  //Render function focus and focus out
+  // Render function focus and focus out
   it('render function focus ', () => {
     expect(component.focus()).toEqual('');
   });
@@ -98,7 +98,7 @@ describe('PackenInputComponent', () => {
     expect(component.focusOut()).toEqual('');
   });
 
-  //Render function onFocus
+  // Render function onFocus
   it('Render function onFocus when is inside', () => {
     expect(component.onFocus(true)).toBeUndefined();
   });
@@ -107,7 +107,7 @@ describe('PackenInputComponent', () => {
     expect(component.onFocus()).toBeUndefined();
   });
 
-  //Render the the colorText of textArea
+  // Render the the colorText of textArea
   it('render the color text when disabled is true', () => {
     component.disabled = true;
     expect(component.getColorText()).toEqual('content__contentTextArea__textArea--disabled');
@@ -118,7 +118,7 @@ describe('PackenInputComponent', () => {
     expect(component.getColorText()).toBeUndefined();
   });
 
-  //Render the size class of icon input
+  // Render the size class of icon input
   it('render the class of icon when size is tiny', () => {
     expect(component.getClassSizeIconRight('tiny')).toEqual(' content__input-container__icon--tiny');
   });
@@ -135,7 +135,7 @@ describe('PackenInputComponent', () => {
     expect(component.getClassSizeIconRight('giant')).toEqual(' content__input-container__icon--giant');
   });
 
-  //Render when change the value in input or textArea
+  // Render when change the value in input or textArea
   it('render function when change the textInput or textArea and length value is empty', () => {
     component.required = true;
     expect(component.changeTextInput('')).toBeUndefined();
@@ -148,28 +148,28 @@ describe('PackenInputComponent', () => {
 
   it('Render function chageTextArea validating the patter', () => {
     component.required = true;
-    let pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     component.pattern = pattern;
     expect(component.changeTextInput('email')).toBeUndefined();
   });
 
   it('Render function chageTextArea validating the patter', () => {
     component.required = true;
-    let pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     component.pattern = pattern;
     expect(component.changeTextInput('email')).toBeUndefined();
   });
 
   it('Render function when coinciding the pattern and required is false', () => {
     component.required = false;
-    let pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     component.pattern = pattern;
     expect(component.changeTextInput('email@fg')).toBeUndefined();
   });
 
   it('Render function when coinciding the pattern and required is false', () => {
     component.required = null;
-    let pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     component.pattern = pattern;
     component.value = 'email@fg';
     expect(component.changeTextInput('email@fg')).toBeUndefined();

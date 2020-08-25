@@ -34,7 +34,7 @@ export class PackenCheckboxComponent implements OnInit {
       case 'checked':
         return IconsCheck.checked;
       case 'unchecked':
-        return IconsCheck.unchecked
+        return IconsCheck.unchecked;
     }
   }
 
@@ -51,7 +51,7 @@ export class PackenCheckboxComponent implements OnInit {
         if (item.id === check.id) {
           item.state = newStatus;
         }
-      })
+      });
 
       this.temporaryValues = this.values;
       this.valuesChange.emit(this.temporaryValues);

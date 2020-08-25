@@ -7,16 +7,16 @@ export const itemInfoMock: ItemInfo = {
     capitalize: true,
     showInDesktop: false,
     hideInDesktop: false
-}
+};
 
 export const columnInfoMock: TableColumn = {
     key: 'Cliente',
     value: [itemInfoMock],
     headInMobile: true,
     hideInMobile: false
-}
+};
 
 export const tableRowMock: TableRow = {
     index: 1,
     columns: [columnInfoMock]
-}
+};

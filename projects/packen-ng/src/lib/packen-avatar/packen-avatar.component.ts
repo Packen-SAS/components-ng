@@ -8,7 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class PackenAvatarComponent implements OnInit {
 
   @Input() size: any = null;
-  @Input() type: string = "default";
+  @Input() type: string = 'default';
   @Input() src: string = '';
   @Input() title: string = null;
 
@@ -62,11 +62,12 @@ export class PackenAvatarComponent implements OnInit {
   fileChange(event) {
     this.valueChange.emit(event.target.files[0]);
     if (event.target.files && event.target.files[0]) {
-      let reader = new FileReader();
+      const reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]);
-      reader.onloadend = (event) => {
-        this.imageSelected = event.target.result;
-      }
+
+      reader.onloadend = (ev) => {
+        this.imageSelected = ev.target.result;
+      };
     }
   }
 }

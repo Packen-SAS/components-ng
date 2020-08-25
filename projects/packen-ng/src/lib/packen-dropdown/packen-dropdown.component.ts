@@ -13,7 +13,7 @@ export class PackenDropdownComponent implements OnInit {
   @Input() label: string = '';
   @Input() type: string = 'default';
   @Input() selectedItemId: number = 0;
-  @Input() size: string = 'tiny'
+  @Input() size: string = 'tiny';
 
   @Output() outputChangeItem = new EventEmitter<any>();
   @Output() changeCheckbox = new EventEmitter<any>();
@@ -53,10 +53,10 @@ export class PackenDropdownComponent implements OnInit {
 
   getItemSelected = () => {
     if (this.type !== 'radio' && this.type !== 'checkbox') {
-      this.itemSelected = this.items.find((item) => item.id == this.value);
+      this.itemSelected = this.items.find((item) => item.id === this.value);
       this.textInput = this.itemSelected ? this.itemSelected.title : null;
     } else {
-      let radio = this.items.find((item) => item.id == this.selectedItemId);
+      const radio = this.items.find((item) => item.id === this.selectedItemId);
       if (radio) {
         this.textInput = radio.label;
       }
@@ -69,7 +69,7 @@ export class PackenDropdownComponent implements OnInit {
     }
 
     if (!i.info) {
-      if (i.id == this.selected) {
+      if (i.id === this.selected) {
         return ItemStyles.selected;
       }
     }
@@ -77,7 +77,7 @@ export class PackenDropdownComponent implements OnInit {
 
   getClassTitle = (i: DropdownItem): string => {
     if (!i.info) {
-      if (i.id == this.selected) {
+      if (i.id === this.selected) {
         return TitleStyles.selected;
       }
     }
@@ -94,7 +94,7 @@ export class PackenDropdownComponent implements OnInit {
 
   getClassText = (i: DropdownItem): string => {
     if (i.disabled) {
-      return contentTextStyles.disabled;
+      return ContentTextStyles.disabled;
     }
   }
 
@@ -106,7 +106,7 @@ export class PackenDropdownComponent implements OnInit {
 
   getColorSubTitleWhenItemIsSelected = (i: DropdownItem): string => {
     if (!i.info) {
-      if (i.id == this.selected) {
+      if (i.id === this.selected) {
         return TitleStyles.selected;
       }
     }
@@ -117,7 +117,7 @@ export class PackenDropdownComponent implements OnInit {
       return IconStyles.disabled;
     }
 
-    if (i.id == this.selected) {
+    if (i.id === this.selected) {
       return IconStyles.selected;
     }
   }
@@ -129,7 +129,7 @@ export class PackenDropdownComponent implements OnInit {
   }
 
   getColorInfoType = (i: DropdownItem): string => {
-    if (i.typeInfo == 'active') {
+    if (i.typeInfo === 'active') {
       return InfoStyles.active;
     }
   }
@@ -148,7 +148,7 @@ export class PackenDropdownComponent implements OnInit {
   }
 
   keyUpInput(text) {
-    let newArray = [];
+    const newArray = [];
     this.items.forEach((item) => {
       if (this.type !== 'radio' && this.type !== 'checkbox') {
         if (item.title.toUpperCase().includes(text.toUpperCase())) {
@@ -177,7 +177,7 @@ class InfoStyles {
   static readonly active = 'content__item__contentText__textP__info--active';
 }
 
-class contentTextStyles {
+class ContentTextStyles {
   static readonly disabled = 'content__item__contentText__textP--disabled';
 }
 

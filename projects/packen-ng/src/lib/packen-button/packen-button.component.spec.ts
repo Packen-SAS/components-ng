@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PackenButtonComponent } from './packen-button.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-fdescribe('PackenButtonComponent', () => {
+describe('PackenButtonComponent', () => {
   let component: PackenButtonComponent;
   let fixture: ComponentFixture<PackenButtonComponent>;
 
@@ -24,7 +24,7 @@ fdescribe('PackenButtonComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // Render on button click 
+  // Render on button click
   it('render on button click when disables is false or other', () => {
     component.disabled = false;
     expect(component.buttonClick()).toBeTrue();

@@ -20,8 +20,8 @@ export class PackenInputComponent implements OnInit {
   @Input() textArea: string = 'false';
   @Input() required: boolean = false;
   @Input() pattern: any = null;
-  @Input() maxlength:number = 0;
-  @Input() minlength:number = 0;
+  @Input() maxlength: number = 0;
+  @Input() minlength: number = 0;
   @Output() keyUpInput = new EventEmitter<any>();
 
   messageValue: string;
@@ -39,7 +39,7 @@ export class PackenInputComponent implements OnInit {
     this.valueChange.emit(this.messageValue);
   }
 
-  // Class inputs  
+  // Class inputs
   classContentTextArea: string = '';
   classInput: string = '';
   classTextArea: string = '';
@@ -57,7 +57,7 @@ export class PackenInputComponent implements OnInit {
   }
 
   getClassSizeIconRight = (type: StatesSizesInput): string => {
-    let resClass = this.icon + " ";
+    let resClass = this.icon + ' ';
     switch (type) {
       case 'tiny':
         return resClass += SizeIconInput.tiny;
@@ -121,36 +121,37 @@ export class PackenInputComponent implements OnInit {
   }
 
   getClassStylesTextArea(size: StatesSizesInput) {
-    this.classTextArea = "";
+    this.classTextArea = '';
     switch (size) {
       case 'tiny':
         this.classTextArea += TextAreaClass.tiny;
+        break;
       default:
         this.classTextArea += TextAreaClass.tiny;
     }
-    if (this.disabled == true) {
+    if (this.disabled === true) {
       this.classTextArea += TextAreaClass.disabled;
     }
   }
 
   focus = (): string => {
     this.classContentTextArea = TextAreaClass.focus;
-    return "";
+    return '';
   }
 
   focusOut = (): string => {
-    this.classContentTextArea = "";
-    return "";
+    this.classContentTextArea = '';
+    return '';
   }
 
   getColorText = (): string => {
-    if (this.disabled == true) {
+    if (this.disabled === true) {
       return ContentTextArea.disabled;
     }
   }
 
   changeTextInput = (value) => {
-    //Set values
+    // Set values
     this.messageValue = value;
     this.valueChange.emit(value);
     this.keyUpInput.emit(value);
@@ -158,27 +159,27 @@ export class PackenInputComponent implements OnInit {
     this.getClassStylesInput(this.size);
     this.getClassStylesTextArea(this.size);
 
-    //Validate required 
+    // Validate required
     if (this.required) {
       if (value.length === 0) {
         this.classTextArea += TextAreaClass.error;
-        this.classInput += " content__input-container__input--error";
+        this.classInput += ' content__input-container__input--error';
         this.showMessageRequired = true;
       } else {
         this.showMessageRequired = false;
       }
     }
 
-    //Validate pattern
+    // Validate pattern
     this.showMessagePattern = false;
     if (this.pattern && !this.pattern.test(value)) {
       if (this.required === true && this.value.length > 0) {
         this.classTextArea += TextAreaClass.error;
-        this.classInput += " content__input-container__input--error";
+        this.classInput += ' content__input-container__input--error';
         this.showMessagePattern = true;
       } else if (this.required === false) {
         this.classTextArea += TextAreaClass.error;
-        this.classInput += " content__input-container__input--error";
+        this.classInput += ' content__input-container__input--error';
         this.showMessagePattern = true;
       }
     }
@@ -218,7 +219,7 @@ class TextAreaClass {
   static readonly default = 'content__input-container__input--textarea';
   static readonly error = '  content__input-container__input--error';
   static readonly disabled = ' content__contentTextArea--disabled';
-  static readonly focus = 'content__contentTextArea--focus'
+  static readonly focus = 'content__contentTextArea--focus';
 }
 
 class ContentTextArea {
@@ -239,5 +240,5 @@ class SizeIconInput {
   static readonly small = 'content__input-container__icon--small';
   static readonly medium = 'content__input-container__icon--medium';
   static readonly large = 'content__input-container__icon--large';
-  static readonly giant = 'content__input-container__icon--giant'; s
+  static readonly giant = 'content__input-container__icon--giant';
 }

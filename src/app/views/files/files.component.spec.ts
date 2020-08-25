@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
-import { PackenFileComponent } from '../packen-file/packen-file.component';
-
+import { PackenNgModule } from 'projects/packen-ng/src/public-api';
 import { FilesComponent } from './files.component';
 
 describe('FilesComponent', () => {
@@ -11,11 +10,11 @@ describe('FilesComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        FilesComponent,
-        PackenFileComponent
+        FilesComponent
       ],
       imports: [
         FormsModule,
+        PackenNgModule
       ]
     }).compileComponents();
   }));

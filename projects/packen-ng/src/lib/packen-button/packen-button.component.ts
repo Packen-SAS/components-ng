@@ -17,8 +17,8 @@ export class PackenButtonComponent implements OnInit {
   @Input() fullwidth: boolean = false;
   @Output() outputClick = new EventEmitter<any>();
 
-  classButton: any = "";
-  classIcon: any = "";
+  classButton: any = '';
+  classIcon: any = '';
 
   constructor() { }
 
@@ -42,20 +42,20 @@ export class PackenButtonComponent implements OnInit {
   loadStylesButtonsIcon = () => {
     switch (this.size) {
       case 'tiny':
-        this.classButton += "sizeButtonIcon--buttonTiny";
-        this.classIcon += "sizeIconTiny";
+        this.classButton += 'sizeButtonIcon--buttonTiny';
+        this.classIcon += 'sizeIconTiny';
         break;
       case 'small':
-        this.classButton += "sizeButtonIcon--buttonSmall";
-        this.classIcon += "sizeIconSmall";
+        this.classButton += 'sizeButtonIcon--buttonSmall';
+        this.classIcon += 'sizeIconSmall';
         break;
       case 'medium':
-        this.classButton += "sizeButtonIcon--butonMedium"
-        this.classIcon += "sizeIconMedium";
+        this.classButton += 'sizeButtonIcon--butonMedium';
+        this.classIcon += 'sizeIconMedium';
         break;
       case 'large':
-        this.classButton += "sizeButtonIcon--buttonLarge";
-        this.classIcon += "sizeIconLarge";
+        this.classButton += 'sizeButtonIcon--buttonLarge';
+        this.classIcon += 'sizeIconLarge';
         break;
     }
 
@@ -66,39 +66,39 @@ export class PackenButtonComponent implements OnInit {
     switch (this.level) {
       case 'danger':
         if (this.disabled === true) {
-          this.classButton += " buttonDisabled buttonDisabled--btnDangerDisabled";
+          this.classButton += ' buttonDisabled buttonDisabled--btnDangerDisabled';
         } else {
-          this.classButton += " button button--btnDanger";
+          this.classButton += ' button button--btnDanger';
         }
         break;
       case 'ghost':
         if (this.disabled === true) {
-          this.classButton += " buttonDisabled buttonDisabled--btnGhostDisabled";
+          this.classButton += ' buttonDisabled buttonDisabled--btnGhostDisabled';
         } else {
-          this.classButton += " button button--btnGhost";
+          this.classButton += ' button button--btnGhost';
         }
         break;
       case 'tertiary':
         if (this.disabled === true) {
-          this.classButton += " buttonDisabled buttonDisabled--btnTertiaryDisabled";
+          this.classButton += ' buttonDisabled buttonDisabled--btnTertiaryDisabled';
         } else {
-          this.classButton += " button button--btnTertiary";
+          this.classButton += ' button button--btnTertiary';
         }
         break;
 
       case 'secondary':
         if (this.disabled === true) {
-          this.classButton += " buttonDisabled buttonDisabled--btnSecondaryDisabled";
+          this.classButton += ' buttonDisabled buttonDisabled--btnSecondaryDisabled';
         } else {
-          this.classButton += " button button--btnSecondary";
+          this.classButton += ' button button--btnSecondary';
         }
         break;
 
       case 'primary':
         if (this.disabled === true) {
-          this.classButton += " buttonDisabled buttonDisabled--btnPrimaryDisabled";
+          this.classButton += ' buttonDisabled buttonDisabled--btnPrimaryDisabled';
         } else {
-          this.classButton += " button button--btnPrimary";
+          this.classButton += ' button button--btnPrimary';
         }
         break;
     }
@@ -109,20 +109,20 @@ export class PackenButtonComponent implements OnInit {
   loadStylesButtonsRegular = () => {
     switch (this.size) {
       case 'tiny':
-        this.classButton += "sizeButtonRegular--buttonTiny";
+        this.classButton += 'sizeButtonRegular--buttonTiny';
         break;
       case 'small':
-        this.classButton += "sizeButtonRegular--buttonSmall";
+        this.classButton += 'sizeButtonRegular--buttonSmall';
         break;
       case 'medium':
-        this.classButton += "sizeButtonRegular--buttonMedium";
+        this.classButton += 'sizeButtonRegular--buttonMedium';
         break;
 
       case 'large':
-        this.classButton += "sizeButtonRegular--buttonLarge";
+        this.classButton += 'sizeButtonRegular--buttonLarge';
         break;
       case 'giant':
-        this.classButton += "sizeButtonRegular--buttonGiant";
+        this.classButton += 'sizeButtonRegular--buttonGiant';
         break;
     }
   }
@@ -154,9 +154,9 @@ export class PackenButtonComponent implements OnInit {
     if (this.positionIcon === 'left') {
       return { 'margin-left': `${margin}px` };
     } else if (this.positionIcon === 'right') {
-      return { 'margin-right': `${margin}px` }
+      return { 'margin-right': `${margin}px` };
     } else {
-      return { 'margin-right': `${margin}px` }
+      return { 'margin-right': `${margin}px` };
     }
   }
 
@@ -214,7 +214,7 @@ export class PackenButtonComponent implements OnInit {
         padding = 10;
         break;
     }
-    return { 'margin-left': `${padding}px`, 'margin-right': `${padding}px` }
+    return { 'margin-left': `${padding}px`, 'margin-right': `${padding}px` };
   }
 
   getPaddingButton() {
@@ -239,7 +239,7 @@ export class PackenButtonComponent implements OnInit {
         padding = 15;
         break;
     }
-    return { 'margin-left': `${padding}px`, 'margin-right': `${padding}px` }
+    return { 'margin-left': `${padding}px`, 'margin-right': `${padding}px` };
   }
 
 }
