@@ -1,0 +1,80 @@
+@import "../../../assets/styles/colors.scss";
+
+.input-file {
+    display: none;
+}
+
+.box-file {
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    border: 1px solid $basic_gray_drk;
+
+    &__icon-left {
+        padding-right: 15px;
+    }
+
+    &__content {
+        font-family: Muli;
+        color: $tertiary_default;
+
+        &__desc {
+            padding-right: 5px;
+
+            &__title {
+                font-weight: bold;
+                padding-right: 5px;
+            }
+        }
+
+        &__state {
+            &--uploaded {
+                color: $success_default;
+            }
+            &--no-uploaded {
+                color: $tertiary_default;
+            }
+        }
+    }
+
+    &__icon-right {
+        padding: 0px 15px;
+    }
+
+    &__size {
+        &--tiny {
+            padding: 5px;
+            font-size: 10px;
+            line-height: 12px;
+        }
+
+        &--small {
+            padding: 7px;
+            font-size: 12px;
+            line-height: 14px;
+        }
+
+        &--medium {
+            padding: 7px;
+            font-size: 14px;
+            line-height: 16px;
+        }
+
+        &--large {
+            padding: 10px;
+            font-size: 16px;
+            line-height: 18px;
+        }
+
+        &--giant {
+            padding: 10px;
+            font-size: 18px;
+            line-height: 20px;
+        }
+    }
+
+    &--disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+}

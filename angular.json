@@ -92,13 +92,12 @@
               "src/styles.scss",
               "src/assets/icons/style.css"
             ],
-            "scripts": []
-          },
-          "codeOverage": true,
-          "codeCoverageExclude": [
-            "src/app/app-component.spec.ts",
-            "src/app/app-component.ts"
-          ]
+            "scripts": [],
+            "sourceMap": true,
+            "codeCoverage": true,
+            "codeCoverageExclude": [
+            ]
+          }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",

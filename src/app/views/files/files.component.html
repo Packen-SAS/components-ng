@@ -1,0 +1,15 @@
+<h2>Files</h2>
+<div class="row">
+    <form #formTest="ngForm">
+        <div class="col-md">
+            <lib-packen-file [disabled]="disabledFile" [uploadedText]="'Archivo cargado'" [noUploadedText]="'Pendiente'"
+                [title]="'Cara 1'" [subtitle]="'(Lado de la fotografia)'" name="lib-file" [(ngModel)]="selectedFile"
+                ngDefaultControl required></lib-packen-file>
+        </div>
+    </form>
+
+    <div>
+        <button class="btn-p" (click)="printFile()" [disabled]="!formTest.valid">Print file</button>
+        <button class="btn-p" (click)="disable()">Disable</button>
+    </div>
+</div>

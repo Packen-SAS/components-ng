@@ -6,21 +6,25 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./packen-avatar.component.scss']
 })
 export class PackenAvatarComponent implements OnInit {
+
   @Input() size: any = null;
   @Input() type: string = "default";
   @Input() src: string = '';
-  @Input() title: string= null;
+  @Input() title: string = null;
 
   sizeImage: number = null;
   imageSelected: any = '';
 
-  valueTemporaly:any = null;
+  valueTemporaly: any = null;
+
   @Output()
   valueChange = new EventEmitter<string>();
+
   @Input()
   get value() {
     return this.valueTemporaly;
   }
+
   set value(val) {
     this.valueTemporaly = val;
     this.valueChange.emit(this.valueTemporaly);
@@ -55,7 +59,7 @@ export class PackenAvatarComponent implements OnInit {
     }
   }
 
-  fileChange(event){
+  fileChange(event) {
     this.valueChange.emit(event.target.files[0]);
     if (event.target.files && event.target.files[0]) {
       let reader = new FileReader();
