@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "uiComponentsWeb": {
+    "ui-components-web": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/uiComponentsWeb",
+            "outputPath": "dist/ui-components-web",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "uiComponentsWeb:build"
+            "browserTarget": "ui-components-web:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "uiComponentsWeb:build:production"
+              "browserTarget": "ui-components-web:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "uiComponentsWeb:build"
+            "browserTarget": "ui-components-web:build"
           }
         },
         "test": {
@@ -92,13 +92,12 @@
               "src/styles.scss",
               "src/assets/icons/style.css"
             ],
-            "scripts": []
-          },
-          "codeOverage": true,
-          "codeCoverageExclude": [
-            "src/app/app-component.spec.ts",
-            "src/app/app-component.ts"
-          ]
+            "scripts": [],
+            "sourceMap": true,
+            "codeCoverage": true,
+            "codeCoverageExclude": [
+            ]
+          }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -117,11 +116,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "uiComponentsWeb:serve"
+            "devServerTarget": "ui-components-web:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "uiComponentsWeb:serve:production"
+              "devServerTarget": "ui-components-web:serve:production"
             }
           }
         }
@@ -168,7 +167,7 @@
       }
     }
   },
-  "defaultProject": "uiComponentsWeb",
+  "defaultProject": "ui-components-web",
   "schematics": {
     "@schematics/angular:component": {
       "styleext": "scss"

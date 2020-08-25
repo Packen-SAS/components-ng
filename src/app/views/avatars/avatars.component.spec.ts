@@ -9,7 +9,9 @@ describe('AvatarsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AvatarsComponent],
+      declarations: [
+        AvatarsComponent
+      ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
       .compileComponents();
@@ -26,6 +28,6 @@ describe('AvatarsComponent', () => {
   });
 
   it('render when click in avatar image ', () => {
-    expect(component.clickComponent());
+    expect(component.clickComponent()).toBeUndefined();
   });
 });

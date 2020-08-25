@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -19,6 +19,8 @@ import { DropdownsComponent } from './views/dropdowns/dropdowns.component';
 import { PinMapComponent } from './views/pin-map/pin-map.component';
 import { TableComponent } from './views/table/table.component';
 import { PackenNgModule } from 'packen-ng';
+import { PackenFileComponent } from './views/packen-file/packen-file.component';
+import { FilesComponent } from './views/files/files.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -35,7 +37,9 @@ import { FormsModule } from '@angular/forms';
     InputsComponent,
     DropdownsComponent,
     PinMapComponent,
-    TableComponent
+    TableComponent,
+    PackenFileComponent,
+    FilesComponent
   ],
   imports: [
     HttpClientModule,

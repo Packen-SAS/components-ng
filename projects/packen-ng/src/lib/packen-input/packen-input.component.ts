@@ -6,6 +6,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./packen-input.component.scss']
 })
 export class PackenInputComponent implements OnInit {
+
   @Input() size: StatesSizesInput = 'small';
   @Input() label: string = '';
   @Input() placeholder: string = '';
@@ -27,25 +28,25 @@ export class PackenInputComponent implements OnInit {
 
   @Output()
   valueChange = new EventEmitter<string>();
+
   @Input()
   get value() {
     return this.messageValue;
   }
+
   set value(val) {
     this.messageValue = val;
     this.valueChange.emit(this.messageValue);
   }
 
-  //Class inputs  
+  // Class inputs  
   classContentTextArea: string = '';
   classInput: string = '';
   classTextArea: string = '';
-  //Class inputs
 
-  //Messages
+  // Messages
   showMessageRequired: boolean = false;
   showMessagePattern: boolean = false;
-  //messages
 
   isFocusInput = null;
 
@@ -194,6 +195,7 @@ export class PackenInputComponent implements OnInit {
     }
   }
 }
+
 type StatesSizesInput = 'tiny' | 'small' | 'medium' | 'large' | 'giant';
 type StatesThemeMessage = 'warning' | 'default' | 'primary' | 'success';
 
@@ -231,7 +233,6 @@ class InputSyzesClass {
   static readonly large = 'content__input-container__input--large';
   static readonly error = ' content__input-container__input--error';
 }
-
 
 class SizeIconInput {
   static readonly tiny = 'content__input-container__icon--tiny';

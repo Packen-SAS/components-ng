@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { PackenNgModule } from 'packen-ng';
 
 import { DividersComponent } from './dividers.component';
 
@@ -8,9 +9,13 @@ describe('DividersComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DividersComponent ]
-    })
-    .compileComponents();
+      declarations: [
+        DividersComponent
+      ],
+      imports: [
+        PackenNgModule,
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

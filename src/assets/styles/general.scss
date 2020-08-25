@@ -1,0 +1,38 @@
+@import "./colors.scss";
+
+button {
+    border: 0px;
+    outline: none;
+}
+
+button[disabled] {
+    cursor: not-allowed;
+}
+
+.btn-p {
+    width: 100%;
+    height: 20px;
+    color: $basic_white_dft;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: Muli;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 20px;
+    transition: all 0.3s;
+    background-color: $primary_default;
+}
+
+button.btn-p:not(:disabled) {
+    background: $primary_default;
+
+    &:hover {
+        background: $btn-hover;
+    }
+}
+
+button.btn-p[disabled] {
+    background: $btn-disabled;
+    cursor: not-allowed;
+}

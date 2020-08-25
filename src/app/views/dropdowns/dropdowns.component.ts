@@ -10,7 +10,6 @@ import { DropdownItem } from 'src/app/interfaces/dropdown-item';
 })
 export class DropdownsComponent implements OnInit {
 
-  constructor() { }
   selectedMenu1: number = 1;
   itemsMenu1: Array<DropdownItem> = [
     {
@@ -36,15 +35,13 @@ export class DropdownsComponent implements OnInit {
     }
   ];
 
-  selectMenuRadio = 1;
-
   selectedMenu2: number = 1;
   itemsMenu2: Array<DropdownItem> = [
     {
       id: 1,
       left: {
         type: 'avatar',
-        src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/1024px-Missing_avatar.svg.png"
+        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/1024px-Missing_avatar.svg.png'
       },
       right: false,
       disabled: false,
@@ -55,7 +52,7 @@ export class DropdownsComponent implements OnInit {
       id: 2,
       left: {
         type: 'avatar',
-        src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/1024px-Missing_avatar.svg.png"
+        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/1024px-Missing_avatar.svg.png'
       },
       right: false,
       disabled: true,
@@ -66,7 +63,7 @@ export class DropdownsComponent implements OnInit {
       id: 3,
       left: {
         type: 'avatar',
-        src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/1024px-Missing_avatar.svg.png"
+        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/1024px-Missing_avatar.svg.png'
       },
       right: false,
       disabled: false,
@@ -154,14 +151,19 @@ export class DropdownsComponent implements OnInit {
     { id: 3, label: 'Label 3', state: 'unchecked', disabled: true }
   ];
 
-
+  selectMenuRadio = 1;
+  selectIdRadio = 1;
   radios: Array<RadioItem> = [
     { id: 1, label: 'Label 1', disabled: false },
     { id: 2, label: 'Label 2', disabled: false },
     { id: 3, label: 'Label 3', disabled: false },
     { id: 4, label: 'Label 4', disabled: true }
   ];
-  selectIdRadio = 1;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 
   changeItemMenu1 = (item): void => {
     this.selectedMenu1 = item;
@@ -176,19 +178,11 @@ export class DropdownsComponent implements OnInit {
   }
 
   changeCheckbox = (data): void => {
-    let check = this.checkboxes.find((check) => data.id == check.id);
+    const check = this.checkboxes.find(ch => data.id === ch.id);
     check.state = data.state;
   }
 
   changeRadio = (data): void => {
     this.selectIdRadio = data;
-  }
-
-  ngOnInit(): void {
-
-  }
-
-  toString(value){
-    return JSON.stringify(value);
   }
 }

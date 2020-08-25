@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { PackenNgModule } from 'projects/packen-ng/src/public-api';
 
 import { PinMapComponent } from './pin-map.component';
 
@@ -8,9 +9,13 @@ describe('PinMapComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PinMapComponent ]
-    })
-    .compileComponents();
+      declarations: [
+        PinMapComponent
+      ],
+      imports: [
+        PackenNgModule,
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

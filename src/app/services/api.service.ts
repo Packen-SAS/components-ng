@@ -19,19 +19,19 @@ export class ApiService {
     params = params.append('page', page);
 
     const sesion = {
-      client: "qUD-WQYsgcvctwLfOThfBw",
+      client: 'qUD-WQYsgcvctwLfOThfBw',
       keepSession: true,
-      token: "tRAeovKiZGR02ye3i1yj5w",
-      uid: "juan.contreras@packen.co"
-    }
+      token: 'tRAeovKiZGR02ye3i1yj5w',
+      uid: 'juan.contreras@packen.co'
+    };
 
     let headers: HttpHeaders = new HttpHeaders();
-    headers = headers.set("Access-Token", sesion.token)
-      .set("client", sesion.client)
-      .set("uid", sesion.uid);
-    headers = headers.set("Content-Type", "application/json");
+    headers = headers.set('Access-Token', sesion.token)
+      .set('client', sesion.client)
+      .set('uid', sesion.uid);
+    headers = headers.set('Content-Type', 'application/json');
 
-    return this.http.get("https://packen-api-dev.herokuapp.com/api/v2/shipments/admin/list", { headers: headers, params: params, responseType: 'json' });
+    return this.http.get('https://packen-api-dev.herokuapp.com/api/v2/shipments/admin/list', { headers: headers, params: params, responseType: 'json' });
   }
 
 }
