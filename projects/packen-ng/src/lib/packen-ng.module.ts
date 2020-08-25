@@ -15,6 +15,7 @@ import { PackenTableComponent } from './packen-table/packen-table.component';
 import { PackenCarouselComponent } from './packen-carousel/packen-carousel.component';
 import { ClickOutsideModule } from 'ng-click-outside';
 import { FormsModule } from '@angular/forms';
+import { PackenFileComponent } from './packen-file/packen-file.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FormsModule } from '@angular/forms';
     PackenTabsComponent,
     PackenToggleComponent,
     PackenTableComponent,
-    PackenCarouselComponent
+    PackenCarouselComponent,
+    PackenFileComponent
   ],
   imports: [
     CommonModule,
@@ -48,7 +50,8 @@ import { FormsModule } from '@angular/forms';
     PackenTabsComponent,
     PackenToggleComponent,
     PackenTableComponent,
-    PackenCarouselComponent
+    PackenCarouselComponent,
+    PackenFileComponent
   ]
 })
 export class PackenNgModule { }

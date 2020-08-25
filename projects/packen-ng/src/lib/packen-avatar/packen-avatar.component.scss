@@ -1,4 +1,5 @@
-@import "../../styles/colors.scss";
+@import "../../assets/styles/colors.scss";
+
 .img {
     border-radius: 100%;
     overflow: hidden;
@@ -17,13 +18,13 @@
 }
 
 .content {
-    label{
-        margin:0;
+    label {
+        margin: 0;
         margin-top: 5px;
     }
     width: fit-content;
     &__title {
-        font-family: 'Muli';
+        font-family: "Muli";
         margin: 0;
         cursor: pointer;
         font-size: 12px;

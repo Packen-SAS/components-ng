@@ -4,7 +4,7 @@
   "description": "Ui components library of Packen.",
   "main": "index.js",
   "scripts": {
-    "test": "ng test"
+    "test": "ng test --no-progress --code-coverage"
   },
   "repository": {
     "type": "git",

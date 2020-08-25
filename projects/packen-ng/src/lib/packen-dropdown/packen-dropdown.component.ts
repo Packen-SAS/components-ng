@@ -7,20 +7,18 @@ import { DropdownItem } from '../../interfaces/dropdown-item';
   styleUrls: ['./packen-dropdown.component.scss']
 })
 export class PackenDropdownComponent implements OnInit {
+
   @Input() items: Array<any> = [];
   @Input() selected: number = 1;
   @Input() label: string = '';
   @Input() type: string = 'default';
   @Input() selectedItemId: number = 0;
   @Input() size: string = 'tiny'
+
   @Output() outputChangeItem = new EventEmitter<any>();
   @Output() changeCheckbox = new EventEmitter<any>();
+  @Output() valueChange = new EventEmitter<any>();
 
-  temporaryData = null;
-  temporaryChecks = null;
-
-  @Output()
-  valueChange = new EventEmitter<any>();
   @Input()
   get value() {
     return this.temporaryData;
@@ -31,6 +29,8 @@ export class PackenDropdownComponent implements OnInit {
   }
 
   textInput = '';
+  temporaryData = null;
+  temporaryChecks = null;
 
   itemSelected: DropdownItem = {
     id: 0,
@@ -51,14 +51,13 @@ export class PackenDropdownComponent implements OnInit {
     this.getItemSelected();
   }
 
-  getItemSelected = async () => {
+  getItemSelected = () => {
     if (this.type !== 'radio' && this.type !== 'checkbox') {
-      this.itemSelected = await this.items.find((item) => item.id == this.value);
-      this.textInput = this.itemSelected.title;
+      this.itemSelected = this.items.find((item) => item.id == this.value);
+      this.textInput = this.itemSelected ? this.itemSelected.title : null;
     } else {
       let radio = this.items.find((item) => item.id == this.selectedItemId);
       if (radio) {
-        this.itemSelected.title = radio.label;
         this.textInput = radio.label;
       }
     }
@@ -152,7 +151,7 @@ export class PackenDropdownComponent implements OnInit {
     let newArray = [];
     this.items.forEach((item) => {
       if (this.type !== 'radio' && this.type !== 'checkbox') {
-        if(item.title.toUpperCase().includes(text.toUpperCase())){
+        if (item.title.toUpperCase().includes(text.toUpperCase())) {
           newArray.push(item);
         }
       } else {

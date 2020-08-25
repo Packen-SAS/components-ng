@@ -8,9 +8,8 @@ describe('PackenDividerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PackenDividerComponent ]
-    })
-    .compileComponents();
+      declarations: [PackenDividerComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -23,19 +22,19 @@ describe('PackenDividerComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('render getHeight when divider type is dark', () =>{
-    expect(component.getHeight('dark'));
+  it('render getHeight when divider type is dark', () => {
+    expect(component.getHeight('dark')).toEqual(2);
   });
 
-  it('render getHeight when divider type is light', () =>{
-    expect(component.getHeight('light'));
+  it('render getHeight when divider type is light', () => {
+    expect(component.getHeight('light')).toEqual(1);
   });
 
-  it('render class color when divider type is dark', () =>{
-    expect(component.getClassColorDivider('dark'));
+  it('render class color when divider type is dark', () => {
+    expect(component.getClassColorDivider('dark')).toEqual('dark');
   });
 
-  it('render class color when divider type is light', () =>{
-    expect(component.getClassColorDivider('light'));
+  it('render class color when divider type is light', () => {
+    expect(component.getClassColorDivider('light')).toEqual('light');
   });
 });

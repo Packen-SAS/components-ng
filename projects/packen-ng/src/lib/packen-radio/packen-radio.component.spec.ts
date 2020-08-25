@@ -61,8 +61,6 @@ describe('PackenRadioComponent', () => {
     var objRadio: RadioItem = { id: 1, disabled: true, label: 'label' };
     expect(component.getClassRadio(objRadio)).toEqual('contentRadio__radio--selected--disabled');
   });
-  //Checkbox class style
-
 
   //Emit change of radio
   it('render when emit change of radio and disabled check is false ', () => {
@@ -74,8 +72,6 @@ describe('PackenRadioComponent', () => {
     var objRadio: RadioItem = { id: 1, disabled: true, label: 'label' };
     expect(component.selectRadio(objRadio)).toBeUndefined();
   })
-  //Emit change of radio
-
 
   //Class styles of cursor
   it('render the class style of cursor when radio is disabled', () => {
@@ -85,6 +81,4 @@ describe('PackenRadioComponent', () => {
   it('render the class style of cursor when radio is not disabled ', () => {
     expect(component.getClassTypeCursor(false)).toEqual('contentRadio--default');
   });
-  //Class styles of cursor
-
 });

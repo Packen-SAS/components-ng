@@ -19,7 +19,6 @@ import { DropdownsComponent } from './views/dropdowns/dropdowns.component';
 import { PinMapComponent } from './views/pin-map/pin-map.component';
 import { TableComponent } from './views/table/table.component';
 import { PackenNgModule } from 'packen-ng';
-import { PackenFileComponent } from './views/packen-file/packen-file.component';
 import { FilesComponent } from './views/files/files.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -38,7 +37,6 @@ import { FormsModule } from '@angular/forms';
     DropdownsComponent,
     PinMapComponent,
     TableComponent,
-    PackenFileComponent,
     FilesComponent
   ],
   imports: [

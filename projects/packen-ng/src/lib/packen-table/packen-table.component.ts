@@ -9,8 +9,8 @@ import { ItemInfo, TableColumn, TableRow, TableHeader } from '../../interfaces/t
 export class PackenTableComponent implements OnInit {
 
   // Atributos de la tabla
-  @Input() headers: TableHeader[];
-  @Input() list: TableRow[];
+  @Input() headers: TableHeader[] = [];
+  @Input() list: TableRow[] = [];
   @Input() showLoading: boolean;
   @Input() emptyText: string;
   @Output() onSelectRow = new EventEmitter<TableRow>();

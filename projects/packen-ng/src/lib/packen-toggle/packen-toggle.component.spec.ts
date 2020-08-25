@@ -10,8 +10,7 @@ describe('PackenToggleComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [PackenToggleComponent]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -34,24 +33,20 @@ describe('PackenToggleComponent', () => {
     var objToggle: ToggleItem = { id: 1, disabled: false, offLabel: "Off", onLabel: 'On', status: 'checked' }
     expect(component.getClassStylesColor(objToggle)).toEqual('switch__slider--default');
   });
-  //Styles of toggle
-  
 
   //Change toggle
   it('render function changeToggle when is disabled', () => {
     var objToggle: ToggleItem = { id: 1, disabled: true, offLabel: "Off", onLabel: "On", status: 'checked' };
-    expect(component.changeToggle(objToggle));
+    expect(component.changeToggle(objToggle)).toBeUndefined();
   });
 
   it('render function changeToggle for value status, status is checked and disabled is false', () => {
     var objToggle: ToggleItem = { id: 1, disabled: false, offLabel: "Off", onLabel: "On", status: 'checked' };
-    expect(component.changeToggle(objToggle));
+    expect(component.changeToggle(objToggle)).toBeUndefined();
   });
 
   it('render function changeToggle for value status, status is unchecked and disabled is false', () => {
     var objToggle: ToggleItem = { id: 1, disabled: false, offLabel: 'Off', onLabel: "On", status: 'unchecked' };
-    expect(component.changeToggle(objToggle));
-
+    expect(component.changeToggle(objToggle)).toBeUndefined();
   });
-  //Change toggle
 });

@@ -11,8 +11,7 @@ describe('PackenAvatarComponent', () => {
     TestBed.configureTestingModule({
       declarations: [PackenAvatarComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {

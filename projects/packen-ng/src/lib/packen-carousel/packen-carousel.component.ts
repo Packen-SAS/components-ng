@@ -6,17 +6,18 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./packen-carousel.component.scss']
 })
 export class PackenCarouselComponent implements OnInit {
+
+  @Input() images: any = [];
+
   fadeIn = '';
   principalImage = null;
   classItem = '';
   lastPosition = 0;
-  @Input() images: any = [];
-
 
   constructor() { }
 
   ngOnInit(): void {
-     this.loadPrincipalImage();
+    this.loadPrincipalImage();
   }
 
   /**
@@ -24,7 +25,7 @@ export class PackenCarouselComponent implements OnInit {
    */
   loadPrincipalImage() {
     this.fadeIn = 'fade-in';
-    this.principalImage = this.images[this.lastPosition].url;
+    this.principalImage = this.images[this.lastPosition] ? this.images[this.lastPosition].url : null;
   }
 
   /**
@@ -38,7 +39,7 @@ export class PackenCarouselComponent implements OnInit {
       this.principalImage = this.images[position].url;
       setTimeout(() => {
         this.fadeIn = 'fade-in';
-      }, 10); 
+      }, 10);
     }
   }
 
@@ -67,9 +68,11 @@ export class PackenCarouselComponent implements OnInit {
     }
   }
 
-
-  loadClassStylesMovil(image){
-    if(image.url == this.principalImage){
+  /**
+   * Function load the styles of container images footer when is mobile
+   */
+  loadClassStylesMovil(image) {
+    if (image.url == this.principalImage) {
       return StylesItemsFooterMovil.selected;
     }
     return StylesItemsFooterMovil.default;
@@ -81,9 +84,7 @@ class StylesImagesFooter {
   static readonly default = 'content__list__cnt-image';
 }
 
-class StylesItemsFooterMovil{
-  static readonly default = 'content__list-movil__item';
+class StylesItemsFooterMovil {
   static readonly selected = 'content__list-movil__item content__list-movil__item--selected';
+  static readonly default = 'content__list-movil__item';
 }
-
-

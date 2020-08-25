@@ -7,12 +7,11 @@ import { CheckItem } from '../../interfaces/check-item';
   styleUrls: ['./packen-checkbox.component.scss']
 })
 export class PackenCheckboxComponent implements OnInit {
+
   @Input() checkboxes: Array<CheckItem> = [];
   @Input() orientation: string = 'vertical';
 
-  temporaryValues: any = null;
-  @Output()
-  valuesChange = new EventEmitter<any>();
+  @Output() valuesChange = new EventEmitter<any>();
 
   @Input()
   get values() {
@@ -22,6 +21,8 @@ export class PackenCheckboxComponent implements OnInit {
     this.temporaryValues = val;
     this.valuesChange.emit(this.temporaryValues);
   }
+
+  temporaryValues: any = null;
 
   constructor() { }
 

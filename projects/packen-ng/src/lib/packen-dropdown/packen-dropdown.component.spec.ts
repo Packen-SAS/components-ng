@@ -11,8 +11,7 @@ describe('PackenDropdownComponent', () => {
     TestBed.configureTestingModule({
       declarations: [PackenDropdownComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -41,7 +40,10 @@ describe('PackenDropdownComponent', () => {
       disabled: false,
       title: 'Menu item 2'
     }];
-    expect(component.getItemSelected()).toBeDefined();
+    expect(component.getItemSelected()).toBeUndefined();
+
+    component.value = 1;
+    expect(component.getItemSelected()).toBeUndefined();
   });
 
   it('render item selected when the type is radio', () => {
@@ -62,7 +64,7 @@ describe('PackenDropdownComponent', () => {
 
     component.type = 'radio';
     component.selectedItemId = 1;
-    expect(component.getItemSelected()).toBeDefined();
+    expect(component.getItemSelected()).toBeUndefined();
   });
 
   it('render item selected when the type is radio and not isset the radio selected', () => {
@@ -83,7 +85,7 @@ describe('PackenDropdownComponent', () => {
 
     component.type = 'radio';
     component.selectedItemId = 3;
-    expect(component.getItemSelected()).toBeDefined();
+    expect(component.getItemSelected()).toBeUndefined();
   });
 
   it('render class of item when is disabled', () => {

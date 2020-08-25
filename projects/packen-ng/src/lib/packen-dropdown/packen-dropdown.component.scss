@@ -1,4 +1,4 @@
-@import "../../styles/colors.scss";
+@import "../../assets/styles/colors.scss";
 
 .content {
   width: 100%;
@@ -45,7 +45,7 @@
         color: $white !important;
       }
 
-      &--disabled{
+      &--disabled {
         color: $basic_gray_lgt !important;
       }
     }
