@@ -21,6 +21,7 @@ import { TableComponent } from './views/table/table.component';
 import { PackenNgModule } from 'packen-ng';
 import { PackenFileComponent } from './views/packen-file/packen-file.component';
 import { FilesComponent } from './views/files/files.component';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -43,6 +44,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     HttpClientModule,
     BrowserModule,
+    CommonModule,
     FormsModule,
     FeatherModule.pick(allIcons),
     ClickOutsideModule,

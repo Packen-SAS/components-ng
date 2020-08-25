@@ -174,8 +174,8 @@ This component is for input or textarea
 <app-packen-input size="tiny" label="Normal tiny required and pattern" icon="icon-lock" [(value)]="valueTest"
     placeholder="placeholder" type="text" textArea="false" required="true"
     messageErrorValidation="Error de validación" themeMessage="warning" iconMessage="icon-info" disabled="false"
-    messageErrorPattern="Error de pattern" [pattern]="patternTest"></app-packen-input>
-```
+    messageErrorPattern="Error de pattern" [pattern]="patternTest" [maxlength]="6" [minlength]="5"></app-packen-input>
+``` 
 
 #### Component appearance
 
@@ -185,7 +185,6 @@ This component is for input or textarea
 ![](https://packenco.s3.amazonaws.com/packen_ng/packen_input/textarea-normal.png)
 ![](https://packenco.s3.amazonaws.com/packen_ng/packen_input/text-area-disabled.png)
 ![](https://packenco.s3.amazonaws.com/packen_ng/packen_input/text-area-required.png)
-
 
 
 #### Options
@@ -200,7 +199,9 @@ This component is for input or textarea
  - **messageErrorValidation**: This message show when value inpus is empty.
  - **themeMessage**: It define the theme of message to show `(warning|default|primary|success)`.
  - **iconMessage**: It defines the icon of message to show. `('icon-info', 'icon-archive', etc)`  **NOTE**: If this name icon not isset the icon is empty.
- - **disabled**: It define if the input is disabled      `(true|false)`.
+ - **maxlength**: It defines the max length of the value. **NOTE**: this item is a number and not is required.
+ - **minlength**: It defines the min length of the value. **NOTE**: this item is a number and not is required.
+ - **disabled**: It define if the input is disabled. `(true|false)`.
  - **messageErrorPattern**: This message show when not validate the pattern.
  - **pattern**: Pattern for validate the value `Examples:('/\d/', '/^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/', etc)`.
 
