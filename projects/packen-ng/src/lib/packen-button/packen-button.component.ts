@@ -101,12 +101,11 @@ export class PackenButtonComponent implements OnInit {
           this.classButton += ' button button--btnPrimary';
         }
         break;
-
       case 'ghost-outline':
-        if(this.disabled === true){
+        if (this.disabled === true) {
           this.classButton += ' buttonDisabled--btnGhostOutlineDisabled';
-        }else{
-          this.classButton += 'button button--btnGhostOutline'
+        } else {
+          this.classButton += ' button button--btnGhostOutline'
         }
         break;
     }
@@ -125,7 +124,6 @@ export class PackenButtonComponent implements OnInit {
       case 'medium':
         this.classButton += 'sizeButtonRegular--buttonMedium';
         break;
-
       case 'large':
         this.classButton += 'sizeButtonRegular--buttonLarge';
         break;
