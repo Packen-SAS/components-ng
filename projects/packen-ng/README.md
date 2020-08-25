@@ -29,6 +29,7 @@ import {
 The **PackenNgModule** contain follow components:
 
 >
+> * [FileComponent](#FileComponent)
 > * [PinMapComponent](#PinMapComponent)
 > * [TableComponent](#TableComponent)
 > * [InputsComponent](#InputComponent)
@@ -42,6 +43,37 @@ The **PackenNgModule** contain follow components:
 > * TogglesComponent
 
 ## How to use each component
+
+### FileComponent
+
+#### Description
+
+``` 
+This component is an input to load a specific File.
+```
+
+#### Use it in HTML
+
+``` html
+<lib-packen-file [disabled]="disabledFile" [uploadedText]="'Archivo cargado'" [noUploadedText]="'Pendiente'" [title]="'Cara 1'" 
+  [subtitle]="'(Lado de la fotografia)'" name="lib-file" [(ngModel)]="selectedFile" ngDefaultControl required>
+</lib-packen-file>
+```
+
+#### Component appearance
+
+![](https://packenco.s3.amazonaws.com/packen_ng/packen_file/packen-file-default.png)
+![](https://packenco.s3.amazonaws.com/packen_ng/packen_file/packen-file-loaded.png)
+
+#### Options
+
+ - **size**: It defines the size box of the input. Posibles values to use: `(tiny|small|medium|large|giant)` .
+ - **disabled**: It defines if the input is enabled or not: `(true|false)` .
+ - **iconLeft**: Url of the left side icon .
+ - **title**: Main text in the input content .
+ - **subtitle**: Description text in the input content .
+ - **noUploadedText**: Text to show when the file is not uploded yet .
+ - **uploadedText**: Text to show when the file is uploaded .
 
 ### PinMapComponent
 
