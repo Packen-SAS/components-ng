@@ -152,4 +152,10 @@ p {
     background-color: $disabled_alt;
     color: $white_opacity0_5;
   }
+
+  &--btnGhostOutlineDisabled {
+    background-color: $ghost_default;
+    color: $disabled_alt;
+    border: 1px solid $secondary_hover;
+  }
 }

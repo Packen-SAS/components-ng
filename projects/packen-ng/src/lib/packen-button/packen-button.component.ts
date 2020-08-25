@@ -104,7 +104,7 @@ export class PackenButtonComponent implements OnInit {
 
       case 'ghost-outline':
         if(this.disabled === true){
-
+          this.classButton += ' buttonDisabled--btnGhostOutlineDisabled';
         }else{
           this.classButton += 'button button--btnGhostOutline'
         }
