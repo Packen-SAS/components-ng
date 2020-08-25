@@ -6,15 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./avatars.component.scss']
 })
 export class AvatarsComponent implements OnInit {
-  imageFile:any = null;
+
+  imageFile: any = null;
+
   constructor() { }
 
   ngOnInit(): void {
-    
   }
 
-  clickComponent = () =>{
-    alert("acción emitida");
+  clickComponent = () => {
+    console.log('acción emitida');
   }
 
 }

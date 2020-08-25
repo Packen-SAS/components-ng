@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tabs.component.scss']
 })
 export class TabsComponent implements OnInit {
+
+  activeTabId: number = 2;
+
   tabs = [{
     label: 'Label 1',
     id: 1,
@@ -18,7 +21,7 @@ export class TabsComponent implements OnInit {
     label: 'Label 3',
     id: 3,
   }];
-  activeTabId:number =2;
+
   constructor() { }
 
   ngOnInit(): void {

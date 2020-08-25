@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { PackenNgModule } from 'packen-ng';
 
 import { InputsComponent } from './inputs.component';
 
@@ -8,9 +9,13 @@ describe('InputsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InputsComponent ]
-    })
-    .compileComponents();
+      declarations: [
+        InputsComponent
+      ],
+      imports: [
+        PackenNgModule,
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

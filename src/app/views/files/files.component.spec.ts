@@ -4,7 +4,7 @@ import { PackenFileComponent } from '../packen-file/packen-file.component';
 
 import { FilesComponent } from './files.component';
 
-fdescribe('FilesComponent', () => {
+describe('FilesComponent', () => {
   let component: FilesComponent;
   let fixture: ComponentFixture<FilesComponent>;
 

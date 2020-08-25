@@ -2,31 +2,35 @@
 
 <div class="row">
     <div class="col-sm-5">
-
         <app-packen-dropdown [selected]="selectedMenu1" [(value)]="selectedMenu1" [items]="itemsMenu1" size="medium"
-            label="Menu 1" type="default"></app-packen-dropdown>
+            label="Menu 1" type="default">
+        </app-packen-dropdown>
         <br>
 
         <app-packen-dropdown [selected]="selectedMenu2" [(value)]="selectedMenu2" [items]="itemsMenu2" size="medium"
-            label="Menu 2" type="default"></app-packen-dropdown>
+            label="Menu 2" type="default">
+        </app-packen-dropdown>
         <br>
 
         <app-packen-dropdown [selected]="selectedMenu3" [(value)]="selectedMenu3" [items]="itemsMenu3" size="medium"
-            label="Menu 3" type="default"></app-packen-dropdown>
+            label="Menu 3" type="default">
+        </app-packen-dropdown>
         <br>
 
         <app-packen-dropdown [selected]="selectedMenu3" [(value)]="selectedMenu3" [items]="itemsMenu4" size="medium"
-            label="Menu item" type="default"></app-packen-dropdown>
+            label="Menu item" type="default">
+        </app-packen-dropdown>
         <br>
 
         <app-packen-dropdown [items]="checkboxes" size="medium" label="Menu Checkbox" value="Value not change"
-      type="checkbox"></app-packen-dropdown> 
+            type="checkbox">
+        </app-packen-dropdown>
         <br>
 
         <app-packen-dropdown [items]="radios" [(value)]="selectMenuRadio" size="large" label="Menu radios" type="radio">
         </app-packen-dropdown>
         <br>
-        
     </div>
+
     <div class="col-sm"></div>
 </div>

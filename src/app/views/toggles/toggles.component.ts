@@ -12,17 +12,17 @@ export class TogglesComponent implements OnInit {
     { id: 1, status: 'checked', disabled: false, onLabel: 'Si', offLabel: 'No' },
     { id: 2, status: 'unchecked', disabled: false, onLabel: 'On', offLabel: 'Off' },
     { id: 3, status: 'unchecked', disabled: true, onLabel: 'Si', offLabel: 'No' },
-    { id: 4, status: 'checked', disabled: true, onLabel: 'Yes', offLabel : 'No' }
+    { id: 4, status: 'checked', disabled: true, onLabel: 'Yes', offLabel: 'No' }
   ];
-
-  changeToggle = (data) => {
-    let toggle = this.toggles.find((t) => t.id == data.id);
-    toggle.status = data.status;
-  }
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  changeToggle = (data) => {
+    const toggle = this.toggles.find((t) => t.id === data.id);
+    toggle.status = data.status;
   }
 
 }

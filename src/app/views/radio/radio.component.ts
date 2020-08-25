@@ -7,6 +7,8 @@ import { RadioItem } from '../../interfaces/radio-item';
 })
 export class RadioComponent implements OnInit {
 
+  selectedItemId: number = 1;
+
   radios: Array<RadioItem> = [
     { id: 1, label: 'Label 1', disabled: false },
     { id: 2, label: 'Label 2', disabled: false },
@@ -14,13 +16,12 @@ export class RadioComponent implements OnInit {
     { id: 4, label: 'Label 4', disabled: true }
   ];
 
-  selectedItemId: number = 1;
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  changeRadio(value){
+  changeRadio(value) {
     this.selectedItemId = value;
   }
 

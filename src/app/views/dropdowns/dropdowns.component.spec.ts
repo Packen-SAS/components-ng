@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { PackenNgModule } from 'packen-ng';
 
 import { DropdownsComponent } from './dropdowns.component';
 
@@ -8,9 +9,13 @@ describe('DropdownsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DropdownsComponent]
-    })
-      .compileComponents();
+      declarations: [
+        DropdownsComponent
+      ],
+      imports: [
+        PackenNgModule,
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -36,17 +41,17 @@ describe('DropdownsComponent', () => {
   });
 
   it('render function when change checkbox ', () => {
-    let objCheck = { id: 1, label: 'Label 1', state: 'checked', disabled: false };
+    const objCheck = { id: 1, label: 'Label 1', state: 'checked', disabled: false };
 
     component.checkboxes = [{ id: 1, label: 'Label 1', state: 'checked', disabled: false },
     { id: 2, label: 'Label 2', state: 'checked', disabled: true },
-    { id: 3, label: 'Label 3', state: 'unchecked', disabled: true }]
+    { id: 3, label: 'Label 3', state: 'unchecked', disabled: true }];
+
     expect(component.changeCheckbox(objCheck)).toBeUndefined();
   });
 
-  it('render when exect function change radio', () =>{
+  it('render when exect function change radio', () => {
     expect(component.changeRadio(2)).toBeUndefined();
-  }); 
-
+  });
 
 });
