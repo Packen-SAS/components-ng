@@ -11,7 +11,7 @@ export class PackenButtonComponent implements OnInit {
   @Input() icon: any = null;
   @Input() positionIcon: any = null;
   @Input() size: any = null;
-  @Input() disabled: any = null;
+  @Input() disabled: boolean = null;
   @Input() title: any = '';
   @Output() outputClick = new EventEmitter<any>();
 
@@ -20,7 +20,7 @@ export class PackenButtonComponent implements OnInit {
   constructor() { }
 
   buttonClick = () => {
-    if (this.disabled !== 'true') {
+    if (this.disabled !== true) {
       this.outputClick.emit();
     }
     return true;
@@ -62,21 +62,21 @@ export class PackenButtonComponent implements OnInit {
   loadLevelButton = () => {
     switch (this.level) {
       case 'danger':
-        if (this.disabled === 'true') {
+        if (this.disabled === true) {
           this.classButton += " buttonDisabled buttonDisabled--btnDangerDisabled";
         } else {
           this.classButton += " button button--btnDanger";
         }
         break;
       case 'ghost':
-        if (this.disabled === 'true') {
+        if (this.disabled === true) {
           this.classButton += " buttonDisabled buttonDisabled--btnGhostDisabled";
         } else {
           this.classButton += " button button--btnGhost";
         }
         break;
       case 'tertiary':
-        if (this.disabled === 'true') {
+        if (this.disabled === true) {
           this.classButton += " buttonDisabled buttonDisabled--btnTertiaryDisabled";
         } else {
           this.classButton += " button button--btnTertiary";
@@ -84,7 +84,7 @@ export class PackenButtonComponent implements OnInit {
         break;
 
       case 'secondary':
-        if (this.disabled === 'true') {
+        if (this.disabled === true) {
           this.classButton += " buttonDisabled buttonDisabled--btnSecondaryDisabled";
         } else {
           this.classButton += " button button--btnSecondary";
@@ -92,7 +92,7 @@ export class PackenButtonComponent implements OnInit {
         break;
 
       case 'primary':
-        if (this.disabled === 'true') {
+        if (this.disabled === true) {
           this.classButton += " buttonDisabled buttonDisabled--btnPrimaryDisabled";
         } else {
           this.classButton += " button button--btnPrimary";
