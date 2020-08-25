@@ -1,6 +1,6 @@
-<div class="container mt-3">
+<div class="container mt-12">
     <div class="row">
-        <div class="col-sm">
+        <div class="col-sm-12">
             <h2>Buttons primary</h2>
             <lib-packen-button type="icon" level="primary" icon="icon-arrow-circle-right" size="tiny"
                 (outputClick)="clickButton()">
@@ -26,7 +26,7 @@
                 (outputClick)="clickButton()"></lib-packen-button>
             <hr />
 
-            <lib-packen-button type="regular" level="primary" size="tiny" title="Button" icon="icon-arrow-left"
+            <lib-packen-button [fullwidth]="true" type="regular" level="primary" size="tiny" title="Button" icon="icon-arrow-left"
                 (outputClick)="clickButton()" positionIcon="left">
             </lib-packen-button>
 
@@ -36,13 +36,13 @@
             </lib-packen-button>
 
             <br>
-            <lib-packen-button type="regular" level="primary" size="medium" title="Button" icon="icon-arrow-left"
+            <lib-packen-button [fullwidth]="true" type="regular" level="primary" size="medium" title="Button" icon="icon-arrow-left"
                 (outputClick)="clickButton()" positionIcon="left">
             </lib-packen-button>
 
             <br>
             <lib-packen-button type="regular" level="primary" size="large" title="Button" icon="icon-arrow-right"
-                (outputClick)="clickButton()" positionIcon="right">
+                (outputClick)="clickButton()" [fullwidth]="true" positionIcon="right">
             </lib-packen-button>
 
             <br>
@@ -80,7 +80,7 @@
                 [disabled]="true" (outputClick)="clickButton()"></lib-packen-button>
             <hr />
 
-            <lib-packen-button type="regular" level="secondary" size="tiny" title="Button" icon="icon-arrow-left"
+            <lib-packen-button type="regular"  level="secondary" size="tiny" title="Button" icon="icon-arrow-left"
                 (outputClick)="clickButton()" positionIcon="left">
             </lib-packen-button>
 

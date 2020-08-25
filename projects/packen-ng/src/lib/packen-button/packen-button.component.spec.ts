@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PackenButtonComponent } from './packen-button.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-describe('PackenButtonComponent', () => {
+fdescribe('PackenButtonComponent', () => {
   let component: PackenButtonComponent;
   let fixture: ComponentFixture<PackenButtonComponent>;
 
@@ -24,7 +24,7 @@ describe('PackenButtonComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  //Render on button click 
+  // Render on button click 
   it('render on button click when disables is false or other', () => {
     component.disabled = false;
     expect(component.buttonClick()).toBeTrue();
@@ -35,7 +35,7 @@ describe('PackenButtonComponent', () => {
     expect(component.buttonClick()).toBeTrue();
   });
 
-  //Render values of input
+  // Render values of input
   it('render value default type input', () => {
     expect(component.type).toBeNull();
   });
@@ -64,7 +64,7 @@ describe('PackenButtonComponent', () => {
     expect(component.title).toEqual('');
   });
 
-  //Render on init with type of button
+  // Render on init with type of button
   it('render onInit when of type button is icon ', () => {
     component.type = 'icon';
     expect(component.ngOnInit()).toBeUndefined();
@@ -75,7 +75,7 @@ describe('PackenButtonComponent', () => {
     expect(component.ngOnInit()).toBeUndefined();
   });
 
-  //Render syles icon when type of button is icon
+  // Render syles icon when type of button is icon
   it('render style icon when type button is tiny', () => {
     component.size = 'tiny';
     expect(component.loadStylesButtonsIcon()).toBeTrue();
@@ -96,7 +96,7 @@ describe('PackenButtonComponent', () => {
     expect(component.loadStylesButtonsIcon()).toBeTrue();
   });
 
-  //Render levels of buttons and is disabled or not disabled
+  // Render levels of buttons and is disabled or not disabled
   it('render when level of button is danger and disabled is false', () => {
     component.disabled = false;
     component.level = 'danger';
@@ -157,7 +157,7 @@ describe('PackenButtonComponent', () => {
     expect(component.loadLevelButton()).toBeTrue();
   });
 
-  //Styles of regulars buttons
+  // Styles of regulars buttons
   it('render styles of button when size is tiny', () => {
     component.size = 'tiny';
     expect(component.loadStylesButtonsRegular()).toBeUndefined();
@@ -183,7 +183,7 @@ describe('PackenButtonComponent', () => {
     expect(component.loadStylesButtonsRegular()).toBeUndefined();
   });
 
-  //Render margin of icons regular button
+  // Render margin of icons regular button
   it('render margin when type of button is regular, size is tiny and position icon is left', () => {
     component.type = 'regular';
     component.size = 'tiny';
@@ -267,7 +267,7 @@ describe('PackenButtonComponent', () => {
 
   });
 
-  //Render width icon when type button is regular
+  // Render width icon when type button is regular
   it('render width icon when button is regular and size is tiny', () => {
     component.size = 'tiny';
     expect(component.getWidthIconRegular()).toEqual(15);
@@ -298,7 +298,7 @@ describe('PackenButtonComponent', () => {
     expect(component.getWidthIconRegular()).toEqual(11);
   });
 
-  //Render width icon when type button is icon
+  // Render width icon when type button is icon
   it('render width icon when type button is icon and size is tiny', () => {
     component.size = 'tiny';
     expect(component.getWithIcon()).toEqual(11);
@@ -324,35 +324,66 @@ describe('PackenButtonComponent', () => {
     expect(component.getWithIcon()).toEqual(16);
   });
 
-  //Render padding of label button
+  // Render padding of label button
   it('render padding label button when size is tiny', () => {
     component.size = 'tiny';
-    expect(component.getPaddingLabel()).toEqual({ 'margin-left': '32px', 'margin-right': '32px' });
+    expect(component.getPaddingLabel()).toEqual({ 'margin-left': '10px', 'margin-right': '10px' });
   });
 
   it('render padding label button when size is small', () => {
     component.size = 'small';
-    expect(component.getPaddingLabel()).toEqual({ 'margin-left': '44px', 'margin-right': '44px' });
+    expect(component.getPaddingLabel()).toEqual({ 'margin-left': '15px', 'margin-right': '15px' });
   });
 
   it('render padding label button when size is medium', () => {
     component.size = 'medium';
-    expect(component.getPaddingLabel()).toEqual({ 'margin-left': '46px', 'margin-right': '46px' });
+    expect(component.getPaddingLabel()).toEqual({ 'margin-left': '15px', 'margin-right': '15px' });
   });
 
   it('render padding label button when size is large', () => {
     component.size = 'large';
-    expect(component.getPaddingLabel()).toEqual({ 'margin-left': '56px', 'margin-right': '56px' });
+    expect(component.getPaddingLabel()).toEqual({ 'margin-left': '20px', 'margin-right': '20px' });
   });
 
   it('render padding label button when size is giant', () => {
     component.size = 'giant';
-    expect(component.getPaddingLabel()).toEqual({ 'margin-left': '74px', 'margin-right': '74px' });
+    expect(component.getPaddingLabel()).toEqual({ 'margin-left': '30px', 'margin-right': '30px' });
   });
 
   it('render padding label button when size is other', () => {
     component.size = 'other';
-    expect(component.getPaddingLabel()).toEqual({ 'margin-left': '32px', 'margin-right': '32px' });
+    expect(component.getPaddingLabel()).toEqual({ 'margin-left': '10px', 'margin-right': '10px' });
+  });
+
+  // Render padding of button
+  it('Render padding button when size is tiny', () => {
+    component.size = 'tiny';
+    expect(component.getPaddingButton()).toEqual({ 'margin-left': '15px', 'margin-right': '15px' });
+  });
+
+  it('Render padding button when size is small', () => {
+    component.size = 'small';
+    expect(component.getPaddingButton()).toEqual({ 'margin-left': '20px', 'margin-right': '20px' });
+  });
+
+  it('Render padding button when size is medium', () => {
+    component.size = 'medium';
+    expect(component.getPaddingButton()).toEqual({ 'margin-left': '20px', 'margin-right': '20px' });
+  });
+
+  it('Render padding button when size is large', () => {
+    component.size = 'large';
+    expect(component.getPaddingButton()).toEqual({ 'margin-left': '25px', 'margin-right': '25px' });
+  });
+
+  it('Render padding button when size is giant', () => {
+    component.size = 'giant';
+    expect(component.getPaddingButton()).toEqual({ 'margin-left': '30px', 'margin-right': '30px' });
+  });
+
+  it('Render padding button when size is invalid value', () => {
+    component.size = 'other';
+    expect(component.getPaddingButton()).toEqual({ 'margin-left': '15px', 'margin-right': '15px' });
   });
 
 });

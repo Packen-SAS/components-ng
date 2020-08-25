@@ -6,6 +6,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./packen-button.component.scss']
 })
 export class PackenButtonComponent implements OnInit {
+
   @Input() type: any = null;
   @Input() level: any = null;
   @Input() icon: any = null;
@@ -13,10 +14,12 @@ export class PackenButtonComponent implements OnInit {
   @Input() size: any = null;
   @Input() disabled: boolean = null;
   @Input() title: any = '';
+  @Input() fullwidth: boolean = false;
   @Output() outputClick = new EventEmitter<any>();
 
   classButton: any = "";
   classIcon: any = "";
+
   constructor() { }
 
   buttonClick = () => {
@@ -32,9 +35,9 @@ export class PackenButtonComponent implements OnInit {
     } else if (this.type === 'regular') {
       this.loadStylesButtonsRegular();
     }
+
     this.loadLevelButton();
   }
-
 
   loadStylesButtonsIcon = () => {
     switch (this.size) {
@@ -152,7 +155,7 @@ export class PackenButtonComponent implements OnInit {
       return { 'margin-left': `${margin}px` };
     } else if (this.positionIcon === 'right') {
       return { 'margin-right': `${margin}px` }
-    }else{
+    } else {
       return { 'margin-right': `${margin}px` }
     }
   }
@@ -164,7 +167,7 @@ export class PackenButtonComponent implements OnInit {
       case 'small':
         return 20;
       case 'medium':
-        return 23;  
+        return 23;
       case 'large':
         return 25;
       case 'giant':
@@ -193,25 +196,49 @@ export class PackenButtonComponent implements OnInit {
     let padding = 0;
     switch (this.size) {
       case 'tiny':
-        padding = 32;
+        padding = 10;
         break;
       case 'small':
-        padding = 44;
+        padding = 15;
         break;
       case 'medium':
-        padding = 46;
+        padding = 15;
         break;
       case 'large':
-        padding = 56;
+        padding = 20;
         break;
       case 'giant':
-        padding = 74;
+        padding = 30;
         break;
       default:
-        padding = 32;
+        padding = 10;
         break;
     }
+    return { 'margin-left': `${padding}px`, 'margin-right': `${padding}px` }
+  }
 
+  getPaddingButton() {
+    let padding = 0;
+    switch (this.size) {
+      case 'tiny':
+        padding = 15;
+        break;
+      case 'small':
+        padding = 20;
+        break;
+      case 'medium':
+        padding = 20;
+        break;
+      case 'large':
+        padding = 25;
+        break;
+      case 'giant':
+        padding = 30;
+        break;
+      default:
+        padding = 15;
+        break;
+    }
     return { 'margin-left': `${padding}px`, 'margin-right': `${padding}px` }
   }
 
