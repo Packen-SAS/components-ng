@@ -54,8 +54,8 @@ This component represent a marker inside a map (google map).
 #### Use it in HTML
 
 ``` html
-<app-packen-pin-map typeIcon="default" icon="icon-keypad" type="active" [label]="'somelabel" [direction]="somedescription" iconPosition="left" dotPosition="down">
-</app-packen-pin-map>
+<lib-packen-pin-map typeIcon="default" icon="icon-keypad" type="active" [label]="'somelabel" [direction]="somedescription" iconPosition="left" dotPosition="down">
+</lib-packen-pin-map>
 ```
 
 #### Component appearance
@@ -85,8 +85,8 @@ This component is a custom responsive table for Packen.
 #### Use it in HTML
 
 ``` html
-<app-packen-table [list]="listContent" [numPages]="numPages" [pagination]="'pag-center'" [headers]="listHeaders" [showLoading]="loading" (onChangePage)="getListFromBackend($event)" (onSelectRow)="showSelectedRow($event)">
-</app-packen-table>
+<lib-packen-table [list]="listContent" [numPages]="numPages" [pagination]="'pag-center'" [headers]="listHeaders" [showLoading]="loading" (onChangePage)="getListFromBackend($event)" (onSelectRow)="showSelectedRow($event)">
+</lib-packen-table>
 ```
 
 #### Component appearance
@@ -171,10 +171,10 @@ This component is for input or textarea
 #### Use it in HTML
 
 ``` html
-<app-packen-input size="tiny" label="Normal tiny required and pattern" icon="icon-lock" [(value)]="valueTest"
+<lib-packen-input size="tiny" label="Normal tiny required and pattern" icon="icon-lock" [(value)]="valueTest"
     placeholder="placeholder" type="text" textArea="false" required="true"
     messageErrorValidation="Error de validación" themeMessage="warning" iconMessage="icon-info" disabled="false"
-    messageErrorPattern="Error de pattern" [pattern]="patternTest" [maxlength]="6" [minlength]="5"></app-packen-input>
+    messageErrorPattern="Error de pattern" [pattern]="patternTest" [maxlength]="6" [minlength]="5"></lib-packen-input>
 ``` 
 
 #### Component appearance
@@ -215,7 +215,7 @@ This component represent a radio
 #### Use it in HTML
 
 ``` html
-<app-packen-radio [radios]="radios" [(value)]="radioId" orientation="horizontal"></app-packen-radio>
+<lib-packen-radio [radios]="radios" [(value)]="radioId" orientation="horizontal"></lib-packen-radio>
 ```
 
 #### Component appearance
@@ -249,7 +249,7 @@ This component represent a checkbox
 #### Use it in HTML
 
 ``` html
-<app-packen-checkbox [(values)]="checkboxes" orientation="horizontal"></app-packen-checkbox>
+<lib-packen-checkbox [(values)]="checkboxes" orientation="horizontal"></lib-packen-checkbox>
 ```
 
 #### Component appearance
@@ -280,8 +280,8 @@ This component represent avatar or avatar input
 #### Use it in HTML
 
 ``` html
-<app-packen-avatar size="tiny" src="https://cdn.pixabay.com/photo/2020/06/24/19/41/cat-5337501_960_720.jpg" 
-    type="input" [(value)]="imageFile" title="Cambiar foto"></app-packen-avatar>
+<lib-packen-avatar size="tiny" src="https://cdn.pixabay.com/photo/2020/06/24/19/41/cat-5337501_960_720.jpg" 
+    type="input" [(value)]="imageFile" title="Cambiar foto"></lib-packen-avatar>
 ```
 
 #### Component appearance
@@ -304,14 +304,14 @@ This component represent a dropdown
 #### Use it in HTML
 
 ``` html
-<app-packen-dropdown [(value)]="itemId" [items]="items" size="medium"
-    label="Dropdown" type="default"></app-packen-dropdown>
+<lib-packen-dropdown [(value)]="itemId" [items]="items" size="medium"
+    label="Dropdown" type="default"></lib-packen-dropdown>
 
-<app-packen-dropdown [items]="checkboxes" size="medium" label="Dropdown checkbox" value="Value not change"
-    type="checkbox"></app-packen-dropdown>
+<lib-packen-dropdown [items]="checkboxes" size="medium" label="Dropdown checkbox" value="Value not change"
+    type="checkbox"></lib-packen-dropdown>
 
-<app-packen-dropdown [items]="radios" [(value)]="itemId" size="large" label="Driodown radio" 
-    type="radio"></app-packen-dropdown>
+<lib-packen-dropdown [items]="radios" [(value)]="itemId" size="large" label="Driodown radio" 
+    type="radio"></lib-packen-dropdown>
 ```
 
 #### Options

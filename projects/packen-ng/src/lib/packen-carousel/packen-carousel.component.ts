@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-packen-carousel',
+  selector: 'lib-packen-carousel',
   templateUrl: './packen-carousel.component.html',
   styleUrls: ['./packen-carousel.component.scss']
 })

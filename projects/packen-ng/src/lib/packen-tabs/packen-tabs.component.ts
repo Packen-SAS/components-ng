@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-packen-tabs',
+  selector: 'lib-packen-tabs',
   templateUrl: './packen-tabs.component.html',
   styleUrls: ['./packen-tabs.component.scss']
 })

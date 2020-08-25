@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-packen-divider',
+  selector: 'lib-packen-divider',
   templateUrl: './packen-divider.component.html',
   styleUrls: ['./packen-divider.component.scss']
 })

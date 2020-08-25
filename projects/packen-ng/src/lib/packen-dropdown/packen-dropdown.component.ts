@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DropdownItem } from '../../interfaces/dropdown-item';
 
 @Component({
-  selector: 'app-packen-dropdown',
+  selector: 'lib-packen-dropdown',
   templateUrl: './packen-dropdown.component.html',
   styleUrls: ['./packen-dropdown.component.scss']
 })

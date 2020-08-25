@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-packen-button',
+  selector: 'lib-packen-button',
   templateUrl: './packen-button.component.html',
   styleUrls: ['./packen-button.component.scss']
 })

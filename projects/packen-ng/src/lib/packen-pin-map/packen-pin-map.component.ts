@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-packen-pin-map',
+  selector: 'lib-packen-pin-map',
   templateUrl: './packen-pin-map.component.html',
   styleUrls: ['./packen-pin-map.component.scss']
 })

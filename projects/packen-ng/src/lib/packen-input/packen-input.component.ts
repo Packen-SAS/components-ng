@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-packen-input',
+  selector: 'lib-packen-input',
   templateUrl: './packen-input.component.html',
   styleUrls: ['./packen-input.component.scss']
 })

@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CheckItem } from '../../interfaces/check-item';
 
 @Component({
-  selector: 'app-packen-checkbox',
+  selector: 'lib-packen-checkbox',
   templateUrl: './packen-checkbox.component.html',
   styleUrls: ['./packen-checkbox.component.scss']
 })

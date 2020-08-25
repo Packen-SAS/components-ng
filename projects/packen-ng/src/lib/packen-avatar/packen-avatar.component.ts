@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-packen-avatar',
+  selector: 'lib-packen-avatar',
   templateUrl: './packen-avatar.component.html',
   styleUrls: ['./packen-avatar.component.scss']
 })

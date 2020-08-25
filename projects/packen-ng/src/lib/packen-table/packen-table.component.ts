@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ItemInfo, TableColumn, TableRow, TableHeader } from '../../interfaces/table-item';
 
 @Component({
-  selector: 'app-packen-table',
+  selector: 'lib-packen-table',
   templateUrl: './packen-table.component.html',
   styleUrls: ['./packen-table.component.scss']
 })
@@ -13,17 +13,17 @@ export class PackenTableComponent implements OnInit {
   @Input() list: TableRow[] = [];
   @Input() showLoading: boolean;
   @Input() emptyText: string;
-  @Output() onSelectRow = new EventEmitter<TableRow>();
+  @Output() selectRow = new EventEmitter<TableRow>();
   spanFoot: number;
 
   // Atributos de la paginación
-  @Output() onChangePage = new EventEmitter<number>();
+  @Output() changePage = new EventEmitter<number>();
   @Input() pagination: string = 'pag-right';
   @Input() numPages: number;
   listPages: PageItem[] = [];
   activePage: PageItem;
 
-  objectStyle = { 'transform': `translate(0px)` };
+  objectStyle = { transform: `translate(0px)` };
   baseMin = 1;
   baseMax = 7;
   transition = 0;
@@ -42,10 +42,10 @@ export class PackenTableComponent implements OnInit {
     for (let i = 0; i < this.numPages; i++) {
       const page = new PageItem();
       page.num = i + 1;
-      page.classes = "pagination_item";
+      page.classes = 'pagination_item';
 
-      if (i == 0) {
-        page.classes += " page-active";
+      if (i === 0) {
+        page.classes += ' page-active';
         this.activePage = Object.assign({}, page);
       }
       this.listPages.push(page);
@@ -57,7 +57,7 @@ export class PackenTableComponent implements OnInit {
    * @param item El item a evaluar
    */
   getPropertyStyle(item: ItemInfo) {
-    let cap = "";
+    let cap = '';
     if (item.capitalize) {
       cap = ' capitalize';
     }
@@ -83,7 +83,7 @@ export class PackenTableComponent implements OnInit {
    * @param item El item a evaluar
    */
   getPropertyDesktopStyle(item: ItemInfo) {
-    let cap = "";
+    let cap = '';
     if (item.capitalize) {
       cap = ' capitalize';
     }
@@ -122,11 +122,11 @@ export class PackenTableComponent implements OnInit {
    * @param item El item a evaluar
    */
   getClassTdDesktop(index: number, item: ItemInfo) {
-    let style = "table-desktop_td_text";
-    if (index == 0) {
-      style += " first-text";
+    let style = 'table-desktop_td_text';
+    if (index === 0) {
+      style += ' first-text';
     } else {
-      style += " others-text";
+      style += ' others-text';
     }
 
     if (item.hideInDesktop) {
@@ -139,14 +139,14 @@ export class PackenTableComponent implements OnInit {
    * Método para obtener la clase de posicionamiento de paginacion
    */
   getClassPagination() {
-    return "pagination-main " + this.pagination;
+    return 'pagination-main ' + this.pagination;
   }
 
   /**
    * Método para mover la pagina a la derecha
    */
   movePageToRight() {
-    if (this.activePage.num != this.listPages.length) {
+    if (this.activePage.num !== this.listPages.length) {
       const pageTemp = new PageItem();
       pageTemp.num = this.activePage.num + 1;
       this.setActivePage(pageTemp);
@@ -157,7 +157,7 @@ export class PackenTableComponent implements OnInit {
    * Método para mover la pagina a la izquierda
    */
   movePageToLeft() {
-    if (this.activePage.num != 1) {
+    if (this.activePage.num !== 1) {
       const pageTemp = new PageItem();
       pageTemp.num = this.activePage.num - 1;
       this.setActivePage(pageTemp);
@@ -169,14 +169,14 @@ export class PackenTableComponent implements OnInit {
    * @param item El item page a activar
    */
   setActivePage(item: PageItem) {
-    if (item.num != this.activePage.num) {
+    if (item.num !== this.activePage.num) {
       this.activePage = Object.assign({}, item);
 
       this.listPages.forEach(page => {
-        if (page.num == item.num) {
-          page.classes = "pagination_item page-active";
+        if (page.num === item.num) {
+          page.classes = 'pagination_item page-active';
         } else {
-          page.classes = "pagination_item";
+          page.classes = 'pagination_item';
         }
       });
 
@@ -184,15 +184,15 @@ export class PackenTableComponent implements OnInit {
         this.baseMin = this.baseMax;
         this.baseMax = this.baseMax + 5;
         this.transition -= 140;
-        this.objectStyle = { 'transform': `translate(${this.transition}px)` };
-      } else if (item.num === (this.baseMin - 1) && item.num != 1) {
+        this.objectStyle = { transform: `translate(${this.transition}px)` };
+      } else if (item.num === (this.baseMin - 1) && item.num !== 1) {
         this.baseMax = this.baseMin;
         this.baseMin = this.baseMin - 5;
         this.transition += 140;
-        this.objectStyle = { 'transform': `translate(${this.transition}px)` };
+        this.objectStyle = { transform: `translate(${this.transition}px)` };
       }
 
-      this.onChangePage.emit(this.activePage.num);
+      this.changePage.emit(this.activePage.num);
     }
   }
 
@@ -201,7 +201,7 @@ export class PackenTableComponent implements OnInit {
    * @param row La fila seleccionada
    */
   sendSelectRow(row: TableRow) {
-    this.onSelectRow.emit(row);
+    this.selectRow.emit(row);
   }
 
 }
