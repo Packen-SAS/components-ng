@@ -43,7 +43,6 @@ export class PackenButtonComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.disabled) {
-      console.log(changes.disabled);
       this.ngOnInit();
     }
   }
