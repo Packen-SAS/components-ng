@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'lib-packen-button',
   templateUrl: './packen-button.component.html',
   styleUrls: ['./packen-button.component.scss']
 })
-export class PackenButtonComponent implements OnInit {
+export class PackenButtonComponent implements OnInit, OnChanges {
 
   @Input() type: any = null;
   @Input() level: any = null;
@@ -30,6 +30,8 @@ export class PackenButtonComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.classButton = '';
+    this.classIcon = '';
     if (this.type === 'icon') {
       this.loadStylesButtonsIcon();
     } else if (this.type === 'regular') {
@@ -37,6 +39,13 @@ export class PackenButtonComponent implements OnInit {
     }
 
     this.loadLevelButton();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.disabled) {
+      console.log(changes.disabled);
+      this.ngOnInit();
+    }
   }
 
   loadStylesButtonsIcon = () => {
