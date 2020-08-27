@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { DropdownItem } from '../../interfaces/dropdown-item';
 
 @Component({
@@ -6,7 +6,7 @@ import { DropdownItem } from '../../interfaces/dropdown-item';
   templateUrl: './packen-dropdown.component.html',
   styleUrls: ['./packen-dropdown.component.scss']
 })
-export class PackenDropdownComponent implements OnInit {
+export class PackenDropdownComponent implements OnInit, OnChanges {
 
   @Input() items: Array<any> = [];
   @Input() selected: number = 1;
@@ -46,6 +46,12 @@ export class PackenDropdownComponent implements OnInit {
 
   constructor() { }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if(changes.items){
+      this.getItemSelected();
+    }
+  }
+
   ngOnInit(): void {
     this.temporaryItemsList = this.items;
     this.getItemSelected();
@@ -53,8 +59,10 @@ export class PackenDropdownComponent implements OnInit {
 
   getItemSelected = () => {
     if (this.type !== 'radio' && this.type !== 'checkbox') {
-      this.itemSelected = this.items.find((item) => item.id === this.value);
-      this.textInput = this.itemSelected ? this.itemSelected.title : null;
+      if (this.items) {
+        this.itemSelected = this.items.find((item) => item.id === this.value);
+        this.textInput = this.itemSelected ? this.itemSelected.title : null;
+      }
     } else {
       const radio = this.items.find((item) => item.id === this.selectedItemId);
       if (radio) {
