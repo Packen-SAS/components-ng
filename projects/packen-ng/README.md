@@ -236,6 +236,7 @@ This component is for input or textarea
  - **disabled**: It define if the input is disabled. `(true|false)`.
  - **messageErrorPattern**: This message show when not validate the pattern.
  - **pattern**: Pattern for validate the value `Examples:('/\d/', '/^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/', etc)`.
+ - **mask**: It difines the mask for the input. it use external lib [ngx-mask](https://www.npmjs.com/package/ngx-mask)
 
 
 ### RadioComponent
@@ -259,6 +260,7 @@ This component represent a radio
  - **radios**: It defines list of radios to show.
  - **value**: it defines the selected radio with the id.
  - **orientation**: It defines the orientation of the radios: `(horizontal|vetical)` .
+ - **label**: it defines the label title for the input.
 
 #### Events
  - **valueChage**: Emits when value is changed **NOTE**: this event is optional.
