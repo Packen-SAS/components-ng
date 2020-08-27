@@ -2,17 +2,19 @@
     <label class="box-file" [ngClass]="classInput" for="packen-file">
         <img class="box-file__icon-left" [src]="iconLeft" />
 
-        <div class="box-file__content">
-            <div class="box-file__content__desc">
-                <span class="box-file__content__desc__title">{{ title }}</span>
-                <span>{{ subtitle }}</span>
+        <div class="box-file__rigth-section">
+            <div class="box-file__content">
+                <div class="box-file__content__desc">
+                    <span class="box-file__content__desc__title">{{ title }}</span>
+                    <span>{{ subtitle }}</span>
+                </div>
+                <div class="box-file__content__state--uploaded" *ngIf="messageValue">{{ uploadedText }}</div>
+                <div class="box-file__content__state--no-uploaded" *ngIf="!messageValue">{{ noUploadedText }}</div>
             </div>
-            <div class="box-file__content__state--uploaded" *ngIf="messageValue">{{ uploadedText }}</div>
-            <div class="box-file__content__state--no-uploaded" *ngIf="!messageValue">{{ noUploadedText }}</div>
+    
+            <img class="box-file__icon-right" [src]="iconRightCheck" *ngIf="messageValue" />
+            <img class="box-file__icon-right" [src]="iconRight" *ngIf="!messageValue" />
         </div>
-
-        <img class="box-file__icon-right" [src]="iconRightCheck" *ngIf="messageValue" />
-        <img class="box-file__icon-right" [src]="iconRight" *ngIf="!messageValue" />
     </label>
 
     <input class="input-file" id="packen-file" type="file" [(ngModel)]="value"
