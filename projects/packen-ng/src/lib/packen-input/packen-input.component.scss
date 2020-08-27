@@ -6,6 +6,8 @@
 }
 
 .content {
+  padding: 5px 10px;
+
   &__title {
     @include packen-labels;
 

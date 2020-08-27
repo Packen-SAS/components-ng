@@ -4,14 +4,26 @@
     display: none;
 }
 
+.ctn {
+    padding: 5px 10px;
+}
+
 .box-file {
     cursor: pointer;
     width: 100%;
     display: flex;
     border: 1px solid $basic_gray_drk;
+    background: $white;
+    margin-bottom: 0px !important;
 
     &__icon-left {
         padding-right: 15px;
+    }
+
+    &__rigth-section {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
     }
 
     &__content {

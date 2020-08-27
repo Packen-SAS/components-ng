@@ -1,6 +1,6 @@
 {
   "name": "packen-ng",
-  "version": "1.3.6",
+  "version": "1.3.9",
   "description": "Ui components library of Packen.",
   "main": "index.js",
   "scripts": {
