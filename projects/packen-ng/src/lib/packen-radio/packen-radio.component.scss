@@ -1,10 +1,14 @@
 @import "../../assets/styles/colors.scss";
 @import "../../assets/styles/mixins.scss";
 
-.title {
-  @include packen-labels;
-  font-size: 12px;
-  line-height: 16px;
+.ctn-box {
+  padding: 10px;
+
+  &__title {
+    @include packen-labels;
+    font-size: 12px;
+    line-height: 16px;
+  }
 }
 
 .contentRadio {
@@ -38,6 +42,7 @@
 
     &--default {
       border: 2px solid $primary_default;
+
       &--disabled {
         border: 2px solid $disabled;
       }
@@ -51,6 +56,8 @@
     font-size: 14px;
     margin: 0;
     margin-left: 5px;
+    color: $base_default_alt;
+
     &--disabled {
       color: $basic_disable;
       font-weight: 600 !important;

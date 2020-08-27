@@ -6,6 +6,7 @@ This library contain all ui components for [Packen](https://packen.co) brand.
 
 To use it first install it:
 
+> npm i ngx-mask --save 
 > npm i packen-ng --save
 
 Then import the module to use its available components in your `app.module.ts` :
