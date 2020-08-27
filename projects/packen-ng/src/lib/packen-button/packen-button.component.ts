@@ -113,7 +113,7 @@ export class PackenButtonComponent implements OnInit, OnChanges {
         if (this.disabled === true) {
           this.classButton += ' buttonDisabled--btnGhostOutlineDisabled';
         } else {
-          this.classButton += ' button button--btnGhostOutline'
+          this.classButton += ' button button--btnGhostOutline';
         }
         break;
     }
