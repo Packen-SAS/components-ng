@@ -214,7 +214,6 @@ export class PackenInputComponent implements OnInit {
    * Function execute when click in input
    */
   clickInsideContent() {
-
     this.isClickInside = true;
   }
 }

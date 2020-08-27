@@ -186,4 +186,8 @@ export class DropdownsComponent implements OnInit {
   changeRadio = (data): void => {
     this.selectIdRadio = data;
   }
+
+  keyUpDropdown(value) {
+    console.log(value);
+  }
 }

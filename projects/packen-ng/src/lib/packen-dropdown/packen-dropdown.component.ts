@@ -16,7 +16,9 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
 
   @Output() outputChangeItem = new EventEmitter<any>();
   @Output() changeCheckbox = new EventEmitter<any>();
+  @Output() keyUp = new EventEmitter<any>();
   @Output() valueChange = new EventEmitter<any>();
+
 
   @Input()
   get value() {
@@ -160,6 +162,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
   }
 
   keyUpInput(text) {
+    this.keyUp.emit(text);
     const newArray = [];
     this.items.forEach((item) => {
       if (this.type !== 'radio' && this.type !== 'checkbox') {
