@@ -67,6 +67,7 @@ describe('PackenAvatarComponent', () => {
       readAsDataURL: (blobInput) => { },
       onloadend: (value) => { }
     };
+    event.target.files[0].lastModified = component.value;
 
     spyOn<any>(window, 'FileReader').and.returnValue(mockFileReader);
 

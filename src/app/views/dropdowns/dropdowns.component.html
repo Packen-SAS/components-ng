@@ -2,7 +2,7 @@
 
 <div class="row">
     <div class="col-sm-5">
-        <lib-packen-dropdown [selected]="selectedMenu1" [(value)]="selectedMenu1" [items]="itemsMenu1" size="medium"
+        <!-- <lib-packen-dropdown [selected]="selectedMenu1" [(value)]="selectedMenu1" [items]="itemsMenu1" size="medium"
             label="Menu 1" type="default">
         </lib-packen-dropdown>
         <br>
@@ -22,12 +22,13 @@
         </lib-packen-dropdown>
         <br>
 
-        <lib-packen-dropdown [items]="checkboxes" size="medium" label="Menu Checkbox" value="Value not change"
-            type="checkbox">
+        <lib-packen-dropdown [required]="true" [items]="radios" [(value)]="selectMenuRadio" size="large"
+            label="Menu radios" type="radio">
         </lib-packen-dropdown>
-        <br>
+        <br> -->
 
-        <lib-packen-dropdown [items]="radios" [(value)]="selectMenuRadio" size="large" label="Menu radios" type="radio">
+        <lib-packen-dropdown [required]="true" [items]="checkboxes" size="medium" label="Menu Checkbox"
+             type="checkbox">
         </lib-packen-dropdown>
         <br>
     </div>

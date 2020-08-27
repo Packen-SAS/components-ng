@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PackenButtonComponent } from './packen-button.component';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, SimpleChange } from '@angular/core';
 
 describe('PackenButtonComponent', () => {
   let component: PackenButtonComponent;
@@ -154,6 +154,18 @@ describe('PackenButtonComponent', () => {
   it('render when level of button is primary and disabled is true', () => {
     component.disabled = true;
     component.level = 'primary';
+    expect(component.loadLevelButton()).toBeTrue();
+  });
+
+  it('render when level of button is primary and disabled is true', () => {
+    component.disabled = true;
+    component.level = 'ghost-outline';
+    expect(component.loadLevelButton()).toBeTrue();
+  });
+
+  it('render when level of button is primary and disabled is false', () => {
+    component.disabled = false;
+    component.level = 'ghost-outline';
     expect(component.loadLevelButton()).toBeTrue();
   });
 
@@ -386,4 +398,19 @@ describe('PackenButtonComponent', () => {
     expect(component.getPaddingButton()).toEqual({ 'margin-left': '15px', 'margin-right': '15px' });
   });
 
+  it('Testing method ngOnChanges() when items change the property', () => {
+    component.ngOnChanges({
+      disabled: new SimpleChange(null, null, true)
+    });
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
+
+  it('Testing method ngOnChanges() when items change the property', () => {
+    component.ngOnChanges({
+      other: new SimpleChange(null, null, true)
+    });
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
 });
