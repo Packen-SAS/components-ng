@@ -3,9 +3,9 @@
 <div class="row" style="width: 100%;">
     <div class="col-sm-8">
         <lib-packen-input size="tiny" label="Normal tiny required and pattern" icon="icon-lock" [(value)]="valueTest"
-            placeholder="placeholder" type="text" textArea="false" required="true"
+            placeholder="0-000-000-000" type="text" textArea="false" required="true" mask="0-000-000-000"
             messageErrorValidation="Error de validación" themeMessage="warning" iconMessage="icon-info" disabled="false"
-            messageErrorPattern="Error de pattern" [pattern]="patternTest" [maxlength]="10">
+            messageErrorPattern="Error de pattern" [pattern]="patternTest" [maxlength]="15">
         </lib-packen-input>
         <br>
 

@@ -1,4 +1,11 @@
 @import "../../assets/styles/colors.scss";
+@import "../../assets/styles/mixins.scss";
+
+.title {
+  @include packen-labels;
+  font-size: 12px;
+  line-height: 16px;
+}
 
 .contentRadio {
   display: flex;

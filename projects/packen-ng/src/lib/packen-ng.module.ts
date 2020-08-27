@@ -16,6 +16,7 @@ import { PackenCarouselComponent } from './packen-carousel/packen-carousel.compo
 import { ClickOutsideModule } from 'ng-click-outside';
 import { FormsModule } from '@angular/forms';
 import { PackenFileComponent } from './packen-file/packen-file.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { PackenFileComponent } from './packen-file/packen-file.component';
   imports: [
     CommonModule,
     ClickOutsideModule,
-    FormsModule
+    FormsModule,
+    NgxMaskModule.forRoot(),
   ],
   exports: [
     PackenAvatarComponent,

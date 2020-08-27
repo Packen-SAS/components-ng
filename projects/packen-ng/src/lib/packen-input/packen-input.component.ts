@@ -22,6 +22,8 @@ export class PackenInputComponent implements OnInit {
   @Input() pattern: any = null;
   @Input() maxlength: number = 0;
   @Input() minlength: number = 0;
+  @Input() mask: string;
+
   @Output() keyUpInput = new EventEmitter<any>();
 
   messageValue: string;

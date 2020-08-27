@@ -12,6 +12,7 @@ export class PackenRadioComponent implements OnInit {
   @Input() radios: Array<RadioItem> = [];
   @Input() selectedItemId: number = 0;
   @Input() orientation: string = 'vertical';
+  @Input() label: string;
 
   @Output() changeRadio = new EventEmitter<any>();
   @Output() valueChange = new EventEmitter<any>();

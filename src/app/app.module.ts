@@ -46,7 +46,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     FeatherModule.pick(allIcons),
     ClickOutsideModule,
-    PackenNgModule
+    PackenNgModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
