@@ -8,6 +8,7 @@
     @include packen-labels;
     font-size: 12px;
     line-height: 16px;
+    margin: 0 0 15px !important;
   }
 }
 
@@ -56,10 +57,10 @@
     font-size: 14px;
     margin: 0;
     margin-left: 5px;
-    color: $base_default_alt;
+    color: $gray;
 
     &--disabled {
-      color: $basic_disable;
+      color: $gray_alt;
       font-weight: 600 !important;
     }
   }
