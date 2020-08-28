@@ -83,6 +83,10 @@
             font-size: 18px;
             line-height: 20px;
         }
+
+        &--error {
+            border: 2px solid $danger_default !important;
+        }
     }
 
     &--disabled {

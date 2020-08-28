@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
-
+import { NgxMaskModule } from 'ngx-mask';
 import { PackenInputComponent } from './packen-input.component';
 
 describe('PackenInputComponent', () => {
@@ -14,6 +14,7 @@ describe('PackenInputComponent', () => {
       ],
       imports: [
         FormsModule,
+        NgxMaskModule.forRoot()
       ]
     }).compileComponents();
   }));

@@ -28,6 +28,6 @@ describe('AvatarsComponent', () => {
   });
 
   it('render when click in avatar image ', () => {
-    expect(component.clickComponent()).toBeUndefined();
+    expect(component.printFile()).toBeUndefined();
   });
 });

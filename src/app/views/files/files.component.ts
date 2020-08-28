@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class FilesComponent implements OnInit {
 
   selectedFile: File;
+  selectedFile2: File;
   disabledFile: boolean = false;
 
   constructor() { }
@@ -15,11 +16,14 @@ export class FilesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  printFile() {
-    console.log(this.selectedFile);
-  }
-
   disable() {
     this.disabledFile = !this.disabledFile;
+    console.log('File 1: ', this.selectedFile);
+    console.log('File 2: ', this.selectedFile2);
+  }
+
+  printFiles() {
+    console.log('File 1: ', this.selectedFile);
+    console.log('File 2: ', this.selectedFile2);
   }
 }
