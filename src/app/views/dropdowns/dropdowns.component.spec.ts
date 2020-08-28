@@ -54,4 +54,7 @@ describe('DropdownsComponent', () => {
     expect(component.changeRadio(2)).toBeUndefined();
   });
 
+  it('Testing method keyUpDropdown()', () => {
+    expect(component.keyUpDropdown('Keyup testing')).toBeUndefined();
+  });
 });
