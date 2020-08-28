@@ -19,12 +19,16 @@
     </div>
 
     <!-- Start Messages -->
-    <p *ngIf="showMessageRequired === true" class="content__messageError"
+    <div *ngIf="showMessageRequired === true" class="content__messageError"
         [ngClass]="getClassStylesMessageError(themeMessage)">
-        <span [ngClass]="iconMessage != '' ? iconMessage : ''"></span>{{messageErrorValidation}}</p>
+        <span [ngClass]="iconMessage != '' ? iconMessage : ''"></span>
+        {{messageErrorValidation}}
+    </div>
 
-    <p *ngIf="showMessagePattern === true" class="content__messageError"
+    <div *ngIf="showMessagePattern === true" class="content__messageError"
         [ngClass]="getClassStylesMessageError(themeMessage)">
-        <span [ngClass]="iconMessage != '' ? iconMessage : ''" class=""></span>{{messageErrorPattern}}</p>
+        <span [ngClass]="iconMessage != '' ? iconMessage : ''" class=""></span>
+        {{messageErrorPattern}}
+    </div>
     <!-- End Messages -->
 </div>
