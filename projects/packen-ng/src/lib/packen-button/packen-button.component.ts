@@ -73,21 +73,21 @@ export class PackenButtonComponent implements OnInit, OnChanges {
   loadLevelButton = () => {
     switch (this.level) {
       case 'danger':
-        if (this.disabled === true) {
+        if (this.disabled) {
           this.classButton += ' buttonDisabled buttonDisabled--btnDangerDisabled';
         } else {
           this.classButton += ' button button--btnDanger';
         }
         break;
       case 'ghost':
-        if (this.disabled === true) {
+        if (this.disabled) {
           this.classButton += ' buttonDisabled buttonDisabled--btnGhostDisabled';
         } else {
           this.classButton += ' button button--btnGhost';
         }
         break;
       case 'tertiary':
-        if (this.disabled === true) {
+        if (this.disabled) {
           this.classButton += ' buttonDisabled buttonDisabled--btnTertiaryDisabled';
         } else {
           this.classButton += ' button button--btnTertiary';
@@ -95,7 +95,7 @@ export class PackenButtonComponent implements OnInit, OnChanges {
         break;
 
       case 'secondary':
-        if (this.disabled === true) {
+        if (this.disabled) {
           this.classButton += ' buttonDisabled buttonDisabled--btnSecondaryDisabled';
         } else {
           this.classButton += ' button button--btnSecondary';
@@ -103,14 +103,15 @@ export class PackenButtonComponent implements OnInit, OnChanges {
         break;
 
       case 'primary':
-        if (this.disabled === true) {
+        if (this.disabled) {
           this.classButton += ' buttonDisabled buttonDisabled--btnPrimaryDisabled';
         } else {
           this.classButton += ' button button--btnPrimary';
         }
         break;
+
       case 'ghost-outline':
-        if (this.disabled === true) {
+        if (this.disabled) {
           this.classButton += ' buttonDisabled--btnGhostOutlineDisabled';
         } else {
           this.classButton += ' button button--btnGhostOutline';

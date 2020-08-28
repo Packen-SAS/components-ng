@@ -1,6 +1,10 @@
 @import "../../assets/styles/colors.scss";
 @import "../../assets/styles/typography.scss";
 
+.btn-box {
+  margin: 5px;
+}
+
 .titleButton {
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -8,6 +12,7 @@
   font-weight: bold;
   font-style: normal;
 }
+
 p {
   margin: 0;
 }
@@ -111,7 +116,6 @@ p {
     background-color: $primary_hover;
   }
 
-  //Buttons Outline
   &--btnGhostOutline {
     color: $tertiary_default;
     background-color: $ghost_default;
@@ -125,8 +129,8 @@ p {
 
 .buttonDisabled {
   border: 0;
-  cursor: default;
   outline: 0;
+  cursor: not-allowed;
 
   &--btnDangerDisabled {
     background-color: $disabled;
