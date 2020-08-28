@@ -166,7 +166,7 @@ export class PackenInputComponent implements OnInit {
 
     // Validate required
     if (this.required === true) {
-      if (value.length === 0) {
+      if (!value || value.length === 0) {
         this.classTextArea += TextAreaClass.error;
         this.classInput += ' content__input-container__input--error';
         this.showMessageRequired = true;
@@ -177,8 +177,8 @@ export class PackenInputComponent implements OnInit {
 
     // Validate pattern
     this.showMessagePattern = false;
-    if (this.pattern && !this.pattern.test(value)) {
-      if (this.required === true && this.value.length > 0) {
+    if (!this.showMessageRequired && this.pattern && !this.pattern.test(value)) {
+      if (this.required === true && (!this.value || this.value.length > 0)) {
         this.classTextArea += TextAreaClass.error;
         this.classInput += ' content__input-container__input--error';
         this.showMessagePattern = true;

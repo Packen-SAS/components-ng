@@ -77,9 +77,8 @@ This component is an input to load a specific File.
  - **subtitle**: Description text in the input content .
  - **noUploadedText**: Text to show when the file is not uploded yet .
  - **uploadedText**: Text to show when the file is uploaded .
- - **value**: Variable where file will be save. It must to be the same of _ngModel_ .
- - **ngModel**: Variable where file will be save. It must to be the same of _value_.
- - **required**: It defines if the field is required.
+ - **value**: Variable where file will be save .
+ - **required**: It defines if the field is required .
 
 ### PinMapComponent
 
