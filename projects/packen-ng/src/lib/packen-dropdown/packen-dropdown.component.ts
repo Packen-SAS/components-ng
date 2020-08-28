@@ -63,7 +63,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
     if (this.type !== 'radio' && this.type !== 'checkbox') {
       if (this.items) {
         this.itemSelected = this.items.find((item) => item.id === this.value);
-        this.textInput = this.itemSelected ? this.itemSelected.title : null;
+        this.textInput = this.itemSelected ? this.itemSelected.title : this.textInput;
       }
     } else {
       if (this.items) {
