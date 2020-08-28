@@ -56,8 +56,9 @@ This component is an input to load a specific File.
 #### Use it in HTML
 
 ``` html
-<lib-packen-file [disabled]="disabledFile" [uploadedText]="'Archivo cargado'" [noUploadedText]="'Pendiente'" [title]="'Cara 1'" 
-  [subtitle]="'(Lado de la fotografia)'" name="lib-file" [(ngModel)]="selectedFile" ngDefaultControl required>
+<lib-packen-file [disabled]="disabledFile" [uploadedText]="'Archivo cargado'" [noUploadedText]="'Pendiente'"
+    [title]="'Cara 1'" [subtitle]="'(Lado de la fotografia)'" name="lib-file-1" [(value)]="selectedFile"
+    required="true">
 </lib-packen-file>
 ```
 
@@ -68,6 +69,7 @@ This component is an input to load a specific File.
 
 #### Options
 
+ - **name**: It difines the input identificator. Is is necesary to _ngModel_ funtionality.
  - **size**: It defines the size box of the input. Posibles values to use: `(tiny|small|medium|large|giant)` .
  - **disabled**: It defines if the input is enabled or not: `(true|false)` .
  - **iconLeft**: Url of the left side icon .
@@ -75,6 +77,9 @@ This component is an input to load a specific File.
  - **subtitle**: Description text in the input content .
  - **noUploadedText**: Text to show when the file is not uploded yet .
  - **uploadedText**: Text to show when the file is uploaded .
+ - **value**: Variable where file will be save. It must to be the same of _ngModel_ .
+ - **ngModel**: Variable where file will be save. It must to be the same of _value_.
+ - **required**: It defines if the field is required.
 
 ### PinMapComponent
 
@@ -325,6 +330,7 @@ This component represent avatar or avatar input
 
 #### Options
 
+ - **name**: It difines the input identificator. Is is necesary to _ngModel_ funtionality.
  - **size**: It defines the size of the image: `(tiny|small|medium|large)`.
  - **src**: It defines the source or image route. 
  - **type**: It defines if the image is default or input: `(default|input)`.

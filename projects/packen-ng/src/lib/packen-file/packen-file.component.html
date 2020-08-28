@@ -1,5 +1,5 @@
 <div class="ctn">
-    <label class="box-file" [ngClass]="classInput" for="packen-file">
+    <label class="box-file" [ngClass]="classInput" [for]="name">
         <img class="box-file__icon-left" [src]="iconLeft" />
 
         <div class="box-file__rigth-section">
@@ -8,15 +8,15 @@
                     <span class="box-file__content__desc__title">{{ title }}</span>
                     <span>{{ subtitle }}</span>
                 </div>
-                <div class="box-file__content__state--uploaded" *ngIf="messageValue">{{ uploadedText }}</div>
-                <div class="box-file__content__state--no-uploaded" *ngIf="!messageValue">{{ noUploadedText }}</div>
+                <div class="box-file__content__state--uploaded" *ngIf="selectedFile">{{ uploadedText }}</div>
+                <div class="box-file__content__state--no-uploaded" *ngIf="!selectedFile">{{ noUploadedText }}</div>
             </div>
-    
-            <img class="box-file__icon-right" [src]="iconRightCheck" *ngIf="messageValue" />
-            <img class="box-file__icon-right" [src]="iconRight" *ngIf="!messageValue" />
+
+            <img class="box-file__icon-right" [src]="iconRightCheck" *ngIf="selectedFile" />
+            <img class="box-file__icon-right" [src]="iconRight" *ngIf="!selectedFile" />
         </div>
     </label>
 
-    <input class="input-file" id="packen-file" type="file" [(ngModel)]="value"
-        [attr.disabled]="disabled === true ? true : null">
+    <input class="input-file" [id]="name" type="file" (change)="fileChange($event)" (click)="onClick()"
+        [attr.disabled]="disabled === true ? true : null" [required]="required === true? required: false">
 </div>

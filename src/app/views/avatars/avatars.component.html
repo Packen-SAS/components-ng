@@ -2,20 +2,22 @@
 <div class="row">
     <div class="col-sm">
         <div class="contentImage mt-3">
-            <lib-packen-avatar size="tiny" src="https://cdn.pixabay.com/photo/2020/06/24/19/41/cat-5337501_960_720.jpg"
-                type="input" [(value)]="imageFile" title="Cambiar foto">
+            <lib-packen-avatar name="file-tiny" size="tiny" [(value)]="imageFileTiny" title="Cambiar foto"
+                src="https://cdn.pixabay.com/photo/2020/06/24/19/41/cat-5337501_960_720.jpg" type="input">
             </lib-packen-avatar>
             <p>tiny</p>
         </div>
         <br>
         <div class="contentImage mt-3">
-            <lib-packen-avatar size="small"
-                src="https://cdn.pixabay.com/photo/2020/06/24/19/41/cat-5337501_960_720.jpg"></lib-packen-avatar>
+            <lib-packen-avatar size="small" name="file-small"
+                src="https://cdn.pixabay.com/photo/2020/06/24/19/41/cat-5337501_960_720.jpg">
+            </lib-packen-avatar>
             <p>small</p>
         </div>
         <br>
         <div class="contentImage mt-3">
-            <lib-packen-avatar title="Puedo cambiar" size="medium" type="input"
+            <lib-packen-avatar title="Puedo cambiar" size="medium" type="input" name="file-medium"
+                [(value)]="imageFileMedium" required="true"
                 src="https://cdn.pixabay.com/photo/2020/07/20/06/42/english-bulldog-5422018_960_720.jpg">
             </lib-packen-avatar>
             <p>medium</p>
@@ -24,17 +26,21 @@
     </div>
     <div class="col-sm">
         <div class="contentImage mt-3">
-            <lib-packen-avatar size="large" title="Titulo(no cambio)"
+            <lib-packen-avatar size="large" title="Titulo(no cambio)" name="file-large"
                 src="https://cdn.pixabay.com/photo/2020/07/20/06/42/english-bulldog-5422018_960_720.jpg">
             </lib-packen-avatar>
             <p>large</p>
         </div>
         <br>
         <div class="contentImage mt-3">
-            <lib-packen-avatar size="xlarge"
-                src="https://cdn.pixabay.com/photo/2020/07/20/06/42/english-bulldog-5422018_960_720.jpg"
-                (outputClick)="clickComponent()"></lib-packen-avatar>
+            <lib-packen-avatar size="xlarge" name="file-xlarge"
+                src="https://cdn.pixabay.com/photo/2020/07/20/06/42/english-bulldog-5422018_960_720.jpg">
+            </lib-packen-avatar>
             <p>xlarge</p>
         </div>
     </div>
+</div>
+
+<div>
+    <button class="btn-p" (click)="printFile()">Print selected avatars</button>
 </div>

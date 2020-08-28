@@ -29,10 +29,6 @@ describe('FilesComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Testing method printFile()', () => {
-    expect(component.printFile()).toBeUndefined();
-  });
-
   it('Testing method disable() when is false', () => {
     component.disabledFile = false;
     component.disable();
@@ -43,5 +39,9 @@ describe('FilesComponent', () => {
     component.disabledFile = true;
     component.disable();
     expect(component.disabledFile).toBeFalsy();
+  });
+
+  it('Testing method printFiles()', () => {
+    expect(component.printFiles()).toBeUndefined();
   });
 });

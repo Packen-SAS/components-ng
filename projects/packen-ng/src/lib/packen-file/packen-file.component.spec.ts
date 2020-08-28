@@ -1,6 +1,7 @@
 import { SimpleChange } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
+import { eventFileMock } from '../../assets/mocks/files.mock';
 
 import { PackenFileComponent } from './packen-file.component';
 
@@ -56,7 +57,8 @@ describe('PackenFileComponent', () => {
   });
 
   it('Testing method set value()', () => {
-    component.value = 'some file';
+    const arrayOfBlob = new Array<Blob>();
+    component.value = new File(arrayOfBlob, 'Mock.zip', { type: 'application/zip' });
     expect(component).toBeTruthy();
   });
 
@@ -83,5 +85,28 @@ describe('PackenFileComponent', () => {
   it('Testing method getClassStylesBox() when size is giant', () => {
     component.getClassStylesBox('giant');
     expect(component.classInput).toEqual('box-file__size--giant');
+  });
+
+  it('Testing method onClick() when value is null', () => {
+    component.value = null;
+    component.required = true;
+    component.selectedFile = null;
+    expect(component.onClick()).toBeUndefined();
+  });
+
+  it('Testing method onClick() when is not required', () => {
+    component.required = false;
+    component.selectedFile = component.value;
+    expect(component.onClick()).toBeUndefined();
+  });
+
+  it('Testing method fileChange()', () => {
+    expect(component.fileChange(eventFileMock)).toBeUndefined();
+  });
+
+  it('Testing method fileChange() when file is not selected', () => {
+    const eventMock = eventFileMock;
+    eventMock.srcElement.files = [];
+    expect(component.fileChange(eventMock)).toBeUndefined();
   });
 });

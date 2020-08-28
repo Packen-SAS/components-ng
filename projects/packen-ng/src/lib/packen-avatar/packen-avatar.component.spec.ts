@@ -1,7 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PackenAvatarComponent } from './packen-avatar.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { eventAvatarMock, mockFileReader } from '../../assets/mocks/files.mock';
 import { of } from 'rxjs';
+
 
 describe('PackenAvatarComponent', () => {
   let component: PackenAvatarComponent;
@@ -46,38 +48,31 @@ describe('PackenAvatarComponent', () => {
   });
 
   it('Render function fileChange()', () => {
-    const event = {
-      target: {
-        files: [
-          {
-            lastModified: 1597957404004,
-            lastModifiedDate: new Date(),
-            name: 'Screenshot from 2020-10-10',
-            size: 41707,
-            type: 'image/png',
-            webkitRelativePath: ''
-          }
-        ]
-      }
-    };
     component.value = {};
-
-    const mockFileReader = {
-      target: { result: '' },
-      readAsDataURL: (blobInput) => { },
-      onloadend: (value) => { }
-    };
 
     spyOn<any>(window, 'FileReader').and.returnValue(mockFileReader);
 
     spyOn(mockFileReader, 'onloadend').and.callFake(() => {
       return of({ target: {} });
     });
-    expect(component.fileChange(event)).toBeUndefined();
+    expect(component.fileChange(eventAvatarMock)).toBeUndefined();
   });
 
   it('Render function fileChange() when not has files', () => {
     const event = { target: { files: [] } };
     expect(component.fileChange(event)).toBeUndefined();
+  });
+
+  it('Testing method onClick() when value is null', () => {
+    component.value = null;
+    component.required = true;
+    component.imageSelected = null;
+    expect(component.onClick()).toBeUndefined();
+  });
+
+  it('Testing method onClick() when is not required', () => {
+    component.required = false;
+    component.imageSelected = component.value;
+    expect(component.onClick()).toBeUndefined();
   });
 });

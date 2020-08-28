@@ -9,31 +9,35 @@ export class PackenFileComponent implements OnInit, OnChanges {
 
   @Input() size: StatesSizesInput = 'small';
   @Input() disabled: boolean = false;
+  @Input() required: boolean = false;
   @Input() iconLeft: string = '../../assets/icons-test/contact.svg';
 
   @Input() title: string;
   @Input() subtitle: string;
   @Input() uploadedText: string;
   @Input() noUploadedText: string;
+  @Input() name: string;
 
   iconRight: string = 'https://packenco.s3.amazonaws.com/packen_ng/packen_file/right-arrow.svg';
   iconRightCheck: string = 'https://packenco.s3.amazonaws.com/packen_ng/packen_file/check.svg';
 
   classInput: string = '';
   classInputPrevious: string = '';
-  messageValue: string;
+  selectedFile: File;
 
   @Output()
-  valueChange = new EventEmitter<string>();
+  valueChange = new EventEmitter<File>();
 
   @Input()
   get value() {
-    return this.messageValue;
+    return this.selectedFile;
   }
 
   set value(val) {
-    this.messageValue = val;
-    this.valueChange.emit(this.messageValue);
+    if (val) {
+      this.selectedFile = val;
+      this.valueChange.emit(this.selectedFile);
+    }
   }
 
   constructor() { }
@@ -76,6 +80,21 @@ export class PackenFileComponent implements OnInit, OnChanges {
       this.classInput += SizesBoxClass.disabled;
     } else {
       this.classInput = this.classInputPrevious;
+    }
+  }
+
+  fileChange(event) {
+    const file = event.srcElement.files[0];
+    if (file) {
+      this.selectedFile = file;
+      this.valueChange.emit(this.selectedFile);
+      this.classInput = this.classInputPrevious;
+    }
+  }
+
+  onClick() {
+    if (this.required && !this.selectedFile) {
+      this.classInput += SizesBoxClass.error;
     }
   }
 }

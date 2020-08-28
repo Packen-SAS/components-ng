@@ -11,33 +11,38 @@ export class PackenAvatarComponent implements OnInit {
   @Input() type: string = 'default';
   @Input() src: string = '';
   @Input() title: string = null;
+  @Input() name: string;
+  @Input() required: boolean = false;
 
   sizeImage: number = null;
-  imageSelected: any = '';
-
-  valueTemporaly: any = null;
+  imageSelected: any;
+  classStyle: string = '';
+  classStylePrevious: string = '';
 
   @Output()
   valueChange = new EventEmitter<string>();
 
   @Input()
   get value() {
-    return this.valueTemporaly;
+    return this.imageSelected;
   }
 
   set value(val) {
-    this.valueTemporaly = val;
-    this.valueChange.emit(this.valueTemporaly);
+    if (val) {
+      this.imageSelected = val;
+      this.src = this.imageSelected;
+      this.valueChange.emit(this.imageSelected);
+    }
   }
 
   constructor() { }
 
   ngOnInit(): void {
-    this.imageSelected = this.src;
     this.defineSizeImage(this.size);
   }
 
   defineSizeImage(sizesImages: SizesImages) {
+    this.classStyle = '';
     switch (sizesImages) {
       case 'tiny':
         this.sizeImage = PackenAvatarSizes.tiny;
@@ -57,17 +62,29 @@ export class PackenAvatarComponent implements OnInit {
       default:
         this.sizeImage = PackenAvatarSizes.tiny;
     }
+    this.classStylePrevious = this.classStyle;
   }
 
   fileChange(event) {
-    this.valueChange.emit(event.target.files[0]);
-    if (event.target.files && event.target.files[0]) {
-      const reader = new FileReader();
-      reader.readAsDataURL(event.target.files[0]);
+    if (event.target.files[0]) {
+      this.valueChange.emit(event.target.files[0]);
+      this.classStyle = this.classStylePrevious;
 
-      reader.onloadend = (ev) => {
-        this.imageSelected = ev.target.result;
-      };
+      if (event.target.files && event.target.files[0]) {
+        const reader = new FileReader();
+        reader.readAsDataURL(event.target.files[0]);
+
+        reader.onloadend = (ev) => {
+          this.imageSelected = ev.target.result;
+          this.src = this.imageSelected;
+        };
+      }
+    }
+  }
+
+  onClick() {
+    if (this.required && !this.imageSelected) {
+      this.classStyle = 'img--error';
     }
   }
 }
