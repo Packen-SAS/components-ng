@@ -10,6 +10,7 @@ import { DropdownItem } from 'src/app/interfaces/dropdown-item';
 })
 export class DropdownsComponent implements OnInit {
 
+  selectedMenuTest: any;
   selectedMenu1: number = 1;
   itemsMenu1: Array<DropdownItem> = [
     {
@@ -151,7 +152,7 @@ export class DropdownsComponent implements OnInit {
     { id: 3, label: 'Label 3', state: 'unchecked', disabled: true }
   ];
 
-  selectMenuRadio = 1;
+  selectMenuRadio;
   selectIdRadio = 1;
   radios: Array<RadioItem> = [
     { id: 1, label: 'Label 1', disabled: false },
@@ -184,5 +185,9 @@ export class DropdownsComponent implements OnInit {
 
   changeRadio = (data): void => {
     this.selectIdRadio = data;
+  }
+
+  keyUpDropdown(value) {
+    console.log(value);
   }
 }

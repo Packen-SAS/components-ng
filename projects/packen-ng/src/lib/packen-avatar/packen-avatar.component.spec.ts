@@ -48,8 +48,6 @@ describe('PackenAvatarComponent', () => {
   });
 
   it('Render function fileChange()', () => {
-    component.value = {};
-
     spyOn<any>(window, 'FileReader').and.returnValue(mockFileReader);
 
     spyOn(mockFileReader, 'onloadend').and.callFake(() => {

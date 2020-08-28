@@ -9,15 +9,16 @@ import { DropdownItem } from '../../interfaces/dropdown-item';
 export class PackenDropdownComponent implements OnInit, OnChanges {
 
   @Input() items: Array<any> = [];
-  @Input() selected: number = 1;
   @Input() label: string = '';
   @Input() type: string = 'default';
-  @Input() selectedItemId: number = 0;
   @Input() size: string = 'tiny';
+  @Input() required: boolean = false;
 
   @Output() outputChangeItem = new EventEmitter<any>();
   @Output() changeCheckbox = new EventEmitter<any>();
+  @Output() keyUp = new EventEmitter<any>();
   @Output() valueChange = new EventEmitter<any>();
+
 
   @Input()
   get value() {
@@ -47,7 +48,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if(changes.items){
+    if (changes.items) {
       this.getItemSelected();
     }
   }
@@ -64,9 +65,11 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
         this.textInput = this.itemSelected ? this.itemSelected.title : null;
       }
     } else {
-      const radio = this.items.find((item) => item.id === this.selectedItemId);
-      if (radio) {
-        this.textInput = radio.label;
+      if (this.items) {
+        const radio = this.items.find((item) => item.id === this.value);
+        if (radio) {
+          this.textInput = radio.label;
+        }
       }
     }
   }
@@ -77,7 +80,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
     }
 
     if (!i.info) {
-      if (i.id === this.selected) {
+      if (i.id === this.value) {
         return ItemStyles.selected;
       }
     }
@@ -85,7 +88,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
 
   getClassTitle = (i: DropdownItem): string => {
     if (!i.info) {
-      if (i.id === this.selected) {
+      if (i.id === this.value) {
         return TitleStyles.selected;
       }
     }
@@ -114,7 +117,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
 
   getColorSubTitleWhenItemIsSelected = (i: DropdownItem): string => {
     if (!i.info) {
-      if (i.id === this.selected) {
+      if (i.id === this.value) {
         return TitleStyles.selected;
       }
     }
@@ -125,7 +128,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
       return IconStyles.disabled;
     }
 
-    if (i.id === this.selected) {
+    if (i.id === this.value) {
       return IconStyles.selected;
     }
   }
@@ -148,6 +151,9 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
 
   clickOutsideContent = (): void => {
     this.showMenuList = false;
+    if (!this.value) {
+      this.textInput = '';
+    }
   }
 
   changeRadio(radio) {
@@ -156,6 +162,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
   }
 
   keyUpInput(text) {
+    this.keyUp.emit(text);
     const newArray = [];
     this.items.forEach((item) => {
       if (this.type !== 'radio' && this.type !== 'checkbox') {

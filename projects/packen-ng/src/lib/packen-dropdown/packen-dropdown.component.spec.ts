@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PackenDropdownComponent } from './packen-dropdown.component';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, SimpleChanges, SimpleChange } from '@angular/core';
 import { DropdownItem } from 'src/app/interfaces/dropdown-item';
 
 describe('PackenDropdownComponent', () => {
@@ -25,7 +25,7 @@ describe('PackenDropdownComponent', () => {
   });
 
   it('render when item is selected', () => {
-    component.selected = 1;
+    component.value = 1;
     component.items = [{
       id: 1,
       left: false,
@@ -46,6 +46,18 @@ describe('PackenDropdownComponent', () => {
     expect(component.getItemSelected()).toBeUndefined();
   });
 
+  it('Render function getItemSelected() when type is different to radio and items is empty', () => {
+    component.type = 'other';
+    component.items = null;
+    expect(component.getItemSelected()).toBeUndefined();
+  });
+
+  it('Render function getItemSelected() when type is radio and item is null ', () => {
+    component.type = 'radio';
+    component.items = null;
+    expect(component.getItemSelected()).toBeUndefined();
+  });
+
   it('render item selected when the type is radio', () => {
     component.items = [{
       id: 1,
@@ -63,7 +75,7 @@ describe('PackenDropdownComponent', () => {
     }];
 
     component.type = 'radio';
-    component.selectedItemId = 1;
+    component.value = 1;
     expect(component.getItemSelected()).toBeUndefined();
   });
 
@@ -84,7 +96,7 @@ describe('PackenDropdownComponent', () => {
     }];
 
     component.type = 'radio';
-    component.selectedItemId = 3;
+    component.value = 3;
     expect(component.getItemSelected()).toBeUndefined();
   });
 
@@ -94,7 +106,7 @@ describe('PackenDropdownComponent', () => {
   });
 
   it('render class of item when not is disabled, not has info text and id is selected', async () => {
-    component.selected = 1;
+    component.value = 1;
     const objDropdown: DropdownItem = {
       id: 1, disabled: false,
       left: false, right: false, title: 'title',
@@ -104,7 +116,7 @@ describe('PackenDropdownComponent', () => {
   });
 
   it('render class of item when not is disabled, not has info text and id is diferent to selected', () => {
-    component.selected = 1;
+    component.value = 1;
     const objDropdown: DropdownItem = {
       id: 1, disabled: false,
       info: 'Info text',
@@ -120,12 +132,12 @@ describe('PackenDropdownComponent', () => {
       info: null,
       left: false, right: false, title: 'Title'
     };
-    component.selected = 2;
+    component.value = 2;
     expect(component.getClassItem(objDropdown)).toBeUndefined();
   });
 
   it('render class of title when not has info and is selected', () => {
-    component.selected = 1;
+    component.value = 1;
     const objDropdown: DropdownItem = {
       id: 1, disabled: false,
       left: false, right: false, title: 'title',
@@ -135,7 +147,7 @@ describe('PackenDropdownComponent', () => {
   });
 
   it('render class of title when has info and not is selected', () => {
-    component.selected = 2;
+    component.value = 2;
     const objDropdown: DropdownItem = {
       id: 1, disabled: false,
       left: false, right: false, title: 'title',
@@ -145,7 +157,7 @@ describe('PackenDropdownComponent', () => {
   });
 
   it('render class of title when has info and not is selected', () => {
-    component.selected = 2;
+    component.value = 2;
     const objDropdown: DropdownItem = {
       id: 1, disabled: false,
       left: false, right: false, title: 'title',
@@ -196,7 +208,7 @@ describe('PackenDropdownComponent', () => {
   });
 
   it('render color sub title when item is selected', () => {
-    component.selected = 1;
+    component.value = 1;
     const objDropdown: DropdownItem = {
       id: 1, disabled: false,
       left: false, right: false, title: 'title'
@@ -205,7 +217,7 @@ describe('PackenDropdownComponent', () => {
   });
 
   it('render color sub title when item is selected and is diferent to selected id', () => {
-    component.selected = 2;
+    component.value = 2;
     const objDropdown: DropdownItem = {
       id: 1, disabled: false,
       left: false, right: false, title: 'title'
@@ -214,7 +226,7 @@ describe('PackenDropdownComponent', () => {
   });
 
   it('render color sub title when item is selected and has info text', () => {
-    component.selected = 1;
+    component.value = 1;
     const objDropdown: DropdownItem = {
       id: 1, disabled: false,
       info: 'Info text',
@@ -224,7 +236,7 @@ describe('PackenDropdownComponent', () => {
   });
 
   it('render color icon when item is selected ', () => {
-    component.selected = 1;
+    component.value = 1;
     const objDropdown: DropdownItem = {
       id: 1, disabled: false,
       info: 'Info text',
@@ -234,7 +246,7 @@ describe('PackenDropdownComponent', () => {
   });
 
   it('render color icon when item not is selected ', () => {
-    component.selected = 1;
+    component.value = 1;
     const objDropdown: DropdownItem = {
       id: 2, disabled: false,
       info: 'Info text',
@@ -244,7 +256,7 @@ describe('PackenDropdownComponent', () => {
   });
 
   it('render color icon when item is disabled ', () => {
-    component.selected = 1;
+    component.value = 1;
     const objDropdown: DropdownItem = {
       id: 2, disabled: true,
       info: 'Info text',
@@ -371,5 +383,31 @@ describe('PackenDropdownComponent', () => {
     }];
     component.type = 'default';
     expect(component.keyUpInput('Label')).toBeUndefined();
+  });
+
+  it('Render function clickOutSideContent', () => {
+    component.value = false;
+    expect(component.clickOutsideContent()).toBeUndefined();
+  });
+
+  it('Render function clickOutSideContent', () => {
+    component.value = true;
+    expect(component.clickOutsideContent()).toBeUndefined();
+  });
+
+  it('Testing method ngOnChanges() when items change the property', () => {
+    component.ngOnChanges({
+      items: new SimpleChange(null, null, true)
+    });
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
+
+  it('Testing method ngOnChanges() when items change the property', () => {
+    component.ngOnChanges({
+      other: new SimpleChange(null, null, true)
+    });
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
   });
 });

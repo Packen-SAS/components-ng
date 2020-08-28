@@ -175,4 +175,17 @@ describe('PackenInputComponent', () => {
     component.value = 'email@fg';
     expect(component.changeTextInput('email@fg')).toBeUndefined();
   });
+
+  it('Render function clickInsideContent', () => {
+    expect(component.clickInsideContent()).toBeUndefined();
+  });
+
+  it('Render function clickOutsideContent ', () => {
+    expect(component.clickOutsideContent()).toBeUndefined();
+  });
+
+  it('Render function clickOutsideContent when isset isCliskInside', () => {
+    component.isClickInside = true;
+    expect(component.clickOutsideContent()).toBeUndefined();
+  });
 });

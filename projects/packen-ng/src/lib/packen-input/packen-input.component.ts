@@ -26,7 +26,10 @@ export class PackenInputComponent implements OnInit {
 
   @Output() keyUpInput = new EventEmitter<any>();
 
-  messageValue: string;
+  messageValue: string = '';
+
+  // Manage the status of click
+  isClickInside: boolean = false;
 
   @Output()
   valueChange = new EventEmitter<string>();
@@ -162,7 +165,7 @@ export class PackenInputComponent implements OnInit {
     this.getClassStylesTextArea(this.size);
 
     // Validate required
-    if (this.required) {
+    if (this.required === true) {
       if (value.length === 0) {
         this.classTextArea += TextAreaClass.error;
         this.classInput += ' content__input-container__input--error';
@@ -196,6 +199,22 @@ export class PackenInputComponent implements OnInit {
     if ($event) {
       this.isFocusInput = true;
     }
+  }
+
+  /**
+   * Function execute when click outside and inside input
+   */
+  clickOutsideContent() {
+    if (this.isClickInside) {
+      this.changeTextInput(this.value);
+    }
+  }
+
+  /**
+   * Function execute when click in input
+   */
+  clickInsideContent() {
+    this.isClickInside = true;
   }
 }
 
