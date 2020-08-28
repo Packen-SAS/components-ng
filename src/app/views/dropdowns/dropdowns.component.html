@@ -3,11 +3,11 @@
 <div class="row">
     <div class="col-sm-5">
         <lib-packen-dropdown  [(value)]="selectedMenu1" [items]="itemsMenu1" size="medium"
-            label="Menu 1" type="default" (keyUp)="keyUpDropdown($event)">
+            label="Menu 1" type="default" (keyUp)="keyUpDropdown($event)" [lazy]="false" [required]="true">
         </lib-packen-dropdown>
         <br>
 
-        <lib-packen-dropdown [selected]="selectedMenu2" [(value)]="selectedMenu2" [items]="itemsMenu2" size="medium"
+       <!--  <lib-packen-dropdown [selected]="selectedMenu2" [(value)]="selectedMenu2" [items]="itemsMenu2" size="medium"
             label="Menu 2" type="default">
         </lib-packen-dropdown>
         <br>
@@ -25,11 +25,11 @@
         <lib-packen-dropdown [required]="true" [items]="radios" [(value)]="selectMenuRadio" size="large"
             label="Menu radios" type="radio">
         </lib-packen-dropdown>
-        <br>
+        <br> -->
 
-        <lib-packen-dropdown [required]="true" [items]="checkboxes" size="medium" label="Menu Checkbox" type="checkbox"
-            (keyUp)="keyUpDropdown($event)" [searchable]="true">
-        </lib-packen-dropdown>
+     <!--    <lib-packen-dropdown [required]="true" [items]="checkboxes" size="medium" label="Menu Checkbox" type="checkbox"
+            (keyUp)="keyUpDropdown($event)" [lazy]="true">
+        </lib-packen-dropdown> -->
         <br>
     </div>
 

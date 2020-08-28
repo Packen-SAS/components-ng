@@ -142,9 +142,9 @@ describe('PackenInputComponent', () => {
     expect(component.changeTextInput('')).toBeUndefined();
   });
 
-  it('render function when change the textInput or textArea and length value is empty and isSearchable is true', () => {
+  it('render function when change the textInput or textArea and length value is empty and islazy is true', () => {
     component.required = true;
-    component.searchable = true;
+    component.lazy = true;
     expect(component.changeTextInput('')).toBeUndefined();
   });
 
@@ -195,8 +195,8 @@ describe('PackenInputComponent', () => {
     expect(component.clickOutsideContent()).toBeUndefined();
   });
 
-  it('Render function ngAfterViewInit() when is searchable is true', () => {
-    component.searchable = true;
+  it('Render function ngAfterViewInit() when is lazy is true', () => {
+    component.lazy = true;
     expect(component.ngAfterViewInit()).toBeUndefined();
   });
 });

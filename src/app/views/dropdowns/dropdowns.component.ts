@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CheckItem } from 'src/app/interfaces/check-item';
 import { RadioItem } from 'src/app/interfaces/radio-item';
 import { DropdownItem } from 'src/app/interfaces/dropdown-item';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-dropdowns',
@@ -11,30 +12,8 @@ import { DropdownItem } from 'src/app/interfaces/dropdown-item';
 export class DropdownsComponent implements OnInit {
 
   selectedMenuTest: any;
-  selectedMenu1: number;
-  itemsMenu1: Array<DropdownItem> = [
-    {
-      id: 1,
-      left: false,
-      right: false,
-      disabled: false,
-      title: 'Menu item'
-    },
-    {
-      id: 2,
-      left: false,
-      right: false,
-      disabled: false,
-      title: 'Menu item 2'
-    },
-    {
-      id: 3,
-      left: false,
-      right: false,
-      disabled: true,
-      title: 'Menu item 3'
-    }
-  ];
+  selectedMenu1: number = 2;
+  itemsMenu1: Array<DropdownItem> = [{"id":1,"left":false,"right":false,"disabled":false,"title":"EMPRESAS PÚBLICAS DE MEDELLÍN DEPARTAMENTO MÉDICO"},{"id":2,"left":false,"right":false,"disabled":false,"title":"FONDO DE FERROCARRILES NACIONALES DE COLOMBIA (EPS)"},{"id":3,"left":false,"right":false,"disabled":false,"title":"ALIANSALUD EPS (ANTES COLMÉDICA)"},{"id":4,"left":false,"right":false,"disabled":false,"title":"SALUD TOTAL"},{"id":5,"left":false,"right":false,"disabled":false,"title":"CAFESALUD"}]
 
   selectedMenu2: number = 1;
   itemsMenu2: Array<DropdownItem> = [
@@ -161,7 +140,7 @@ export class DropdownsComponent implements OnInit {
     { id: 4, label: 'Label 4', disabled: true }
   ];
 
-  constructor() { }
+  constructor(public api: ApiService) { }
 
   ngOnInit(): void {
   }
@@ -188,7 +167,15 @@ export class DropdownsComponent implements OnInit {
   }
 
   keyUpDropdown(value) {
-    let itemsTem = this.itemsMenu1;
-    this.itemsMenu1 = itemsTem;
+    this.api.getListHealtEntities(value).subscribe((data: any) => {
+      let temporaryData = []
+      data.data.forEach((item) => {
+        let dropdownObject = { id: item.id, left: false, right: false, disabled: false, title: item.name };
+        temporaryData.push(dropdownObject);
+      });
+      this.itemsMenu1 = temporaryData;
+      console.log(JSON.stringify(this.itemsMenu1));
+    });
+
   }
 }

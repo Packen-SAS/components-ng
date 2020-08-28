@@ -26,7 +26,7 @@ export class PackenInputComponent implements OnInit, AfterViewInit {
   @Input() maxlength: number = 0;
   @Input() minlength: number = 0;
   @Input() mask: string;
-  @Input() searchable: boolean = false;
+  @Input() lazy: boolean = false;
 
   @Output() keyUpInput = new EventEmitter<any>();
 
@@ -62,7 +62,7 @@ export class PackenInputComponent implements OnInit, AfterViewInit {
   constructor() { }
 
   ngAfterViewInit() {
-    if (this.searchable) {
+    if (this.lazy) {
       this.listenerSearch();
     }
   }
@@ -79,7 +79,7 @@ export class PackenInputComponent implements OnInit, AfterViewInit {
       map((event: any) => {
         return event.target.value;
       })
-      , debounceTime(1000)
+      , debounceTime(500)
     ).subscribe((value: string) => {
       this.keyUpInput.emit(value);
     });
@@ -184,7 +184,7 @@ export class PackenInputComponent implements OnInit, AfterViewInit {
     // Set values
     this.messageValue = value;
     this.valueChange.emit(value);
-    if (!this.searchable) {
+    if (!this.lazy) {
       this.keyUpInput.emit(value);
     }
 
