@@ -1,5 +1,5 @@
 <div [ngStyle]="orientation == 'horizontal' && {'display' : 'flex', 'flex-wrap': 'wrap'}" >
-    <div class="contentCheckbox" *ngFor="let c of checkboxes" (click)="changeStateCheck(c)"
+    <div class="contentCheckbox" *ngFor="let c of values" (click)="changeStateCheck(c)"
         [ngClass]="getTypeCursor(c)">
         <div class="contentCheckbox__checkbox" [ngClass]="getClassCheckBox(c)">
             <span [ngClass]="getClassIcon(c.state)" class=" contentCheckbox__checkbox__icon"></span>

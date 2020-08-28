@@ -11,5 +11,4 @@ export class PinMapComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

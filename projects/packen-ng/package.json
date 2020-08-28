@@ -1,10 +1,10 @@
 {
   "name": "packen-ng",
-  "version": "1.2.3",
+  "version": "1.4.4",
   "description": "Ui components library of Packen.",
   "main": "index.js",
   "scripts": {
-    "test": "ng test"
+    "test": "ng test --no-progress --code-coverage"
   },
   "repository": {
     "type": "git",
@@ -15,6 +15,7 @@
   "peerDependencies": {
     "@angular/common": "^9.0.5",
     "@angular/core": "^9.0.5",
-    "tslib": "^1.10.0"
+    "tslib": "^1.10.0",
+    "ng-click-outside": "^6.0.0"
   }
 }

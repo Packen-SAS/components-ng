@@ -1,40 +1,91 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-packen-avatar',
+  selector: 'lib-packen-avatar',
   templateUrl: './packen-avatar.component.html',
   styleUrls: ['./packen-avatar.component.scss']
 })
 export class PackenAvatarComponent implements OnInit {
+
   @Input() size: any = null;
-  @Input() src: any = null;
-  @Output() outputClick = new EventEmitter<any>();
+  @Input() type: string = 'default';
+  @Input() src: string = '';
+  @Input() title: string = null;
+  @Input() name: string;
+  @Input() required: boolean = false;
+
+  sizeImage: number = null;
+  imageSelected: any;
+  classStyle: string = '';
+  classStylePrevious: string = '';
+
+  @Output()
+  valueChange = new EventEmitter<string>();
+
+  @Input()
+  get value() {
+    return this.imageSelected;
+  }
+
+  set value(val) {
+    if (val) {
+      this.imageSelected = val;
+      this.src = this.imageSelected;
+      this.valueChange.emit(this.imageSelected);
+    }
+  }
 
   constructor() { }
 
   ngOnInit(): void {
+    this.defineSizeImage(this.size);
   }
 
-  defineSizeImage = (sizesImages: SizesImages): number => {
+  defineSizeImage(sizesImages: SizesImages) {
+    this.classStyle = '';
     switch (sizesImages) {
       case 'tiny':
-        return PackenAvatarSizes.tiny;
+        this.sizeImage = PackenAvatarSizes.tiny;
+        break;
       case 'small':
-        return PackenAvatarSizes.small;
+        this.sizeImage = PackenAvatarSizes.small;
+        break;
       case 'medium':
-        return PackenAvatarSizes.medium;
+        this.sizeImage = PackenAvatarSizes.medium;
+        break;
       case 'large':
-        return PackenAvatarSizes.large;
+        this.sizeImage = PackenAvatarSizes.large;
+        break;
       case 'xlarge':
-        return PackenAvatarSizes.xlarge;
+        this.sizeImage = PackenAvatarSizes.xlarge;
+        break;
       default:
-        return PackenAvatarSizes.tiny;
+        this.sizeImage = PackenAvatarSizes.tiny;
+    }
+    this.classStylePrevious = this.classStyle;
+  }
+
+  fileChange(event) {
+    if (event.target.files[0]) {
+      this.valueChange.emit(event.target.files[0]);
+      this.classStyle = this.classStylePrevious;
+
+      if (event.target.files && event.target.files[0]) {
+        const reader = new FileReader();
+        reader.readAsDataURL(event.target.files[0]);
+
+        reader.onloadend = (ev) => {
+          this.imageSelected = ev.target.result;
+          this.src = this.imageSelected;
+        };
+      }
     }
   }
 
-  clickImage = (): void => {
-    this.outputClick.emit();
-
+  onClick() {
+    if (this.required && !this.imageSelected) {
+      this.classStyle = 'img--error';
+    }
   }
 }
 

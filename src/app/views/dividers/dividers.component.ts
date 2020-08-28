@@ -10,7 +10,6 @@ export class DividersComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    
   }
 
 }

@@ -1,4 +1,16 @@
-@import "../../styles/colors.scss";
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/mixins.scss";
+
+.ctn-box {
+  padding: 5px 10px;
+
+  &__title {
+    @include packen-labels;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 0 0 15px !important;
+  }
+}
 
 .contentRadio {
   display: flex;
@@ -31,6 +43,7 @@
 
     &--default {
       border: 2px solid $primary_default;
+
       &--disabled {
         border: 2px solid $disabled;
       }
@@ -43,9 +56,11 @@
     font-weight: normal;
     font-size: 14px;
     margin: 0;
-    margin-left: 5px;
+    margin-left: 15px;
+    color: $gray;
+
     &--disabled {
-      color: $basic_disable;
+      color: $gray_alt;
       font-weight: 600 !important;
     }
   }

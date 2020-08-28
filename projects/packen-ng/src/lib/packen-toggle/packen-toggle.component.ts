@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ToggleItem } from '../../interfaces/toggle-item';
 
 @Component({
-  selector: 'app-packen-toggle',
+  selector: 'lib-packen-toggle',
   templateUrl: './packen-toggle.component.html',
   styleUrls: ['./packen-toggle.component.scss']
 })

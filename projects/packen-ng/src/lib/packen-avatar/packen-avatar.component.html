@@ -1,2 +1,14 @@
-<img class="img" [style.width.px]="defineSizeImage(size)" [style.height.px]="defineSizeImage(size)" [src]="src"
-    (click)="clickImage()">
+<div class="content">
+    <img class="img" *ngIf="type !== 'input'" [ngClass]="classStyle" [style.width.px]="sizeImage"
+        [style.height.px]="sizeImage" [src]="src">
+    <div class="image-upload" *ngIf="type === 'input'">
+        <label [for]="name">
+            <img class="img" [ngClass]="classStyle" [style.width.px]="sizeImage" [style.height.px]="sizeImage"
+                [src]="src" />
+            <p *ngIf="title" class="content__title">{{title}}</p>
+        </label>
+        <input #file (change)="fileChange($event)" [id]="name" type="file" (click)="onClick()" />
+    </div>
+
+    <p *ngIf="title && type !== 'input'" style="cursor: default;" class="content__title">{{title}}</p>
+</div>

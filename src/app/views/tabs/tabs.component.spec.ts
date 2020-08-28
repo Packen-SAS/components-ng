@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { PackenNgModule } from 'projects/packen-ng/src/public-api';
 
 import { TabsComponent } from './tabs.component';
 
@@ -8,9 +9,13 @@ describe('TabsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TabsComponent ]
-    })
-    .compileComponents();
+      declarations: [
+        TabsComponent
+      ],
+      imports: [
+        PackenNgModule,
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -23,7 +28,8 @@ describe('TabsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('render function when change id tab', () =>{
-    expect(component.changeTab(1));
+  it('render function when change id tab', () => {
+    component.changeTab(1);
+    expect(component.activeTabId).toEqual(1);
   });
 });

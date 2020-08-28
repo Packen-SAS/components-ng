@@ -12,8 +12,8 @@ export class ButtonsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  clickButton =() =>{
-    alert("Click");
+  clickButton = () => {
+    console.log('Click');
   }
 
 }

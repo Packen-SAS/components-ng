@@ -1,6 +1,5 @@
 export interface RadioItem {
-    id:number,
-    label:string,
-    disabled: boolean
-
+    id: number;
+    label: string;
+    disabled: boolean;
 }

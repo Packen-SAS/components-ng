@@ -2,14 +2,27 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CheckItem } from '../../interfaces/check-item';
 
 @Component({
-  selector: 'app-packen-checkbox',
+  selector: 'lib-packen-checkbox',
   templateUrl: './packen-checkbox.component.html',
   styleUrls: ['./packen-checkbox.component.scss']
 })
 export class PackenCheckboxComponent implements OnInit {
+
   @Input() checkboxes: Array<CheckItem> = [];
   @Input() orientation: string = 'vertical';
-  @Output() outputChangeCheck = new EventEmitter<any>();
+
+  @Output() valuesChange = new EventEmitter<any>();
+
+  @Input()
+  get values() {
+    return this.temporaryValues;
+  }
+  set values(val) {
+    this.temporaryValues = val;
+    this.valuesChange.emit(this.temporaryValues);
+  }
+
+  temporaryValues: any = null;
 
   constructor() { }
 
@@ -21,7 +34,7 @@ export class PackenCheckboxComponent implements OnInit {
       case 'checked':
         return IconsCheck.checked;
       case 'unchecked':
-        return IconsCheck.unchecked
+        return IconsCheck.unchecked;
     }
   }
 
@@ -33,7 +46,15 @@ export class PackenCheckboxComponent implements OnInit {
       } else {
         newStatus = 'checked';
       }
-      this.outputChangeCheck.emit({ id: check.id, state: newStatus });
+
+      this.values.forEach((item: CheckItem) => {
+        if (item.id === check.id) {
+          item.state = newStatus;
+        }
+      });
+
+      this.temporaryValues = this.values;
+      this.valuesChange.emit(this.temporaryValues);
     }
   }
 

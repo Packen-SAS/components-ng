@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-packen-pin-map',
+  selector: 'lib-packen-pin-map',
   templateUrl: './packen-pin-map.component.html',
   styleUrls: ['./packen-pin-map.component.scss']
 })
@@ -20,9 +20,9 @@ export class PackenPinMapComponent implements OnInit {
   }
 
   getClassTypeContentDirection = (type) => {
-    if (type == 'active') {
+    if (type === 'active') {
       return ContentDirection.active;
-    } else if (type == 'refresh') {
+    } else if (type === 'refresh') {
       return ContentDirection.default;
     } else {
       return ContentDirection.default;
@@ -30,7 +30,7 @@ export class PackenPinMapComponent implements OnInit {
   }
 
   getClassLabel = (type) => {
-    if (type == 'active') {
+    if (type === 'active') {
       return ClassLabelStyles.active;
     } else {
       return ClassLabelStyles.default;
@@ -50,18 +50,18 @@ export class PackenPinMapComponent implements OnInit {
       case 'none':
         return PositionPointStyle.none;
       default:
-        return PositionPointStyle.none
+        return PositionPointStyle.none;
     }
   }
 
   getColorContentIcon = (type) => {
-    if (type == 'refresh') {
+    if (type === 'refresh') {
       return ColorContentIcon.refresh;
     }
   }
 
   getColorIcon = (type) => {
-    if (type == 'refresh') {
+    if (type === 'refresh') {
       return IconColorStyles.refresh;
     }
     return IconColorStyles.default;

@@ -1,21 +1,37 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { DropdownItem } from '../../interfaces/dropdown-item';
 
 @Component({
-  selector: 'app-packen-dropdown',
+  selector: 'lib-packen-dropdown',
   templateUrl: './packen-dropdown.component.html',
   styleUrls: ['./packen-dropdown.component.scss']
 })
-export class PackenDropdownComponent implements OnInit {
+export class PackenDropdownComponent implements OnInit, OnChanges {
+
   @Input() items: Array<any> = [];
-  @Input() selected: number = 1;
   @Input() label: string = '';
   @Input() type: string = 'default';
-  @Input() value: string = '';
-  @Input() selectedItemId: number = 0;
-  @Input() size: string = 'tiny'
+  @Input() size: string = 'tiny';
+  @Input() required: boolean = false;
+
   @Output() outputChangeItem = new EventEmitter<any>();
   @Output() changeCheckbox = new EventEmitter<any>();
+  @Output() keyUp = new EventEmitter<any>();
+  @Output() valueChange = new EventEmitter<any>();
+
+
+  @Input()
+  get value() {
+    return this.temporaryData;
+  }
+  set value(val) {
+    this.temporaryData = val;
+    this.valueChange.emit(this.temporaryData);
+  }
+
+  textInput = '';
+  temporaryData = null;
+  temporaryChecks = null;
 
   itemSelected: DropdownItem = {
     id: 0,
@@ -24,25 +40,38 @@ export class PackenDropdownComponent implements OnInit {
     left: false,
     right: false
   };
+
   showMenuList: boolean = false;
   hoverItem: string = '';
-  constructor() {
+  temporaryItemsList: any = [];
+
+  constructor() { }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.items) {
+      this.getItemSelected();
+    }
   }
 
   ngOnInit(): void {
+    this.temporaryItemsList = this.items;
     this.getItemSelected();
   }
 
-  getItemSelected = async () => {
+  getItemSelected = () => {
     if (this.type !== 'radio' && this.type !== 'checkbox') {
-      this.itemSelected = await this.items.find((item) => item.id == this.selected);
+      if (this.items) {
+        this.itemSelected = this.items.find((item) => item.id === this.value);
+        this.textInput = this.itemSelected ? this.itemSelected.title : null;
+      }
     } else {
-      let radio = this.items.find((item) => item.id == this.selectedItemId);
-      if (radio) {
-        this.itemSelected.title = radio.label;
+      if (this.items) {
+        const radio = this.items.find((item) => item.id === this.value);
+        if (radio) {
+          this.textInput = radio.label;
+        }
       }
     }
-
   }
 
   getClassItem = (i: DropdownItem): string => {
@@ -51,7 +80,7 @@ export class PackenDropdownComponent implements OnInit {
     }
 
     if (!i.info) {
-      if (i.id == this.selected) {
+      if (i.id === this.value) {
         return ItemStyles.selected;
       }
     }
@@ -59,7 +88,7 @@ export class PackenDropdownComponent implements OnInit {
 
   getClassTitle = (i: DropdownItem): string => {
     if (!i.info) {
-      if (i.id == this.selected) {
+      if (i.id === this.value) {
         return TitleStyles.selected;
       }
     }
@@ -67,25 +96,28 @@ export class PackenDropdownComponent implements OnInit {
 
   selectItem = (item: DropdownItem): void => {
     if (!item.disabled) {
-      this.outputChangeItem.emit(item.id);
+      this.valueChange.emit(item.id);
       this.itemSelected = item;
+      this.textInput = item.title;
       this.showMenuList = false;
     }
   }
 
   getClassText = (i: DropdownItem): string => {
     if (i.disabled) {
-      return contentTextStyles.disabled;
+      return ContentTextStyles.disabled;
     }
   }
 
   clickInput = (): void => {
-    this.showMenuList = !this.showMenuList;
+    if (!this.showMenuList) {
+      this.showMenuList = true;
+    }
   }
 
   getColorSubTitleWhenItemIsSelected = (i: DropdownItem): string => {
     if (!i.info) {
-      if (i.id == this.selected) {
+      if (i.id === this.value) {
         return TitleStyles.selected;
       }
     }
@@ -96,7 +128,7 @@ export class PackenDropdownComponent implements OnInit {
       return IconStyles.disabled;
     }
 
-    if (i.id == this.selected) {
+    if (i.id === this.value) {
       return IconStyles.selected;
     }
   }
@@ -108,7 +140,7 @@ export class PackenDropdownComponent implements OnInit {
   }
 
   getColorInfoType = (i: DropdownItem): string => {
-    if (i.typeInfo == 'active') {
+    if (i.typeInfo === 'active') {
       return InfoStyles.active;
     }
   }
@@ -117,17 +149,33 @@ export class PackenDropdownComponent implements OnInit {
     this.outputChangeItem.emit(data);
   }
 
-  changeRadio = (data): void => {
-    let radio = this.items.find((i) => data == i.id);
-    if (radio) {
-      this.itemSelected.title = radio.label;
-    }
-    this.outputChangeItem.emit(data);
-  }
-
-
   clickOutsideContent = (): void => {
     this.showMenuList = false;
+    if (!this.value) {
+      this.textInput = '';
+    }
+  }
+
+  changeRadio(radio) {
+    this.textInput = radio.label;
+    this.showMenuList = false;
+  }
+
+  keyUpInput(text) {
+    this.keyUp.emit(text);
+    const newArray = [];
+    this.items.forEach((item) => {
+      if (this.type !== 'radio' && this.type !== 'checkbox') {
+        if (item.title.toUpperCase().includes(text.toUpperCase())) {
+          newArray.push(item);
+        }
+      } else {
+        if (item.label.toUpperCase().includes(text.toUpperCase())) {
+          newArray.push(item);
+        }
+      }
+    });
+    this.temporaryItemsList = newArray;
   }
 }
 
@@ -144,7 +192,7 @@ class InfoStyles {
   static readonly active = 'content__item__contentText__textP__info--active';
 }
 
-class contentTextStyles {
+class ContentTextStyles {
   static readonly disabled = 'content__item__contentText__textP--disabled';
 }
 

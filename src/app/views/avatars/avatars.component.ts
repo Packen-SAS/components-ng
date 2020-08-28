@@ -7,14 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AvatarsComponent implements OnInit {
 
+  imageFileTiny: any = null;
+  imageFileMedium: any = null;
+
   constructor() { }
 
   ngOnInit(): void {
-    
   }
 
-  clickComponent = () =>{
-    alert("acción emitida");
+  printFile() {
+    console.log('Tiny avatar: ', this.imageFileTiny);
+    console.log('Medium avatar: ', this.imageFileMedium);
   }
 
 }

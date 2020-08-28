@@ -1,16 +1,16 @@
-@import "../../assets/icons/style.css";
-@import "../../styles/colors.scss";
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/mixins.scss";
+
+::placeholder {
+  color: $gray_alt !important;
+}
 
 .content {
+  padding: 5px 10px;
+
   &__title {
-    font-family: Muli;
-    font-style: normal;
-    font-weight: bold;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin: 0;
-    color: $tertiary_default;
-    margin-bottom: 3px;
+    @include packen-labels;
+
     &--tiny {
       font-size: 10px;
       line-height: 12px;
@@ -48,6 +48,7 @@
       resize: none;
       outline: none;
       border: none;
+      color: $textiary_hover;
       background-color: transparent;
 
       &--disabled {
@@ -64,7 +65,7 @@
     }
 
     &--error {
-      border: 2px solid $danger_default;
+      border: 2px solid $danger_default !important;
     }
 
     &--disabled {
@@ -169,7 +170,7 @@
       }
 
       &--error {
-        border: 2px solid $danger_default;
+        border: 2px solid $danger_default !important;
       }
     }
 
@@ -202,6 +203,7 @@
     font-weight: normal;
     font-size: 12px;
     line-height: 16px;
+
     &--warning {
       color: $danger_default;
     }
