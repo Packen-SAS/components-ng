@@ -13,6 +13,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
   @Input() type: string = 'default';
   @Input() size: string = 'tiny';
   @Input() required: boolean = false;
+  @Input() searchable: boolean = false;
 
   @Output() outputChangeItem = new EventEmitter<any>();
   @Output() changeCheckbox = new EventEmitter<any>();

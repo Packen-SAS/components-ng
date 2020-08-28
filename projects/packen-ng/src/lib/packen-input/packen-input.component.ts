@@ -1,11 +1,14 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild, AfterViewInit, ViewChildren } from '@angular/core';
+import { fromEvent } from 'rxjs';
+import { debounceTime, map } from 'rxjs/operators';
 
 @Component({
   selector: 'lib-packen-input',
   templateUrl: './packen-input.component.html',
   styleUrls: ['./packen-input.component.scss']
 })
-export class PackenInputComponent implements OnInit {
+export class PackenInputComponent implements OnInit, AfterViewInit {
+  @ViewChild('searchinput') searchinput: ElementRef;
 
   @Input() size: StatesSizesInput = 'small';
   @Input() label: string = '';
@@ -23,6 +26,7 @@ export class PackenInputComponent implements OnInit {
   @Input() maxlength: number = 0;
   @Input() minlength: number = 0;
   @Input() mask: string;
+  @Input() searchable: boolean = false;
 
   @Output() keyUpInput = new EventEmitter<any>();
 
@@ -57,9 +61,30 @@ export class PackenInputComponent implements OnInit {
 
   constructor() { }
 
+  ngAfterViewInit() {
+    if (this.searchable) {
+      this.listenerSearch();
+    }
+  }
+
   ngOnInit(): void {
     this.getClassStylesInput(this.size);
   }
+
+  /**
+   * Function listen and wait a second for emit the value
+   */
+  listenerSearch() {
+    fromEvent(this.searchinput.nativeElement, 'keyup').pipe(
+      map((event: any) => {
+        return event.target.value;
+      })
+      , debounceTime(1000)
+    ).subscribe((value: string) => {
+      this.keyUpInput.emit(value);
+    });
+  }
+
 
   getClassSizeIconRight = (type: StatesSizesInput): string => {
     let resClass = this.icon + ' ';
@@ -159,7 +184,9 @@ export class PackenInputComponent implements OnInit {
     // Set values
     this.messageValue = value;
     this.valueChange.emit(value);
-    this.keyUpInput.emit(value);
+    if (!this.searchable) {
+      this.keyUpInput.emit(value);
+    }
 
     this.getClassStylesInput(this.size);
     this.getClassStylesTextArea(this.size);

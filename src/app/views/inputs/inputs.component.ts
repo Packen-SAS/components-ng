@@ -14,4 +14,8 @@ export class InputsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  testKeyUp(value) {
+    console.log(value);
+  }
 }

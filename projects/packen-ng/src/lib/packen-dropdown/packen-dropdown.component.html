@@ -1,7 +1,7 @@
 <div style="width: 100%; position: relative;" clickOutside (clickOutside)="clickOutsideContent()">
     <lib-packen-input [size]="size" [label]="label" placeholder="placeholder" type="text" textArea="false"
         [required]="type !== 'checkbox' && required === true? required: false" themeMessage="warning" disabled="false"
-        (click)="clickInput()" (keyUpInput)="keyUpInput($event)" [(value)]="textInput">
+        (click)="clickInput()" (keyUpInput)="keyUpInput($event)" [(value)]="textInput" [searchable]="searchable">
     </lib-packen-input>
 
     <div class="content animated fadeIn fast" *ngIf="showMenuList">
@@ -16,7 +16,6 @@
                     <img *ngIf="i.left && i.left.type == 'avatar'" [ngClass]="getOpacityImageItemDisabled(i)"
                         class="content__item__avatar" [src]="i.left.src">
                 </div>
-
                 <div class="content__item__contentText">
                     <p class="content__item__contentText__textP" [ngClass]="getClassText(i)">
                         <span class="content__item__contentText__textP__title" [ngClass]="getClassTitle(i)"
