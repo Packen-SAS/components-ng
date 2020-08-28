@@ -13,7 +13,29 @@ export class DropdownsComponent implements OnInit {
 
   selectedMenuTest: any;
   selectedMenu1: number = 2;
-  itemsMenu1: Array<DropdownItem> = [{"id":1,"left":false,"right":false,"disabled":false,"title":"EMPRESAS PÚBLICAS DE MEDELLÍN DEPARTAMENTO MÉDICO"},{"id":2,"left":false,"right":false,"disabled":false,"title":"FONDO DE FERROCARRILES NACIONALES DE COLOMBIA (EPS)"},{"id":3,"left":false,"right":false,"disabled":false,"title":"ALIANSALUD EPS (ANTES COLMÉDICA)"},{"id":4,"left":false,"right":false,"disabled":false,"title":"SALUD TOTAL"},{"id":5,"left":false,"right":false,"disabled":false,"title":"CAFESALUD"}]
+  itemsMenu1: Array<DropdownItem> = [
+    {
+      id: 1,
+      left: false,
+      right: false,
+      disabled: false,
+      title: 'EMPRESAS PÚBLICAS DE MEDELLÍN DEPARTAMENTO MÉDICO'
+    },
+    {
+      id: 2,
+      left: false,
+      right: false,
+      disabled: false,
+      title: 'FONDO DE FERROCARRILES NACIONALES DE COLOMBIA (EPS)'
+    },
+    {
+      id: 3,
+      left: false,
+      right: false,
+      disabled: false,
+      title: 'ALIANSALUD EPS (ANTES COLMÉDICA)'
+    }
+  ];
 
   selectedMenu2: number = 1;
   itemsMenu2: Array<DropdownItem> = [
@@ -168,13 +190,12 @@ export class DropdownsComponent implements OnInit {
 
   keyUpDropdown(value) {
     this.api.getListHealtEntities(value).subscribe((data: any) => {
-      let temporaryData = []
+      const temporaryData = [];
       data.data.forEach((item) => {
-        let dropdownObject = { id: item.id, left: false, right: false, disabled: false, title: item.name };
+        const dropdownObject = { id: item.id, left: false, right: false, disabled: false, title: item.name };
         temporaryData.push(dropdownObject);
       });
       this.itemsMenu1 = temporaryData;
-      console.log(JSON.stringify(this.itemsMenu1));
     });
 
   }
