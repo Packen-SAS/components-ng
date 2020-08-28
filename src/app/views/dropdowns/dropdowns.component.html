@@ -2,8 +2,8 @@
 
 <div class="row">
     <div class="col-sm-5">
-        <lib-packen-dropdown [selected]="selectedMenu1" [(value)]="selectedMenu1" [items]="itemsMenu1" size="medium"
-            label="Menu 1" type="default">
+        <lib-packen-dropdown  [(value)]="selectedMenu1" [items]="itemsMenu1" size="medium"
+            label="Menu 1" type="default" (keyUp)="keyUpDropdown($event)">
         </lib-packen-dropdown>
         <br>
 

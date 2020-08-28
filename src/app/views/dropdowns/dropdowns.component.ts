@@ -11,7 +11,7 @@ import { DropdownItem } from 'src/app/interfaces/dropdown-item';
 export class DropdownsComponent implements OnInit {
 
   selectedMenuTest: any;
-  selectedMenu1: number = 1;
+  selectedMenu1: number;
   itemsMenu1: Array<DropdownItem> = [
     {
       id: 1,
@@ -188,6 +188,7 @@ export class DropdownsComponent implements OnInit {
   }
 
   keyUpDropdown(value) {
-    console.log(value);
+    let itemsTem = this.itemsMenu1;
+    this.itemsMenu1 = itemsTem;
   }
 }
