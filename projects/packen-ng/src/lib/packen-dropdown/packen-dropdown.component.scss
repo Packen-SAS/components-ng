@@ -1,12 +1,15 @@
 @import "../../assets/styles/colors.scss";
 
 .content {
-  width: 100%;
-  max-height: 200px;
-  overflow-y: scroll;
-  position: absolute;
   z-index: 1;
+  width: 96%;
+  margin-top: -5px;
+  margin-left: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  position: absolute;
   background-color: $white;
+  box-shadow: 1px 2px 15px -1px rgba(0, 0, 0, 0.2);
 
   &__item {
     width: 100%;
@@ -16,6 +19,7 @@
     padding-bottom: 5px;
     background-color: $white;
     cursor: pointer;
+
     &--selected {
       background-color: $primary_default;
     }
@@ -28,6 +32,7 @@
     &__icon {
       font-size: 25px;
       color: $basic_independece_dft;
+
       &--right {
         position: absolute;
         top: 50%;
@@ -58,6 +63,7 @@
       position: relative;
       top: 50%;
       transform: translateY(-50%);
+
       &--disabled {
         opacity: 0.3;
       }
@@ -86,6 +92,7 @@
 
         &__title {
           color: $tertiary_default;
+
           &--selected {
             color: $white !important;
           }
@@ -98,6 +105,7 @@
         &__subTitle {
           color: $basic_gray_drk;
           font-size: 12px;
+
           &--selected {
             color: $white !important;
           }
@@ -110,6 +118,7 @@
           border-radius: 3px;
           color: $basic_independece_lgt;
           margin-left: 5px;
+
           &--active {
             color: $primary_default;
           }
