@@ -7,18 +7,16 @@
         </lib-packen-dropdown>
         <br>
 
-        <lib-packen-dropdown [selected]="selectedMenu2" [(value)]="selectedMenu2" [items]="itemsMenu2" size="medium"
-            label="Menu 2" type="default">
+        <lib-packen-dropdown [(value)]="selectedMenu2" [items]="itemsMenu2" size="medium" label="Menu 2" type="default">
         </lib-packen-dropdown>
         <br>
 
-        <lib-packen-dropdown [selected]="selectedMenu3" [(value)]="selectedMenu3" [items]="itemsMenu3" size="medium"
-            label="Menu 3" type="default">
+        <lib-packen-dropdown [(value)]="selectedMenu3" [items]="itemsMenu3" size="medium" label="Menu 3" type="default">
         </lib-packen-dropdown>
         <br>
 
-        <lib-packen-dropdown [selected]="selectedMenu3" [(value)]="selectedMenu3" [items]="itemsMenu4" size="medium"
-            label="Menu item" type="default">
+        <lib-packen-dropdown [(value)]="selectedMenu3" [items]="itemsMenu4" size="medium" label="Menu item"
+            type="default">
         </lib-packen-dropdown>
         <br>
 
@@ -27,7 +25,7 @@
         </lib-packen-dropdown>
         <br>
 
-        <lib-packen-dropdown [required]="true" [items]="checkboxes" size="medium" label="Menu Checkbox" type="checkbox"
+        <lib-packen-dropdown [required]="true" [items]="checkboxes" size="medium" label="Menu Checkbox (LAZY)" type="checkbox"
             (keyUp)="keyUpDropdown($event)" [lazy]="true">
         </lib-packen-dropdown>
         <br>

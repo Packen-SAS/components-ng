@@ -11,10 +11,10 @@ export class ApiService {
   ) { }
 
   sesion = {
-    client: 'eN0Q9pbOLlWCJHT5z_fVqA',
+    client: 'OyU_ZwL2hsROEGJ3pqVsgg',
     keepSession: true,
-    token: 'yb6TKHdFcUTyD1IOzTVa5A',
-    uid: 'jhampiergiron4@gmail.com'
+    token: 'owQ6VBJvw20_BsM3HEYBSg',
+    uid: 'juan.contreras@packen.co'
   };
 
   /**
@@ -24,8 +24,6 @@ export class ApiService {
   getServicesList(page: string) {
     let params = new HttpParams();
     params = params.append('page', page);
-
-
 
     let headers: HttpHeaders = new HttpHeaders();
     headers = headers.set('Access-Token', this.sesion.token)
@@ -48,8 +46,6 @@ export class ApiService {
     headers = headers.set('Content-Type', 'application/json');
 
     return this.http.get('https://packen-api-dev.herokuapp.com/api/v2/wizard/health_entities?name=' + name, { headers, responseType: 'json' });
-
   }
-
 
 }

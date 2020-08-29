@@ -27,4 +27,8 @@ describe('InputsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Testing method testKeyUp()', () => {
+    expect(component.testKeyUp('Testing input keyup')).toBeUndefined();
+  });
 });

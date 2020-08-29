@@ -1,11 +1,16 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PackenNgModule } from 'packen-ng';
+import { of } from 'rxjs';
+import { epsListMock } from 'src/app/mocks/dropdowns.mock';
+import { ApiService } from 'src/app/services/api.service';
 
 import { DropdownsComponent } from './dropdowns.component';
 
 describe('DropdownsComponent', () => {
   let component: DropdownsComponent;
   let fixture: ComponentFixture<DropdownsComponent>;
+  let apiService: ApiService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -14,12 +19,14 @@ describe('DropdownsComponent', () => {
       ],
       imports: [
         PackenNgModule,
+        HttpClientTestingModule,
       ],
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(DropdownsComponent);
+    apiService = TestBed.inject(ApiService);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -55,6 +62,10 @@ describe('DropdownsComponent', () => {
   });
 
   it('Testing method keyUpDropdown()', () => {
-    expect(component.keyUpDropdown('Keyup testing')).toBeUndefined();
+    const listSpy = spyOn(apiService, 'getListHealtEntities').withArgs('eps').and.callFake(() => {
+      return of(epsListMock);
+    });
+    expect(component.keyUpDropdown('eps')).toBeUndefined();
+    expect(listSpy).toHaveBeenCalled();
   });
 });

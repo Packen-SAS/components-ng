@@ -20,7 +20,6 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
   @Output() keyUp = new EventEmitter<any>();
   @Output() valueChange = new EventEmitter<any>();
 
-
   @Input()
   get value() {
     return this.temporaryData;

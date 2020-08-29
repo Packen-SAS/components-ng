@@ -47,8 +47,7 @@ describe('TableComponent', () => {
 
   it('Testing method getTotalPages()', () => {
     const listSpy = spyOn(apiService, 'getServicesList').and.callFake(() => {
-      const resp = mockListShipments;
-      return of(resp);
+      return of(mockListShipments);
     });
 
     expect(component.getTotalPages()).toBeUndefined();
@@ -58,8 +57,7 @@ describe('TableComponent', () => {
 
   it('Testing method getServicesList()', () => {
     const listSpy = spyOn(apiService, 'getServicesList').and.callFake(() => {
-      const resp = mockListShipments;
-      return of(resp);
+      return of(mockListShipments);
     });
 
     expect(component.getServicesList('1')).toBeUndefined();

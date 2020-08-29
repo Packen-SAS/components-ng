@@ -18,4 +18,8 @@ describe('ApiService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('Testing method getListHealtEntities()', () => {
+    expect(service.getListHealtEntities('eps')).toBeDefined();
+  });
 });
