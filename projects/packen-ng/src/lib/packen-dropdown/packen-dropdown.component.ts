@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, ChangeDetectorRef } from '@angular/core';
 import { DropdownItem } from '../../interfaces/dropdown-item';
 
 @Component({
@@ -13,6 +13,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
   @Input() type: string = 'default';
   @Input() size: string = 'tiny';
   @Input() required: boolean = false;
+  @Input() lazy: boolean = false;
 
   @Output() outputChangeItem = new EventEmitter<any>();
   @Output() changeCheckbox = new EventEmitter<any>();
@@ -49,20 +50,23 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.items) {
-      this.getItemSelected();
+      this.getItemSelected(false);
+      this.temporaryItemsList = this.items;
     }
   }
 
   ngOnInit(): void {
     this.temporaryItemsList = this.items;
-    this.getItemSelected();
+    this.getItemSelected(true);
   }
 
-  getItemSelected = () => {
+  getItemSelected = (selection = true) => {
     if (this.type !== 'radio' && this.type !== 'checkbox') {
-      if (this.items) {
-        this.itemSelected = this.items.find((item) => item.id === this.value);
-        this.textInput = this.itemSelected ? this.itemSelected.title : null;
+      if (this.items && this.items.length > 0) {
+        if (selection) {
+          this.itemSelected = this.items.find((item) => item.id === this.value);
+          this.textInput = this.itemSelected ? this.itemSelected.title : this.textInput;
+        }
       }
     } else {
       if (this.items) {
@@ -151,6 +155,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
 
   clickOutsideContent = (): void => {
     this.showMenuList = false;
+    this.temporaryItemsList = [];
     if (!this.value) {
       this.textInput = '';
     }
@@ -162,20 +167,26 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
   }
 
   keyUpInput(text) {
-    this.keyUp.emit(text);
-    const newArray = [];
-    this.items.forEach((item) => {
-      if (this.type !== 'radio' && this.type !== 'checkbox') {
-        if (item.title.toUpperCase().includes(text.toUpperCase())) {
-          newArray.push(item);
-        }
-      } else {
-        if (item.label.toUpperCase().includes(text.toUpperCase())) {
-          newArray.push(item);
-        }
+    if (this.lazy) {
+      this.value = false;
+      if (text.length > 0) {
+        this.keyUp.emit(text);
       }
-    });
-    this.temporaryItemsList = newArray;
+    } else {
+      const newArray = [];
+      this.items.forEach((item) => {
+        if (this.type !== 'radio' && this.type !== 'checkbox') {
+          if (item.title.toUpperCase().includes(text.toUpperCase())) {
+            newArray.push(item);
+          }
+        } else {
+          if (item.label.toUpperCase().includes(text.toUpperCase())) {
+            newArray.push(item);
+          }
+        }
+      });
+      this.temporaryItemsList = newArray;
+    }
   }
 }
 

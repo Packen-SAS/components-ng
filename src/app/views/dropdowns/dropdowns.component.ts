@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CheckItem } from 'src/app/interfaces/check-item';
 import { RadioItem } from 'src/app/interfaces/radio-item';
 import { DropdownItem } from 'src/app/interfaces/dropdown-item';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-dropdowns',
@@ -11,28 +12,28 @@ import { DropdownItem } from 'src/app/interfaces/dropdown-item';
 export class DropdownsComponent implements OnInit {
 
   selectedMenuTest: any;
-  selectedMenu1: number = 1;
+  selectedMenu1: number = 2;
   itemsMenu1: Array<DropdownItem> = [
     {
       id: 1,
       left: false,
       right: false,
       disabled: false,
-      title: 'Menu item'
+      title: 'EMPRESAS PÚBLICAS DE MEDELLÍN DEPARTAMENTO MÉDICO'
     },
     {
       id: 2,
       left: false,
       right: false,
       disabled: false,
-      title: 'Menu item 2'
+      title: 'FONDO DE FERROCARRILES NACIONALES DE COLOMBIA (EPS)'
     },
     {
       id: 3,
       left: false,
       right: false,
-      disabled: true,
-      title: 'Menu item 3'
+      disabled: false,
+      title: 'ALIANSALUD EPS (ANTES COLMÉDICA)'
     }
   ];
 
@@ -161,7 +162,7 @@ export class DropdownsComponent implements OnInit {
     { id: 4, label: 'Label 4', disabled: true }
   ];
 
-  constructor() { }
+  constructor(public api: ApiService) { }
 
   ngOnInit(): void {
   }
@@ -188,6 +189,14 @@ export class DropdownsComponent implements OnInit {
   }
 
   keyUpDropdown(value) {
-    console.log(value);
+    this.api.getListHealtEntities(value).subscribe((data: any) => {
+      const temporaryData = [];
+      data.data.forEach((item) => {
+        const dropdownObject = { id: item.id, left: false, right: false, disabled: false, title: item.name };
+        temporaryData.push(dropdownObject);
+      });
+      this.itemsMenu1 = temporaryData;
+    });
+
   }
 }

@@ -142,6 +142,12 @@ describe('PackenInputComponent', () => {
     expect(component.changeTextInput('')).toBeUndefined();
   });
 
+  it('render function when change the textInput or textArea and length value is empty and islazy is true', () => {
+    component.required = true;
+    component.lazy = true;
+    expect(component.changeTextInput('')).toBeUndefined();
+  });
+
   it('Render function when change the textInput or textArea and length value not is empty', () => {
     component.required = true;
     expect(component.changeTextInput('area')).toBeUndefined();
@@ -187,5 +193,10 @@ describe('PackenInputComponent', () => {
   it('Render function clickOutsideContent when isset isCliskInside', () => {
     component.isClickInside = true;
     expect(component.clickOutsideContent()).toBeUndefined();
+  });
+
+  it('Render function ngAfterViewInit() when is lazy is true', () => {
+    component.lazy = true;
+    expect(component.ngAfterViewInit()).toBeUndefined();
   });
 });

@@ -5,10 +5,11 @@
         <lib-packen-input size="tiny" label="Normal tiny required and pattern" icon="icon-lock" [(value)]="valueTest"
             placeholder="0-000-000-000" type="text" textArea="false" [required]="true" mask="0-000-000-000"
             messageErrorValidation="Error de validación" themeMessage="warning" iconMessage="icon-info" disabled="false"
-            messageErrorPattern="Error de pattern" [pattern]="patternTest" [maxlength]="15">
+            messageErrorPattern="Error de pattern" [pattern]="patternTest" [lazy]="true" [maxlength]="15"
+            (keyUpInput)="testKeyUp($event)">
         </lib-packen-input>
         <br>
-
+         
         <lib-packen-input size="small" label="Normal tiny required" icon="icon-lock" [(value)]="valueTest"
             placeholder="placeholder" [required]="true" messageErrorValidation="El campo es requerido" type="text"
             textArea="false" themeMessage="warning" iconMessage="icon-info" disabled="false">

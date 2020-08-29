@@ -41,9 +41,46 @@ describe('PackenDropdownComponent', () => {
       title: 'Menu item 2'
     }];
     expect(component.getItemSelected()).toBeUndefined();
-
     component.value = 1;
     expect(component.getItemSelected()).toBeUndefined();
+  });
+
+  it('Render function getItemSelected when not usset a itemSelected', () => {
+    component.value = 5;
+    component.items = [{
+      id: 1,
+      left: false,
+      right: false,
+      disabled: false,
+      title: 'Menu item'
+    },
+    {
+      id: 2,
+      left: false,
+      right: false,
+      disabled: false,
+      title: 'Menu item 2'
+    }];
+    expect(component.getItemSelected()).toBeUndefined();
+  });
+
+  it('Render function getItemSelected when not usset a itemSelected and is the second excute function', () => {
+    component.value = 5;
+    component.items = [{
+      id: 1,
+      left: false,
+      right: false,
+      disabled: false,
+      title: 'Menu item'
+    },
+    {
+      id: 2,
+      left: false,
+      right: false,
+      disabled: false,
+      title: 'Menu item 2'
+    }];
+    expect(component.getItemSelected(false)).toBeUndefined();
   });
 
   it('Render function getItemSelected() when type is different to radio and items is empty', () => {
@@ -383,6 +420,48 @@ describe('PackenDropdownComponent', () => {
     }];
     component.type = 'default';
     expect(component.keyUpInput('Label')).toBeUndefined();
+  });
+
+  it('Render function keyUpInput() when lazy is true', () => {
+    component.value = 'label';
+    component.lazy = true;
+    component.items = [{
+      id: 1,
+      left: false,
+      right: false,
+      disabled: false,
+      title: 'Menu item'
+    },
+    {
+      id: 2,
+      left: false,
+      right: false,
+      disabled: false,
+      title: 'Menu item 2'
+    }];
+    component.type = 'default';
+    expect(component.keyUpInput('Label')).toBeUndefined();
+  });
+
+  it('Render function keyUpInput() when lazy is true and value length is empty', () => {
+    component.value = 'label';
+    component.lazy = true;
+    component.items = [{
+      id: 1,
+      left: false,
+      right: false,
+      disabled: false,
+      title: 'Menu item'
+    },
+    {
+      id: 2,
+      left: false,
+      right: false,
+      disabled: false,
+      title: 'Menu item 2'
+    }];
+    component.type = 'default';
+    expect(component.keyUpInput('')).toBeUndefined();
   });
 
   it('Render function clickOutSideContent', () => {
