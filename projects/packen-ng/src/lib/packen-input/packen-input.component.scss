@@ -44,7 +44,6 @@
 
     &__textArea {
       width: 100%;
-      height: 88px;
       resize: none;
       outline: none;
       border: none;
@@ -93,6 +92,11 @@
       right: 0;
       top: 50%;
       transform: translateY(-50%);
+      &--dropdown{
+        font-size: 17px !important;
+        color: $primary_default !important;
+      }
+
       &--tiny {
         font-size: 17px;
         margin-right: 8px;

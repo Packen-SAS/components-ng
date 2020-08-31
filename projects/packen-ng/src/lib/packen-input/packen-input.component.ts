@@ -20,13 +20,15 @@ export class PackenInputComponent implements OnInit, AfterViewInit {
   @Input() themeMessage: StatesThemeMessage = 'warning';
   @Input() disabled: boolean = false;
   @Input() icon: string = '';
-  @Input() textArea: string = 'false';
+  @Input() textArea: boolean = false;
   @Input() required: boolean = false;
   @Input() pattern: any = null;
   @Input() maxlength: number = 0;
   @Input() minlength: number = 0;
   @Input() mask: string;
   @Input() lazy: boolean = false;
+  @Input() rows: number = 4;
+  @Input() isDropdown: boolean = false;
 
   @Output() keyUpInput = new EventEmitter<any>();
 
@@ -88,6 +90,9 @@ export class PackenInputComponent implements OnInit, AfterViewInit {
 
   getClassSizeIconRight = (type: StatesSizesInput): string => {
     let resClass = this.icon + ' ';
+    if (this.isDropdown) {
+      resClass += SizeIconInput.dropdown + ' ';
+    }
     switch (type) {
       case 'tiny':
         return resClass += SizeIconInput.tiny;
@@ -289,4 +294,5 @@ class SizeIconInput {
   static readonly medium = 'content__input-container__icon--medium';
   static readonly large = 'content__input-container__icon--large';
   static readonly giant = 'content__input-container__icon--giant';
+  static readonly dropdown = 'content__input-container__icon--dropdown';
 }

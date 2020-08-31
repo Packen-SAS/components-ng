@@ -136,6 +136,11 @@ describe('PackenInputComponent', () => {
     expect(component.getClassSizeIconRight('giant')).toEqual(' content__input-container__icon--giant');
   });
 
+  it('render the class of icon when size is medium and is son of dropdown', () => {
+    component.isDropdown = true;
+    expect(component.getClassSizeIconRight('medium')).toEqual(' content__input-container__icon--dropdown content__input-container__icon--medium');
+  });
+
   // Render when change the value in input or textArea
   it('render function when change the textInput or textArea and length value is empty', () => {
     component.required = true;

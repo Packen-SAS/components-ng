@@ -14,6 +14,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
   @Input() size: string = 'tiny';
   @Input() required: boolean = false;
   @Input() lazy: boolean = false;
+  @Input() placeholder: string = '';
 
   @Output() outputChangeItem = new EventEmitter<any>();
   @Output() changeCheckbox = new EventEmitter<any>();

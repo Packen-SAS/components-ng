@@ -232,6 +232,7 @@ This component is for input or textarea
  - **value**: Input value to show and change.
  - **placeholder**: placeholder of the input to show ` Examples:(Enter your password, enter you value, etc)` .
  - **textArea**: This defines if the field is textarea or not: `(true|false)`.
+ - **rows**: It defines the number of rows of text area. **NOTE**: this item is defined in 4 for textarea
  - **required**: It defines if the input is required or not `(true|false)`.
  - **messageErrorValidation**: This message show when value inpus is empty.
  - **themeMessage**: It define the theme of message to show `(warning|default|primary|success)`.
