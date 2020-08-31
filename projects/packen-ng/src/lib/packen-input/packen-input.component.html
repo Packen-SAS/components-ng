@@ -13,7 +13,7 @@
     <div [ngClass]="classTextArea" class="content__contentTextArea" [attr.disabled]="disabled == true ? true : null"
         [class]="classContentTextArea" *ngIf="textArea == true" (click)="clickInsideContent()" clickOutside
         (clickOutside)="clickOutsideContent()">
-        <textarea class="content__contentTextArea__textArea" [rows]="rows"
+        <textarea class="content__contentTextArea__textArea" [rows]="rows" [placeholder]="placeholder"
             (keyup)="changeTextInput($event.target.value)" [attr.disabled]="disabled == true ? true : null"
             [attr.maxlength]="maxlength > 0 ? maxlength: false" [attr.minlength]="minlength > 0 ? minlength: false"
             [required]="required === true? true : false" [ngClass]="getColorText()" (focus)="focus()"
