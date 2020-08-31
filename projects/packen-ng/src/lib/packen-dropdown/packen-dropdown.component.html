@@ -1,5 +1,5 @@
 <div style="width: 100%; position: relative;" clickOutside (clickOutside)="clickOutsideContent()">
-    <lib-packen-input [size]="size" [label]="label" placeholder="placeholder" type="text" textArea="false"
+    <lib-packen-input [size]="size" [label]="label" placeholder="placeholder" icon="icon-arrow-ios-down" type="text" textArea="false"
         [required]="type !== 'checkbox' && required === true? required: false" themeMessage="warning" disabled="false"
         (click)="clickInput()" (keyUpInput)="keyUpInput($event)" [(value)]="textInput" [lazy]="lazy">
     </lib-packen-input>
