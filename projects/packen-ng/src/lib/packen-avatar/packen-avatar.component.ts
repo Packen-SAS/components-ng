@@ -66,19 +66,18 @@ export class PackenAvatarComponent implements OnInit {
   }
 
   fileChange(event) {
-    if (event.target.files[0]) {
-      this.valueChange.emit(event.target.files[0]);
+    const file = event.target.files[0];
+    if (file) {
       this.classStyle = this.classStylePrevious;
 
-      if (event.target.files && event.target.files[0]) {
-        const reader = new FileReader();
-        reader.readAsDataURL(event.target.files[0]);
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
 
-        reader.onloadend = (ev) => {
-          this.imageSelected = ev.target.result;
-          this.src = this.imageSelected;
-        };
-      }
+      reader.onloadend = (ev) => {
+        this.imageSelected = ev.target.result;
+        this.valueChange.emit(this.imageSelected);
+        this.src = this.imageSelected;
+      };
     }
   }
 

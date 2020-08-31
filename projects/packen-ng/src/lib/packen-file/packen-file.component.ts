@@ -23,7 +23,7 @@ export class PackenFileComponent implements OnInit, OnChanges {
 
   classInput: string = '';
   classInputPrevious: string = '';
-  selectedFile: File;
+  selectedFile: any;
 
   @Output()
   valueChange = new EventEmitter<File>();
@@ -84,11 +84,17 @@ export class PackenFileComponent implements OnInit, OnChanges {
   }
 
   fileChange(event) {
-    const file = event.srcElement.files[0];
+    const file = event.target.files[0];
     if (file) {
-      this.selectedFile = file;
-      this.valueChange.emit(this.selectedFile);
       this.classInput = this.classInputPrevious;
+
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+
+      reader.onloadend = (ev) => {
+        this.selectedFile = ev.target.result;
+        this.valueChange.emit(this.selectedFile);
+      };
     }
   }
 

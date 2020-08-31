@@ -1,7 +1,8 @@
 import { SimpleChange } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
-import { eventFileMock } from '../../assets/mocks/files.mock';
+import { of } from 'rxjs';
+import { eventFileMock, mockFileReader } from '../../assets/mocks/files.mock';
 
 import { PackenFileComponent } from './packen-file.component';
 
@@ -101,12 +102,17 @@ describe('PackenFileComponent', () => {
   });
 
   it('Testing method fileChange()', () => {
+    component.value = {};
+    spyOn<any>(window, 'FileReader').and.returnValue(mockFileReader);
+
+    spyOn(mockFileReader, 'onloadend').and.callFake(() => {
+      return of({ target: {} });
+    });
     expect(component.fileChange(eventFileMock)).toBeUndefined();
   });
 
   it('Testing method fileChange() when file is not selected', () => {
-    const eventMock = eventFileMock;
-    eventMock.srcElement.files = [];
-    expect(component.fileChange(eventMock)).toBeUndefined();
+    const event = { target: { files: [] } };
+    expect(component.fileChange(event)).toBeUndefined();
   });
 });

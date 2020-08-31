@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PackenAvatarComponent } from './packen-avatar.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { eventAvatarMock, mockFileReader } from '../../assets/mocks/files.mock';
+import { mockFileReader, eventFileMock } from '../../assets/mocks/files.mock';
 import { of } from 'rxjs';
 
 
@@ -54,7 +54,7 @@ describe('PackenAvatarComponent', () => {
     spyOn(mockFileReader, 'onloadend').and.callFake(() => {
       return of({ target: {} });
     });
-    expect(component.fileChange(eventAvatarMock)).toBeUndefined();
+    expect(component.fileChange(eventFileMock)).toBeUndefined();
   });
 
   it('Render function fileChange() when not has files', () => {
