@@ -21,7 +21,7 @@
     </div>
 
     <!-- Start Messages -->
-    <div *ngIf="showMessageRequired === true" class="content__messageError"
+    <div *ngIf="showMessageRequired === true && messageErrorValidation !== ''" class="content__messageError"
         [ngClass]="getClassStylesMessageError(themeMessage)">
         <span [ngClass]="iconMessage != '' ? iconMessage : ''"></span>
         {{messageErrorValidation}}
