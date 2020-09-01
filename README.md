@@ -32,6 +32,7 @@ The **PackenNgModule** contain follow components:
 >
 > * [FileComponent](#FileComponent)
 > * [PinMapComponent](#PinMapComponent)
+> * [DateComponent](#DateComponent)
 > * [TableComponent](#TableComponent)
 > * [InputsComponent](#InputComponent)
 > * [AvatarsComponent](#AvatarComponent)
@@ -110,6 +111,37 @@ This component represent a marker inside a map (google map).
  - **label**: It defines a prefix for the content that will show in the largest box.
  - **direction**: It defines the content that will show in the largest box. **NOTE**: If this value and `letter` value are empty, the largest box does not appear.
  - **letter**: It defines the content that will show in the largest box.**NOTE**: If this value and `direction` value are empty, the largest box does not appear.
+
+### DateComponent
+
+#### Description
+
+``` 
+This component is a custom date input for Packen.
+```
+
+#### Use it in HTML
+
+``` html
+<lib-packen-date [disabled]="disabledDate" [required]="true" [border]="false" [placeholder]="'DD/MM/YYYY'"
+    [minDate]="dateToday" [isMobile]="false" [(value)]="dateSelected">
+</lib-packen-date>
+```
+
+#### Component appearance
+
+![](https://packenco.s3.amazonaws.com/packen_ng/packen-date/packen-date-component.png)
+
+#### Options
+
+ - **disabled**: It difines if the field is disabled .
+ - **required**: It defines if the field is required .
+ - **border**: It defines if box input has a border or not. Posibles values: `(true|false)` .
+ - **placeholder**: Placeholder of the input to show ` Examples: (DD/MM/YYYY)` .
+ - **minDate**: It defines a minimun limint date for the calendar options .
+ - **maxDate**: It defines a maximun limint date for the calendar options .
+ - **isMobile**: It defines the way to show the opoup calendar .
+ - **value**: Variable where selected date will be save .
 
 ### TableComponent
 
