@@ -22,6 +22,8 @@ import { PackenNgModule } from 'packen-ng';
 import { FilesComponent } from './views/files/files.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { DatesComponent } from './views/dates/dates.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { FormsModule } from '@angular/forms';
     DropdownsComponent,
     PinMapComponent,
     TableComponent,
-    FilesComponent
+    FilesComponent,
+    DatesComponent
   ],
   imports: [
     HttpClientModule,
@@ -47,6 +50,7 @@ import { FormsModule } from '@angular/forms';
     FeatherModule.pick(allIcons),
     ClickOutsideModule,
     PackenNgModule,
+    BrowserAnimationsModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

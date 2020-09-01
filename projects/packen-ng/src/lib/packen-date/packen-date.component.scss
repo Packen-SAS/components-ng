@@ -1,0 +1,118 @@
+@import "../../assets/styles/colors.scss";
+
+.calendar-ctn {
+    width: 100%;
+    position: relative;
+    padding: 5px 10px;
+
+    &--disabled {
+        opacity: 0.5;
+    }
+
+    span {
+        top: 27px;
+        left: 26px;
+        z-index: 2;
+        position: absolute;
+        font-family: Muli;
+        font-size: 12px;
+        line-height: 16px;
+        color: $tertiary_default;
+    }
+
+    img {
+        top: 16px;
+        right: 28px;
+        z-index: 2;
+        position: absolute;
+    }
+
+    ::ng-deep p-calendar > span > input {
+        width: 100%;
+        height: 50px !important;
+        padding-top: 8px !important;
+        padding-left: 15px !important;
+        padding-bottom: 25px !important;
+        letter-spacing: 1px !important;
+        color: $tertiary_default !important;
+
+        &[disabled] {
+            border-radius: 0px !important;
+        }
+    }
+
+    ::ng-deep body .ui-datepicker {
+        margin: 5px 10px !important;
+    }
+
+    ::ng-deep p-calendar ::placeholder {
+        color: $gray_alt !important;
+    }
+
+    ::ng-deep p-calendar.ng-valid > .ui-calendar > .ui-inputtext {
+        border: 1px solid $base_default_alt;
+
+        &:hover {
+            background-color: $secondary_default;
+        }
+    }
+
+    ::ng-deep p-calendar.ng-invalid > .ui-calendar > .ui-inputtext {
+        border: 1px solid $base_default_alt;
+
+        &:hover {
+            background-color: $secondary_default;
+        }
+    }
+
+    ::ng-deep p-calendar.ng-pristine > .ui-calendar > .ui-inputtext {
+        border-radius: 0px !important;
+        border: 1px solid $base_default_alt;
+    }
+
+    ::ng-deep p-calendar.ng-valid > .ui-calendar > .ui-inputtext {
+        border-radius: 0px !important;
+    }
+
+    ::ng-deep p-calendar.ui-inputwrapper-focus > .ui-calendar > .ui-inputtext {
+        border-radius: 0px !important;
+
+        &:focus {
+            border: 2px solid $base_default_alt !important;
+        }
+    }
+
+    ::ng-deep p-calendar.ng-invalid.ng-touched > .ui-calendar > .ui-inputtext {
+        border: 2px solid red !important;
+        border-radius: 0px !important;
+
+        &:focus {
+            border: 2px solid $base_default_alt !important;
+        }
+    }
+}
+
+::ng-deep .ui-datepicker-mask {
+    width: 0px;
+}
+
+::ng-deep .ui-datepicker-touch-ui,
+.ui-calendar .ui-datepicker-touch-ui {
+    min-width: 60vw;
+}
+
+::ng-deep .ui-datepicker-calendar > thead {
+    color: $primary_default;
+}
+
+::ng-deep body .ui-inputtext:enabled:focus:not(.ui-state-error) {
+    box-shadow: 0 0 0 0 #8dcdff !important;
+}
+
+::ng-deep .ui-datepicker-touch-ui.ui-datepicker td > span {
+    padding: 7px;
+}
+
+::ng-deep .ui-datepicker-touch-ui.ui-datepicker td > a {
+    padding: 7px;
+}

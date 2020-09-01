@@ -1,0 +1,17 @@
+<h2>Dates</h2>
+<div class="row">
+    <div class="col-sm-5">
+        <form #formTest="ngForm">
+            <lib-packen-date [disabled]="disabledDate" [required]="true" [border]="false" [placeholder]="'DD/MM/YYYY'"
+                [minDate]="dateToday" [isMobile]="false" [(value)]="dateSelected">
+            </lib-packen-date>
+        </form>
+    </div>
+
+    <div>
+        <button class="btn-p" (click)="disable()">Disable</button>
+        <button class="btn-p" (click)="printDate()" [disabled]="!formTest.valid">
+            Print Value
+        </button>
+    </div>
+</div>
