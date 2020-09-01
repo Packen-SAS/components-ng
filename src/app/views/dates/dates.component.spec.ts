@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormsModule } from '@angular/forms';
+import { PackenNgModule } from 'projects/packen-ng/src/public-api';
 import { DatesComponent } from './dates.component';
 
 describe('DatesComponent', () => {
@@ -8,9 +9,14 @@ describe('DatesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DatesComponent ]
-    })
-    .compileComponents();
+      declarations: [
+        DatesComponent
+      ],
+      imports: [
+        FormsModule,
+        PackenNgModule
+      ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,5 +27,21 @@ describe('DatesComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Testing method disable() when is false', () => {
+    component.disabledDate = false;
+    component.disable();
+    expect(component.disabledDate).toBeTruthy();
+  });
+
+  it('Testing method disable() when is true', () => {
+    component.disabledDate = true;
+    component.disable();
+    expect(component.disabledDate).toBeFalsy();
+  });
+
+  it('Testing method printDate()', () => {
+    expect(component.printDate()).toBeUndefined();
   });
 });
