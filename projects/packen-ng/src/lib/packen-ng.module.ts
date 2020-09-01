@@ -13,6 +13,10 @@ import { PackenTabsComponent } from './packen-tabs/packen-tabs.component';
 import { PackenToggleComponent } from './packen-toggle/packen-toggle.component';
 import { PackenTableComponent } from './packen-table/packen-table.component';
 import { PackenCarouselComponent } from './packen-carousel/packen-carousel.component';
+import { ClickOutsideModule } from 'ng-click-outside';
+import { FormsModule } from '@angular/forms';
+import { PackenFileComponent } from './packen-file/packen-file.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -27,10 +31,14 @@ import { PackenCarouselComponent } from './packen-carousel/packen-carousel.compo
     PackenTabsComponent,
     PackenToggleComponent,
     PackenTableComponent,
-    PackenCarouselComponent
+    PackenCarouselComponent,
+    PackenFileComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ClickOutsideModule,
+    FormsModule,
+    NgxMaskModule.forRoot(),
   ],
   exports: [
     PackenAvatarComponent,
@@ -44,7 +52,8 @@ import { PackenCarouselComponent } from './packen-carousel/packen-carousel.compo
     PackenTabsComponent,
     PackenToggleComponent,
     PackenTableComponent,
-    PackenCarouselComponent
+    PackenCarouselComponent,
+    PackenFileComponent
   ]
 })
 export class PackenNgModule { }

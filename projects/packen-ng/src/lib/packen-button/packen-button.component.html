@@ -1,14 +1,10 @@
-<button [ngClass]="classButton" style="margin-top: 10px; position: relative;" (click)="buttonClick()">
+<button class="btn-box" [ngClass]="classButton" (click)="buttonClick()" [style.width]="fullwidth ? '100%': false">
     <span *ngIf="icon && type === 'icon'" [class]="icon" [style.font-size.px]="getWithIcon()"></span>
-    <!-- Boton con texto e icono -->
-        <span [class]="icon" class="iconAlignVertical" *ngIf="icon && type === 'regular' && positionIcon === 'left'"
-        [ngClass]="classIcon" style="position: absolute; left:0;" [ngStyle]="getMarginIcons()"
-        [style.font-size.px]="getWidthIconRegular()"></span>
-    <span *ngIf="type === 'regular'" [ngStyle]="getPaddingLabel()" class="titleButton">{{title}}</span>
-    
-    <span [class]="icon" class="iconAlignVertical" [ngClass]="classIcon"
-        *ngIf="icon && type === 'regular' && positionIcon === 'right'" [style.font-size.px]="getWidthIconRegular()"
-        style="position: absolute; right: 0;" [ngStyle]="getMarginIcons()"></span>
-    <!-- Botones con texto e icono -->
-
+    <div style="display: flex; justify-content: center; margin: auto;" [ngStyle]="getPaddingButton()">
+        <span [class]="icon" *ngIf="icon && type === 'regular' && positionIcon === 'left'" [ngClass]="classIcon"
+            [style.font-size.px]="getWidthIconRegular()"></span>
+        <p style="height: fit-content;margin: auto;" [ngStyle]="getPaddingLabel()" class="titleButton" >{{title}}</p>
+        <span [class]="icon" [ngClass]="classIcon" *ngIf="icon && type === 'regular' && positionIcon === 'right'"
+            [style.font-size.px]="getWidthIconRegular()"></span>
+    </div>
 </button>

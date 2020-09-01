@@ -8,9 +8,8 @@ describe('PackenTabsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PackenTabsComponent ]
-    })
-    .compileComponents();
+      declarations: [PackenTabsComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -23,7 +22,7 @@ describe('PackenTabsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('render onClick tab', () =>{
-    expect(component.clickTab(1));
-  }); 
+  it('render onClick tab', () => {
+    expect(component.clickTab(1)).toBeUndefined();
+  });
 });

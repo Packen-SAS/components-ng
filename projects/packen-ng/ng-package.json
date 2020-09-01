@@ -2,6 +2,11 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/packen-ng",
   "lib": {
-    "entryFile": "src/public-api.ts"
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "ng-click-outside": "ng-click-outside",
+      "numeral": "ng-click-outside",
+      "ngx-mask": "ngx-mask"
+    }
   }
 }

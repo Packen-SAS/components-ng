@@ -1,7 +1,9 @@
-@import "../../styles/colors.scss";
-@import "../../styles/typography.scss";
-@import "../../assets/icons/style.css";
-@import "../../assets/icons/scss/icons.scss";
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/typography.scss";
+
+.btn-box {
+  margin: 5px;
+}
 
 .titleButton {
   letter-spacing: 1px;
@@ -11,9 +13,8 @@
   font-style: normal;
 }
 
-.iconAlignVertical {
-  top: 50%;
-  transform: translateY(-50%);
+p {
+  margin: 0;
 }
 
 .sizeButtonRegular {
@@ -69,6 +70,7 @@
 .button {
   border: 0;
   line-height: 1;
+  outline: none;
   &--btnDanger {
     color: $white;
     background-color: $danger_default;
@@ -113,12 +115,22 @@
   &--btnPrimary:hover {
     background-color: $primary_hover;
   }
+
+  &--btnGhostOutline {
+    color: $tertiary_default;
+    background-color: $ghost_default;
+    border: 1px solid $tertiary_default;
+  }
+
+  &--btnGhostOutline:hover {
+    background-color: $ghost_hover;
+  }
 }
 
 .buttonDisabled {
   border: 0;
-  cursor: default;
   outline: 0;
+  cursor: not-allowed;
 
   &--btnDangerDisabled {
     background-color: $disabled;
@@ -143,5 +155,11 @@
   &--btnPrimaryDisabled {
     background-color: $disabled_alt;
     color: $white_opacity0_5;
+  }
+
+  &--btnGhostOutlineDisabled {
+    background-color: $ghost_default;
+    color: $disabled_alt;
+    border: 1px solid $secondary_hover;
   }
 }

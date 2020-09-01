@@ -1,23 +1,34 @@
 <div class="content">
     <label name="packenInput" class="content__title" [ngClass]="getClassStylesLable(size)">{{label}}</label>
-    <div class="content__input-container" *ngIf="textArea != 'true'">
-        <input name="packenInput" class="content__input-container__input" 
-            [ngClass]="getClassStylesInput(size)" 
-            [type]="type"
-            [value]="value" [placeholder]="placeholder" 
-            (keyup)="changeTextInput($event.target.value)"
-            [attr.disabled]="disabled == 'true' ? true : null">
+    <div class="content__input-container" *ngIf="textArea != 'true'" (click)="clickInsideContent()" clickOutside
+        (clickOutside)="clickOutsideContent()">
+        <input name="packenInput" class="content__input-container__input" [ngClass]="classInput" [type]="type"
+            [mask]="mask" [(ngModel)]="value" [placeholder]="placeholder" (keyup)="changeTextInput($event.target.value)"
+            [attr.disabled]="disabled == true ? true : null" [attr.maxlength]="maxlength > 0 ? maxlength: false"
+            [attr.minlength]="minlength > 0 ? minlength: false" [required]="required === true? required: false">
         <span [ngClass]="getClassSizeIconRight(size)" class="content__input-container__icon"></span>
     </div>
 
-    <div [ngClass]="getClassStylesTextArea(size)" class="content__contentTextArea" 
-        [attr.disabled]="disabled == 'true' ? true : null" [class]="classContentTextArea" *ngIf="textArea == 'true'">
-        <textarea class="content__contentTextArea__textArea" 
-            [attr.disabled]="disabled == 'true' ? true : null" [ngClass]="getColorText()"
-            (focus)="focus()" (focusout)="focusOut()">{{value}}</textarea>
+    <div [ngClass]="classTextArea" class="content__contentTextArea" [attr.disabled]="disabled == true ? true : null"
+        [class]="classContentTextArea" *ngIf="textArea == 'true'" (click)="clickInsideContent()" clickOutside
+        (clickOutside)="clickOutsideContent()">
+        <textarea class="content__contentTextArea__textArea" (keyup)="changeTextInput($event.target.value)"
+            [attr.disabled]="disabled == true ? true : null" [attr.maxlength]="maxlength > 0 ? maxlength: false"
+            [attr.minlength]="minlength > 0 ? minlength: false" [required]="required === true? true : false"
+            [ngClass]="getColorText()" (focus)="focus()" (focusout)="focusOut()">{{value}}</textarea>
     </div>
 
-    <p *ngIf="textMessage !== ''" class="content__messageError" [ngClass]="getClassStylesTextArea(size)"
+    <!-- Start Messages -->
+    <div *ngIf="showMessageRequired === true" class="content__messageError"
         [ngClass]="getClassStylesMessageError(themeMessage)">
-        <span [ngClass]="iconMessage != '' ? iconMessage : 'icon-info'" class=""></span>{{textMessage}}</p>
+        <span [ngClass]="iconMessage != '' ? iconMessage : ''"></span>
+        {{messageErrorValidation}}
+    </div>
+
+    <div *ngIf="showMessagePattern === true" class="content__messageError"
+        [ngClass]="getClassStylesMessageError(themeMessage)">
+        <span [ngClass]="iconMessage != '' ? iconMessage : ''" class=""></span>
+        {{messageErrorPattern}}
+    </div>
+    <!-- End Messages -->
 </div>

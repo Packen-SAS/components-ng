@@ -1,32 +1,68 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-packen-input',
+  selector: 'lib-packen-input',
   templateUrl: './packen-input.component.html',
   styleUrls: ['./packen-input.component.scss']
 })
 export class PackenInputComponent implements OnInit {
+
   @Input() size: StatesSizesInput = 'small';
   @Input() label: string = '';
-  @Input() value: string = '';
   @Input() placeholder: string = '';
   @Input() type: string = 'text';
-  @Input() textMessage: string = '';
   @Input() iconMessage: string = '';
+  @Input() messageErrorValidation: string = '';
+  @Input() messageErrorPattern: string = '';
   @Input() themeMessage: StatesThemeMessage = 'warning';
-  @Input() disabled: string = 'false';
+  @Input() disabled: boolean = false;
   @Input() icon: string = '';
   @Input() textArea: string = 'false';
-  @Output() outputChangeValue = new EventEmitter<any>();
+  @Input() required: boolean = false;
+  @Input() pattern: any = null;
+  @Input() maxlength: number = 0;
+  @Input() minlength: number = 0;
+  @Input() mask: string;
+
+  @Output() keyUpInput = new EventEmitter<any>();
+
+  messageValue: string = '';
+
+  // Manage the status of click
+  isClickInside: boolean = false;
+
+  @Output()
+  valueChange = new EventEmitter<string>();
+
+  @Input()
+  get value() {
+    return this.messageValue;
+  }
+
+  set value(val) {
+    this.messageValue = val;
+    this.valueChange.emit(this.messageValue);
+  }
+
+  // Class inputs
   classContentTextArea: string = '';
+  classInput: string = '';
+  classTextArea: string = '';
+
+  // Messages
+  showMessageRequired: boolean = false;
+  showMessagePattern: boolean = false;
+
+  isFocusInput = null;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.getClassStylesInput(this.size);
   }
 
   getClassSizeIconRight = (type: StatesSizesInput): string => {
-    let resClass = this.icon + " ";
+    let resClass = this.icon + ' ';
     switch (type) {
       case 'tiny':
         return resClass += SizeIconInput.tiny;
@@ -41,30 +77,25 @@ export class PackenInputComponent implements OnInit {
     }
   }
 
-  getClassStylesInput = (size: StatesSizesInput): string => {
-    let stylesClass: string = '';
+  getClassStylesInput(size: StatesSizesInput) {
+    this.classInput = '';
     switch (size) {
       case 'tiny':
-        stylesClass += InputSyzesClass.tiny;
+        this.classInput += InputSyzesClass.tiny;
         break;
       case 'small':
-        stylesClass += InputSyzesClass.small;
+        this.classInput += InputSyzesClass.small;
         break;
       case 'medium':
-        stylesClass += InputSyzesClass.medium;
+        this.classInput += InputSyzesClass.medium;
         break;
       case 'large':
-        stylesClass += InputSyzesClass.large;
+        this.classInput += InputSyzesClass.large;
         break;
       case 'giant':
-        stylesClass += InputSyzesClass.large;
+        this.classInput += InputSyzesClass.large;
         break;
     }
-
-    if (this.textMessage !== '') {
-      stylesClass += InputSyzesClass.error;
-    }
-    return stylesClass;
   }
 
   getClassStylesMessageError = (themeMessageError: StatesThemeMessage): string => {
@@ -94,50 +125,99 @@ export class PackenInputComponent implements OnInit {
     }
   }
 
-  getClassStylesTextArea = (size: StatesSizesInput): string => {
-    let stylesClass = "";
+  getClassStylesTextArea(size: StatesSizesInput) {
+    this.classTextArea = '';
     switch (size) {
       case 'tiny':
-        stylesClass += TextAreaClass.tiny;
+        this.classTextArea += TextAreaClass.tiny;
+        break;
       default:
-        stylesClass += TextAreaClass.default;
+        this.classTextArea += TextAreaClass.tiny;
     }
-    if (this.textMessage != '') {
-      stylesClass += TextAreaClass.error;
+    if (this.disabled === true) {
+      this.classTextArea += TextAreaClass.disabled;
     }
-    if (this.disabled == 'true') {
-      stylesClass += TextAreaClass.disabled;
-    }
-
-    return stylesClass;
   }
 
   focus = (): string => {
     this.classContentTextArea = TextAreaClass.focus;
-    return "";
+    return '';
   }
 
   focusOut = (): string => {
-    this.classContentTextArea = "";
-    return "";
-  }
-
-  getClassStylesContentTextArea = () => {
-    if (this.textMessage !== '') {
-      return ContentTextArea.error;
-    }
+    this.classContentTextArea = '';
+    return '';
   }
 
   getColorText = (): string => {
-    if (this.disabled == 'true') {
+    if (this.disabled === true) {
       return ContentTextArea.disabled;
     }
   }
 
   changeTextInput = (value) => {
-    this.outputChangeValue.emit(value);
+    // Set values
+    this.messageValue = value;
+    this.valueChange.emit(value);
+    this.keyUpInput.emit(value);
+
+    this.getClassStylesInput(this.size);
+    this.getClassStylesTextArea(this.size);
+
+    // Validate required
+    if (this.required === true) {
+      if (!value || value.length === 0) {
+        this.classTextArea += TextAreaClass.error;
+        this.classInput += ' content__input-container__input--error';
+        this.showMessageRequired = true;
+      } else {
+        this.showMessageRequired = false;
+      }
+    }
+
+    // Validate pattern
+    this.showMessagePattern = false;
+    if (!this.showMessageRequired && this.pattern && !this.pattern.test(value)) {
+      if (this.required === true && (!this.value || this.value.length > 0)) {
+        this.classTextArea += TextAreaClass.error;
+        this.classInput += ' content__input-container__input--error';
+        this.showMessagePattern = true;
+      } else if (this.required === false) {
+        this.classTextArea += TextAreaClass.error;
+        this.classInput += ' content__input-container__input--error';
+        this.showMessagePattern = true;
+      }
+    }
+  }
+
+  /**
+   * Function render when is focus and click outside of this
+   * @param $event event when the textArea is focus
+   */
+  onFocus($event = null) {
+    this.isFocusInput = null;
+    if ($event) {
+      this.isFocusInput = true;
+    }
+  }
+
+  /**
+   * Function execute when click outside and inside input
+   */
+  clickOutsideContent() {
+    if (this.isClickInside) {
+      this.changeTextInput(this.value);
+    }
+  }
+
+  /**
+   * Function execute when click in input
+   */
+  clickInsideContent() {
+    this.isClickInside = true;
   }
 }
+
 type StatesSizesInput = 'tiny' | 'small' | 'medium' | 'large' | 'giant';
 type StatesThemeMessage = 'warning' | 'default' | 'primary' | 'success';
 
@@ -160,7 +240,7 @@ class TextAreaClass {
   static readonly default = 'content__input-container__input--textarea';
   static readonly error = '  content__input-container__input--error';
   static readonly disabled = ' content__contentTextArea--disabled';
-  static readonly focus = 'content__contentTextArea--focus'
+  static readonly focus = 'content__contentTextArea--focus';
 }
 
 class ContentTextArea {
@@ -176,12 +256,10 @@ class InputSyzesClass {
   static readonly error = ' content__input-container__input--error';
 }
 
-
 class SizeIconInput {
   static readonly tiny = 'content__input-container__icon--tiny';
   static readonly small = 'content__input-container__icon--small';
   static readonly medium = 'content__input-container__icon--medium';
   static readonly large = 'content__input-container__icon--large';
   static readonly giant = 'content__input-container__icon--giant';
-
 }

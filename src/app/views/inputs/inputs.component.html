@@ -2,56 +2,53 @@
 
 <div class="row" style="width: 100%;">
     <div class="col-sm-8">
-        <app-packen-input size="tiny" label="Normal tiny" icon="icon-lock" [value]="valueTest"
-            (outputChangeValue)="changeTextInput($event)" placeholder="placeholder" type="text" textArea="false"
-            textMessage="" themeMessage="warning" iconMessage="icon-info" disabled="false">
-        </app-packen-input>
+        <lib-packen-input size="tiny" label="Normal tiny required and pattern" icon="icon-lock" [(value)]="valueTest"
+            placeholder="0-000-000-000" type="text" textArea="false" [required]="true" mask="0-000-000-000"
+            messageErrorValidation="Error de validación" themeMessage="warning" iconMessage="icon-info" disabled="false"
+            messageErrorPattern="Error de pattern" [pattern]="patternTest" [maxlength]="15">
+        </lib-packen-input>
         <br>
 
-        <app-packen-input size="small" label="Normal tiny" icon="icon-lock" [value]="valueTest"
-            (outputChangeValue)="changeTextInput($event)" placeholder="placeholder" type="text" textArea="false"
-            textMessage="" themeMessage="warning" iconMessage="icon-info" disabled="false">
-        </app-packen-input>
+        <lib-packen-input size="small" label="Normal tiny required" icon="icon-lock" [(value)]="valueTest"
+            placeholder="placeholder" [required]="true" messageErrorValidation="El campo es requerido" type="text"
+            textArea="false" themeMessage="warning" iconMessage="icon-info" disabled="false">
+        </lib-packen-input>
         <br>
 
-        <app-packen-input size="medium" label="Disabled Medium" icon="icon-lock" [value]="valueTest"
-            (outputChangeValue)="changeTextInput($event)" placeholder="placeholder" type="text" textArea="false"
-            textMessage="" themeMessage="warning" iconMessage="icon-info" disabled="true">
-        </app-packen-input>
+        <lib-packen-input size="medium" label="Disabled Medium" icon="icon-lock" [(value)]="valueTest"
+            placeholder="placeholder" type="text" textArea="false" disabled="true">
+        </lib-packen-input>
         <br>
 
-        <app-packen-input size="large" label="Disabled large" icon="icon-lock" [value]="valueTest"
-            (outputChangeValue)="changeTextInput($event)" placeholder="placeholder" type="text" textArea="false"
-            textMessage="Prueba de error" themeMessage="warning" iconMessage="icon-info" disabled="false">
-        </app-packen-input>
+        <lib-packen-input size="large" label="Disabled large Pattern email" icon="icon-lock" [(value)]="valueTest"
+            [required]="true" messageErrorValidation="El campo es requerido" placeholder="placeholder" type="text"
+            textArea="false" disabled="false">
+        </lib-packen-input>
         <br>
 
-        <app-packen-input size="giant" label="Giant" icon="icon-lock" [value]="valueTest"
-            (outputChangeValue)="changeTextInput($event)" placeholder="placeholder" type="text" textArea="false"
-            textMessage="Prueba de error" themeMessage="warning" iconMessage="icon-info" disabled="false">
-        </app-packen-input>
+        <lib-packen-input size="giant" label="Giant required" icon="icon-lock" [(value)]="valueTest"
+            placeholder="placeholder" messageErrorValidation="Error de validación" [required]="true" type="text"
+            textArea="false" themeMessage="warning" iconMessage="icon-info" disabled="false">
+        </lib-packen-input>
 
         <br>
-        <app-packen-input size="tiny" label="TextArea" icon="icon-lock" [value]="valueTest"
-            (outputChangeValue)="changeTextInput($event)" placeholder="placeholder" type="text" textArea="true"
-            textMessage="" themeMessage="warning" iconMessage="icon-info" disabled="false">
-        </app-packen-input>
+        <lib-packen-input size="tiny" label="TextArea" icon="icon-lock" placeholder="placeholder" [required]="true"
+            type="text" textArea="true" themeMessage="warning" disabled="false" [maxlength]="6" [minlength]="5">
+        </lib-packen-input>
 
         <br>
-        <app-packen-input size="tiny" label="TextArea disabled" icon="icon-lock" [value]="valueTest"
+        <lib-packen-input size="tiny" label="TextArea disabled" icon="icon-lock" [(value)]="valueTest"
             placeholder="placeholder" type="text" textArea="true" textMessage="" themeMessage="warning"
             iconMessage="icon-info" disabled="true">
-        </app-packen-input>
+        </lib-packen-input>
 
         <br>
-        <app-packen-input size="tiny" label="TextArea error" icon="icon-lock" [value]="valueTest"
-            placeholder="placeholder" type="text" textArea="true" textMessage="Error de mensaje" themeMessage="warning"
-            iconMessage="icon-info" disabled="false">
-        </app-packen-input>
-
+        <lib-packen-input size="tiny" label="TextArea error validación" icon="icon-lock" [(value)]="valueTest"
+            placeholder="placeholder" required="true" messageErrorValidation="El campo es requerido" type="text"
+            textArea="true" themeMessage="warning" iconMessage="icon-info" disabled="false">
+        </lib-packen-input>
     </div>
+
     <div class="col-sm">
-
     </div>
-
 </div>
