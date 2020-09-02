@@ -104,7 +104,7 @@ export class TableComponent implements OnInit {
         value: [
           { key: 'Tipo', value: item.service_type, showInDesktop: false },
           { key: 'Solicitado', value: item.created_at, showInDesktop: false },
-          { key: 'Estado', value: item.current_service_status, style: 'blue-gray-box', showInDesktop: false, hideInDesktop: true },
+          { key: 'Estado', value: item.current_service_status, style: 'green-off-box', showInDesktop: false, hideInDesktop: true },
         ]
       };
 
@@ -120,7 +120,7 @@ export class TableComponent implements OnInit {
         key: 'Estado',
         hideInMobile: true,
         value: [
-          { key: '', value: item.current_service_status, style: 'blue-gray-box', showInDesktop: false },
+          { key: '', value: item.current_service_status, style: 'green-off-box', showInDesktop: false },
         ]
       };
 
