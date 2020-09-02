@@ -20,18 +20,3 @@ export const mockFileReader = {
     onloadend: (value) => { }
 };
 
-export const eventFileFomrMock = {
-    srcElement: {
-        files: [
-            {
-                lastModified: 1597957404004,
-                lastModifiedDate: new Date(),
-                name: 'Screenshot from 2020-10-10',
-                size: 41707,
-                type: 'image/png',
-                webkitRelativePath: ''
-            }
-        ]
-    }
-};
-

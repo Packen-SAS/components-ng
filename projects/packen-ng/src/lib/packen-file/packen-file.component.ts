@@ -84,7 +84,7 @@ export class PackenFileComponent implements OnInit, OnChanges {
   }
 
   fileChange(event) {
-    const file = event.srcElement.files[0];
+    const file = event.target.files[0];
     if (file) {
       this.selectedFile = file;
       this.valueChange.emit(this.selectedFile);
