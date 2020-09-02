@@ -4,7 +4,6 @@ import { NgxMaskModule } from 'ngx-mask';
 import { ClickOutsideModule } from 'ng-click-outside';
 import { FormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PackenAvatarComponent } from './packen-avatar/packen-avatar.component';
 import { PackenButtonComponent } from './packen-button/packen-button.component';
@@ -43,7 +42,6 @@ import { PackenDateComponent } from './packen-date/packen-date.component';
     CommonModule,
     CalendarModule,
     ClickOutsideModule,
-    BrowserAnimationsModule,
     NgxMaskModule.forRoot(),
   ],
   exports: [
