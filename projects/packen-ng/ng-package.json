@@ -6,7 +6,8 @@
     "umdModuleIds": {
       "ng-click-outside": "ng-click-outside",
       "numeral": "ng-click-outside",
-      "ngx-mask": "ngx-mask"
+      "ngx-mask": "ngx-mask",
+      "primeng": "primeng"
     }
   }
 }

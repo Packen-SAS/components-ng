@@ -18,8 +18,6 @@ export class FilesComponent implements OnInit {
 
   disable() {
     this.disabledFile = !this.disabledFile;
-    console.log('File 1: ', this.selectedFile);
-    console.log('File 2: ', this.selectedFile2);
   }
 
   printFiles() {

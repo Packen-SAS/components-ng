@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgxMaskModule } from 'ngx-mask';
+import { ClickOutsideModule } from 'ng-click-outside';
+import { FormsModule } from '@angular/forms';
+import { CalendarModule } from 'primeng';
 
 import { PackenAvatarComponent } from './packen-avatar/packen-avatar.component';
 import { PackenButtonComponent } from './packen-button/packen-button.component';
@@ -13,10 +17,8 @@ import { PackenTabsComponent } from './packen-tabs/packen-tabs.component';
 import { PackenToggleComponent } from './packen-toggle/packen-toggle.component';
 import { PackenTableComponent } from './packen-table/packen-table.component';
 import { PackenCarouselComponent } from './packen-carousel/packen-carousel.component';
-import { ClickOutsideModule } from 'ng-click-outside';
-import { FormsModule } from '@angular/forms';
 import { PackenFileComponent } from './packen-file/packen-file.component';
-import { NgxMaskModule } from 'ngx-mask';
+import { PackenDateComponent } from './packen-date/packen-date.component';
 
 @NgModule({
   declarations: [
@@ -32,12 +34,14 @@ import { NgxMaskModule } from 'ngx-mask';
     PackenToggleComponent,
     PackenTableComponent,
     PackenCarouselComponent,
-    PackenFileComponent
+    PackenFileComponent,
+    PackenDateComponent
   ],
   imports: [
-    CommonModule,
-    ClickOutsideModule,
     FormsModule,
+    CommonModule,
+    CalendarModule,
+    ClickOutsideModule,
     NgxMaskModule.forRoot(),
   ],
   exports: [
@@ -53,7 +57,8 @@ import { NgxMaskModule } from 'ngx-mask';
     PackenToggleComponent,
     PackenTableComponent,
     PackenCarouselComponent,
-    PackenFileComponent
+    PackenFileComponent,
+    PackenDateComponent
   ]
 })
 export class PackenNgModule { }

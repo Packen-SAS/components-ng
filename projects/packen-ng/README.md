@@ -6,10 +6,16 @@ This library contain all ui components for [Packen](https://packen.co) brand.
 
 To use it first install it:
 
-> npm i ngx-mask --save 
-> npm i packen-ng --save
+> *Install dependencies*
+> - npm i ngx-mask --save
+> - npm i @fullcalendar/core --save
+> - npm i quill --save
+> - npm i chart.js --save
 
-Then import the module to use its available components in your `app.module.ts` :
+> *Install lib*
+> - npm i packen-ng --save
+
+Import the module to use its components in `app.module.ts` :
 
 ``` javascript
 import {
@@ -25,13 +31,14 @@ import {
 })
 ```
 
-## Available components
+## Available Components
 
-The **PackenNgModule** contain follow components:
+The **PackenNgModule** contains the following components:
 
 >
 > * [FileComponent](#FileComponent)
 > * [PinMapComponent](#PinMapComponent)
+> * [DateComponent](#DateComponent)
 > * [TableComponent](#TableComponent)
 > * [InputsComponent](#InputComponent)
 > * [AvatarsComponent](#AvatarComponent)
@@ -43,17 +50,13 @@ The **PackenNgModule** contain follow components:
 > * TabsComponent
 > * TogglesComponent
 
-## How to use each component
+## Components
 
 ### FileComponent
 
-#### Description
+Input to load a specific file.
 
-``` 
-This component is an input to load a specific File.
-```
-
-#### Use it in HTML
+#### HTML
 
 ``` html
 <lib-packen-file [disabled]="disabledFile" [uploadedText]="'Archivo cargado'" [noUploadedText]="'Pendiente'"
@@ -62,88 +65,110 @@ This component is an input to load a specific File.
 </lib-packen-file>
 ```
 
-#### Component appearance
+#### Appearance
 
 ![](https://packenco.s3.amazonaws.com/packen_ng/packen_file/packen-file-default.png)
 ![](https://packenco.s3.amazonaws.com/packen_ng/packen_file/packen-file-loaded.png)
 
 #### Options
 
- - **name**: It difines the input identificator. Is is necesary to _ngModel_ funtionality.
- - **size**: It defines the size box of the input. Posibles values to use: `(tiny|small|medium|large|giant)` .
- - **disabled**: It defines if the input is enabled or not: `(true|false)` .
- - **iconLeft**: Url of the left side icon .
- - **title**: Main text in the input content .
- - **subtitle**: Description text in the input content .
- - **noUploadedText**: Text to show when the file is not uploded yet .
- - **uploadedText**: Text to show when the file is uploaded .
- - **value**: Variable where file will be save .
- - **required**: It defines if the field is required .
+ - **name**: Input identifier necesary for _ngModel_ functionality.
+ - **size**: Defines the size of an input box. Possibles values: `(tiny|small|medium|large|giant)`.
+ - **disabled**: Defines input is enabled or not: `(true|false)`.
+ - **iconLeft**: URL of the left-side icon.
+ - **title**: Main input text.
+ - **subtitle**: Description text.
+ - **noUploadedText**: Text to show when a file is not yet uploaded.
+ - **uploadedText**: Text to show when a file is uploaded.
+ - **value**: Variable where file will be saved.
+ - **required**: Defines if a field is required.
 
 ### PinMapComponent
 
-#### Description
+A map marker.
 
-``` 
-This component represent a marker inside a map (google map).
-```
 
-#### Use it in HTML
+#### HTML
 
 ``` html
 <lib-packen-pin-map typeIcon="default" icon="icon-keypad" type="active" [label]="'somelabel" [direction]="somedescription" iconPosition="left" dotPosition="down">
 </lib-packen-pin-map>
 ```
 
-#### Component appearance
+#### Appearance
 
 ![](https://packenco.s3.amazonaws.com/packen_ng/packen_pinmap/packen-pin.png)
 
 #### Options
 
- - **typeIcon**: It defines the content of the smallest box. Posibles values to use: `(default|icon|letter)` .
- - **type**: It defines the style of the largest box. Posibles values to use: `(default|active|refresh)` .
- - **icon**: It puts the icon to show inside the small box. It should be used with `typeIcon=icon` .
- - **letter**: It puts a letter to show inside the small box. It should be used with `typeIcon=letter` .
- - **iconPosition**: It defines where the small box will be. Posibles values to use: `(left|right)` .
- - **dotPosition**: It represents a small point arround the small box. The value to specify indicate where this point will be. Posibles values to use: `(left|right|top|down|none)` . **NOTE**: If the value is `none` , the point does not appear.
- - **label**: It defines a prefix for the content that will show in the largest box.
- - **direction**: It defines the content that will show in the largest box. **NOTE**: If this value and `letter` value are empty, the largest box does not appear.
- - **letter**: It defines the content that will show in the largest box.**NOTE**: If this value and `direction` value are empty, the largest box does not appear.
+ - **typeIcon**: Content of the smallest box. Possible values: `(default|icon|letter)`.
+ - **type**: Style of the largest box. Possible values: `(default|active|refresh)`.
+ - **icon**: Icon to show inside a small box. Should be used with `typeIcon=icon`.
+ - **letter**: A letter inside a small box. Should be used with `typeIcon=letter`.
+ - **iconPosition**: Position of a small box. Possible values: `(left|right)`.
+ - **dotPosition**: Position of a small point arround a small box. Possible values: `(left|right|top|down|none)`. **NOTE**: If the value is `none`, the point does not appear.
+ - **label**: Prefix for the content that will show in the largest box.
+ - **direction**: Content that will show in the largest box. **NOTE**: If this and `letter` values are empty, the largest box does not appear.
+ - **letter**: Content that will show in the largest box. **NOTE**: If this  and `direction` values are empty, the largest box does not appear.
+
+### DateComponent
+
+Custom date input.
+
+#### HTML
+
+``` html
+<lib-packen-date [disabled]="disabledDate" [required]="true" [border]="false" [placeholder]="'DD/MM/YYYY'"
+    [minDate]="dateToday" [isMobile]="false" [(value)]="dateSelected"
+    [label]="'Fecha de vencimiento de la licencia'">
+</lib-packen-date>
+```
+
+#### Appearance
+
+![](https://packenco.s3.amazonaws.com/packen_ng/packen-date/packen-date-component.png)
+
+#### Options
+
+ - **disabled**: Field is disabled.
+ - **required**: Field is required.
+ - **border**: Whether input has a border. Possible values: `(true|false)`.
+ - **placeholder**: Placeholder input.  ` Example: (DD/MM/YYYY)`.
+ - **minDate**: Minimum calendar date.
+ - **maxDate**: Maximum calendar date.
+ - **isMobile**: Responsive display for popup calendar.
+ - **value**: Variable where selected date will be saved.
+ - **label**: Text label to show under the date.
 
 ### TableComponent
 
-#### Description
+Custom responsive table for Packen.
 
-``` 
-This component is a custom responsive table for Packen.
-```
-
-#### Use it in HTML
+#### HTML
 
 ``` html
 <lib-packen-table [list]="listContent" [numPages]="numPages" [pagination]="'pag-center'" [headers]="listHeaders" [showLoading]="loading" (onChangePage)="getListFromBackend($event)" (onSelectRow)="showSelectedRow($event)">
 </lib-packen-table>
 ```
 
-#### Component appearance
+#### Appearance
 
 ![](https://packenco.s3.amazonaws.com/packen_ng/packen_table/table-desktop.png)
 ![](https://packenco.s3.amazonaws.com/packen_ng/packen_table/table-mobile.png)
 
 #### Options
 
- - **list**: It defines the table content. The list must have the structure `TableRow` .
- - **numPages**: It defines the pages num to show in the paginator.
- - **pagination**: It defines paginator position. Posibles values to use: `(pag-left|pag-center|pag-right)` .
- - **headers**: It defines the table headers. The list must have a `TableHeader` list.
- - **showLoading**: It defines the loading behavior that depends on the content request.
- - **emptyText**: Text to display when there is no results.
+ - **list**: Table content. Must have the structure `TableRow`.
+ - **numPages**: Number of pages to show in the paginator.
+ - **pagination**: Paginator position. Possible values: `(pag-left|pag-center|pag-right)`.
+ - **headers**: Table headers. Must have a `TableHeader` list.
+ - **showLoading**: Loading behavior, dependant on request content.
+ - **emptyText**: Text to display when there are no results.
 
 #### Events
 
- - **onChangePage**: It throw the selected page to update the content information in property `list` .
- - **onSelectRow**: It throw the selected row when you click the eye button.
+ - **onChangePage**: Update `list` property when page is changed.
+ - **onSelectRow**: Updated selected row when eye button is clicked.
 
 #### TableRow structure 
 
@@ -182,30 +207,28 @@ interface TableHeader {
  - **c) showInDesktop**: It defines whether the `key` value will be displayed on the desktop or not. Posibles values to use: `(true|false)` .
  - **d) style**: It defines box style of `value` property. Posibles values to use: `(blue-box|gray-box|blue-gray-box|purple-box|green-vivid-box|red-vivid-box|red-off-box|green-off-box)` .
  - **e) hideInDesktop**: Defines if this cell will be hidden when it is on desktop.
- - **f) capitalize**: Defines if this cell text will be transform in capitalize.
+ - **f) capitalize**: Defines if this cell text will be capitalized.
 
 #### **TableColumn** class description
 
- - **TableColumn**: It defines the content of a cell. There can be several content rows ( `ItemInfo` ) in each cell.
- - **a) key**: It defines the column name.
- - **b) value**: It defines the content of the cell ( `ItemInfo` list).
+ - **TableColumn**: Defines the content of a cell. There can be several content rows ( `ItemInfo` ) in each cell.
+ - **a) key**: Defines the column name.
+ - **b) value**: Defines the content of the cell ( `ItemInfo` list).
  - **c) headInMobile**: Defines if this cell will be in the header section when it is on mobile.
  - **d) hideInMobile**: Defines if this cell will be hidden when it is on mobile.
 
 #### **TableRow** class description
 
- - **TableRow**: It defines the table content.
- - **a) index**: It defines the row number.
- - **b) columns**: It represents each row to display in the table. It is a `TableColumn` list.
+ - **TableRow**: Defines table content.
+ - **a) index**: Defines the row number.
+ - **b) columns**: Represents each row to display in the table in a `TableColumn` list.
 
 
 ### InputComponent
 
-``` 
-This component is for input or textarea
-```
+For input or textarea.
 
-#### Use it in HTML
+#### HTML
 
 ``` html
 <lib-packen-input size="tiny" label="Normal tiny required and pattern" icon="icon-lock" [(value)]="valueTest"
@@ -214,7 +237,7 @@ This component is for input or textarea
     messageErrorPattern="Error de pattern" [pattern]="patternTest" [maxlength]="6" [minlength]="5"></lib-packen-input>
 ``` 
 
-#### Component appearance
+#### Appearance
 
 ![](https://packenco.s3.amazonaws.com/packen_ng/packen_input/input-normal.png)
 ![](https://packenco.s3.amazonaws.com/packen_ng/packen_input/input-disabled.png)
@@ -226,47 +249,45 @@ This component is for input or textarea
 
 #### Options
 
- - **size**: It defines the size of font and input. Posibles values to use: `(tiny|small|medium|large|giant)` .
- - **label**: It defines the title or label of the input.
- - **icon**: Name of the icon to place on the right side `('icon-lock', 'icon-arrow-circle-right', 'icon-archive', etc)` .
+ - **size**: Size of font and input. Possible values: `(tiny|small|medium|large|giant)`.
+ - **label**: Title or label of the input.
+ - **icon**: Name of the icon to place on the right side `('icon-lock', 'icon-arrow-circle-right', 'icon-archive', etc)`.  **NOTE**: If not set, icon will be empty.
  - **value**: Input value to show and change.
- - **placeholder**: placeholder of the input to show ` Examples:(Enter your password, enter you value, etc)` .
- - **textArea**: This defines if the field is textarea or not: `(true|false)`.
- - **rows**: It defines the number of rows of text area. **NOTE**: this item is defined in 4 for textarea
- - **required**: It defines if the input is required or not `(true|false)`.
- - **messageErrorValidation**: This message show when value inpus is empty.
- - **themeMessage**: It define the theme of message to show `(warning|default|primary|success)`.
- - **iconMessage**: It defines the icon of message to show. `('icon-info', 'icon-archive', etc)`  **NOTE**: If this name icon not isset the icon is empty.
- - **maxlength**: It defines the max length of the value. **NOTE**: this item is a number and not is required.
- - **minlength**: It defines the min length of the value. **NOTE**: this item is a number and not is required.
- - **disabled**: It define if the input is disabled. `(true|false)`.
- - **messageErrorPattern**: This message show when not validate the pattern.
- - **pattern**: Pattern for validate the value `Examples:('/\d/', '/^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/', etc)`.
- - **mask**: It difines the mask for the input. it use external lib [ngx-mask](https://www.npmjs.com/package/ngx-mask)
+ - **placeholder**: Placeholder value for input ` Examples:(Enter your password, enter you value, etc)`.
+ - **textArea**: Whether field is text area: `(true|false)`.
+ - **rows**: Number of rows in text area.
+ - **required**: Whether input is required `(true|false)`.
+ - **messageErrorValidation**: Message to show when input is empty.
+ - **themeMessage**: Message theme: `(warning|default|primary|success)`.
+ - **iconMessage**: Message icon: `('icon-info', 'icon-archive', etc)`.
+ - **maxlength**: Max length of input value. **NOTE**: this option is a number and is not required.
+ - **minlength**: Min length of input value. **NOTE**: this option is a number and it not required.
+ - **disabled**: Whether input is disabled: `(true|false)`.
+ - **messageErrorPattern**: Message to show for invalid patterns.
+ - **pattern**: Pattern (regex) to validate a value. `Examples:('/\d/', '/^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/', etc)`.
+ - **mask**: Input masks for external library [ngx-mask](https://www.npmjs.com/package/ngx-mask)
 
 
 ### RadioComponent
 
-``` 
-This component represent a radio
-```
+A radio button.
 
-#### Use it in HTML
+#### HTML
 
 ``` html
 <lib-packen-radio [radios]="radios" [(value)]="radioId" orientation="horizontal"></lib-packen-radio>
 ```
 
-#### Component appearance
+#### Appearance
 ![](https://packenco.s3.amazonaws.com/packen_ng/packen_radio/radios.png)
 
 
 #### Options
 
- - **radios**: It defines list of radios to show.
- - **value**: it defines the selected radio with the id.
- - **orientation**: It defines the orientation of the radios: `(horizontal|vetical)` .
- - **label**: it defines the label title for the input.
+ - **radios**: List of radio buttons.
+ - **value**: Selected radio with id.
+ - **orientation**: Orientation of the radio button: `(horizontal|vetical)`.
+ - **label**: Label title for the input.
 
 #### Events
  - **valueChage**: Emits when value is changed **NOTE**: this event is optional.
@@ -283,23 +304,22 @@ This component represent a radio
 
 ### CheckboxComponent
 
-``` 
-This component represent a checkbox
-```
-#### Use it in HTML
+A checkbox
+
+#### HTML
 
 ``` html
 <lib-packen-checkbox [(values)]="checkboxes" orientation="horizontal"></lib-packen-checkbox>
 ```
 
-#### Component appearance
+#### Appearance
 ![](https://packenco.s3.amazonaws.com/packen_ng/packen_checkbox/checkbox.png)
 
 
 #### Options
 
- - **values**: It defines list of checkbox to show `(Array of CheckItem)`.
- - **orientation**: It defines the orientation of the checkbox: `(horizontal|vetical)` .
+ - **values**: List of checkboxes to show `(Array of CheckItem)`.
+ - **orientation**: Defines the orientation of a checkbox: `(horizontal|vetical)`.
 
 #### Checkbox object structure 
 
@@ -314,35 +334,33 @@ interface CheckItem {
 
 ### AvatarComponent
 
-``` 
-This component represent avatar or avatar input
-```
-#### Use it in HTML
+Avatar or avatar input.
+
+#### HTML
 
 ``` html
 <lib-packen-avatar size="tiny" src="https://cdn.pixabay.com/photo/2020/06/24/19/41/cat-5337501_960_720.jpg" 
     type="input" [(value)]="imageFile" title="Cambiar foto"></lib-packen-avatar>
 ```
 
-#### Component appearance
+#### Appearance
 ![](https://packenco.s3.amazonaws.com/packen_ng/packen_avatar/avatars.png)
 
 
 #### Options
 
- - **name**: It difines the input identificator. Is is necesary to _ngModel_ funtionality.
- - **size**: It defines the size of the image: `(tiny|small|medium|large)`.
- - **src**: It defines the source or image route. 
- - **type**: It defines if the image is default or input: `(default|input)`.
- - **value**: It defines the file value **NOTE**: this is required when type is `input`.
- - **title**: It defines the title or label of image: **NOTE**: is optional
+ - **name**: Identifier necesary for _ngModel_ funtionality.
+ - **size**: Size of the image: `(tiny|small|medium|large)`.
+ - **src**: Source or image route. 
+ - **type**: Whether image is default or input: `(default|input)`.
+ - **value**: File value **NOTE**: required when type is `input`.
+ - **title**: Title or label of image: **NOTE**: is optional
 
 ### DropdownComponent
 
-``` 
-This component represent a dropdown
-```
-#### Use it in HTML
+A dropdown.
+
+#### HTML
 
 ``` html
 <lib-packen-dropdown [(value)]="itemId" [items]="items" size="medium"
@@ -357,13 +375,13 @@ This component represent a dropdown
 
 #### Options
 
- - **value**: It defines the value of the items **NOTE**: this item is required when type is `radio` or `default`. 
- - **items**: It defines the list of: ` (radios, checkbox, dropdown) (Array of Radios, Checkbox and Dropdown)`. 
- - **size**: It defines the size of the dropdown: `(tiny|small|medium|large|giant)`.
- - **label**: It defines the label or title of dropdown.
- - **type**: It defines the type of dropdown: `(default,checkbox,radio)`.
+ - **value**: Value of the items **NOTE**: this item is required when type is `radio` or `default`. 
+ - **items**: Type of items: ` (radios, checkbox, dropdown) (Array of Radios, Checkbox and Dropdown)`. 
+ - **size**: Size of the dropdown: `(tiny|small|medium|large|giant)`.
+ - **label**: Label or title of dropdown.
+ - **type**: Type of dropdown: `(default,checkbox,radio)`.
 
-#### Dropdown Possibles Structures 
+#### Dropdown Structures
 
 ``` javascript
 interface DropdownItem {
@@ -393,7 +411,7 @@ interface CheckItem {
 
 ### Examples
 
-#### 1. Basic Dropdown.
+#### 1. Basic Dropdown
 ![](https://packenco.s3.amazonaws.com/packen_ng/packen-dropdown/dropdown-normal.png)
 ```html
 let dropdownNormal = Array<DropdownItem> = [
@@ -421,7 +439,7 @@ let dropdownNormal = Array<DropdownItem> = [
 ];
 ```
 
-#### 2. Icons (from font) Dropdown. 
+#### 2. Icons (from font) Dropdown 
 
 ![](https://packenco.s3.amazonaws.com/packen_ng/packen-dropdown/dropdown.png)
 
