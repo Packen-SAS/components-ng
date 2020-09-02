@@ -60,10 +60,7 @@ import { PackenDateComponent } from './packen-date/packen-date.component';
     PackenTableComponent,
     PackenCarouselComponent,
     PackenFileComponent,
-    PackenDateComponent,
-    CalendarModule,
-    ClickOutsideModule,
-    BrowserAnimationsModule,
+    PackenDateComponent
   ]
 })
 export class PackenNgModule { }

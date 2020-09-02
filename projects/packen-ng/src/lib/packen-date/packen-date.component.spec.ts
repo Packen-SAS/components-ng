@@ -52,6 +52,6 @@ describe('PackenDateComponent', () => {
 
   it('Testing method getStyleInputCalendar() when border is false', () => {
     component.border = false;
-    expect(component.getStyleInputCalendar()).toBeDefined();
+    expect(component.getStyleInputCalendar()).toBeUndefined();
   });
 });

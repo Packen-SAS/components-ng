@@ -41,6 +41,18 @@
         }
     }
 
+    ::ng-deep p-calendar > span > input.with-border {
+        width: 100% !important;
+        border: 1px solid #a6a6a6 !important;
+        border-radius: 0px !important;
+    }
+
+    ::ng-deep p-calendar > span > input.without-border {
+        width: 100% !important;
+        border: 0px !important;
+        border-radius: 0px !important;
+    }
+
     ::ng-deep body .ui-datepicker {
         margin: 5px 10px !important;
     }

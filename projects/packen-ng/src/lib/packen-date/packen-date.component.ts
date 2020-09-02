@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'lib-packen-date',
@@ -29,6 +29,7 @@ export class PackenDateComponent implements OnInit, OnChanges {
     weekHeader: 'Wk'
   };
 
+  classStyle: string;
   classDisabled: string = '';
   dateValue: Date;
 
@@ -47,8 +48,8 @@ export class PackenDateComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnInit(): void {
-    this.getClassDisable(this.disabled);
     this.getStyleInputCalendar();
+    this.getClassDisable(this.disabled);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -72,10 +73,9 @@ export class PackenDateComponent implements OnInit, OnChanges {
    * Método para obtener las estilos de los inputs de calendar
    */
   getStyleInputCalendar() {
+    this.classStyle = 'without-border';
     if (this.border) {
-      return { width: '100%', border: '1px solid #A6A6A6', 'border-radius': '0px' };
-    } else {
-      return { width: '100%', border: '0px', 'border-radius': '0px' };
+      this.classStyle = 'with-border';
     }
   }
 
