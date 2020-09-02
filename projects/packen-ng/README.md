@@ -124,7 +124,8 @@ This component is a custom date input for Packen.
 
 ``` html
 <lib-packen-date [disabled]="disabledDate" [required]="true" [border]="false" [placeholder]="'DD/MM/YYYY'"
-    [minDate]="dateToday" [isMobile]="false" [(value)]="dateSelected">
+    [minDate]="dateToday" [isMobile]="false" [(value)]="dateSelected"
+    [label]="'Fecha de vencimiento de la licencia'">
 </lib-packen-date>
 ```
 
@@ -142,6 +143,7 @@ This component is a custom date input for Packen.
  - **maxDate**: It defines a maximun limint date for the calendar options .
  - **isMobile**: It defines the way to show the opoup calendar .
  - **value**: Variable where selected date will be save .
+ - **label**: Text label to show under the date .
 
 ### TableComponent
 

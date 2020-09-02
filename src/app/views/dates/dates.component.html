@@ -3,7 +3,8 @@
     <div class="col-sm-5">
         <form #formTest="ngForm">
             <lib-packen-date [disabled]="disabledDate" [required]="true" [border]="false" [placeholder]="'DD/MM/YYYY'"
-                [minDate]="dateToday" [isMobile]="false" [(value)]="dateSelected">
+                [minDate]="dateToday" [isMobile]="false" [(value)]="dateSelected"
+                [label]="'Fecha de vencimiento de la licencia'">
             </lib-packen-date>
         </form>
     </div>
