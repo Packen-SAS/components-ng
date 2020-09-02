@@ -180,7 +180,7 @@ interface TableHeader {
  - **a) key**: It defines the content before `:` .
  - **b) value**: It defines the content after `:` .
  - **c) showInDesktop**: It defines whether the `key` value will be displayed on the desktop or not. Posibles values to use: `(true|false)` .
- - **d) style**: It defines box style of `value` property. Posibles values to use: `(blue-box|gray-box|blue-gray-box)` .
+ - **d) style**: It defines box style of `value` property. Posibles values to use: `(blue-box|gray-box|blue-gray-box|purple-box|green-vivid-box|red-vivid-box|red-off-box|green-off-box)`.
  - **e) hideInDesktop**: Defines if this cell will be hidden when it is on desktop.
  - **f) capitalize**: Defines if this cell text will be transform in capitalize.
 
