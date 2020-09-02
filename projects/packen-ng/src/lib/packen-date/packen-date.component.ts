@@ -14,6 +14,7 @@ export class PackenDateComponent implements OnInit, OnChanges {
   @Input() isMobile: boolean = false;
   @Input() minDate: Date;
   @Input() maxDate: Date;
+  @Input() label: string;
 
   @Input() idiom: any = {
     firstDayOfWeek: 0,

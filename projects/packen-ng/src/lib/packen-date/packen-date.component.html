@@ -1,5 +1,5 @@
 <div class="calendar-ctn">
-    <span [ngClass]="classDisabled">Fecha de vencimiento de la licencia</span>
+    <span [ngClass]="classDisabled">{{ label }}</span>
     <img src="https://packenco.s3.amazonaws.com/packen_ng/packen-date/calendar.svg" [ngClass]="classDisabled">
 
     <p-calendar [(ngModel)]="value" [locale]="idiom" name="creationStartDate" dateFormat="dd/mm/yy" [touchUI]="isMobile"
