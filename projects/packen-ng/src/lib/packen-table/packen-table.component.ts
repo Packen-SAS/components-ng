@@ -69,6 +69,16 @@ export class PackenTableComponent implements OnInit {
         return ' gray-box' + cap;
       } else if (item.style === 'blue-gray-box') {
         return ' blue-gray-box' + cap;
+      } else if (item.style === 'purple-box') {
+        return ' purple-box' + cap;
+      } else if (item.style === 'green-vivid-box') {
+        return ' green-vivid-box' + cap;
+      } else if (item.style === 'red-vivid-box') {
+        return ' red-vivid-box' + cap;
+      } else if (item.style === 'red-off-box') {
+        return ' red-off-box' + cap;
+      } else if (item.style === 'green-off-box') {
+        return ' green-off-box' + cap;
       }
     }
 
@@ -95,6 +105,16 @@ export class PackenTableComponent implements OnInit {
         return ' gray-box no-margin' + cap;
       } else if (item.style === 'blue-gray-box') {
         return ' blue-gray-box no-margin' + cap;
+      } else if (item.style === 'purple-box') {
+        return ' purple-box no-margin' + cap;
+      } else if (item.style === 'green-vivid-box') {
+        return ' green-vivid-box no-margin' + cap;
+      } else if (item.style === 'red-vivid-box') {
+        return ' red-vivid-box no-margin' + cap;
+      } else if (item.style === 'red-off-box') {
+        return 'red-off-box no-margin' + cap;
+      } else if (item.style === 'green-off-box') {
+        return 'green-off-box no-margin' + cap;
       }
     }
 
