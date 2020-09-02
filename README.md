@@ -12,10 +12,12 @@ ng build packen-ng --prod
 
 ### Test views
 
-1. Go to `package.json` and remove `"packen-ng": "file:dist/packen-ng"` .
-2. Execute `npm install`
-3. Add again `"packen-ng": "file:dist/packen-ng"` in `package.json` .
-4. Execute `ng s`
+Assuming you have package-ng built:
+
+```
+npm install
+ng s
+```
 
 ### PackenNg lib documentation
 

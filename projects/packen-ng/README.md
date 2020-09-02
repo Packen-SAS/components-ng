@@ -6,13 +6,13 @@ This library contain all ui components for [Packen](https://packen.co) brand.
 
 To use it first install it:
 
-> *Intall dependecies*
+> *Install dependencies*
 > - npm i ngx-mask --save
 > - npm i @fullcalendar/core --save
 > - npm i quill --save
 > - npm i chart.js --save
 
-> *Intall lib*
+> *Install lib*
 > - npm i packen-ng --save
 
 Import the module to use its components in `app.module.ts` :
@@ -31,7 +31,7 @@ import {
 })
 ```
 
-## Available components
+## Available Components
 
 The **PackenNgModule** contains the following components:
 
