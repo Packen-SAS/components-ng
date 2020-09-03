@@ -92,4 +92,29 @@ describe('PackenCheckboxComponent', () => {
     const objCheck: CheckItem = { id: 3, label: 'label', disabled: false, state: 'checked' };
     expect(component.getTypeCursor(objCheck)).toEqual('contentCheckbox--default');
   });
+
+  it('Testing function contentCheckBoxes() when orientation is horizontal', () => {
+    expect(component.contentCheckBoxes('horizontal')).toBeUndefined();
+  });
+
+  it('Testing function getMinWidthAndBottom() when not isset width and bottom', () => {
+    expect(component.getMinWidthAndBottom()).toEqual({});
+  });
+
+  it('Testing function getMinWidthAndBottom() when isset width', () => {
+    component.width = 80;
+    expect(component.getMinWidthAndBottom()).toEqual({ 'min-width': '80px' });
+  });
+
+  it('Testing function getMinWidthAndBottom() when isset bottom', () => {
+    component.bottom = 30;
+    expect(component.getMinWidthAndBottom()).toEqual({ 'margin-bottom': '30px' });
+  });
+
+  it('Testing function getMinWidthAndBottom() when isset bottom andwidth', () => {
+    component.bottom = 30;
+    component.width = 100;
+    expect(component.getMinWidthAndBottom()).toEqual({ 'min-width': '100px' , 'margin-bottom': '30px' });
+  });
+
 });
