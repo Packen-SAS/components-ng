@@ -20,8 +20,8 @@ jobs:
       # requires sudo install for last part for ng command to work
       - name: install packen-ng and angular
         run: |
-          npm install ./projects/packen-ng @angular/common@9 @angular/core@9 @angular/cli@9 @angular-devkit/build-angular
-          sudo npm install -g @angular-devkit/build-ng-packagr
+          npm install ./projects/packen-ng @angular/common@9 @angular/core@9 @angular-devkit/build-angular @angular-devkit/build-ng-packagr
+          sudo npm install -g @angular/cli@9
 
       - name: build packen-ng
         run: |
