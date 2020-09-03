@@ -251,6 +251,61 @@
     color: $primary_default;
 }
 
+.purple-box {
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 18px;
+    background: $purple-light;
+    border-radius: 3px;
+    padding: 0px 8px;
+    margin: 0px 5px;
+    color: $purple;
+}
+
+.green-vivid-box {
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 18px;
+    background: $green-vivid-light;
+    border-radius: 3px;
+    padding: 0px 8px;
+    margin: 0px 5px;
+    color: $green-vivid;
+}
+
+.green-off-box {
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 18px;
+    background: $green-vivid-light;
+    border-radius: 3px;
+    padding: 0px 8px;
+    margin: 0px 5px;
+    color: $green-off;
+}
+
+.red-vivid-box {
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 18px;
+    background: $danger_lgt;
+    border-radius: 3px;
+    padding: 0px 8px;
+    margin: 0px 5px;
+    color: $danger_default;
+}
+
+.red-off-box {
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 18px;
+    background: $danger_lgt;
+    border-radius: 3px;
+    padding: 0px 8px;
+    margin: 0px 5px;
+    color: $danger_hover;
+}
+
 .no-margin {
     margin: 0px !important;
 }

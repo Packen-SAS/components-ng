@@ -201,11 +201,11 @@ interface TableHeader {
 
 #### **ItemInfo** class description
 
- - **ItemInfo**: Defines content and has the structure `key:value`. For example `Nombre: Pedro`.
- - **a) key**: Defines the content before `:`.
- - **b) value**: Defines the content after `:`.
- - **c) showInDesktop**: Defines whether the `key` value will be displayed on the desktop or not. Possible values: `(true|false)`.
- - **d) style**: Defines box style of `value` property. Possible values: `(blue-box|gray-box|blue-gray-box)`.
+ - **ItemInfo**: It defines a content and has the structure `key:value` . For example `Nombre: Pedro` .
+ - **a) key**: It defines the content before `:` .
+ - **b) value**: It defines the content after `:` .
+ - **c) showInDesktop**: It defines whether the `key` value will be displayed on the desktop or not. Posibles values to use: `(true|false)` .
+ - **d) style**: It defines box style of `value` property. Posibles values to use: `(blue-box|gray-box|blue-gray-box|purple-box|green-vivid-box|red-vivid-box|red-off-box|green-off-box)` .
  - **e) hideInDesktop**: Defines if this cell will be hidden when it is on desktop.
  - **f) capitalize**: Defines if this cell text will be capitalized.
 
