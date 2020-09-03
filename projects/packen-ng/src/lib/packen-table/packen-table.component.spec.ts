@@ -326,6 +326,11 @@ describe('PackenTableComponent', () => {
     expect(component.getClassTdDesktop(0, itemInfoMock)).toEqual('table-desktop_td_text first-text hide');
   });
 
+  it('Testing method getClasTdDesktop() when index is 0 and item.center is true', () => {
+    itemInfoMock.center = true;
+    expect(component.getClassTdDesktop(0, itemInfoMock)).toEqual('table-desktop_td_text first-text hide center');
+  });
+
   // Testing pagination
   it('Testing method movePageToRight()', () => {
     const page = { num: 1, classes: '' };
@@ -360,4 +365,15 @@ describe('PackenTableComponent', () => {
     component.activePage = page;
     expect(component.movePageToLeft()).toBeUndefined();
   });
+
+  it('Testing getMinWidth() when isset minWidth', () => {
+    itemInfoMock.minWidth = 80;
+    expect(component.getMinWidth(itemInfoMock)).toEqual({ 'min-width': '80px', 'text-align': 'center' });
+  });
+
+  it('Testing getMinWidth() when minWidth is undefined', () => {
+    itemInfoMock.minWidth = undefined;
+    expect(component.getMinWidth(itemInfoMock)).toEqual({});
+  });
+
 });
