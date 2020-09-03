@@ -1,0 +1,38 @@
+name: Test and Lint
+
+on: [ push ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: install node
+        run: |
+          sudo apt update
+          sudo apt install nodejs
+          sudo apt install npm
+          npm update
+  
+      # requires sudo install for last part for ng command to work
+      - name: install packen-ng and angular
+        run: |
+          npm install ./projects/packen-ng @angular/common@9 @angular/core@9 @angular-devkit/build-angular @angular-devkit/build-ng-packagr
+          sudo npm install -g @angular/cli@9
+
+      - name: build packen-ng
+        run: |
+          ng update
+          ng build packen-ng --prod
+
+      - name: install packages
+        run: npm install
+  
+      - name: test
+        run: npm run test
+
+      - name: lint
+        run: npm run lint
