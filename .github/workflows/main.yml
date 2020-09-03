@@ -17,8 +17,12 @@ jobs:
           sudo apt install npm
   
       - name: install packen-ng and angular
-        run: sudo npm install -g ./projects/packen-ng
-      
+        run: |
+          sudo npm install -g ./projects/packen-ng
+          sudo npm install -g @angular/common@9
+          sudo npm install -g @angular/core@9
+          sudo npm install -g @angular/cli@9
+  
       - name: build packen-ng
         run: ng build packen-ng --prod
 
