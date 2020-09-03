@@ -1,0 +1,28 @@
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: install node
+        run: |
+          sudo apt update
+          sudo apt install nodejs
+          sudo apt install npm
+  
+      - name: install angular
+        run: npm install -g @angular/cli@9
+      
+      - name: build packen-ng
+        run: ng build packen-ng --prod
+
+      - name: install packages
+        run: npm install
+  
+      - name: test
+        run: npm run test
+
+      - name: lint
+        run: npm run lint
