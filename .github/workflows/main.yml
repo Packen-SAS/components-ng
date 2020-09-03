@@ -22,8 +22,8 @@ jobs:
           sudo npm install -g @angular/common@9
           sudo npm install -g @angular/core@9
           sudo npm install -g @angular/cli@9
-          sudo npm install -g @angular-devkit/build-angular@9
-          sudo npm install -g @angular-devkit/build-ng-packagr@9
+          sudo npm install -g @angular-devkit/build-angular
+          sudo npm install -g @angular-devkit/build-ng-packagr
 
       - name: build packen-ng
         run: ng build packen-ng --prod
