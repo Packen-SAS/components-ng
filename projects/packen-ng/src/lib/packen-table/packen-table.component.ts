@@ -112,9 +112,9 @@ export class PackenTableComponent implements OnInit {
       } else if (item.style === 'red-vivid-box') {
         return ' red-vivid-box no-margin' + cap;
       } else if (item.style === 'red-off-box') {
-        return 'red-off-box no-margin' + cap;
+        return ' red-off-box no-margin' + cap;
       } else if (item.style === 'green-off-box') {
-        return 'green-off-box no-margin' + cap;
+        return ' green-off-box no-margin' + cap;
       }
     }
 

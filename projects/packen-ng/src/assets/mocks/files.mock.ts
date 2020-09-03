@@ -19,3 +19,4 @@ export const mockFileReader = {
     readAsDataURL: (blobInput) => { },
     onloadend: (value) => { }
 };
+

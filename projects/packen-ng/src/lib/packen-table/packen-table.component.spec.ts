@@ -45,6 +45,31 @@ describe('PackenTableComponent', () => {
     expect(component.getPropertyStyle(itemInfoMock)).toEqual(' blue-gray-box capitalize');
   });
 
+  it('Testing method getPropertyStyle() when is capitalize and purple-box', () => {
+    itemInfoMock.style = 'purple-box';
+    expect(component.getPropertyStyle(itemInfoMock)).toEqual(' purple-box capitalize');
+  });
+
+  it('Testing method getPropertyStyle() when is capitalize and green-vivid-box', () => {
+    itemInfoMock.style = 'green-vivid-box';
+    expect(component.getPropertyStyle(itemInfoMock)).toEqual(' green-vivid-box capitalize');
+  });
+
+  it('Testing method getPropertyStyle() when is capitalize and red-vivid-box', () => {
+    itemInfoMock.style = 'red-vivid-box';
+    expect(component.getPropertyStyle(itemInfoMock)).toEqual(' red-vivid-box capitalize');
+  });
+
+  it('Testing method getPropertyStyle() when is capitalize and red-off-box', () => {
+    itemInfoMock.style = 'red-off-box';
+    expect(component.getPropertyStyle(itemInfoMock)).toEqual(' red-off-box capitalize');
+  });
+
+  it('Testing method getPropertyStyle() when is capitalize and green-off-box', () => {
+    itemInfoMock.style = 'green-off-box';
+    expect(component.getPropertyStyle(itemInfoMock)).toEqual(' green-off-box capitalize');
+  });
+
   it('Testing method getPropertyStyle() when is not capitalize and blue-box', () => {
     itemInfoMock.style = 'blue-box';
     itemInfoMock.capitalize = false;
@@ -61,6 +86,36 @@ describe('PackenTableComponent', () => {
     itemInfoMock.style = 'blue-gray-box';
     itemInfoMock.capitalize = false;
     expect(component.getPropertyStyle(itemInfoMock)).toEqual(' blue-gray-box');
+  });
+
+  it('Testing method getPropertyStyle() when is not capitalize and purple-box', () => {
+    itemInfoMock.style = 'purple-box';
+    itemInfoMock.capitalize = false;
+    expect(component.getPropertyStyle(itemInfoMock)).toEqual(' purple-box');
+  });
+
+  it('Testing method getPropertyStyle() when is not capitalize and green-vivid-box', () => {
+    itemInfoMock.style = 'green-vivid-box';
+    itemInfoMock.capitalize = false;
+    expect(component.getPropertyStyle(itemInfoMock)).toEqual(' green-vivid-box');
+  });
+
+  it('Testing method getPropertyStyle() when is not capitalize and red-vivid-box', () => {
+    itemInfoMock.style = 'red-vivid-box';
+    itemInfoMock.capitalize = false;
+    expect(component.getPropertyStyle(itemInfoMock)).toEqual(' red-vivid-box');
+  });
+
+  it('Testing method getPropertyStyle() when is not capitalize and red-off-box', () => {
+    itemInfoMock.style = 'red-off-box';
+    itemInfoMock.capitalize = false;
+    expect(component.getPropertyStyle(itemInfoMock)).toEqual(' red-off-box');
+  });
+
+  it('Testing method getPropertyStyle() when is not capitalize and green-off-box', () => {
+    itemInfoMock.style = 'green-off-box';
+    itemInfoMock.capitalize = false;
+    expect(component.getPropertyStyle(itemInfoMock)).toEqual(' green-off-box');
   });
 
   it('Testing method getPropertyStyle() when is capitalize and other box style', () => {
@@ -105,6 +160,51 @@ describe('PackenTableComponent', () => {
     expect(component.getPropertyDesktopStyle(itemInfoMock)).toEqual(' blue-gray-box no-margin capitalize');
   });
 
+  it('Testing method getPropertyDesktopStyle() when is capitalize and purple-box', () => {
+    itemInfoMock.style = 'purple-box';
+    itemInfoMock.key = 'Nombre';
+    itemInfoMock.value = 'German';
+    itemInfoMock.capitalize = true;
+    itemInfoMock.showInDesktop = true;
+    expect(component.getPropertyDesktopStyle(itemInfoMock)).toEqual(' purple-box no-margin capitalize');
+  });
+
+  it('Testing method getPropertyDesktopStyle() when is capitalize and green-vivid-box', () => {
+    itemInfoMock.style = 'green-vivid-box';
+    itemInfoMock.key = 'Nombre';
+    itemInfoMock.value = 'German';
+    itemInfoMock.capitalize = true;
+    itemInfoMock.showInDesktop = true;
+    expect(component.getPropertyDesktopStyle(itemInfoMock)).toEqual(' green-vivid-box no-margin capitalize');
+  });
+
+  it('Testing method getPropertyDesktopStyle() when is capitalize and red-vivid-box', () => {
+    itemInfoMock.style = 'red-vivid-box';
+    itemInfoMock.key = 'Nombre';
+    itemInfoMock.value = 'German';
+    itemInfoMock.capitalize = true;
+    itemInfoMock.showInDesktop = true;
+    expect(component.getPropertyDesktopStyle(itemInfoMock)).toEqual(' red-vivid-box no-margin capitalize');
+  });
+
+  it('Testing method getPropertyDesktopStyle() when is capitalize and red-off-box', () => {
+    itemInfoMock.style = 'red-off-box';
+    itemInfoMock.key = 'Nombre';
+    itemInfoMock.value = 'German';
+    itemInfoMock.capitalize = true;
+    itemInfoMock.showInDesktop = true;
+    expect(component.getPropertyDesktopStyle(itemInfoMock)).toEqual(' red-off-box no-margin capitalize');
+  });
+
+  it('Testing method getPropertyDesktopStyle() when is capitalize and green-off-box', () => {
+    itemInfoMock.style = 'green-off-box';
+    itemInfoMock.key = 'Nombre';
+    itemInfoMock.value = 'German';
+    itemInfoMock.capitalize = true;
+    itemInfoMock.showInDesktop = true;
+    expect(component.getPropertyDesktopStyle(itemInfoMock)).toEqual(' green-off-box no-margin capitalize');
+  });
+
   it('Testing method getPropertyDesktopStyle() when is not capitalize and blue-box', () => {
     itemInfoMock.style = 'blue-box';
     itemInfoMock.key = 'Nombre';
@@ -130,6 +230,51 @@ describe('PackenTableComponent', () => {
     itemInfoMock.capitalize = false;
     itemInfoMock.showInDesktop = true;
     expect(component.getPropertyDesktopStyle(itemInfoMock)).toEqual(' blue-gray-box no-margin');
+  });
+
+  it('Testing method getPropertyDesktopStyle() when is not capitalize and purple-box', () => {
+    itemInfoMock.style = 'purple-box';
+    itemInfoMock.key = 'Nombre';
+    itemInfoMock.value = 'German';
+    itemInfoMock.capitalize = false;
+    itemInfoMock.showInDesktop = true;
+    expect(component.getPropertyDesktopStyle(itemInfoMock)).toEqual(' purple-box no-margin');
+  });
+
+  it('Testing method getPropertyDesktopStyle() when is not capitalize and green-vivid-box', () => {
+    itemInfoMock.style = 'green-vivid-box';
+    itemInfoMock.key = 'Nombre';
+    itemInfoMock.value = 'German';
+    itemInfoMock.capitalize = false;
+    itemInfoMock.showInDesktop = true;
+    expect(component.getPropertyDesktopStyle(itemInfoMock)).toEqual(' green-vivid-box no-margin');
+  });
+
+  it('Testing method getPropertyDesktopStyle() when is not capitalize and red-vivid-box', () => {
+    itemInfoMock.style = 'red-vivid-box';
+    itemInfoMock.key = 'Nombre';
+    itemInfoMock.value = 'German';
+    itemInfoMock.capitalize = false;
+    itemInfoMock.showInDesktop = true;
+    expect(component.getPropertyDesktopStyle(itemInfoMock)).toEqual(' red-vivid-box no-margin');
+  });
+
+  it('Testing method getPropertyDesktopStyle() when is not capitalize and red-off-box', () => {
+    itemInfoMock.style = 'red-off-box';
+    itemInfoMock.key = 'Nombre';
+    itemInfoMock.value = 'German';
+    itemInfoMock.capitalize = false;
+    itemInfoMock.showInDesktop = true;
+    expect(component.getPropertyDesktopStyle(itemInfoMock)).toEqual(' red-off-box no-margin');
+  });
+
+  it('Testing method getPropertyDesktopStyle() when is not capitalize and green-off-box', () => {
+    itemInfoMock.style = 'green-off-box';
+    itemInfoMock.key = 'Nombre';
+    itemInfoMock.value = 'German';
+    itemInfoMock.capitalize = false;
+    itemInfoMock.showInDesktop = true;
+    expect(component.getPropertyDesktopStyle(itemInfoMock)).toEqual(' green-off-box no-margin');
   });
 
   it('Testing method getPropertyDesktopStyle() when is capitalize and other box style', () => {
