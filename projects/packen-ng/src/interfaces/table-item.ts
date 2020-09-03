@@ -21,6 +21,8 @@ export interface ItemInfo {
     showInDesktop?: boolean;
     hideInDesktop?: boolean;
     capitalize?: boolean;
+    center?: boolean;
+    minWidth?: number;
 }
 
 export interface TableHeader {

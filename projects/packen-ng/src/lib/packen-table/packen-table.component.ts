@@ -20,6 +20,7 @@ export class PackenTableComponent implements OnInit {
   @Output() changePage = new EventEmitter<number>();
   @Input() pagination: string = 'pag-right';
   @Input() numPages: number;
+
   listPages: PageItem[] = [];
   activePage: PageItem;
 
@@ -152,6 +153,10 @@ export class PackenTableComponent implements OnInit {
     if (item.hideInDesktop) {
       style += ' hide';
     }
+
+    if (item.center) {
+      style += ' center';
+    }
     return style;
   }
 
@@ -222,6 +227,17 @@ export class PackenTableComponent implements OnInit {
    */
   sendSelectRow(row: TableRow) {
     this.selectRow.emit(row);
+  }
+
+  /**
+   * Function set a min-width when this isset
+   * @param item item of object itemInfo
+   */
+  getMinWidth(item: ItemInfo) {
+    if (item.minWidth) {
+      return { 'min-width': `${item.minWidth}px`, 'text-align': 'center' };
+    }
+    return {};
   }
 
 }

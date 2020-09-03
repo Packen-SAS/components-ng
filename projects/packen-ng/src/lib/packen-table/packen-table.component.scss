@@ -326,6 +326,11 @@
     color: $basic_gray_drk;
 }
 
+.center {
+    display: flex;
+    justify-content: center;
+}
+
 /*======================== DESKTOP =========================*/
 
 @media screen and (max-width: $breakpoint-mobile) {

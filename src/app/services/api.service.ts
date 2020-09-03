@@ -11,9 +11,9 @@ export class ApiService {
   ) { }
 
   sesion = {
-    client: 'WkOF0M7JSlXcRLteCRAPqA',
+    client: 'ulH1fDx3J7NrvMw3aMcM0A',
     keepSession: true,
-    token: '3HkVvp6-raPXQVYZ2oHNcw',
+    token: 'H5atA0HkPzTC1AMsTPYxRw',
     uid: 'jhampiergiron4@gmail.com'
   };
 
