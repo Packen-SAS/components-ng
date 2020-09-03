@@ -16,8 +16,8 @@ jobs:
           sudo apt install nodejs
           sudo apt install npm
   
-      - name: install angular
-        run: sudo npm install -g @angular/cli@9
+      - name: install packen-ng and angular
+        run: sudo npm install -g ./projects/packen-ng
       
       - name: build packen-ng
         run: ng build packen-ng --prod
