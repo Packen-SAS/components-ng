@@ -9,18 +9,18 @@ export class PackenAvatarComponent implements OnInit {
 
   @Input() size: any = null;
   @Input() type: string = 'default';
-  @Input() src: string = '';
+  @Input() src: any;
   @Input() title: string = null;
   @Input() name: string;
   @Input() required: boolean = false;
 
   sizeImage: number = null;
-  imageSelected: any;
+  imageSelected: File;
   classStyle: string = '';
   classStylePrevious: string = '';
 
   @Output()
-  valueChange = new EventEmitter<string>();
+  valueChange = new EventEmitter<File>();
 
   @Input()
   get value() {
@@ -30,7 +30,7 @@ export class PackenAvatarComponent implements OnInit {
   set value(val) {
     if (val) {
       this.imageSelected = val;
-      this.src = this.imageSelected;
+      this.getBase64(this.imageSelected);
       this.valueChange.emit(this.imageSelected);
     }
   }
@@ -69,16 +69,18 @@ export class PackenAvatarComponent implements OnInit {
     const file = event.target.files[0];
     if (file) {
       this.classStyle = this.classStylePrevious;
-
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-
-      reader.onloadend = (ev) => {
-        this.imageSelected = ev.target.result;
-        this.valueChange.emit(this.imageSelected);
-        this.src = this.imageSelected;
-      };
+      this.imageSelected = file;
+      this.valueChange.emit(this.imageSelected);
+      this.getBase64(file);
     }
+  }
+
+  getBase64(file: File) {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = (ev) => {
+      this.src = ev.target.result;
+    };
   }
 
   onClick() {
