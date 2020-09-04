@@ -205,12 +205,13 @@ describe('PackenDropdownComponent', () => {
     expect(component.getClassText(objDropdown)).toBeUndefined();
   });
 
-  it('render function when click in input ', () => {
+  it('render function when click in input and is not disabled ', () => {
+    component.disabled = false;
     expect(component.clickInput()).toBeUndefined();
   });
 
-  it('render function when click in input when menuList is open ', () => {
-    component.showMenuList = true;
+  it('render function when click in input and is disabled ', () => {
+    component.disabled = true;
     expect(component.clickInput()).toBeUndefined();
   });
 
@@ -429,6 +430,30 @@ describe('PackenDropdownComponent', () => {
   it('Testing method ngOnChanges() when items change the property', () => {
     component.ngOnChanges({
       other: new SimpleChange(null, null, true)
+    });
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
+
+  it('Testing method ngOnChanges() when disabled property does not exit', () => {
+    component.ngOnChanges({});
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
+
+  it('Testing method ngOnChanges() when disabled property exits and it is true', () => {
+    component.disabled = true;
+    component.ngOnChanges({
+      disabled: new SimpleChange(null, true, null)
+    });
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
+
+  it('Testing method ngOnChanges() when disabled property exits and it is false', () => {
+    component.disabled = false;
+    component.ngOnChanges({
+      disabled: new SimpleChange(null, false, false)
     });
     fixture.detectChanges();
     expect(component).toBeTruthy();

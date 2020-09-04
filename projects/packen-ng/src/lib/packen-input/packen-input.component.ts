@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild, AfterViewInit, ViewChildren } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild, AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { debounceTime, map } from 'rxjs/operators';
 
@@ -7,7 +7,7 @@ import { debounceTime, map } from 'rxjs/operators';
   templateUrl: './packen-input.component.html',
   styleUrls: ['./packen-input.component.scss']
 })
-export class PackenInputComponent implements OnInit, AfterViewInit {
+export class PackenInputComponent implements OnInit, AfterViewInit, OnChanges {
   @ViewChild('searchinput') searchinput: ElementRef;
 
   @Input() size: StatesSizesInput = 'small';
@@ -63,14 +63,20 @@ export class PackenInputComponent implements OnInit, AfterViewInit {
 
   constructor() { }
 
+  ngOnInit(): void {
+    this.getClassStylesInput(this.size);
+  }
+
   ngAfterViewInit() {
     if (this.lazy) {
       this.listenerSearch();
     }
   }
 
-  ngOnInit(): void {
-    this.getClassStylesInput(this.size);
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.disabled) {
+      this.disabled = changes.disabled.currentValue === true ? true : false;
+    }
   }
 
   /**
@@ -86,7 +92,6 @@ export class PackenInputComponent implements OnInit, AfterViewInit {
       this.keyUpInput.emit(value);
     });
   }
-
 
   getClassSizeIconRight = (type: StatesSizesInput): string => {
     let resClass = this.icon + ' ';
@@ -179,12 +184,6 @@ export class PackenInputComponent implements OnInit, AfterViewInit {
     return '';
   }
 
-  getColorText = (): string => {
-    if (this.disabled === true) {
-      return ContentTextArea.disabled;
-    }
-  }
-
   changeTextInput = (value) => {
     // Set values
     this.messageValue = value;
@@ -273,11 +272,6 @@ class TextAreaClass {
   static readonly error = '  content__input-container__input--error';
   static readonly disabled = ' content__contentTextArea--disabled';
   static readonly focus = 'content__contentTextArea--focus';
-}
-
-class ContentTextArea {
-  static readonly error = 'content__contentTextArea--error';
-  static readonly disabled = 'content__contentTextArea__textArea--disabled';
 }
 
 class InputSyzesClass {

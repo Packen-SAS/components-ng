@@ -11,6 +11,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
   @Input() items: Array<DropdownItem> = [];
   @Input() type: DropdownType = 'default';
   @Input() size: StatesSizesInput = 'tiny';
+  @Input() disabled: boolean = false;
   @Input() required: boolean = false;
   @Input() lazy: boolean = false;
   @Input() placeholder: string = '';
@@ -58,6 +59,9 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
       this.getItemSelected();
       this.temporaryItemsList = this.items;
     }
+    if (changes.disabled) {
+      this.disabled = changes.disabled.currentValue === true ? true : false;
+    }
   }
 
   // ----------------------------------------------------------------------------------------------
@@ -65,7 +69,9 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
   // ----------------------------------------------------------------------------------------------
 
   clickInput(): void {
-    this.showMenuList = true;
+    if (!this.disabled) {
+      this.showMenuList = true;
+    }
   }
 
   clickOutsideContent(): void {

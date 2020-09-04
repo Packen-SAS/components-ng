@@ -1,3 +1,4 @@
+import { SimpleChange } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
@@ -108,17 +109,6 @@ describe('PackenInputComponent', () => {
     expect(component.onFocus()).toBeUndefined();
   });
 
-  // Render the the colorText of textArea
-  it('render the color text when disabled is true', () => {
-    component.disabled = true;
-    expect(component.getColorText()).toEqual('content__contentTextArea__textArea--disabled');
-  });
-
-  it('render the color text when disabled is false', () => {
-    component.disabled = false;
-    expect(component.getColorText()).toBeUndefined();
-  });
-
   // Render the size class of icon input
   it('render the class of icon when size is tiny', () => {
     expect(component.getClassSizeIconRight('tiny')).toEqual(' content__input-container__icon--tiny');
@@ -203,5 +193,29 @@ describe('PackenInputComponent', () => {
   it('Render function ngAfterViewInit() when is lazy is true', () => {
     component.lazy = true;
     expect(component.ngAfterViewInit()).toBeUndefined();
+  });
+
+  it('Testing method ngOnChanges() when disabled property does not exit', () => {
+    component.ngOnChanges({});
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
+
+  it('Testing method ngOnChanges() when disabled property exits and it is true', () => {
+    component.disabled = true;
+    component.ngOnChanges({
+      disabled: new SimpleChange(null, true, null)
+    });
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
+
+  it('Testing method ngOnChanges() when disabled property exits and it is false', () => {
+    component.disabled = false;
+    component.ngOnChanges({
+      disabled: new SimpleChange(null, false, false)
+    });
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
   });
 });
