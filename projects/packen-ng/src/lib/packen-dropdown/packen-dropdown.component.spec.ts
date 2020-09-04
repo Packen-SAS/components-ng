@@ -28,15 +28,11 @@ describe('PackenDropdownComponent', () => {
     component.value = 1;
     component.items = [{
       id: 1,
-      left: false,
-      right: false,
       disabled: false,
       title: 'Menu item'
     },
     {
       id: 2,
-      left: false,
-      right: false,
       disabled: false,
       title: 'Menu item 2'
     }];
@@ -49,15 +45,11 @@ describe('PackenDropdownComponent', () => {
     component.value = 5;
     component.items = [{
       id: 1,
-      left: false,
-      right: false,
       disabled: false,
       title: 'Menu item'
     },
     {
       id: 2,
-      left: false,
-      right: false,
       disabled: false,
       title: 'Menu item 2'
     }];
@@ -68,23 +60,19 @@ describe('PackenDropdownComponent', () => {
     component.value = 5;
     component.items = [{
       id: 1,
-      left: false,
-      right: false,
       disabled: false,
       title: 'Menu item'
     },
     {
       id: 2,
-      left: false,
-      right: false,
       disabled: false,
       title: 'Menu item 2'
     }];
-    expect(component.getItemSelected(false)).toBeUndefined();
+    expect(component.getItemSelected()).toBeUndefined();
   });
 
   it('Render function getItemSelected() when type is different to radio and items is empty', () => {
-    component.type = 'other';
+    component.type = 'checkbox';
     component.items = null;
     expect(component.getItemSelected()).toBeUndefined();
   });
@@ -98,15 +86,11 @@ describe('PackenDropdownComponent', () => {
   it('render item selected when the type is radio', () => {
     component.items = [{
       id: 1,
-      left: false,
-      right: false,
       disabled: false,
       title: 'Menu item'
     },
     {
       id: 2,
-      left: false,
-      right: false,
       disabled: false,
       title: 'Menu item 2'
     }];
@@ -119,15 +103,11 @@ describe('PackenDropdownComponent', () => {
   it('render item selected when the type is radio and not isset the radio selected', () => {
     component.items = [{
       id: 1,
-      left: false,
-      right: false,
       disabled: false,
       title: 'Menu item'
     },
     {
       id: 2,
-      left: false,
-      right: false,
       disabled: false,
       title: 'Menu item 2'
     }];
@@ -138,15 +118,14 @@ describe('PackenDropdownComponent', () => {
   });
 
   it('render class of item when is disabled', () => {
-    const objDropdown: DropdownItem = { id: 1, disabled: true, info: 'info text', left: false, right: false, title: 'title' };
+    const objDropdown: DropdownItem = { id: 1, disabled: true, info: 'info text', title: 'title' };
     expect(component.getClassItem(objDropdown)).toEqual('content__item content__item--disabled');
   });
 
   it('render class of item when not is disabled, not has info text and id is selected', async () => {
     component.value = 1;
     const objDropdown: DropdownItem = {
-      id: 1, disabled: false,
-      left: false, right: false, title: 'title',
+      id: 1, disabled: false, title: 'title',
       subTitle: 'subtitle', typeInfo: 'warning'
     };
     expect(component.getClassItem(objDropdown)).toEqual('content__item content__item--selected');
@@ -156,8 +135,7 @@ describe('PackenDropdownComponent', () => {
     component.value = 1;
     const objDropdown: DropdownItem = {
       id: 1, disabled: false,
-      info: 'Info text',
-      left: false, right: false, title: 'Title',
+      info: 'Info text', title: 'Title',
       subTitle: 'subtitle', typeInfo: 'warning'
     };
     expect(component.getClassItem(objDropdown)).toBeUndefined();
@@ -166,8 +144,7 @@ describe('PackenDropdownComponent', () => {
   it('render class of item when not is disabled, not has info and not is selected ', () => {
     const objDropdown: DropdownItem = {
       id: 1, disabled: false,
-      info: null,
-      left: false, right: false, title: 'Title'
+      info: null, title: 'Title'
     };
     component.value = 2;
     expect(component.getClassItem(objDropdown)).toBeUndefined();
@@ -176,8 +153,7 @@ describe('PackenDropdownComponent', () => {
   it('render class of title when not has info and is selected', () => {
     component.value = 1;
     const objDropdown: DropdownItem = {
-      id: 1, disabled: false,
-      left: false, right: false, title: 'title',
+      id: 1, disabled: false, title: 'title',
       info: null, subTitle: 'Subtitle', typeInfo: 'warning'
     };
     expect(component.getClassTitle(objDropdown)).toEqual('content__item__contentText__textP__title--selected');
@@ -186,8 +162,7 @@ describe('PackenDropdownComponent', () => {
   it('render class of title when has info and not is selected', () => {
     component.value = 2;
     const objDropdown: DropdownItem = {
-      id: 1, disabled: false,
-      left: false, right: false, title: 'title',
+      id: 1, disabled: false, title: 'title',
       info: null, subTitle: 'Subtitle', typeInfo: 'warning'
     };
     expect(component.getClassTitle(objDropdown)).toBeUndefined();
@@ -196,8 +171,7 @@ describe('PackenDropdownComponent', () => {
   it('render class of title when has info and not is selected', () => {
     component.value = 2;
     const objDropdown: DropdownItem = {
-      id: 1, disabled: false,
-      left: false, right: false, title: 'title',
+      id: 1, disabled: false, title: 'title',
       info: 'Info', subTitle: 'Subtitle', typeInfo: 'warning'
     };
     expect(component.getClassTitle(objDropdown)).toBeUndefined();
@@ -205,32 +179,28 @@ describe('PackenDropdownComponent', () => {
 
   it('render function when item is select ', () => {
     const objDropdown: DropdownItem = {
-      id: 1, disabled: false,
-      left: false, right: false, title: 'title'
+      id: 1, disabled: false, title: 'title'
     };
     expect(component.selectItem(objDropdown)).toBeUndefined();
   });
 
   it('render function when item is select and disabled is true ', () => {
     const objDropdown: DropdownItem = {
-      id: 1, disabled: true,
-      left: false, right: false, title: 'title'
+      id: 1, disabled: true, title: 'title'
     };
     expect(component.selectItem(objDropdown)).toBeUndefined();
   });
 
   it('render class text when is disabled', () => {
     const objDropdown: DropdownItem = {
-      id: 1, disabled: true,
-      left: false, right: false, title: 'title'
+      id: 1, disabled: true, title: 'title'
     };
     expect(component.getClassText(objDropdown)).toEqual('content__item__contentText__textP--disabled');
   });
 
   it('render class text', () => {
     const objDropdown: DropdownItem = {
-      id: 1, disabled: false,
-      left: false, right: false, title: 'title'
+      id: 1, disabled: false, title: 'title'
     };
     expect(component.getClassText(objDropdown)).toBeUndefined();
   });
@@ -247,8 +217,7 @@ describe('PackenDropdownComponent', () => {
   it('render color sub title when item is selected', () => {
     component.value = 1;
     const objDropdown: DropdownItem = {
-      id: 1, disabled: false,
-      left: false, right: false, title: 'title'
+      id: 1, disabled: false, title: 'title'
     };
     expect(component.getColorSubTitleWhenItemIsSelected(objDropdown)).toEqual('content__item__contentText__textP__title--selected');
   });
@@ -256,8 +225,7 @@ describe('PackenDropdownComponent', () => {
   it('render color sub title when item is selected and is diferent to selected id', () => {
     component.value = 2;
     const objDropdown: DropdownItem = {
-      id: 1, disabled: false,
-      left: false, right: false, title: 'title'
+      id: 1, disabled: false, title: 'title'
     };
     expect(component.getColorSubTitleWhenItemIsSelected(objDropdown)).toBeUndefined();
   });
@@ -266,8 +234,7 @@ describe('PackenDropdownComponent', () => {
     component.value = 1;
     const objDropdown: DropdownItem = {
       id: 1, disabled: false,
-      info: 'Info text',
-      left: false, right: false, title: 'title'
+      info: 'Info text', title: 'title'
     };
     expect(component.getColorSubTitleWhenItemIsSelected(objDropdown)).toBeUndefined();
   });
@@ -276,8 +243,7 @@ describe('PackenDropdownComponent', () => {
     component.value = 1;
     const objDropdown: DropdownItem = {
       id: 1, disabled: false,
-      info: 'Info text',
-      left: false, right: false, title: 'title'
+      info: 'Info text', title: 'title'
     };
     expect(component.getColorIconWhenItemIsSelected(objDropdown)).toEqual('content__item__icon--selected');
   });
@@ -286,8 +252,7 @@ describe('PackenDropdownComponent', () => {
     component.value = 1;
     const objDropdown: DropdownItem = {
       id: 2, disabled: false,
-      info: 'Info text',
-      left: false, right: false, title: 'title'
+      info: 'Info text', title: 'title'
     };
     expect(component.getColorIconWhenItemIsSelected(objDropdown)).toBeUndefined();
   });
@@ -296,8 +261,7 @@ describe('PackenDropdownComponent', () => {
     component.value = 1;
     const objDropdown: DropdownItem = {
       id: 2, disabled: true,
-      info: 'Info text',
-      left: false, right: false, title: 'title'
+      info: 'Info text', title: 'title'
     };
     expect(component.getColorIconWhenItemIsSelected(objDropdown)).toEqual('content__item__icon--disabled');
   });
@@ -305,8 +269,7 @@ describe('PackenDropdownComponent', () => {
   it('render opacity image when item is disabled', () => {
     const objDropdown: DropdownItem = {
       id: 2, disabled: true,
-      info: 'Info text',
-      left: false, right: false, title: 'title'
+      info: 'Info text', title: 'title'
     };
     expect(component.getOpacityImageItemDisabled(objDropdown)).toEqual('content__item__avatar--disabled');
   });
@@ -314,8 +277,7 @@ describe('PackenDropdownComponent', () => {
   it('render opacity image when item not is disabled', () => {
     const objDropdown: DropdownItem = {
       id: 2, disabled: false,
-      info: 'Info text',
-      left: false, right: false, title: 'title'
+      info: 'Info text', title: 'title'
     };
     expect(component.getOpacityImageItemDisabled(objDropdown)).toBeUndefined();
   });
@@ -324,8 +286,7 @@ describe('PackenDropdownComponent', () => {
     const objDropdown: DropdownItem = {
       id: 2, disabled: false,
       info: 'Info text',
-      typeInfo: 'active',
-      left: false, right: false, title: 'title'
+      typeInfo: 'active', title: 'title'
     };
     expect(component.getColorInfoType(objDropdown)).toEqual('content__item__contentText__textP__info--active');
   });
@@ -334,8 +295,7 @@ describe('PackenDropdownComponent', () => {
     const objDropdown: DropdownItem = {
       id: 2, disabled: false,
       info: 'Info text',
-      typeInfo: 'default',
-      left: false, right: false, title: 'title'
+      typeInfo: 'default', title: 'title'
     };
     expect(component.getColorInfoType(objDropdown)).toBeUndefined();
   });
@@ -386,15 +346,11 @@ describe('PackenDropdownComponent', () => {
   it('Render function keyUpInput() when type is default and include the text', () => {
     component.items = [{
       id: 1,
-      left: false,
-      right: false,
       disabled: false,
       title: 'Menu item'
     },
     {
       id: 2,
-      left: false,
-      right: false,
       disabled: false,
       title: 'Menu item 2'
     }];
@@ -406,15 +362,11 @@ describe('PackenDropdownComponent', () => {
     component.value = 'label';
     component.items = [{
       id: 1,
-      left: false,
-      right: false,
       disabled: false,
       title: 'Menu item'
     },
     {
       id: 2,
-      left: false,
-      right: false,
       disabled: false,
       title: 'Menu item 2'
     }];
@@ -427,15 +379,11 @@ describe('PackenDropdownComponent', () => {
     component.lazy = true;
     component.items = [{
       id: 1,
-      left: false,
-      right: false,
       disabled: false,
       title: 'Menu item'
     },
     {
       id: 2,
-      left: false,
-      right: false,
       disabled: false,
       title: 'Menu item 2'
     }];
@@ -448,15 +396,11 @@ describe('PackenDropdownComponent', () => {
     component.lazy = true;
     component.items = [{
       id: 1,
-      left: false,
-      right: false,
       disabled: false,
       title: 'Menu item'
     },
     {
       id: 2,
-      left: false,
-      right: false,
       disabled: false,
       title: 'Menu item 2'
     }];

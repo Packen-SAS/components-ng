@@ -81,7 +81,7 @@ export class PackenInputComponent implements OnInit, AfterViewInit {
       map((event: any) => {
         return event.target.value;
       })
-      , debounceTime(500)
+      , debounceTime(200)
     ).subscribe((value: string) => {
       this.keyUpInput.emit(value);
     });
