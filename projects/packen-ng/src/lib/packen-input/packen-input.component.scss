@@ -49,6 +49,7 @@
       }
 
       &:disabled {
+        color: $secondary_hover !important;
         border: 2px solid $basic_gray_lgt;
         background-color: $basic_white_drk;
       }
@@ -56,7 +57,7 @@
 
     &--focus {
       border: 2px solid $basic_independece_dft;
-      background-color: white !important;
+      background-color: $white !important;
     }
   }
 
