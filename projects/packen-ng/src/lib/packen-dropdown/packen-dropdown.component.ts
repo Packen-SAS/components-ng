@@ -8,13 +8,13 @@ import { DropdownItem } from '../../interfaces/dropdown-item';
 })
 export class PackenDropdownComponent implements OnInit, OnChanges {
 
-  @Input() items: Array<any> = [];
-  @Input() label: string = '';
-  @Input() type: string = 'default';
-  @Input() size: string = 'tiny';
+  @Input() items: Array<DropdownItem> = [];
+  @Input() type: DropdownType = 'default';
+  @Input() size: StatesSizesInput = 'tiny';
   @Input() required: boolean = false;
   @Input() lazy: boolean = false;
   @Input() placeholder: string = '';
+  @Input() label: string = '';
 
   @Output() outputChangeItem = new EventEmitter<any>();
   @Output() changeCheckbox = new EventEmitter<any>();
@@ -38,39 +38,59 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
     id: 0,
     title: '',
     disabled: false,
-    left: false,
-    right: false
+    left: null,
+    right: null
   };
 
   showMenuList: boolean = false;
   hoverItem: string = '';
-  temporaryItemsList: any = [];
+  temporaryItemsList: DropdownItem[] = [];
 
   constructor() { }
 
+  ngOnInit(): void {
+    this.temporaryItemsList = this.items;
+    this.getItemSelected();
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.items) {
-      this.getItemSelected(false);
+      this.getItemSelected();
       this.temporaryItemsList = this.items;
     }
   }
 
-  ngOnInit(): void {
-    this.temporaryItemsList = this.items;
-    this.getItemSelected(true);
+  // ----------------------------------------------------------------------------------------------
+  // Métodos para manejo de Comportamientos (Eventos)
+  // ----------------------------------------------------------------------------------------------
+
+  clickInput(): void {
+    this.showMenuList = true;
   }
 
-  getItemSelected = (selection = true) => {
-    if (this.type !== 'radio' && this.type !== 'checkbox') {
-      if (this.items && this.items.length > 0) {
-        if (selection) {
-          this.itemSelected = this.items.find((item) => item.id === this.value);
-          this.textInput = this.itemSelected ? this.itemSelected.title : this.textInput;
-        }
-      }
+  clickOutsideContent(): void {
+    this.showMenuList = false;
+    if (!this.value) {
+      this.textInput = '';
     } else {
+      if (!this.lazy) {
+        const property = this.getProperty();
+        this.textInput = this.temporaryItemsList.find(i => i.id === this.value)?.[property];
+      }
+    }
+  }
+
+  getItemSelected() {
+    if (this.type === 'default') {
+      if (this.items && this.items.length > 0) {
+        this.itemSelected = this.items.find(i => i.id === this.value);
+
+        const property = this.getProperty();
+        this.textInput = this.itemSelected ? this.itemSelected[property] : this.textInput;
+      }
+    } else { // radio o checkbox
       if (this.items) {
-        const radio = this.items.find((item) => item.id === this.value);
+        const radio = this.items.find(i => i.id === this.value);
         if (radio) {
           this.textInput = radio.label;
         }
@@ -78,7 +98,53 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
     }
   }
 
-  getClassItem = (i: DropdownItem): string => {
+  selectItem(item: DropdownItem): void {
+    if (!item.disabled) {
+      this.valueChange.emit(item.id);
+      this.itemSelected = item;
+
+      const property = this.getProperty();
+      this.textInput = item[property];
+      this.showMenuList = false;
+    }
+  }
+
+  keyUpInput(text) {
+    if (this.lazy) {
+      this.value = false;
+      if (text.length > 0 && text) {
+        this.keyUp.emit(text);
+      }
+    } else {
+      if (text) {
+        this.filterItemsEagerly(text);
+      }
+    }
+  }
+
+  filterItemsEagerly(text: string) {
+    const property = this.getProperty();
+    this.temporaryItemsList = this.items.filter(i => i[property]?.toUpperCase().includes(text.toUpperCase()));
+  }
+
+  getProperty(): string {
+    return this.type === 'default' ? 'title' : 'label';
+  }
+
+  changeStateCheckBox(data): void {
+    this.outputChangeItem.emit(data);
+  }
+
+  changeRadio(radio) {
+    this.textInput = radio.label;
+    this.showMenuList = false;
+  }
+
+  // ----------------------------------------------------------------------------------------------
+  // Métodos para manejo de Estilos
+  // ----------------------------------------------------------------------------------------------
+
+  getClassItem(i: DropdownItem): string {
     if (i.disabled) {
       return ItemStyles.disabled;
     }
@@ -90,7 +156,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
     }
   }
 
-  getClassTitle = (i: DropdownItem): string => {
+  getClassTitle(i: DropdownItem): string {
     if (!i.info) {
       if (i.id === this.value) {
         return TitleStyles.selected;
@@ -98,28 +164,13 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
     }
   }
 
-  selectItem = (item: DropdownItem): void => {
-    if (!item.disabled) {
-      this.valueChange.emit(item.id);
-      this.itemSelected = item;
-      this.textInput = item.title;
-      this.showMenuList = false;
-    }
-  }
-
-  getClassText = (i: DropdownItem): string => {
+  getClassText(i: DropdownItem): string {
     if (i.disabled) {
       return ContentTextStyles.disabled;
     }
   }
 
-  clickInput = (): void => {
-    if (!this.showMenuList) {
-      this.showMenuList = true;
-    }
-  }
-
-  getColorSubTitleWhenItemIsSelected = (i: DropdownItem): string => {
+  getColorSubTitleWhenItemIsSelected(i: DropdownItem): string {
     if (!i.info) {
       if (i.id === this.value) {
         return TitleStyles.selected;
@@ -127,7 +178,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
     }
   }
 
-  getColorIconWhenItemIsSelected = (i: DropdownItem): string => {
+  getColorIconWhenItemIsSelected(i: DropdownItem): string {
     if (i.disabled) {
       return IconStyles.disabled;
     }
@@ -137,58 +188,21 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
     }
   }
 
-  getOpacityImageItemDisabled = (i: DropdownItem): string => {
+  getOpacityImageItemDisabled(i: DropdownItem): string {
     if (i.disabled) {
       return AvatarStyles.disabled;
     }
   }
 
-  getColorInfoType = (i: DropdownItem): string => {
+  getColorInfoType(i: DropdownItem): string {
     if (i.typeInfo === 'active') {
       return InfoStyles.active;
     }
   }
-
-  changeStateCheckBox = (data): void => {
-    this.outputChangeItem.emit(data);
-  }
-
-  clickOutsideContent = (): void => {
-    this.showMenuList = false;
-    this.temporaryItemsList = [];
-    if (!this.value) {
-      this.textInput = '';
-    }
-  }
-
-  changeRadio(radio) {
-    this.textInput = radio.label;
-    this.showMenuList = false;
-  }
-
-  keyUpInput(text) {
-    if (this.lazy) {
-      this.value = false;
-      if (text.length > 0) {
-        this.keyUp.emit(text);
-      }
-    } else {
-      const newArray = [];
-      this.items.forEach((item) => {
-        if (this.type !== 'radio' && this.type !== 'checkbox') {
-          if (item.title.toUpperCase().includes(text.toUpperCase())) {
-            newArray.push(item);
-          }
-        } else {
-          if (item.label.toUpperCase().includes(text.toUpperCase())) {
-            newArray.push(item);
-          }
-        }
-      });
-      this.temporaryItemsList = newArray;
-    }
-  }
 }
+
+type DropdownType = 'default' | 'radio' | 'checkbox';
+type StatesSizesInput = 'tiny' | 'small' | 'medium' | 'large' | 'giant';
 
 class ItemStyles {
   static readonly disabled = 'content__item content__item--disabled';
