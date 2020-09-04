@@ -72,13 +72,13 @@ export class TableComponent implements OnInit {
       const colum1: TableColumn = {
         key: 'Cod.',
         headInMobile: true,
-        value: [{ key: '', value: item.id.toString(), style: 'blue-box', showInDesktop: false }]
+        value: [{ key: '', value: item.id.toString(), style: 'blue-box', showInDesktop: false, center: true, minWidth: 60 }]
       };
 
       const colum2: TableColumn = {
         key: 'Cliente',
         value: [
-          { key: 'Nombre', value: item.user_resource_data.full_name, capitalize: true, showInDesktop: false },
+          { key: 'Nombre', value: item.user_resource_data.full_name, capitalize: true, showInDesktop: false, center: true },
           { key: '', value: 'C.C. ' + item.user_resource_data.document_number.toString(), showInDesktop: false },
         ]
       };
@@ -120,7 +120,7 @@ export class TableComponent implements OnInit {
         key: 'Estado',
         hideInMobile: true,
         value: [
-          { key: '', value: item.current_service_status, style: 'green-off-box', showInDesktop: false },
+          { key: '', value: item.current_service_status, style: 'green-off-box', showInDesktop: false, minWidth: 80},
         ]
       };
 

@@ -67,3 +67,17 @@ p {
     }
   }
 }
+
+.contentCheckboxes {
+  display: flex;
+
+  &--horizontal {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &--vertical {
+    flex-direction: column;
+    justify-content: center;
+  }
+}

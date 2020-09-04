@@ -11,7 +11,12 @@ export class PackenCheckboxComponent implements OnInit {
   @Input() checkboxes: Array<CheckItem> = [];
   @Input() orientation: string = 'vertical';
 
+  @Input() bottom: number;
+  @Input() width: number;
+
   @Output() valuesChange = new EventEmitter<any>();
+
+  @Output() changeCheckbox = new EventEmitter<any>();
 
   @Input()
   get values() {
@@ -24,9 +29,12 @@ export class PackenCheckboxComponent implements OnInit {
 
   temporaryValues: any = null;
 
+  classContentCheckboxes = '';
+
   constructor() { }
 
   ngOnInit(): void {
+    this.contentCheckBoxes(this.orientation);
   }
 
   getClassIcon = (state: StatesChecks): string => {
@@ -47,14 +55,22 @@ export class PackenCheckboxComponent implements OnInit {
         newStatus = 'checked';
       }
 
+      const checksChecked = [];
       this.values.forEach((item: CheckItem) => {
         if (item.id === check.id) {
           item.state = newStatus;
+        }
+
+        // Add checks with state checked for emit
+        if (item.state === 'checked') {
+          checksChecked.push(item);
         }
       });
 
       this.temporaryValues = this.values;
       this.valuesChange.emit(this.temporaryValues);
+
+      this.changeCheckbox.emit(checksChecked);
     }
   }
 
@@ -66,8 +82,36 @@ export class PackenCheckboxComponent implements OnInit {
         return c.disabled ? CheckBoxStyles.uncheckDisabled : CheckBoxStyles.checkboxDefault;
     }
   }
+
   getTypeCursor = (c: CheckItem): string => {
     return c.disabled ? CheckBoxCursorStyle.cursorDefault : CheckBoxCursorStyle.cursorPointer;
+  }
+
+  /**
+   * Function defines the orientation of the checkbox
+   * @param orientation Defines the orientation with vertical or horizontal
+   */
+  contentCheckBoxes(orientation) {
+    if (orientation === 'vertical') {
+      this.classContentCheckboxes = 'contentCheckboxes contentCheckboxes--vertical';
+    } else {
+      this.classContentCheckboxes = 'contentCheckboxes contentCheckboxes--horizontal';
+    }
+  }
+
+  /**
+   * Function get the min-width and margin-bottom checkbox
+   */
+  getMinWidthAndBottom() {
+    if (this.width && !this.bottom) {
+      return { 'min-width': `${this.width}px` };
+    } else if (this.bottom && !this.width) {
+      return { 'margin-bottom': `${this.bottom}px` };
+    } else if (this.width && this.bottom) {
+      return { 'min-width': `${this.width}px`, 'margin-bottom': `${this.bottom}px` };
+    } else {
+      return {};
+    }
   }
 }
 

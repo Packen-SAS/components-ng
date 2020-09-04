@@ -21,7 +21,7 @@
                 <td class="table-desktop_td" *ngFor="let col of row.columns">
                     <div [ngClass]="getClassTdDesktop(i, celda)" *ngFor="let celda of col.value; let i = index">
                         <div *ngIf="celda.showInDesktop">{{ celda.key ? celda.key + ':' : '' }}</div>
-                        <div [ngClass]="getPropertyDesktopStyle(celda)">
+                        <div [ngStyle]="getMinWidth(celda)" [ngClass]="getPropertyDesktopStyle(celda)">
                             {{ celda.capitalize ? celda.value.toLowerCase() : celda.value  }}</div>
                     </div>
                 </td>
