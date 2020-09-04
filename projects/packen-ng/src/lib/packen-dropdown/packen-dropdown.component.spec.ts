@@ -433,4 +433,28 @@ describe('PackenDropdownComponent', () => {
     fixture.detectChanges();
     expect(component).toBeTruthy();
   });
+
+  it('Testing method ngOnChanges() when disabled property does not exit', () => {
+    component.ngOnChanges({});
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
+
+  it('Testing method ngOnChanges() when disabled property exits and it is true', () => {
+    component.disabled = true;
+    component.ngOnChanges({
+      disabled: new SimpleChange(null, true, null)
+    });
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
+
+  it('Testing method ngOnChanges() when disabled property exits and it is false', () => {
+    component.disabled = false;
+    component.ngOnChanges({
+      disabled: new SimpleChange(null, false, false)
+    });
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
 });

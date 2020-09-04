@@ -1,3 +1,4 @@
+import { SimpleChange } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
@@ -203,5 +204,29 @@ describe('PackenInputComponent', () => {
   it('Render function ngAfterViewInit() when is lazy is true', () => {
     component.lazy = true;
     expect(component.ngAfterViewInit()).toBeUndefined();
+  });
+
+  it('Testing method ngOnChanges() when disabled property does not exit', () => {
+    component.ngOnChanges({});
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
+
+  it('Testing method ngOnChanges() when disabled property exits and it is true', () => {
+    component.disabled = true;
+    component.ngOnChanges({
+      disabled: new SimpleChange(null, true, null)
+    });
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
+
+  it('Testing method ngOnChanges() when disabled property exits and it is false', () => {
+    component.disabled = false;
+    component.ngOnChanges({
+      disabled: new SimpleChange(null, false, false)
+    });
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
   });
 });
