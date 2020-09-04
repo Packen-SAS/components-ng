@@ -379,25 +379,32 @@ A dropdown.
  - **items**: Type of items: ` (radios, checkbox, dropdown) (Array of Radios, Checkbox and Dropdown)`. 
  - **size**: Size of the dropdown: `(tiny|small|medium|large|giant)`.
  - **label**: Label or title of dropdown.
- - **type**: Type of dropdown: `(default,checkbox,radio)`.
+ - **type**: Type of dropdown: `(default|checkbox|radio)`.
 
 #### Dropdown Structures
 
 ``` javascript
 interface DropdownItem {
     id:number,
-    left: Object|boolean,
-    right: Object|boolean,
+    left: IconItem,
+    right: IconItem,
     disabled: boolean,
-    title: string,
+    title?: string,
+    label?: string,
     subTitle?: string,
     info?: string,
     typeInfo?:string        
 }
 
+interface IconItem {
+    type: string;
+    name?: string;
+    src?: string;
+}
+
 interface RadioItem {
-    id:number,
-    label:string,
+    id: number,
+    label: string,
     disabled: boolean
 }
 

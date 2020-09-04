@@ -12,30 +12,27 @@ import { ApiService } from 'src/app/services/api.service';
 export class DropdownsComponent implements OnInit {
 
   selectedMenuTest: any;
-  selectedMenu1: number = 2;
+  selectedMenuEager: number = 2;
   itemsMenu1: Array<DropdownItem> = [
     {
       id: 1,
-      left: false,
-      right: false,
       disabled: false,
       title: 'EMPRESAS PÚBLICAS DE MEDELLÍN DEPARTAMENTO MÉDICO'
     },
     {
       id: 2,
-      left: false,
-      right: false,
       disabled: false,
       title: 'FONDO DE FERROCARRILES NACIONALES DE COLOMBIA (EPS)'
     },
     {
       id: 3,
-      left: false,
-      right: false,
       disabled: false,
       title: 'ALIANSALUD EPS (ANTES COLMÉDICA)'
     }
   ];
+
+  selectedMenuLazy: number = 2;
+  itemsMenuLazy: Array<DropdownItem> = [];
 
   selectedMenu2: number = 1;
   itemsMenu2: Array<DropdownItem> = [
@@ -45,7 +42,6 @@ export class DropdownsComponent implements OnInit {
         type: 'avatar',
         src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/1024px-Missing_avatar.svg.png'
       },
-      right: false,
       disabled: false,
       title: 'Title 1',
       subTitle: 'Sub title',
@@ -56,7 +52,6 @@ export class DropdownsComponent implements OnInit {
         type: 'avatar',
         src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/1024px-Missing_avatar.svg.png'
       },
-      right: false,
       disabled: true,
       title: 'Title 2',
       subTitle: 'Sub title',
@@ -67,7 +62,6 @@ export class DropdownsComponent implements OnInit {
         type: 'avatar',
         src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/1024px-Missing_avatar.svg.png'
       },
-      right: false,
       disabled: false,
       title: 'Title 3',
       subTitle: 'Sub title',
@@ -78,7 +72,6 @@ export class DropdownsComponent implements OnInit {
   itemsMenu3: Array<DropdownItem> = [
     {
       id: 1,
-      left: false,
       right: {
         type: 'icon',
         name: 'icon-archive'
@@ -93,7 +86,6 @@ export class DropdownsComponent implements OnInit {
         type: 'icon',
         name: 'icon-battery'
       },
-      right: false,
       disabled: true,
       title: 'Title 2',
       subTitle: '',
@@ -117,8 +109,6 @@ export class DropdownsComponent implements OnInit {
   itemsMenu4: Array<DropdownItem> = [
     {
       id: 1,
-      left: false,
-      right: false,
       disabled: false,
       title: 'Menu item',
       subTitle: 'Informatión',
@@ -127,8 +117,6 @@ export class DropdownsComponent implements OnInit {
     },
     {
       id: 2,
-      left: false,
-      right: false,
       disabled: false,
       title: 'Menu item',
       subTitle: '',
@@ -137,8 +125,6 @@ export class DropdownsComponent implements OnInit {
     },
     {
       id: 3,
-      left: false,
-      right: false,
       disabled: false,
       title: 'Title 2',
       subTitle: 'Sub title',
@@ -155,6 +141,7 @@ export class DropdownsComponent implements OnInit {
 
   selectMenuRadio;
   selectIdRadio = 1;
+
   radios: Array<RadioItem> = [
     { id: 1, label: 'Label 1', disabled: false },
     { id: 2, label: 'Label 2', disabled: false },
@@ -168,7 +155,7 @@ export class DropdownsComponent implements OnInit {
   }
 
   changeItemMenu1 = (item): void => {
-    this.selectedMenu1 = item;
+    this.selectedMenuEager = item;
   }
 
   changeItemMenu2 = (item): void => {
@@ -195,8 +182,8 @@ export class DropdownsComponent implements OnInit {
         const dropdownObject = { id: item.id, left: false, right: false, disabled: false, title: item.name };
         temporaryData.push(dropdownObject);
       });
-      this.itemsMenu1 = temporaryData;
+      this.itemsMenuLazy = temporaryData;
     });
-
   }
+
 }

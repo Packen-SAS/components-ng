@@ -2,31 +2,42 @@
 
 <div class="row">
     <div class="col-sm-5">
-        <lib-packen-dropdown [(value)]="selectedMenu1" [items]="itemsMenu1" size="medium" label="Menu 1" type="default"
-            (keyUp)="keyUpDropdown($event)" [lazy]="false" [required]="true">
+        <!-- Dropdowns Default -->
+        <lib-packen-dropdown [(value)]="selectedMenuEager" [items]="itemsMenu1" size="medium"
+            label="Dropdown Default (Eager)" type="default" [lazy]="false" [required]="true">
         </lib-packen-dropdown>
         <br>
 
-        <lib-packen-dropdown [(value)]="selectedMenu2" [items]="itemsMenu2" size="medium" label="Menu 2" type="default">
+        <lib-packen-dropdown [(value)]="selectedMenuLazy" [items]="itemsMenuLazy" size="medium"
+            label="Dropdown Default (Lazy)" type="default" (keyUp)="keyUpDropdown($event)" [lazy]="true"
+            [required]="true">
         </lib-packen-dropdown>
         <br>
 
-        <lib-packen-dropdown [(value)]="selectedMenu3" [items]="itemsMenu3" size="medium" label="Menu 3" type="default">
+        <lib-packen-dropdown [(value)]="selectedMenu2" [items]="itemsMenu2" size="medium"
+            label="Dropdown Defaul (Avatar)" type="default">
         </lib-packen-dropdown>
         <br>
 
-        <lib-packen-dropdown [(value)]="selectedMenu3" [items]="itemsMenu4" size="large" label="Menu item"
+        <lib-packen-dropdown [(value)]="selectedMenu3" [items]="itemsMenu3" size="medium" label="Dropdown Defaul (Icon)"
             type="default">
         </lib-packen-dropdown>
         <br>
 
-        <lib-packen-dropdown [required]="true" placeholder="--" [items]="radios" [(value)]="selectMenuRadio" size="large"
-            label="Menu radios" type="radio">
+        <lib-packen-dropdown [(value)]="selectedMenu3" [items]="itemsMenu4" size="large"
+            label="Dropdown Defaul (Multicontent)" type="default">
         </lib-packen-dropdown>
         <br>
 
-        <lib-packen-dropdown [required]="true" [items]="checkboxes" size="medium" label="Menu Checkbox (LAZY)" type="checkbox"
-            (keyUp)="keyUpDropdown($event)" [lazy]="true">
+        <!-- Dropdown Radio -->
+        <lib-packen-dropdown [required]="true" placeholder="--" [items]="radios" [(value)]="selectMenuRadio"
+            size="large" label="Dropdown Radios" type="radio">
+        </lib-packen-dropdown>
+        <br>
+
+        <!-- Dropdown Checkbox -->
+        <lib-packen-dropdown [required]="true" [items]="checkboxes" size="medium" label="Dropdown Checkboxes"
+            type="checkbox" (keyUp)="keyUpDropdown($event)" [lazy]="false">
         </lib-packen-dropdown>
         <br>
     </div>
