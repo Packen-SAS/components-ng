@@ -205,12 +205,13 @@ describe('PackenDropdownComponent', () => {
     expect(component.getClassText(objDropdown)).toBeUndefined();
   });
 
-  it('render function when click in input ', () => {
+  it('render function when click in input and is not disabled ', () => {
+    component.disabled = false;
     expect(component.clickInput()).toBeUndefined();
   });
 
-  it('render function when click in input when menuList is open ', () => {
-    component.showMenuList = true;
+  it('render function when click in input and is disabled ', () => {
+    component.disabled = true;
     expect(component.clickInput()).toBeUndefined();
   });
 

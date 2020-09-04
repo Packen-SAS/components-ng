@@ -33,48 +33,31 @@
   }
 
   &__contentTextArea {
-    width: 100%;
-    font-family: "Muli";
-    font-weight: normal;
-    font-style: normal;
-    color: $textiary_hover;
-    border: 1px solid $textiary_hover;
-    font-size: 14px;
-    padding: 8px 0px 0px 16px;
-
     &__textArea {
       width: 100%;
       resize: none;
       outline: none;
-      border: none;
+      font-size: 14px;
+      font-family: "Muli";
       color: $textiary_hover;
+      color: $textiary_hover;
+      padding: 10px 30px 10px 8px;
       background-color: transparent;
 
-      &--disabled {
-        color: $basic_gray_dft;
+      &:hover:not([disabled]) {
+        background-color: $basic_white_drk;
       }
-    }
-    &--hover {
-      background-color: $basic_white_drk;
+
+      &:disabled {
+        border: 2px solid $basic_gray_lgt;
+        background-color: $basic_white_drk;
+      }
     }
 
     &--focus {
       border: 2px solid $basic_independece_dft;
       background-color: white !important;
     }
-
-    &--error {
-      border: 2px solid $danger_default !important;
-    }
-
-    &--disabled {
-      border: 2px solid $basic_gray_lgt;
-      background-color: $basic_white_drk;
-    }
-  }
-
-  &__contentTextArea:hover:not([disabled]) {
-    background-color: $basic_white_drk;
   }
 
   &__input-container {

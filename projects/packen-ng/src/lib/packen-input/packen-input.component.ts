@@ -184,12 +184,6 @@ export class PackenInputComponent implements OnInit, AfterViewInit, OnChanges {
     return '';
   }
 
-  getColorText = (): string => {
-    if (this.disabled === true) {
-      return ContentTextArea.disabled;
-    }
-  }
-
   changeTextInput = (value) => {
     // Set values
     this.messageValue = value;
@@ -278,11 +272,6 @@ class TextAreaClass {
   static readonly error = '  content__input-container__input--error';
   static readonly disabled = ' content__contentTextArea--disabled';
   static readonly focus = 'content__contentTextArea--focus';
-}
-
-class ContentTextArea {
-  static readonly error = 'content__contentTextArea--error';
-  static readonly disabled = 'content__contentTextArea__textArea--disabled';
 }
 
 class InputSyzesClass {

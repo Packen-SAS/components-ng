@@ -69,7 +69,9 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
   // ----------------------------------------------------------------------------------------------
 
   clickInput(): void {
-    this.showMenuList = true;
+    if (!this.disabled) {
+      this.showMenuList = true;
+    }
   }
 
   clickOutsideContent(): void {

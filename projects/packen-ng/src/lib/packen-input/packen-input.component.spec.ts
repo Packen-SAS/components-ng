@@ -109,17 +109,6 @@ describe('PackenInputComponent', () => {
     expect(component.onFocus()).toBeUndefined();
   });
 
-  // Render the the colorText of textArea
-  it('render the color text when disabled is true', () => {
-    component.disabled = true;
-    expect(component.getColorText()).toEqual('content__contentTextArea__textArea--disabled');
-  });
-
-  it('render the color text when disabled is false', () => {
-    component.disabled = false;
-    expect(component.getColorText()).toBeUndefined();
-  });
-
   // Render the size class of icon input
   it('render the class of icon when size is tiny', () => {
     expect(component.getClassSizeIconRight('tiny')).toEqual(' content__input-container__icon--tiny');
