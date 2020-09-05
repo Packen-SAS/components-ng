@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PackenAvatarComponent } from './packen-avatar.component';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, SimpleChange } from '@angular/core';
 import { mockFileReader, eventFileMock } from '../../assets/mocks/files.mock';
 import { of } from 'rxjs';
 
@@ -73,5 +73,19 @@ describe('PackenAvatarComponent', () => {
     component.required = false;
     component.imageSelected = component.value;
     expect(component.onClick()).toBeUndefined();
+  });
+
+  it('Testing method ngOnChanges() when value property does not exit', () => {
+    component.ngOnChanges({});
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
+
+  it('Testing method ngOnChanges() when value property exits', () => {
+    component.ngOnChanges({
+      value: new SimpleChange(null, new File([], ''), null)
+    });
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
   });
 });

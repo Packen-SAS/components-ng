@@ -30,4 +30,8 @@ describe('AvatarsComponent', () => {
   it('render when click in avatar image ', () => {
     expect(component.printFile()).toBeUndefined();
   });
+
+  it('Testing method changeAvatar()', () => {
+    expect(component.changeAvatar(new File([], ''))).toBeUndefined();
+  });
 });

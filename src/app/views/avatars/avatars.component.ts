@@ -20,4 +20,7 @@ export class AvatarsComponent implements OnInit {
     console.log('Medium avatar: ', this.imageFileMedium);
   }
 
+  changeAvatar(avatar: File) {
+    console.log('New avatar: ', avatar);
+  }
 }
