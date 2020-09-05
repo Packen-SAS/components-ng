@@ -3,6 +3,12 @@
 
 .btn-box {
   margin: 5px;
+
+  &__ctn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .titleButton {
