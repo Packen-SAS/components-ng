@@ -8,6 +8,7 @@ import { RadioItem } from '../../interfaces/radio-item';
 export class RadioComponent implements OnInit {
 
   selectedItemId: number = 1;
+  disabledRadio: boolean = false;
 
   radios: Array<RadioItem> = [
     { id: 1, label: 'Label 1', disabled: false },
@@ -25,4 +26,7 @@ export class RadioComponent implements OnInit {
     this.selectedItemId = value;
   }
 
+  disable() {
+    this.disabledRadio = !this.disabledRadio;
+  }
 }
