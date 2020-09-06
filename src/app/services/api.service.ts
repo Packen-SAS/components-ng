@@ -11,9 +11,9 @@ export class ApiService {
   ) { }
 
   sesion = {
-    client: '4pvuySYca3y2C8y6RiwbZg',
+    client: '3qz2bAjjPkl3yx8D2OD03w',
     keepSession: true,
-    token: 'K2VlZKapBVarAPMy77NZCg',
+    token: 'DLNFYRAkN2aWfO4CUrvfPg',
     uid: 'juan.contreras@packen.co'
   };
 

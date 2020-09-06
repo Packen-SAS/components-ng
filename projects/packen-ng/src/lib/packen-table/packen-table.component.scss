@@ -333,7 +333,7 @@
 
 /*======================== DESKTOP =========================*/
 
-@media screen and (max-width: $breakpoint-mobile) {
+@media screen and (max-width: $breakpoint-tablet) {
     .only-mobile {
         display: block !important;
     }
@@ -348,7 +348,7 @@
     }
 }
 
-@media screen and (min-width: $breakpoint-mobile) {
+@media screen and (min-width: $breakpoint-tablet) {
     .only-desktop {
         display: flex !important;
     }
