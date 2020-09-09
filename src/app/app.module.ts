@@ -25,6 +25,7 @@ import { FormsModule } from '@angular/forms';
 import { DatesComponent } from './views/dates/dates.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputsShowComponent } from './views/inputs-show/inputs-show.component';
+import { AlertsComponent } from './views/alerts/alerts.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { InputsShowComponent } from './views/inputs-show/inputs-show.component';
     TableComponent,
     FilesComponent,
     DatesComponent,
-    InputsShowComponent
+    InputsShowComponent,
+    AlertsComponent
   ],
   imports: [
     HttpClientModule,
