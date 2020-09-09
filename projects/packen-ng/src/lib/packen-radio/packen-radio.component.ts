@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges, OnChanges } from '@angular/core';
 import { RadioItem } from '../../interfaces/radio-item';
 
 @Component({
@@ -7,11 +7,12 @@ import { RadioItem } from '../../interfaces/radio-item';
   styleUrls: ['./packen-radio.component.scss']
 })
 
-export class PackenRadioComponent implements OnInit {
+export class PackenRadioComponent implements OnInit, OnChanges {
 
   @Input() radios: Array<RadioItem> = [];
   @Input() selectedItemId: number = 0;
   @Input() orientation: string = 'vertical';
+  @Input() disabled: boolean = false;
   @Input() label: string;
 
   @Output() changeRadio = new EventEmitter<any>();
@@ -34,16 +35,25 @@ export class PackenRadioComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.disabled) {
+      this.disabled = changes.disabled.currentValue === true ? true : false;
+      this.radios.forEach(r => {
+        this.getClassRadio(r);
+      });
+    }
+  }
+
   getClassRadio = (r: RadioItem): string => {
     if (r.id === this.value) {
-      return r.disabled ? StylesRadio.checkBoxSelectedDisabled : StylesRadio.checkBoxSelectedNotDisabled;
+      return r.disabled || this.disabled ? StylesRadio.checkBoxSelectedDisabled : StylesRadio.checkBoxSelectedNotDisabled;
     } else {
-      return r.disabled ? StylesRadio.checkBoxDefaultDisabled : StylesRadio.checkboxDefaultNotDisabled;
+      return r.disabled || this.disabled ? StylesRadio.checkBoxDefaultDisabled : StylesRadio.checkboxDefaultNotDisabled;
     }
   }
 
   selectRadio(radio: RadioItem) {
-    if (!radio.disabled) {
+    if (!radio.disabled && !this.disabled) {
       this.temporaryValue = radio.id;
       this.valueChange.emit(radio.id);
       this.changeRadio.emit(radio);
@@ -51,7 +61,7 @@ export class PackenRadioComponent implements OnInit {
   }
 
   getClassTypeCursor = (disabled: boolean): string => {
-    return disabled ? StyleCursor.cursorCheckboxDisabled : StyleCursor.cursorCheckboxEnabled;
+    return disabled || this.disabled ? StyleCursor.cursorCheckboxDisabled : StyleCursor.cursorCheckboxEnabled;
   }
 }
 class StyleCursor {

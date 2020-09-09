@@ -1,5 +1,6 @@
 import { SimpleChange } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng';
 
 import { PackenDateComponent } from './packen-date.component';
@@ -14,6 +15,7 @@ describe('PackenDateComponent', () => {
         PackenDateComponent
       ],
       imports: [
+        FormsModule,
         CalendarModule
       ]
     }).compileComponents();

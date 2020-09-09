@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PackenRadioComponent } from './packen-radio.component';
 import { RadioItem } from '../../interfaces/radio-item';
+import { SimpleChange } from '@angular/core';
 
 describe('PackenRadioComponent', () => {
   let component: PackenRadioComponent;
@@ -9,9 +10,10 @@ describe('PackenRadioComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [PackenRadioComponent]
-    })
-      .compileComponents();
+      declarations: [
+        PackenRadioComponent
+      ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -80,5 +82,28 @@ describe('PackenRadioComponent', () => {
 
   it('render the class style of cursor when radio is not disabled ', () => {
     expect(component.getClassTypeCursor(false)).toEqual('contentRadio--default');
+  });
+
+  it('Testing method ngOnChanges() when disabled property does not exit', () => {
+    component.ngOnChanges({});
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
+
+  it('Testing method ngOnChanges() when disabled property exits and it is true', () => {
+    component.radios = [{ id: 1, disabled: false, label: 'label' }];
+    component.ngOnChanges({
+      disabled: new SimpleChange(null, true, null)
+    });
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
+
+  it('Testing method ngOnChanges() when disabled property exits and it is false', () => {
+    component.ngOnChanges({
+      disabled: new SimpleChange(null, false, null)
+    });
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
   });
 });

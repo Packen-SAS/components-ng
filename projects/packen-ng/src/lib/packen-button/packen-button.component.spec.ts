@@ -336,68 +336,6 @@ describe('PackenButtonComponent', () => {
     expect(component.getWithIcon()).toEqual(16);
   });
 
-  // Render padding of label button
-  it('render padding label button when size is tiny', () => {
-    component.size = 'tiny';
-    expect(component.getPaddingLabel()).toEqual({ 'margin-left': '10px', 'margin-right': '10px' });
-  });
-
-  it('render padding label button when size is small', () => {
-    component.size = 'small';
-    expect(component.getPaddingLabel()).toEqual({ 'margin-left': '15px', 'margin-right': '15px' });
-  });
-
-  it('render padding label button when size is medium', () => {
-    component.size = 'medium';
-    expect(component.getPaddingLabel()).toEqual({ 'margin-left': '15px', 'margin-right': '15px' });
-  });
-
-  it('render padding label button when size is large', () => {
-    component.size = 'large';
-    expect(component.getPaddingLabel()).toEqual({ 'margin-left': '20px', 'margin-right': '20px' });
-  });
-
-  it('render padding label button when size is giant', () => {
-    component.size = 'giant';
-    expect(component.getPaddingLabel()).toEqual({ 'margin-left': '30px', 'margin-right': '30px' });
-  });
-
-  it('render padding label button when size is other', () => {
-    component.size = 'other';
-    expect(component.getPaddingLabel()).toEqual({ 'margin-left': '10px', 'margin-right': '10px' });
-  });
-
-  // Render padding of button
-  it('Render padding button when size is tiny', () => {
-    component.size = 'tiny';
-    expect(component.getPaddingButton()).toEqual({ 'margin-left': '15px', 'margin-right': '15px' });
-  });
-
-  it('Render padding button when size is small', () => {
-    component.size = 'small';
-    expect(component.getPaddingButton()).toEqual({ 'margin-left': '20px', 'margin-right': '20px' });
-  });
-
-  it('Render padding button when size is medium', () => {
-    component.size = 'medium';
-    expect(component.getPaddingButton()).toEqual({ 'margin-left': '20px', 'margin-right': '20px' });
-  });
-
-  it('Render padding button when size is large', () => {
-    component.size = 'large';
-    expect(component.getPaddingButton()).toEqual({ 'margin-left': '25px', 'margin-right': '25px' });
-  });
-
-  it('Render padding button when size is giant', () => {
-    component.size = 'giant';
-    expect(component.getPaddingButton()).toEqual({ 'margin-left': '30px', 'margin-right': '30px' });
-  });
-
-  it('Render padding button when size is invalid value', () => {
-    component.size = 'other';
-    expect(component.getPaddingButton()).toEqual({ 'margin-left': '15px', 'margin-right': '15px' });
-  });
-
   it('Testing method ngOnChanges() when items change the property', () => {
     component.ngOnChanges({
       disabled: new SimpleChange(null, null, true)
