@@ -1,8 +1,18 @@
 <h2>Radios</h2>
-Valor: {{selectedItemId}}
+Valor: {{ selectedItemId }}
+<div class="row">
+    <form #formTest="ngForm">
+        <div class="col-md">
+            <lib-packen-radio label="* Horizontal radio" [disabled]="disabledRadio" [radios]="radios"
+                [(value)]="selectedItemId" orientation="horizontal"></lib-packen-radio>
+        </div>
+        <div class="col-md">
+            <lib-packen-radio label="* Vertical radio" [disabled]="disabledRadio" [radios]="radios"
+                [(value)]="selectedItemId" orientation="vertical"></lib-packen-radio>
+        </div>
+    </form>
 
-<div style="width: 250px;">
-    <lib-packen-radio label="* Horizontal radio"  [radios]="radios" [(value)]="selectedItemId" orientation="horizontal"></lib-packen-radio>
+    <div>
+        <button class="btn-p" (click)="disable()">Disable</button>
+    </div>
 </div>
-<br>
-<lib-packen-radio label="* Vertical radio" [radios]="radios" [(value)]="selectedItemId" orientation="vertical"></lib-packen-radio>
