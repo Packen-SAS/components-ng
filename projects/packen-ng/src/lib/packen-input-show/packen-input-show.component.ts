@@ -57,7 +57,7 @@ export class PackenInputShowComponent implements OnInit {
    * Metodo emite la palabra 'edit' cuando da click en el lapiz
    */
   clickEditButton() {
-    this.clickEdit.emit('edit')
+    this.clickEdit.emit('edit');
   }
 
 }
@@ -74,4 +74,4 @@ class StyleColorMessage {
 
 class StatesColorMessageClass {
   static readonly yellowOff = 'yellow-off';
-} 
+}

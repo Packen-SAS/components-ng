@@ -19,6 +19,7 @@ import { PackenTableComponent } from './packen-table/packen-table.component';
 import { PackenCarouselComponent } from './packen-carousel/packen-carousel.component';
 import { PackenFileComponent } from './packen-file/packen-file.component';
 import { PackenDateComponent } from './packen-date/packen-date.component';
+import { PackenInputShowComponent } from './packen-input-show/packen-input-show.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { PackenDateComponent } from './packen-date/packen-date.component';
     PackenTableComponent,
     PackenCarouselComponent,
     PackenFileComponent,
-    PackenDateComponent
+    PackenDateComponent,
+    PackenInputShowComponent
   ],
   imports: [
     FormsModule,
@@ -58,7 +60,8 @@ import { PackenDateComponent } from './packen-date/packen-date.component';
     PackenTableComponent,
     PackenCarouselComponent,
     PackenFileComponent,
-    PackenDateComponent
+    PackenDateComponent,
+    PackenInputShowComponent
   ]
 })
 export class PackenNgModule { }

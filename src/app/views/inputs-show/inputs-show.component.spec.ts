@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InputsShowComponent } from './inputs-show.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('InputsShowComponent', () => {
   let component: InputsShowComponent;
@@ -8,9 +9,10 @@ describe('InputsShowComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InputsShowComponent ]
+      declarations: [InputsShowComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,5 +23,13 @@ describe('InputsShowComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Testing function clickSeeButton()', () => {
+    expect(component.clickSeeButton('see')).toBeUndefined();
+  });
+
+  it('Testing function clickEdit()', () => {
+    expect(component.clickSeeButton('edit')).toBeUndefined();
   });
 });

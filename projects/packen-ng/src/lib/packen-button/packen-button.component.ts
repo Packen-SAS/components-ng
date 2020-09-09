@@ -211,56 +211,6 @@ export class PackenButtonComponent implements OnInit, OnChanges {
     }
   }
 
-  getPaddingLabel = () => {
-    let padding = 0;
-    switch (this.size) {
-      case 'tiny':
-        padding = 10;
-        break;
-      case 'small':
-        padding = 15;
-        break;
-      case 'medium':
-        padding = 15;
-        break;
-      case 'large':
-        padding = 20;
-        break;
-      case 'giant':
-        padding = 30;
-        break;
-      default:
-        padding = 10;
-        break;
-    }
-    return { 'margin-left': `${padding}px`, 'margin-right': `${padding}px` };
-  }
-
-  getPaddingButton() {
-    let padding = 0;
-    switch (this.size) {
-      case 'tiny':
-        padding = 15;
-        break;
-      case 'small':
-        padding = 20;
-        break;
-      case 'medium':
-        padding = 20;
-        break;
-      case 'large':
-        padding = 25;
-        break;
-      case 'giant':
-        padding = 30;
-        break;
-      default:
-        padding = 15;
-        break;
-    }
-    return { 'margin-left': `${padding}px`, 'margin-right': `${padding}px` };
-  }
-
   loadMinWidthButton() {
     if (this.minWidth) {
       this.stylesButton = { 'min-width': `${this.minWidth}px` };

@@ -15,7 +15,7 @@ export class InputsShowComponent implements OnInit {
 
   /**
    * Emite cuando se da click en el boton ver del componente
-   * @param event variable con el valor 'see' 
+   * @param event variable con el valor 'see'
    */
   clickSeeButton(event: string) {
     console.log(event);

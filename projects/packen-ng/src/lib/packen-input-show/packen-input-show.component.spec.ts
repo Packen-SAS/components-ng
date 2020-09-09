@@ -8,9 +8,9 @@ describe('PackenInputShowComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PackenInputShowComponent ]
+      declarations: [PackenInputShowComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,5 +21,17 @@ describe('PackenInputShowComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Testing function getColorMessage() when color is yellow-off', () => {
+    expect(component.getColorMessage('yellow-off')).toBeUndefined();
+  });
+
+  it('Testing function clickSeeButton()', () => {
+    expect(component.clickSeeButton()).toBeUndefined();
+  });
+
+  it('Testing function clickEditButton()', () => {
+    expect(component.clickEditButton()).toBeUndefined();
   });
 });

@@ -1,10 +1,9 @@
-@import "../../../assets/styles/colors.scss";
-@import "../../../assets/icons/style.css";
+@import "../../assets/styles/colors.scss";
 
 .cnt {
-    font-family: "Muli";
+    font-family: $font-stack;
     width: 100%;
-    background-color: #f9fafb;
+    background-color: $basic_white_med;
     padding: 5px 15px;
     display: flex;
     justify-content: space-between;
@@ -25,7 +24,7 @@
 
         span {
             font-size: 20px;
-            color: #a0aebc;
+            color: $basic_gray_drk;
         }
     }
 
@@ -43,7 +42,7 @@
         &__label {
             font-size: 12px;
             line-height: 16px;
-            color: rgba(48, 77, 109, 0.6);
+            color: $disabled_alt_drk_light;
             margin-top: -3px !important;
         }
 
@@ -63,7 +62,7 @@
             }
 
             &--yellow-off {
-                color: #b78105;
+                color: $yellow-off;
             }
         }
     }
