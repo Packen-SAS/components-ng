@@ -24,6 +24,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DatesComponent } from './views/dates/dates.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PackenInputShowComponent } from './views/packen-input-show/packen-input-show.component';
+import { InputsShowComponent } from './views/inputs-show/inputs-show.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PinMapComponent,
     TableComponent,
     FilesComponent,
-    DatesComponent
+    DatesComponent,
+    PackenInputShowComponent,
+    InputsShowComponent
   ],
   imports: [
     HttpClientModule,
