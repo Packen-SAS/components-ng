@@ -14,9 +14,9 @@ export class PackenCheckboxComponent implements OnInit {
   @Input() bottom: number;
   @Input() width: number;
 
-  @Output() valuesChange = new EventEmitter<any>();
+  @Output() valuesChange = new EventEmitter<CheckItem[]>();
 
-  @Output() changeCheckbox = new EventEmitter<any>();
+  @Output() changeCheckbox = new EventEmitter<CheckItem[]>();
 
   @Input()
   get values() {
@@ -27,7 +27,7 @@ export class PackenCheckboxComponent implements OnInit {
     this.valuesChange.emit(this.temporaryValues);
   }
 
-  temporaryValues: any = null;
+  temporaryValues: CheckItem[] = null;
 
   classContentCheckboxes = '';
 
@@ -39,9 +39,9 @@ export class PackenCheckboxComponent implements OnInit {
 
   getClassIcon = (state: StatesChecks): string => {
     switch (state) {
-      case 'checked':
+      case CheckState.checked:
         return IconsCheck.checked;
-      case 'unchecked':
+      case CheckState.unchecked:
         return IconsCheck.unchecked;
     }
   }
@@ -49,10 +49,10 @@ export class PackenCheckboxComponent implements OnInit {
   changeStateCheck = (check: CheckItem) => {
     if (!check.disabled) {
       let newStatus = '';
-      if (check.state === 'checked') {
-        newStatus = 'unchecked';
+      if (check.state === CheckState.checked) {
+        newStatus = CheckState.unchecked;
       } else {
-        newStatus = 'checked';
+        newStatus = CheckState.checked;
       }
 
       const checksChecked = [];
@@ -62,7 +62,7 @@ export class PackenCheckboxComponent implements OnInit {
         }
 
         // Add checks with state checked for emit
-        if (item.state === 'checked') {
+        if (item.state === CheckState.checked) {
           checksChecked.push(item);
         }
       });
@@ -76,9 +76,9 @@ export class PackenCheckboxComponent implements OnInit {
 
   getClassCheckBox = (c: CheckItem): string => {
     switch (c.state) {
-      case 'checked':
+      case CheckState.checked:
         return c.disabled ? CheckBoxStyles.checkboxDisabled : CheckBoxStyles.checkboxActive;
-      case 'unchecked':
+      case CheckState.unchecked:
         return c.disabled ? CheckBoxStyles.uncheckDisabled : CheckBoxStyles.checkboxDefault;
     }
   }
@@ -113,6 +113,11 @@ export class PackenCheckboxComponent implements OnInit {
       return {};
     }
   }
+}
+
+class CheckState {
+  static readonly checked = 'checked';
+  static readonly unchecked = 'unchecked';
 }
 
 class IconsCheck {

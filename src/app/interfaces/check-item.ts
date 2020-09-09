@@ -3,4 +3,5 @@ export interface CheckItem {
     label: string;
     state: string;
     disabled: boolean;
+    value?: any;
 }
