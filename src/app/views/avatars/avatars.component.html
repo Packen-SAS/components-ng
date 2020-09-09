@@ -3,7 +3,8 @@
     <div class="col-sm">
         <div class="contentImage mt-3">
             <lib-packen-avatar name="file-tiny" size="tiny" [(value)]="imageFileTiny" title="Cambiar foto"
-                src="https://cdn.pixabay.com/photo/2020/06/24/19/41/cat-5337501_960_720.jpg" type="input">
+                src="https://cdn.pixabay.com/photo/2020/06/24/19/41/cat-5337501_960_720.jpg" type="input"
+                (changeAvatar)="changeAvatar($event)">
             </lib-packen-avatar>
             <p>tiny</p>
         </div>

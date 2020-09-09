@@ -7,7 +7,7 @@
                 [src]="src" />
             <p *ngIf="title" class="content__title">{{title}}</p>
         </label>
-        <input #file (change)="fileChange($event)" [id]="name" type="file" (click)="onClick()" />
+        <input #file (change)="fileChange($event)" [id]="name" type="file" (click)="onClick()"/>
     </div>
 
     <p *ngIf="title && type !== 'input'" style="cursor: default;" class="content__title">{{title}}</p>

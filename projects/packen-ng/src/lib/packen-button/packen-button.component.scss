@@ -3,6 +3,12 @@
 
 .btn-box {
   margin: 5px;
+
+  &__ctn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .titleButton {
@@ -11,6 +17,7 @@
   font-family: "Muli";
   font-weight: bold;
   font-style: normal;
+  margin: 0px 5px;
 }
 
 p {

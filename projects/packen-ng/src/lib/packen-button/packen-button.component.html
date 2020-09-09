@@ -1,9 +1,9 @@
-<button class="btn-box" [ngClass]="classButton" (click)="buttonClick()" [style.width]="fullwidth ? '100%': false">
+<button type="button" class="btn-box" [ngClass]="classButton" (click)="buttonClick()" [style.width]="fullwidth ? '100%': false">
     <span *ngIf="icon && type === 'icon'" [class]="icon" [style.font-size.px]="getWithIcon()"></span>
-    <div style="display: flex; justify-content: center; margin: auto;" [ngStyle]="getPaddingButton()">
+    <div class="btn-box__ctn">
         <span [class]="icon" *ngIf="icon && type === 'regular' && positionIcon === 'left'" [ngClass]="classIcon"
             [style.font-size.px]="getWidthIconRegular()"></span>
-        <p style="height: fit-content;margin: auto;" [ngStyle]="getPaddingLabel()" class="titleButton" >{{title}}</p>
+        <p class="titleButton">{{title}}</p>
         <span [class]="icon" [ngClass]="classIcon" *ngIf="icon && type === 'regular' && positionIcon === 'right'"
             [style.font-size.px]="getWidthIconRegular()"></span>
     </div>

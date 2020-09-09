@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'lib-packen-avatar',
   templateUrl: './packen-avatar.component.html',
   styleUrls: ['./packen-avatar.component.scss']
 })
-export class PackenAvatarComponent implements OnInit {
+export class PackenAvatarComponent implements OnInit, OnChanges {
 
   @Input() size: any = null;
   @Input() type: string = 'default';
@@ -18,6 +18,9 @@ export class PackenAvatarComponent implements OnInit {
   imageSelected: File;
   classStyle: string = '';
   classStylePrevious: string = '';
+
+  @Output()
+  changeAvatar = new EventEmitter<File>();
 
   @Output()
   valueChange = new EventEmitter<File>();
@@ -39,6 +42,12 @@ export class PackenAvatarComponent implements OnInit {
 
   ngOnInit(): void {
     this.defineSizeImage(this.size);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.value) {
+      this.changeAvatar.emit(changes.value.currentValue);
+    }
   }
 
   defineSizeImage(sizesImages: SizesImages) {
