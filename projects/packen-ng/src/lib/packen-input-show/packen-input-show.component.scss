@@ -22,7 +22,9 @@
     }
 
     &__icon {
-        margin: 10px 0;
+        display: flex;
+        align-content: center;
+        align-items: center;
         img {
             max-width: 28px;
         }

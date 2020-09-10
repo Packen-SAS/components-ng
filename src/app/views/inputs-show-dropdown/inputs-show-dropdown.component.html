@@ -1,1 +1,3 @@
-<lib-packen-input-show-dropdown></lib-packen-input-show-dropdown>
+<lib-packen-input-show-dropdown [(value)]="idSelectedDropdown" [items]="listDropdown" [label]="'EPS'"
+    (keyUpValue)="keyUpDropdown($event)" [icon]="'icon-email'" [labelPosition]="'top'" [required]="true"></lib-packen-input-show-dropdown>
+<br>
