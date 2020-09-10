@@ -23,6 +23,7 @@ export class PackenInputShowComponent implements OnInit {
 
   @Output() clickSee = new EventEmitter<string>();
   @Output() clickEdit = new EventEmitter<string>();
+  @Output() clickContent = new EventEmitter<string>();
 
   colorMessage: string = '';
   contIsDropdownClass: string = '';
@@ -70,6 +71,15 @@ export class PackenInputShowComponent implements OnInit {
   getClassContentWhenIsDropdown(isDropdown: boolean) {
     if (isDropdown) {
       this.contIsDropdownClass = 'cnt--dropdown';
+    }
+  }
+
+  /**
+   * Metodo emite click cuando es dropdown
+   */
+  clickCon() {
+    if (this.isDropdown) {
+      this.clickContent.emit('content');
     }
   }
 }
