@@ -560,3 +560,56 @@ let radios: Array<RadioItem> = [
     { id: 4, label: 'Label 4', disabled: true }
   ];
 ```
+
+### InputShowComponent
+
+A input show.
+
+#### HTML
+
+``` html
+<lib-input-show icon="icon-id" color="yellow-off" type="icon" [title]="'1.018.234.542'" url="httt://image.png"
+label="Documento de identidad" message="Documento a la espera de aprobación" labelPosition="bottom"
+(clickSee)="clickSeeButton($event)" (clickEdit)="clickEdit($event)" [showEdit]='true' [showSee]="true">
+</lib-input-show>
+```
+
+#### Appearance
+![](https://packenco.s3.amazonaws.com/packen_ng/packen-input-show/inputs-show.png)
+
+#### Options
+
+- **color**: Defines the color of the message `(yellow-off)`.
+- **type**: Defines if the icon is a icon name or image `(icon | url)`.
+- **icon**: Defines icon for show with the name **NOTE**: this item is required when type is icon.
+- **url**: Defines the url of image for show in icon **NOTE**: this item is required when type is url.
+- **label**: Defines the label to show in the component.
+- **labelPosition**: Defines the label position `(top|bottom)` **NOTE**: the value for default is bottom.
+- **showEdit**: Defines if the eye icon show or not. `(true| false)` **NOTE**: the value for default is false.
+- **showSee**: Defines if the pencil icon show or not. `(true| false)` **NOTE**: the value for default is false.
+
+#### Events
+- **clickSee**: Emits when click in the icon see **NOTE**: Event is required when **showSee** is **true**.
+- **clickEdit**: Emits when click in the icon edit **NOTE**: Event is required when **showEdit** is **true**.
+
+### AlertComponent
+
+A alert.
+
+#### HTML
+
+``` html
+<lib-alert [color]="'purple'" (clickClose)="closeAlert($event)"
+    title="Aún faltan documentos para que Andrés pueda rodar con Packen"></lib-alert>
+```
+
+#### Appearance
+![](https://packenco.s3.amazonaws.com/packen_ng/packen-alert/alert.png)
+
+#### Options
+
+- **color**: Defines the color of the alert `(purple)`.
+- **title**: Defines the title to show of component `(icon | url)`.
+
+#### Events
+- **clickClose**: Emits when click in the icon close **NOTE**: Event is required.
