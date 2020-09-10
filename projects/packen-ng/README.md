@@ -45,6 +45,8 @@ The **PackenNgModule** contains the following components:
 > * [CheckboxComponent](#CheckboxComponent)
 > * [RadioComponent](#RadioComponent)
 > * [DropdownComponent](#DropdownComponent)
+> * [InputShowComponent](#InputShowComponent)
+> * [AlertComponent](#AlertComponent)
 > * ButtonsComponent
 > * DividersComponent
 > * TabsComponent
