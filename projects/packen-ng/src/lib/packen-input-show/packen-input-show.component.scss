@@ -6,7 +6,12 @@
     background-color: $basic_white_med;
     padding: 5px 15px;
     display: flex;
+    min-height: 56px;
     justify-content: space-between;
+
+    &--dropdown {
+        cursor: pointer;
+    }
 
     p {
         margin: 0;
@@ -37,20 +42,20 @@
             font-size: 16px;
             line-height: 20px;
             color: $textiary_hover;
+            margin-bottom: -3px !important;
         }
 
         &__label {
             font-size: 12px;
             line-height: 16px;
             color: $disabled_alt_drk_light;
-            margin-top: -3px !important;
+            margin-bottom: -3px !important;
         }
 
         &__message {
             font-size: 10px;
             line-height: 16px;
             display: flex;
-            margin-top: -3px;
 
             &__icon {
                 font-size: 10px;
@@ -70,7 +75,7 @@
     &__options {
         display: flex;
         align-items: center;
-        font-size: 26px;
+        font-size: 23px;
         span {
             padding: 0px 5px;
             color: $primary_default;
