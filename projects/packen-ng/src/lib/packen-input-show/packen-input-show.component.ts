@@ -23,16 +23,13 @@ export class PackenInputShowComponent implements OnInit {
 
   @Output() clickSee = new EventEmitter<string>();
   @Output() clickEdit = new EventEmitter<string>();
-  @Output() clickContent = new EventEmitter<string>();
 
   colorMessage: string = '';
-  contIsDropdownClass: string = '';
 
   constructor() { }
 
   ngOnInit(): void {
     this.getColorMessage(this.color);
-    this.getClassContentWhenIsDropdown(this.isDropdown);
   }
 
   /**
@@ -64,15 +61,6 @@ export class PackenInputShowComponent implements OnInit {
     this.clickEdit.emit('edit');
   }
 
-  /**
-   * Metodo llama la clase para colocar estilos para ser un dropdown
-   * @param isDropdown Define si es un componente para dropdown
-   */
-  getClassContentWhenIsDropdown(isDropdown: boolean) {
-    if (isDropdown) {
-      this.contIsDropdownClass = 'cnt--dropdown';
-    }
-  }
 }
 
 // Tipos

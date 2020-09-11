@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { fromEvent, BehaviorSubject } from 'rxjs';
 import { debounceTime, map } from 'rxjs/operators';
+import { DropdownShowItem } from '../../interfaces/dropdown-show-item';
 
 @Component({
   selector: 'lib-packen-dropdown-show',
@@ -10,7 +11,7 @@ import { debounceTime, map } from 'rxjs/operators';
 export class PackenInputShowDropdownComponent implements OnInit {
   @ViewChild('search') searchElement: ElementRef;
 
-  @Input() items: Array<InputDropdownItem> = [];
+  @Input() items: Array<DropdownShowItem> = [];
   @Input() label: string = '';
   @Input() icon: string = '';
   @Input() labelPosition: string = 'bottom';
@@ -25,6 +26,7 @@ export class PackenInputShowDropdownComponent implements OnInit {
   titleInput: string = '';
   valueWrittenInput: string = '';
   classInput: string = '';
+  classContent: string = '';
 
   @Output()
   valueChange = new EventEmitter<any>();
@@ -45,7 +47,7 @@ export class PackenInputShowDropdownComponent implements OnInit {
     this.loadTitleInput();
     setTimeout(() => {
       this.keyUpSearch();
-    }, 300);
+    }, 100);
   }
 
   /**
@@ -58,7 +60,7 @@ export class PackenInputShowDropdownComponent implements OnInit {
 
     setTimeout(() => {
       this.searchElement.nativeElement.focus();
-    }, 200);
+    }, 100);
   }
 
   /**
@@ -69,13 +71,19 @@ export class PackenInputShowDropdownComponent implements OnInit {
     this.showInputChange.next(false);
     this.showListItems = false;
 
+    this.classContent = '';
+    if (!this.value || this.valueWrittenInput === '') {
+      this.classContent = 'cont--required';
+      this.valueWrittenInput = '';
+      this.titleInput = '';
+    }
   }
 
   /**
    * Metodo es llamado cuando se selecciona un item
    * @param item objeto del tipo item
    */
-  selectItem(item: InputDropdownItem) {
+  selectItem(item: DropdownShowItem) {
     this.value = item.id;
     this.showInput = false;
     this.showInputChange.next(false);
@@ -95,16 +103,17 @@ export class PackenInputShowDropdownComponent implements OnInit {
     ).subscribe((value: string) => {
       this.keyUpValue.emit(value);
       if (this.required) {
-        this.validateRequiredInput(value);
+        this.value = null;
+        this.validateRequiredInput();
       }
     });
   }
 
   /**
-   * Metodo retorna la clase selected cuando el item es igual al seleccionado 
+   * Metodo retorna la clase selected cuando el item es igual al seleccionado
    * @param item Objecto del tipo InputDropdownItem
    */
-  getClassIsSelected(item: InputDropdownItem): string {
+  getClassIsSelected(item: DropdownShowItem): string {
     if (item.id === this.value) {
       return 'cont__options__item--selected';
     }
@@ -115,7 +124,7 @@ export class PackenInputShowDropdownComponent implements OnInit {
    * Metodo carga la información a mostrar en el input
    */
   loadTitleInput() {
-    this.items.forEach((item: InputDropdownItem) => {
+    this.items.forEach((item: DropdownShowItem) => {
       if (item.id === this.value) {
         this.titleInput = item.title;
         this.valueWrittenInput = item.title;
@@ -124,19 +133,15 @@ export class PackenInputShowDropdownComponent implements OnInit {
   }
 
   /**
-   * 
-   * @param value cadena de texto del input
+   * Metodo coloca la clase requerido al input cuando lo requiere
    */
-  validateRequiredInput(value: string) {
+  validateRequiredInput() {
     this.classInput = '';
-    if (value.length === 0) {
+    if (this.valueWrittenInput.length === 0 && this.required) {
       this.classInput = 'cont__component__input--required';
     }
   }
 }
 
-interface InputDropdownItem {
-  id: number;
-  title?: string;
-}
+
 

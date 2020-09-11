@@ -33,7 +33,7 @@ export class InputsShowComponent implements OnInit {
    * Emite cuando se da click en el componente
    * @param event variable con el valor 'content'
    */
-  clickContent(event){
+  clickContent(event) {
     console.log(event);
-  } 
+  }
 }

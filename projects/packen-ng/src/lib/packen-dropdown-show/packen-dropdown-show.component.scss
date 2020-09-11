@@ -1,7 +1,13 @@
+@import "../../assets/styles/colors.scss";
+
 .cont {
     width: 100%;
     position: relative;
     min-height: 56px;
+
+    &--required {
+        border: 2px solid $danger_default !important;
+    }
 
     p {
         margin: 0;
@@ -9,7 +15,7 @@
 
     &__component {
         min-height: 56px;
-
+        cursor: pointer;
         &__input {
             border: none;
             width: 100%;
@@ -17,10 +23,10 @@
             padding: 10px 20px;
             height: 56px;
             font-size: 16px;
-            background-color: #f9fafb;
+            background-color: $basic_white_med;
 
             &--required {
-                border: 2px solid red !important;
+                border: 2px solid $danger_default !important;
             }
         }
     }
@@ -28,24 +34,23 @@
         position: absolute;
         width: 100%;
         z-index: 2;
-        box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.1), 0px 4px 5px rgba(0, 0, 0, 0.1);
-        filter: drop-shadow(0px 3px 4px rgba(0, 0, 0, 0.1)), drop-shadow(0px 1px 8px rgba(0, 0, 0, 0.1));
+        box-shadow: $box-shadow;
         &__item {
-            height: 40px;
-            background-color: white;
+            min-height: 40px;
+            background-color: $basic_white_dft;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 20px;
+            padding: 5px 20px;
             cursor: pointer;
 
             &--selected {
-                background-color: #00b3db;
+                background-color: $brand_primary_drk;
                 span {
-                    color: white;
+                    color: $basic_white_dft;
                 }
                 p {
-                    color: white;
+                    color: $basic_white_dft;
                 }
             }
             &__icon {
@@ -53,7 +58,7 @@
             }
 
             &:not(.cont__options__item--selected):hover {
-                background-color: #e7fcff;
+                background-color: $brand_primary_snw;
             }
         }
     }

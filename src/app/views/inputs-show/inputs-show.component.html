@@ -1,3 +1,4 @@
+<h2>Input show</h2>
 <lib-input-show icon="icon-id" color="yellow-off" type="icon" [title]="'1.018.234.542'" label="Documento de identidad"
     message="Documento a la espera de aprobación" labelPosition="bottom" (clickSee)="clickSeeButton($event)"
     (clickEdit)="clickEdit($event)" [showEdit]='true' [showSee]="true">
@@ -13,10 +14,4 @@
     [label]="'Correo electronico'" [message]="'Correo a la espera de verificación'" [labelPosition]="'bottom'"
     (clickSee)="clickSeeButton($event)" (clickEdit)="clickEdit($event)" [showEdit]="true" [showSee]="true">
 </lib-input-show>
-
-<lib-input-show [color]="'yellow-off'" [title]="'Compensar'"
-    [label]="'EPS'" [labelPosition]="'bottom'" [isDropdown]="true"
-    (clickContent)="clickContent($event)" >
-</lib-input-show>
-<br>
 

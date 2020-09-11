@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DropdownShowItem } from 'projects/packen-ng/src/interfaces/dropdown-show-item';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class InputsShowDropdownComponent implements OnInit {
 
   idSelectedDropdown: number = 5;
-  listDropdown: any = [];
+  listDropdown: Array<DropdownShowItem> = [];
 
   constructor(private api: ApiService) { }
 
@@ -21,13 +22,12 @@ export class InputsShowDropdownComponent implements OnInit {
    * @param value valor escrito en el componente
    */
   keyUpDropdown(value: string) {
-    console.log(value);
     this.api.getListHealtEntities(value).subscribe((resp: any) => {
       if (resp.success) {
         const data: Array<any> = resp.data;
         this.listDropdown = [];
         data.forEach((item) => {
-          const objDropdown = { id: item.id, title: item.name };
+          const objDropdown: DropdownShowItem = { id: item.id, title: item.name };
           this.listDropdown.push(objDropdown);
         });
       }

@@ -21,6 +21,7 @@ import { PackenFileComponent } from './packen-file/packen-file.component';
 import { PackenDateComponent } from './packen-date/packen-date.component';
 import { PackenInputShowComponent } from './packen-input-show/packen-input-show.component';
 import { PackenAlertComponent } from './packen-alert/packen-alert.component';
+import { PackenInputShowDropdownComponent } from './packen-dropdown-show/packen-dropdown-show.component';
 
 @NgModule({
   declarations: [
@@ -39,14 +40,15 @@ import { PackenAlertComponent } from './packen-alert/packen-alert.component';
     PackenFileComponent,
     PackenDateComponent,
     PackenInputShowComponent,
-    PackenAlertComponent
+    PackenAlertComponent,
+    PackenInputShowDropdownComponent
   ],
   imports: [
     FormsModule,
     CommonModule,
     CalendarModule,
     ClickOutsideModule,
-    NgxMaskModule.forRoot(),
+    NgxMaskModule.forRoot()
   ],
   exports: [
     PackenAvatarComponent,
@@ -64,7 +66,8 @@ import { PackenAlertComponent } from './packen-alert/packen-alert.component';
     PackenFileComponent,
     PackenDateComponent,
     PackenInputShowComponent,
-    PackenAlertComponent
+    PackenAlertComponent,
+    PackenInputShowDropdownComponent
   ]
 })
 export class PackenNgModule { }

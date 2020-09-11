@@ -1,4 +1,4 @@
-<div class="cont" (clickOutside)="clickOutsideContent()">
+<div class="cont" [ngClass]="classContent" (clickOutside)="clickOutsideContent()">
     <div class="cont__component" (click)="clickInputComponent()">
         <div [ngStyle]="{'display': !showInput ? 'block': 'none'}">
             <lib-input-show [color]="'yellow-off'" [title]="titleInput" [label]="label" [labelPosition]="labelPosition"
@@ -19,5 +19,3 @@
         </div>
     </div>
 </div>
-
-<br>

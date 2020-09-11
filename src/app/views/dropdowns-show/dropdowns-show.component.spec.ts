@@ -10,15 +10,15 @@ describe('DropdownsShowComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InputsShowDropdownComponent ],
-      imports:[
+      declarations: [InputsShowDropdownComponent],
+      imports: [
         HttpClientTestingModule
       ],
-      schemas:[
+      schemas: [
         CUSTOM_ELEMENTS_SCHEMA
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
