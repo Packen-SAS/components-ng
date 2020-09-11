@@ -28,12 +28,4 @@ export class InputsShowComponent implements OnInit {
   clickEdit(event) {
     console.log(event);
   }
-
-  /**
-   * Emite cuando se da click en el componente
-   * @param event variable con el valor 'content'
-   */
-  clickContent(event) {
-    console.log(event);
-  }
 }
