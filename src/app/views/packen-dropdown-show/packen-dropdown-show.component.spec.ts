@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PackenInputShowDropdownComponent } from './packen-input-show-dropdown.component';
+import { PackenInputShowDropdownComponent } from './packen-dropdown-show.component';
 
-describe('PackenInputShowDropdownComponent', () => {
+describe('PackenDropdownShowComponent', () => {
   let component: PackenInputShowDropdownComponent;
   let fixture: ComponentFixture<PackenInputShowDropdownComponent>;
 

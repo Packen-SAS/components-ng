@@ -26,8 +26,8 @@ import { DatesComponent } from './views/dates/dates.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputsShowComponent } from './views/inputs-show/inputs-show.component';
 import { AlertsComponent } from './views/alerts/alerts.component';
-import { PackenInputShowDropdownComponent } from './views/packen-input-show-dropdown/packen-input-show-dropdown.component';
-import { InputsShowDropdownComponent } from './views/inputs-show-dropdown/inputs-show-dropdown.component';
+import { PackenInputShowDropdownComponent } from './views/packen-dropdown-show/packen-dropdown-show.component';
+import { InputsShowDropdownComponent } from './views/dropdowns-show/dropdowns-show.component';
 
 @NgModule({
   declarations: [

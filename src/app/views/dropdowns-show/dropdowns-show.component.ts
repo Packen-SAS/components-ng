@@ -3,18 +3,18 @@ import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-inputs-show-dropdown',
-  templateUrl: './inputs-show-dropdown.component.html',
-  styleUrls: ['./inputs-show-dropdown.component.scss']
+  templateUrl: './dropdowns-show.component.html',
+  styleUrls: ['./dropdowns-show.component.scss']
 })
 export class InputsShowDropdownComponent implements OnInit {
+
+  idSelectedDropdown: number = 5;
+  listDropdown: any = [];
 
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
   }
-
-  idSelectedDropdown: number = 5;
-  listDropdown: any = [];
 
   /**
    * Metodo funciona cuando el valor escrito cambia
@@ -26,7 +26,7 @@ export class InputsShowDropdownComponent implements OnInit {
       if (resp.success) {
         const data: Array<any> = resp.data;
         this.listDropdown = [];
-        data.forEach((item, index) => {
+        data.forEach((item) => {
           const objDropdown = { id: item.id, title: item.name };
           this.listDropdown.push(objDropdown);
         });

@@ -1,0 +1,23 @@
+<div class="cont" (clickOutside)="clickOutsideContent()">
+    <div class="cont__component" (click)="clickInputComponent()">
+        <div [ngStyle]="{'display': !showInput ? 'block': 'none'}">
+            <lib-input-show [color]="'yellow-off'" [title]="titleInput" [label]="label" [labelPosition]="labelPosition"
+                [isDropdown]="true" [icon]="icon" ngDefaultControl>
+            </lib-input-show>
+        </div>
+        <div [ngStyle]="{display: showInput ? 'block': 'none'}">
+            <input [(ngModel)]="valueWrittenInput" id="search" #search class="cont__component__input"
+                [required]="required" [ngClass]="classInput">
+        </div>
+    </div>
+
+    <div class="cont__options" *ngIf="showListItems">
+        <div *ngFor="let i of items" [ngClass]="getClassIsSelected(i)" class="cont__options__item"
+            (click)="selectItem(i)">
+            <p>{{i.title}}</p>
+            <span *ngIf="i.id === value" class="cont__options__item__icon icon-checkmark"></span>
+        </div>
+    </div>
+</div>
+
+<br>

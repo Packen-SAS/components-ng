@@ -3,9 +3,9 @@ import { fromEvent, BehaviorSubject } from 'rxjs';
 import { debounceTime, map } from 'rxjs/operators';
 
 @Component({
-  selector: 'lib-packen-input-show-dropdown',
-  templateUrl: './packen-input-show-dropdown.component.html',
-  styleUrls: ['./packen-input-show-dropdown.component.scss']
+  selector: 'lib-packen-dropdown-show',
+  templateUrl: './packen-dropdown-show.component.html',
+  styleUrls: ['./packen-dropdown-show.component.scss']
 })
 export class PackenInputShowDropdownComponent implements OnInit {
   @ViewChild('search') searchElement: ElementRef;
@@ -20,16 +20,11 @@ export class PackenInputShowDropdownComponent implements OnInit {
   showInput: boolean = false;
   showInputChange = new BehaviorSubject<boolean>(false);
   showListItems: boolean = false;
-  countClickedOutside: number = 0;
 
   messageValue: number = null;
   titleInput: string = '';
   valueWrittenInput: string = '';
   classInput: string = '';
-
-  countClickInside: number = 0;
-
-
 
   @Output()
   valueChange = new EventEmitter<any>();
@@ -48,19 +43,9 @@ export class PackenInputShowDropdownComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadTitleInput();
-    this.showInputChange.subscribe((resp: boolean) => {
-      if (resp) {
-        this.countClickInside++;
-        if (this.countClickInside === 1) {
-          setTimeout(() => {
-            this.keyUpSearch();
-          }, 400);
-        }
-
-      } else if (!resp) {
-        this.countClickInside = 0;
-      }
-    });
+    setTimeout(() => {
+      this.keyUpSearch();
+    }, 300);
   }
 
   /**
@@ -80,12 +65,10 @@ export class PackenInputShowDropdownComponent implements OnInit {
    * Metodo se ejecuta cuando se da click fuera del componente
    */
   clickOutsideContent() {
-    this.countClickedOutside++;
-    if ((this.countClickedOutside % 2) === 0) {
-      this.showInput = false;
-      this.showInputChange.next(false);
-      this.showListItems = false;
-    }
+    this.showInput = false;
+    this.showInputChange.next(false);
+    this.showListItems = false;
+
   }
 
   /**

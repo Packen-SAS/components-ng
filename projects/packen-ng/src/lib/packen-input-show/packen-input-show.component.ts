@@ -73,15 +73,6 @@ export class PackenInputShowComponent implements OnInit {
       this.contIsDropdownClass = 'cnt--dropdown';
     }
   }
-
-  /**
-   * Metodo emite click cuando es dropdown
-   */
-  clickCon() {
-    if (this.isDropdown) {
-      this.clickContent.emit('content');
-    }
-  }
 }
 
 // Tipos

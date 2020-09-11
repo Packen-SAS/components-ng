@@ -1,10 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InputsShowDropdownComponent } from './inputs-show-dropdown.component';
+import { InputsShowDropdownComponent } from './dropdowns-show.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-describe('InputsShowDropdownComponent', () => {
+describe('DropdownsShowComponent', () => {
   let component: InputsShowDropdownComponent;
   let fixture: ComponentFixture<InputsShowDropdownComponent>;
 
