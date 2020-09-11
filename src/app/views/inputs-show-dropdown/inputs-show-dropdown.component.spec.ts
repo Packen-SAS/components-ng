@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InputsShowDropdownComponent } from './inputs-show-dropdown.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('InputsShowDropdownComponent', () => {
   let component: InputsShowDropdownComponent;
@@ -8,7 +10,13 @@ describe('InputsShowDropdownComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InputsShowDropdownComponent ]
+      declarations: [ InputsShowDropdownComponent ],
+      imports:[
+        HttpClientTestingModule
+      ],
+      schemas:[
+        CUSTOM_ELEMENTS_SCHEMA
+      ]
     })
     .compileComponents();
   }));
