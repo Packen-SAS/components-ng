@@ -47,6 +47,7 @@ The **PackenNgModule** contains the following components:
 > * [DropdownComponent](#DropdownComponent)
 > * [InputShowComponent](#InputShowComponent)
 > * [AlertComponent](#AlertComponent)
+> * [PackenDropdownShowComponent](#PackenDropdownShowComponent)
 > * ButtonsComponent
 > * DividersComponent
 > * TabsComponent
@@ -614,4 +615,42 @@ A alert.
 - **title**: Defines the title to show of component `(icon | url)`.
 
 #### Events
+
 - **clickClose**: Emits when click in the icon close **NOTE**: Event is required.
+
+### PackenDropdownShowComponent
+
+A packen dropdown show
+
+#### HTML 
+
+``` html
+<lib-packen-dropdown-show [(value)]="idSelectedDropdown" [items]="listDropdown" [label]="'EPS'"
+    (keyUpValue)="keyUpDropdown($event)" [icon]="'icon-email'" [labelPosition]="'top'" [required]="true">
+</lib-packen-dropdown-show>
+```
+
+#### Appearance
+![](https://packenco.s3.amazonaws.com/packen_ng/packen-dropdown-show/dropdown.png)
+![](https://packenco.s3.amazonaws.com/packen_ng/packen-dropdown-show/dropdown-show-label-bottom-normal.png)
+![](https://packenco.s3.amazonaws.com/packen_ng/packen-dropdown-show/dropdown-show-label-bottom.png)
+
+#### Options
+
+- **value**: Defines the item selected id.
+- **items**: Defines the list of dropdowns **NOTE**: this item is array of type **DropdownShowItem**.
+- **label**: Defines the label to show.
+- **labelPosition**: Defines the label position `(top|bottom)` **NOTE**: default value is bottom.
+- **icon**: Defines icon to show with the name.
+- **required**: Defines if the component is required `(false|true)`.
+
+#### Events
+
+- **keyUpValue**: Emits when key up in the input **NOTE**: Event not is required.
+
+``` javascript
+interface DropdownShowItem {
+  id: number;
+  title?: string;
+}
+```
