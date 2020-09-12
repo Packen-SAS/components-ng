@@ -7,7 +7,7 @@
         </div>
         <div [ngStyle]="{display: showInput ? 'block': 'none'}">
             <input [(ngModel)]="valueWrittenInput" id="search" #search class="cont__component__input"
-                [required]="required" [ngClass]="classInput">
+                [required]="required" [ngClass]="classInput" autocomplete="off">
         </div>
     </div>
 

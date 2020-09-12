@@ -23,6 +23,8 @@
             padding: 10px 20px;
             height: 56px;
             font-size: 16px;
+            font-family: 'Muli';
+            color: $tertiary_default;
             background-color: $basic_white_med;
 
             &--required {
@@ -35,6 +37,8 @@
         position: absolute;
         width: 100%;
         z-index: 2;
+        font-family: 'Muli';
+        color: $tertiary_default;
         box-shadow: $box-shadow;
         &__item {
             min-height: 40px;
@@ -69,7 +73,7 @@
     .cont {
         &__component {
             &__input {
-                font-size: 14px !important;
+                font-size: 12px !important;
             }
         }
 

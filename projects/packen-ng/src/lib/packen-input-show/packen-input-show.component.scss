@@ -14,11 +14,11 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
-        flex-flow: wrap;
 
         &__child-first {
             display: flex;
             flex-direction: column;
+            justify-content: center;
 
             &--dropdown {
                 width: calc(100% - 35px);
@@ -98,7 +98,9 @@
     &__options {
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
         font-size: 23px;
+
         span {
             padding: 0px 5px;
             color: $primary_default;
@@ -111,7 +113,7 @@
     .cnt {
         &__body {
             &__title {
-                font-size: 9px;
+                font-size: 10px;
                 line-height: normal !important;
             }
 
@@ -124,6 +126,10 @@
                     display: flex !important;
                 }
             }
+        }
+
+        &__options {
+            width: 35px;
         }
     }
 }

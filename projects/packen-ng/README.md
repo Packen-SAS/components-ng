@@ -47,7 +47,7 @@ The **PackenNgModule** contains the following components:
 > * [DropdownComponent](#DropdownComponent)
 > * [InputShowComponent](#InputShowComponent)
 > * [AlertComponent](#AlertComponent)
-> * [PackenDropdownShowComponent](#PackenDropdownShowComponent)
+> * [DropdownShowComponent](#DropdownShowComponent)
 > * ButtonsComponent
 > * DividersComponent
 > * TabsComponent
@@ -566,14 +566,14 @@ let radios: Array<RadioItem> = [
 
 ### InputShowComponent
 
-A input show.
+A special input to show more details.
 
 #### HTML
 
 ``` html
 <lib-input-show icon="icon-id" color="yellow-off" type="icon" [title]="'1.018.234.542'" url="httt://image.png"
-label="Documento de identidad" message="Documento a la espera de aprobación" labelPosition="bottom"
-(clickSee)="clickSeeButton($event)" (clickEdit)="clickEdit($event)" [showEdit]='true' [showSee]="true">
+  label="Documento de identidad" message="Documento a la espera de aprobación" labelPosition="bottom"
+  (clickSee)="clickSeeButton($event)" (clickEdit)="clickEdit($event)" [showEdit]='true' [showSee]="true">
 </lib-input-show>
 ```
 
@@ -582,14 +582,14 @@ label="Documento de identidad" message="Documento a la espera de aprobación" la
 
 #### Options
 
-- **color**: Defines the color of the message `(yellow-off)`.
-- **type**: Defines if the icon is a icon name or image `(icon | url)`.
-- **icon**: Defines icon for show with the name **NOTE**: this item is required when type is icon.
-- **url**: Defines the url of image for show in icon **NOTE**: this item is required when type is url.
-- **label**: Defines the label to show in the component.
-- **labelPosition**: Defines the label position `(top|bottom)` **NOTE**: the value for default is bottom.
-- **showEdit**: Defines if the eye icon show or not. `(true| false)` **NOTE**: the value for default is false.
-- **showSee**: Defines if the pencil icon show or not. `(true| false)` **NOTE**: the value for default is false.
+- **color**: Defines the message color `(yellow-off)`.
+- **type**: Defines if the icon is a icon name or image `(icon|url)`.
+- **icon**: Defines icon to show side the name **NOTE**: this item is required when type is icon.
+- **url**: Defines the image url to show in icon **NOTE**: this item is required when type is url.
+- **label**: Defines the label field to show.
+- **labelPosition**: Defines the label position `(top|bottom)` **NOTE**: default value is bottom.
+- **showEdit**: Defines if eye icon is showed or not. `(true|false)` **NOTE**: default value is false.
+- **showSee**: Defines if the pencil icon is showed or not. `(true|false)` **NOTE**: default value is false.
 
 #### Events
 - **clickSee**: Emits when click in the icon see **NOTE**: Event is required when **showSee** is **true**.
@@ -597,13 +597,14 @@ label="Documento de identidad" message="Documento a la espera de aprobación" la
 
 ### AlertComponent
 
-A alert.
+An alert.
 
 #### HTML
 
 ``` html
 <lib-alert [color]="'purple'" (clickClose)="closeAlert($event)"
-    title="Aún faltan documentos para que Andrés pueda rodar con Packen"></lib-alert>
+    title="Aún faltan documentos para que Andrés pueda rodar con Packen">
+</lib-alert>
 ```
 
 #### Appearance
@@ -611,16 +612,16 @@ A alert.
 
 #### Options
 
-- **color**: Defines the color of the alert `(purple)`.
-- **title**: Defines the title to show of component `(icon | url)`.
+- **color**: Defines alert color `(purple)`.
+- **title**: Defines title to show inside alert `(icon|url)`.
 
 #### Events
 
 - **clickClose**: Emits when click in the icon close **NOTE**: Event is required.
 
-### PackenDropdownShowComponent
+### DropdownShowComponent
 
-A packen dropdown show
+A special dropdown with more details to show.
 
 #### HTML 
 
@@ -638,15 +639,15 @@ A packen dropdown show
 #### Options
 
 - **value**: Defines the item selected id.
-- **items**: Defines the list of dropdowns **NOTE**: this item is array of type **DropdownShowItem**.
-- **label**: Defines the label to show.
-- **labelPosition**: Defines the label position `(top|bottom)` **NOTE**: default value is bottom.
-- **icon**: Defines icon to show with the name.
+- **items**: Defines dropdown list **NOTE**: this item is an array of type **DropdownShowItem**.
+- **label**: Defines label to show.
+- **labelPosition**: Defines label position `(top|bottom)` **NOTE**: default value is bottom.
+- **icon**: Defines icon to show side the name.
 - **required**: Defines if the component is required `(false|true)`.
 
 #### Events
 
-- **keyUpValue**: Emits when key up in the input **NOTE**: Event not is required.
+- **keyUpValue**: Emits when key up in the input **NOTE**: Event is not required.
 
 ``` javascript
 interface DropdownShowItem {
