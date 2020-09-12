@@ -30,6 +30,7 @@
             }
         }
     }
+
     &__options {
         position: absolute;
         width: 100%;
@@ -60,6 +61,20 @@
             &:not(.cont__options__item--selected):hover {
                 background-color: $brand_primary_snw;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .cont {
+        &__component {
+            &__input {
+                font-size: 14px !important;
+            }
+        }
+
+        &__options {
+            font-size: 10px;
         }
     }
 }

@@ -9,7 +9,7 @@ import { DropdownShowItem } from '../../interfaces/dropdown-show-item';
   styleUrls: ['./packen-dropdown-show.component.scss']
 })
 export class PackenInputShowDropdownComponent implements OnInit {
-  
+
   @ViewChild('search') searchElement: ElementRef;
   @Input() items: Array<DropdownShowItem> = [];
   @Input() label: string = '';

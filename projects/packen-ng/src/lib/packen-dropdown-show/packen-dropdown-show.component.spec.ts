@@ -1,5 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { DropdownShowItem } from 'dist/packen-ng/interfaces/dropdown-show-item';
 
 import { PackenInputShowDropdownComponent } from './packen-dropdown-show.component';
@@ -11,7 +12,10 @@ describe('PackenDropdownShowComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [PackenInputShowDropdownComponent],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      imports: [
+        FormsModule
+      ]
     })
       .compileComponents();
   }));
