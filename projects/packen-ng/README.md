@@ -45,6 +45,8 @@ The **PackenNgModule** contains the following components:
 > * [CheckboxComponent](#CheckboxComponent)
 > * [RadioComponent](#RadioComponent)
 > * [DropdownComponent](#DropdownComponent)
+> * [InputShowComponent](#InputShowComponent)
+> * [AlertComponent](#AlertComponent)
 > * ButtonsComponent
 > * DividersComponent
 > * TabsComponent
@@ -417,7 +419,8 @@ interface CheckItem {
     id: number,
     label: string,
     state: string,
-    disabled: boolean
+    disabled: boolean,
+    value?: any
 }
 ```
 
@@ -559,3 +562,56 @@ let radios: Array<RadioItem> = [
     { id: 4, label: 'Label 4', disabled: true }
   ];
 ```
+
+### InputShowComponent
+
+Shows input value
+
+#### HTML
+
+``` html
+<lib-input-show icon="icon-id" color="yellow-off" type="icon" [title]="'1.018.234.542'" url="httt://image.png"
+label="Documento de identidad" message="Documento a la espera de aprobación" labelPosition="bottom"
+(clickSee)="clickSeeButton($event)" (clickEdit)="clickEdit($event)" [showEdit]='true' [showSee]="true">
+</lib-input-show>
+```
+
+#### Appearance
+![](https://packenco.s3.amazonaws.com/packen_ng/packen-input-show/inputs-show.png)
+
+#### Options
+
+- **color**: Defines the color of the message `(yellow-off)`.
+- **type**: Defines if the icon is a icon name or image `(icon | url)`.
+- **icon**: Defines icon to show with the name **NOTE**: this item is required when type is icon.
+- **url**: Defines the url of image to show in icon **NOTE**: this item is required when type is url.
+- **label**: Defines the label to show in the component.
+- **labelPosition**: Defines the label position `(top|bottom)` **NOTE**: default value is bottom.
+- **showEdit**: Defines if the eye icon show or not. `(true| false)` **NOTE**: the value for default is false.
+- **showSee**: Defines if the pencil icon show or not. `(true| false)` **NOTE**: the value for default is false.
+
+#### Events
+- **clickSee**: Triggers when see icon is clicked **NOTE**: Event is required when **showSee** is **true**.
+- **clickEdit**: Triggers when see edit is clicked **NOTE**: Event is required when **showEdit** is **true**.
+
+### AlertComponent
+
+A alert.
+
+#### HTML
+
+``` html
+<lib-alert [color]="'purple'" (clickClose)="closeAlert($event)"
+    title="Aún faltan documentos para que Andrés pueda rodar con Packen"></lib-alert>
+```
+
+#### Appearance
+![](https://packenco.s3.amazonaws.com/packen_ng/packen-alert/alert.png)
+
+#### Options
+
+- **color**: Defines the color of the alert `(purple)`.
+- **title**: Defines the title of the component `(icon | url)`.
+
+#### Events
+- **clickClose**: Triggers when the close icon is clicked **NOTE**: Event is required.

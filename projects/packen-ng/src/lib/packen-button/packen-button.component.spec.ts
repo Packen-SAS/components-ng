@@ -351,4 +351,16 @@ describe('PackenButtonComponent', () => {
     fixture.detectChanges();
     expect(component).toBeTruthy();
   });
+
+  it('Testing function loadMinWidthButton() when isset a value', () => {
+    component.minWidth = 100;
+    expect(component.loadMinWidthButton()).toBeUndefined();
+  });
+
+  it('Testing function loadMinWidthButton() when not isset a value', () => {
+    component.minWidth = null;
+    expect(component.loadMinWidthButton()).toBeUndefined();
+  });
+
+
 });

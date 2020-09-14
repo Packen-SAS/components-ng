@@ -1,4 +1,4 @@
-<button type="button" class="btn-box" [ngClass]="classButton" (click)="buttonClick()" [style.width]="fullwidth ? '100%': false">
+<button class="btn-box" [ngClass]="classButton" (click)="buttonClick()" [style.width]="fullwidth ? '100%': false" [ngStyle]="stylesButton">
     <span *ngIf="icon && type === 'icon'" [class]="icon" [style.font-size.px]="getWithIcon()"></span>
     <div class="btn-box__ctn">
         <span [class]="icon" *ngIf="icon && type === 'regular' && positionIcon === 'left'" [ngClass]="classIcon"

@@ -1,0 +1,52 @@
+@import "../../assets/styles/colors.scss";
+.con {
+    font-family: $font-stack;
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: $box-shadow;
+    padding: 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &--purple {
+        background: $purple-light;
+        border: 1px solid $purple-drk;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    &__sub-first {
+        display: flex;
+        align-items: center;
+        &__icon {
+            font-size: 22px;
+
+            &--purple {
+                color: $purple-drk !important;
+            }
+        }
+
+        &__description {
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 16px;
+            margin-left: 10px !important;
+
+            &--purple {
+                color: $purple;
+            }
+        }
+    }
+
+    &__close {
+        font-size: 20px;
+        cursor: pointer;
+
+        &--purple {
+            color: $purple-drk;
+        }
+    }
+}

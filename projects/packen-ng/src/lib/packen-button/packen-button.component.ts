@@ -15,10 +15,13 @@ export class PackenButtonComponent implements OnInit, OnChanges {
   @Input() disabled: boolean = null;
   @Input() title: any = '';
   @Input() fullwidth: boolean = false;
+  @Input() minWidth: number = null;
   @Output() outputClick = new EventEmitter<any>();
 
   classButton: any = '';
   classIcon: any = '';
+  stylesButton: object = {};
+
 
   constructor() { }
 
@@ -39,6 +42,7 @@ export class PackenButtonComponent implements OnInit, OnChanges {
     }
 
     this.loadLevelButton();
+    this.loadMinWidthButton();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -207,4 +211,9 @@ export class PackenButtonComponent implements OnInit, OnChanges {
     }
   }
 
+  loadMinWidthButton() {
+    if (this.minWidth) {
+      this.stylesButton = { 'min-width': `${this.minWidth}px` };
+    }
+  }
 }
