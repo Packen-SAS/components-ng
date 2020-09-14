@@ -565,7 +565,7 @@ let radios: Array<RadioItem> = [
 
 ### InputShowComponent
 
-A input show.
+Shows input value
 
 #### HTML
 
@@ -583,16 +583,16 @@ label="Documento de identidad" message="Documento a la espera de aprobación" la
 
 - **color**: Defines the color of the message `(yellow-off)`.
 - **type**: Defines if the icon is a icon name or image `(icon | url)`.
-- **icon**: Defines icon for show with the name **NOTE**: this item is required when type is icon.
-- **url**: Defines the url of image for show in icon **NOTE**: this item is required when type is url.
+- **icon**: Defines icon to show with the name **NOTE**: this item is required when type is icon.
+- **url**: Defines the url of image to show in icon **NOTE**: this item is required when type is url.
 - **label**: Defines the label to show in the component.
-- **labelPosition**: Defines the label position `(top|bottom)` **NOTE**: the value for default is bottom.
+- **labelPosition**: Defines the label position `(top|bottom)` **NOTE**: default value is bottom.
 - **showEdit**: Defines if the eye icon show or not. `(true| false)` **NOTE**: the value for default is false.
 - **showSee**: Defines if the pencil icon show or not. `(true| false)` **NOTE**: the value for default is false.
 
 #### Events
-- **clickSee**: Emits when click in the icon see **NOTE**: Event is required when **showSee** is **true**.
-- **clickEdit**: Emits when click in the icon edit **NOTE**: Event is required when **showEdit** is **true**.
+- **clickSee**: Triggers when see icon is clicked **NOTE**: Event is required when **showSee** is **true**.
+- **clickEdit**: Triggers when see edit is clicked **NOTE**: Event is required when **showEdit** is **true**.
 
 ### AlertComponent
 
@@ -611,7 +611,7 @@ A alert.
 #### Options
 
 - **color**: Defines the color of the alert `(purple)`.
-- **title**: Defines the title to show of component `(icon | url)`.
+- **title**: Defines the title of the component `(icon | url)`.
 
 #### Events
-- **clickClose**: Emits when click in the icon close **NOTE**: Event is required.
+- **clickClose**: Triggers when the close icon is clicked **NOTE**: Event is required.
