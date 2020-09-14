@@ -566,7 +566,11 @@ let radios: Array<RadioItem> = [
 
 ### InputShowComponent
 
+<<<<<<< HEAD
 A special input to show more details.
+=======
+Shows input value
+>>>>>>> 1c00a63e42bd4256143ae34f3a75c00996399b61
 
 #### HTML
 
@@ -592,8 +596,8 @@ A special input to show more details.
 - **showSee**: Defines if the pencil icon is showed or not. `(true|false)` **NOTE**: default value is false.
 
 #### Events
-- **clickSee**: Emits when click in the icon see **NOTE**: Event is required when **showSee** is **true**.
-- **clickEdit**: Emits when click in the icon edit **NOTE**: Event is required when **showEdit** is **true**.
+- **clickSee**: Triggers when see icon is clicked **NOTE**: Event is required when **showSee** is **true**.
+- **clickEdit**: Triggers when see edit is clicked **NOTE**: Event is required when **showEdit** is **true**.
 
 ### AlertComponent
 
@@ -612,6 +616,7 @@ An alert.
 
 #### Options
 
+<<<<<<< HEAD
 - **color**: Defines alert color `(purple)`.
 - **title**: Defines title to show inside alert `(icon|url)`.
 
@@ -655,3 +660,10 @@ interface DropdownShowItem {
   title?: string;
 }
 ```
+=======
+- **color**: Defines the color of the alert `(purple)`.
+- **title**: Defines the title of the component `(icon | url)`.
+
+#### Events
+- **clickClose**: Triggers when the close icon is clicked **NOTE**: Event is required.
+>>>>>>> 1c00a63e42bd4256143ae34f3a75c00996399b61
