@@ -1,6 +1,6 @@
 # PackenNg
 
-This is a project to test PackenNg Lib.
+UI components for Packen customer app.
 
 ## Getting started
 
