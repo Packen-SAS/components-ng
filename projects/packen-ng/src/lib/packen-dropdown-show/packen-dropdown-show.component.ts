@@ -10,7 +10,7 @@ import { DropdownShowItem } from '../../interfaces/dropdown-show-item';
 })
 export class PackenInputShowDropdownComponent implements OnInit {
 
-  @ViewChild('search') searchElement: ElementRef;
+  @ViewChild('searchIdPacken') searchElement: ElementRef;
   @Input() items: Array<DropdownShowItem> = [];
   @Input() label: string = '';
   @Input() icon: string = '';
@@ -28,6 +28,7 @@ export class PackenInputShowDropdownComponent implements OnInit {
   classInput: string = '';
   classContent: string = '';
 
+  isClicked: boolean = false;
   @Output()
   valueChange = new EventEmitter<any>();
 
@@ -57,7 +58,7 @@ export class PackenInputShowDropdownComponent implements OnInit {
     this.showInput = true;
     this.showInputChange.next(true);
     this.showListItems = true;
-
+    this.isClicked = true;
     setTimeout(() => {
       this.searchElement.nativeElement.focus();
     }, 100);
@@ -73,9 +74,13 @@ export class PackenInputShowDropdownComponent implements OnInit {
 
     this.classContent = '';
     if (!this.value || this.valueWrittenInput === '') {
-      this.classContent = 'cont--required';
-      this.valueWrittenInput = '';
-      this.titleInput = '';
+      if (this.isClicked) {
+        this.classContent = 'cont--required';
+        this.valueWrittenInput = '';
+        this.titleInput = '';
+        this.isClicked = false;
+      }
+
     }
   }
 
@@ -137,7 +142,7 @@ export class PackenInputShowDropdownComponent implements OnInit {
    */
   validateRequiredInput() {
     this.classInput = '';
-    if (this.valueWrittenInput.length === 0 && this.required) {
+    if (this.valueWrittenInput.length === 0 && this.required && this.classContent !== 'cont--required') {
       this.classInput = 'cont__component__input--required';
     }
   }

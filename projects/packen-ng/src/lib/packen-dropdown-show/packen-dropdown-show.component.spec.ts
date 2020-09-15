@@ -50,6 +50,12 @@ describe('PackenDropdownShowComponent', () => {
     expect(component.clickOutsideContent()).toBeUndefined();
   });
 
+  it('Testing function clickOutsideContent() when is clicked', () => {
+    component.valueWrittenInput = '';
+    component.isClicked = true;
+    expect(component.clickOutsideContent()).toBeUndefined();
+  });
+
   it('Testing function selectItem()', () => {
     const itemDropdown: DropdownShowItem = { id: 1, title: 'Entidad de salud' };
     expect(component.selectItem(itemDropdown)).toBeUndefined();
