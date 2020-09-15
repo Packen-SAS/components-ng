@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'lib-alert',
+  selector: 'lib-packen-alert',
   templateUrl: './packen-alert.component.html',
   styleUrls: ['./packen-alert.component.scss']
 })
