@@ -6,7 +6,29 @@
     background-color: $basic_white_med;
     padding: 5px 15px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 56px;
+
+    &__sub {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        &__child-first {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            &--dropdown {
+                width: calc(100% - 35px);
+            }
+        }
+    }
+
+    &--dropdown {
+        cursor: pointer;
+    }
 
     p {
         margin: 0;
@@ -17,7 +39,9 @@
     }
 
     &__icon {
-        margin: 10px 0;
+        display: flex;
+        align-content: center;
+        align-items: center;
         img {
             max-width: 28px;
         }
@@ -37,20 +61,20 @@
             font-size: 16px;
             line-height: 20px;
             color: $textiary_hover;
+            margin-bottom: -3px !important;
         }
 
         &__label {
             font-size: 12px;
             line-height: 16px;
             color: $disabled_alt_drk_light;
-            margin-top: -3px !important;
+            margin-bottom: -3px !important;
         }
 
         &__message {
             font-size: 10px;
             line-height: 16px;
             display: flex;
-            margin-top: -3px;
 
             &__icon {
                 font-size: 10px;
@@ -64,17 +88,48 @@
             &--yellow-off {
                 color: $yellow-off;
             }
+
+            &--bottom {
+                display: none;
+            }
         }
     }
 
     &__options {
         display: flex;
         align-items: center;
-        font-size: 26px;
+        flex-wrap: wrap;
+        font-size: 23px;
+
         span {
             padding: 0px 5px;
             color: $primary_default;
             cursor: pointer;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .cnt {
+        &__body {
+            &__title {
+                font-size: 10px;
+                line-height: normal !important;
+            }
+
+            &__message {
+                &--top {
+                    display: none !important;
+                }
+
+                &--bottom {
+                    display: flex !important;
+                }
+            }
+        }
+
+        &__options {
+            width: 35px;
         }
     }
 }

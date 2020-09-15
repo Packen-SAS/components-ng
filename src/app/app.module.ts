@@ -26,6 +26,7 @@ import { DatesComponent } from './views/dates/dates.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputsShowComponent } from './views/inputs-show/inputs-show.component';
 import { AlertsComponent } from './views/alerts/alerts.component';
+import { InputsShowDropdownComponent } from './views/dropdowns-show/dropdowns-show.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { AlertsComponent } from './views/alerts/alerts.component';
     FilesComponent,
     DatesComponent,
     InputsShowComponent,
-    AlertsComponent
+    AlertsComponent,
+    InputsShowDropdownComponent
   ],
   imports: [
     HttpClientModule,

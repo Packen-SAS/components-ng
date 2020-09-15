@@ -32,4 +32,5 @@ describe('InputsShowComponent', () => {
   it('Testing function clickEdit()', () => {
     expect(component.clickEdit('edit')).toBeUndefined();
   });
+
 });

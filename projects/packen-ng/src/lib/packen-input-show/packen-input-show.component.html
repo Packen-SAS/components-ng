@@ -1,21 +1,32 @@
 <div class="cnt">
-    <div class="cnt__first">
-        <div class="cnt__icon">
-            <span  [class]="icon" *ngIf="type === 'icon'"></span>
-            <img *ngIf="type === 'url'" [src]="url">
-        </div>
-        <div class="cnt__body">
-            <p class="cnt__body__label" *ngIf="labelPosition === 'top'">{{label}}</p>
-            <p class="cnt__body__title">{{title}}</p>
-            <p class="cnt__body__label" *ngIf="labelPosition === 'bottom'">{{label}}</p>
-            <div *ngIf="message !== '' && message !== null" class="cnt__body__message" [ngClass]="colorMessage">
+    <div class="cnt__sub">
+        <div class="cnt__sub__child-first" [ngClass]="widthContentDataClass">
+            <div class="cnt__first">
+                <div class="cnt__icon">
+                    <span [class]="icon" *ngIf="type === 'icon'"></span>
+                    <img *ngIf="type === 'url'" [src]="url">
+                </div>
+                <div class="cnt__body">
+                    <p class="cnt__body__label" *ngIf="labelPosition === 'top'">{{label}}</p>
+                    <p class="cnt__body__title">{{title}}</p>
+                    <p class="cnt__body__label" *ngIf="labelPosition === 'bottom'">{{label}}</p>
+                    <div *ngIf="message !== '' && message !== null" class="cnt__body__message cnt__body__message--top"
+                        [ngClass]="colorMessage">
+                        <p class="cnt__body__message__icon"><span class="icon-alert-circle"></span></p>
+                        <p class="cnt__body__message__msg">{{message}}</p>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="message !== '' && message !== null" class="cnt__body__message cnt__body__message--bottom"
+                [ngClass]="colorMessage">
                 <p class="cnt__body__message__icon"><span class="icon-alert-circle"></span></p>
                 <p class="cnt__body__message__msg">{{message}}</p>
             </div>
         </div>
-    </div>
-    <div class="cnt__options">
-        <span class="icon-eye" *ngIf="showSee" (click)="clickSeeButton()"></span>
-        <span class="icon-edit" *ngIf="showEdit" (click)="clickEditButton()"></span>
+        <div class="cnt__options">
+            <span class="icon-eye" *ngIf="showSee && !isDropdown" (click)="clickSeeButton()"></span>
+            <span class="icon-edit" *ngIf="showEdit && !isDropdown" (click)="clickEditButton()"></span>
+            <span class="icon-arrow-ios-down" *ngIf="isDropdown"></span>
+        </div>
     </div>
 </div>

@@ -34,4 +34,9 @@ describe('PackenInputShowComponent', () => {
   it('Testing function clickEditButton()', () => {
     expect(component.clickEditButton()).toBeUndefined();
   });
+
+  it('Testing function getWidthContentData() when is dropdown', () => {
+    component.isDropdown = true;
+    expect(component.getWidthContentData()).toBeUndefined();
+  });
 });

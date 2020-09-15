@@ -14,6 +14,7 @@ export class PackenInputShowComponent implements OnInit {
   @Input() labelPosition: TypelabelPosition = 'bottom';
   @Input() showSee: boolean = false;
   @Input() showEdit: boolean = false;
+  @Input() isDropdown: boolean = false;
 
 
   @Input() title: string = '';
@@ -24,11 +25,13 @@ export class PackenInputShowComponent implements OnInit {
   @Output() clickEdit = new EventEmitter<string>();
 
   colorMessage: string = '';
+  widthContentDataClass: string = '';
 
   constructor() { }
 
   ngOnInit(): void {
     this.getColorMessage(this.color);
+    this.getWidthContentData();
   }
 
   /**
@@ -58,6 +61,15 @@ export class PackenInputShowComponent implements OnInit {
    */
   clickEditButton() {
     this.clickEdit.emit('edit');
+  }
+
+  /**
+   * Function set width wen the component is for dropdown
+   */
+  getWidthContentData() {
+    if (this.isDropdown) {
+      this.widthContentDataClass = 'cnt__sub__child-first--dropdown';
+    }
   }
 
 }
