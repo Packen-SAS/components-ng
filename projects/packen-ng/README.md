@@ -566,11 +566,7 @@ let radios: Array<RadioItem> = [
 
 ### InputShowComponent
 
-<<<<<<< HEAD
 A special input to show more details.
-=======
-Shows input value
->>>>>>> 1c00a63e42bd4256143ae34f3a75c00996399b61
 
 #### HTML
 
