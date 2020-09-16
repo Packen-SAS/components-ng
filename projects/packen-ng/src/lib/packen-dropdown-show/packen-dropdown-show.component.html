@@ -1,8 +1,8 @@
 <div class="cont" [ngClass]="classContent" (clickOutside)="clickOutsideContent()">
     <div class="cont__component" (click)="clickInputComponent()">
         <div [ngStyle]="{'display': !showInput ? 'block': 'none'}">
-            <lib-packen-input-show [color]="'yellow-off'" [title]="titleInput" [label]="label" [labelPosition]="labelPosition"
-                [isDropdown]="true" [icon]="icon" ngDefaultControl>
+            <lib-packen-input-show [color]="'yellow-off'" [title]="titleInput" [label]="label"
+                [labelPosition]="labelPosition" [isDropdown]="true" [icon]="icon" ngDefaultControl>
             </lib-packen-input-show>
         </div>
         <div [ngStyle]="{display: showInput ? 'block': 'none'}">

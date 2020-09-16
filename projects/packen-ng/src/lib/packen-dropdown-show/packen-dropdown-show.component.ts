@@ -8,7 +8,7 @@ import { DropdownShowItem } from '../../interfaces/dropdown-show-item';
   templateUrl: './packen-dropdown-show.component.html',
   styleUrls: ['./packen-dropdown-show.component.scss']
 })
-export class PackenInputShowDropdownComponent implements OnInit {
+export class PackenInputShowDropdownComponent implements OnInit, OnChanges {
 
   @ViewChild('searchIdPacken') searchElement: ElementRef;
   @Input() items: Array<DropdownShowItem> = [];
@@ -43,6 +43,16 @@ export class PackenInputShowDropdownComponent implements OnInit {
   }
 
   constructor() { }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.value) {
+      this.loadTitleInput();
+    }
+
+    if (changes.items && this.value) {
+      this.loadTitleInput();
+    }
+  }
 
   ngOnInit(): void {
     this.loadTitleInput();
