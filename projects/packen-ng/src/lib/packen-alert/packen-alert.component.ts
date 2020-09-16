@@ -10,7 +10,20 @@ export class PackenAlertComponent implements OnInit {
   @Input() color: TypeColors = '';
   @Input() title: string;
   @Output() clickClose = new EventEmitter<string>();
+  showAlert: boolean;
 
+  @Output()
+  showChange = new EventEmitter<boolean>();
+
+  @Input()
+  get show() {
+    return this.showAlert;
+  }
+
+  set show(val) {
+    this.showAlert = val;
+    this.showChange.emit(this.showAlert);
+  }
   colorContent: string = '';
   colorIcon: string = '';
   colorDescription: string = '';
@@ -47,6 +60,7 @@ export class PackenAlertComponent implements OnInit {
    * Metodo emite cuando se a click en cerrar
    */
   closeIcon() {
+    this.show = false;
     this.clickClose.emit('close');
   }
 }
