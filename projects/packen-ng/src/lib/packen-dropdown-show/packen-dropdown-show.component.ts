@@ -10,7 +10,7 @@ import { DropdownShowItem } from '../../interfaces/dropdown-show-item';
 })
 export class PackenInputShowDropdownComponent implements OnInit, OnChanges {
 
-  @ViewChild('searchIdPacken') searchElement: ElementRef;
+  @ViewChild('searchIdPackenDropdown') searchElement: ElementRef;
   @Input() items: Array<DropdownShowItem> = [];
   @Input() label: string = '';
   @Input() icon: string = '';

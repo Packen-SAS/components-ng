@@ -6,7 +6,7 @@
             </lib-packen-input-show>
         </div>
         <div [ngStyle]="{display: showInput ? 'block': 'none'}">
-            <input [(ngModel)]="valueWrittenInput" id="searchIdPacken" #searchIdPacken class="cont__component__input"
+            <input [(ngModel)]="valueWrittenInput" #searchIdPackenDropdown class="cont__component__input"
                 [required]="required" [ngClass]="classInput" autocomplete="off">
         </div>
     </div>
