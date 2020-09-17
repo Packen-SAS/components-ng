@@ -35,7 +35,7 @@ export class PackenSelectComponent implements OnInit, OnChanges {
    */
   loadDimensions() {
     if (this.width && this.height) {
-      this.styleBox = { 'width': `${this.width}px`, 'height': `${this.height}px` };
+      this.styleBox = { width: `${this.width}px`, height: `${this.height}px` };
     }
   }
 

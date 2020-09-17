@@ -39,4 +39,9 @@ describe('PackenInputShowComponent', () => {
     component.isDropdown = true;
     expect(component.getWidthContentData()).toBeUndefined();
   });
+
+  it('Testing function getBackgroundClass() when phantom is true', () => {
+    component.phantom = true;
+    expect(component.getBackgroundClass()).toEqual('cnt--phantom');
+  });
 });

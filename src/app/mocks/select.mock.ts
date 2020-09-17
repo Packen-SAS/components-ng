@@ -1,3 +1,4 @@
+import { SelectItem } from 'projects/packen-ng/src/interfaces/select-item';
 
 export const selectListMock = [
     {
@@ -63,4 +64,11 @@ export const selectListActionMock = [
         description: 'Rechazar',
         selected: false
     }
-]
+];
+
+export const selectItemMock: SelectItem = {
+    id: 1,
+    name: 'Somthing',
+    description: 'Somthing description',
+    selected: false
+};

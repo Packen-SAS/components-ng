@@ -1,3 +1,4 @@
+import { DropdownItem } from '../../interfaces/dropdown-item';
 
 export const selectListMock = [
     {
@@ -47,5 +48,31 @@ export const selectListMock = [
         name: 'C3',
         description: 'Vehículos articulados de servicio público',
         selected: false
+    }
+];
+
+export const dropdownListMock: DropdownItem[] = [
+    {
+        id: 1,
+        disabled: false,
+        title: 'Menu item'
+    },
+    {
+        id: 2,
+        disabled: false,
+        title: 'Menu item 2'
+    }
+];
+
+export const dropdownLabelListMock: DropdownItem[] = [
+    {
+        id: 1,
+        disabled: false,
+        label: 'Menu item'
+    },
+    {
+        id: 2,
+        disabled: false,
+        label: 'Menu item 2'
     }
 ];

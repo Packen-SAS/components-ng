@@ -376,4 +376,9 @@ describe('PackenTableComponent', () => {
     expect(component.getMinWidth(itemInfoMock)).toEqual({});
   });
 
+  it('Testing setActivePage() when item num is null', () => {
+    component.activePage = { num: 7, classes: '' };
+    expect(component.setActivePage({ num: 7, classes: '' })).toBeUndefined();
+  });
+
 });

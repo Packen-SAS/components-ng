@@ -91,15 +91,11 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
-              "src/styles.scss",
-              "src/assets/icons/style.css"
-            ],
+            "styles": [],
             "scripts": [],
             "sourceMap": true,
             "codeCoverage": true,
-            "codeCoverageExclude": [
-            ]
+            "codeCoverageExclude": []
           }
         },
         "lint": {
@@ -155,8 +151,7 @@
             "karmaConfig": "projects/packen-ng/karma.conf.js",
             "sourceMap": true,
             "codeCoverage": true,
-            "codeCoverageExclude": [
-            ]
+            "codeCoverageExclude": []
           }
         },
         "lint": {

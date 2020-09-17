@@ -96,8 +96,20 @@ describe('PackenDropdownShowComponent', () => {
     expect(component.validateRequiredInput()).toBeUndefined();
   });
 
-  it('Testing function keyUpSearch() ', () => {
+  it('Testing function keyUpSearch() when field is not required', () => {
+    component.required = false;
     expect(component.keyUpSearch()).toBeUndefined();
+
+    component.searchElement.nativeElement.dispatchEvent(new KeyboardEvent('keyup', { code: 'ArrowUp' }));
+    fixture.detectChanges();
+  });
+
+  it('Testing function keyUpSearch() when field is required', () => {
+    component.required = true;
+    expect(component.keyUpSearch()).toBeUndefined();
+
+    component.searchElement.nativeElement.dispatchEvent(new KeyboardEvent('keyup', { code: 'ArrowUp' }));
+    fixture.detectChanges();
   });
 
   it('Testing function ngOnChanges() ', () => {

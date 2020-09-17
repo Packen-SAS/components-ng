@@ -1,7 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PackenDropdownComponent } from './packen-dropdown.component';
-import { CUSTOM_ELEMENTS_SCHEMA, SimpleChanges, SimpleChange } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, SimpleChange } from '@angular/core';
 import { DropdownItem } from 'src/app/interfaces/dropdown-item';
+import { dropdownListMock, dropdownLabelListMock } from '../../assets/mocks/select.mock';
 
 describe('PackenDropdownComponent', () => {
   let component: PackenDropdownComponent;
@@ -345,32 +346,14 @@ describe('PackenDropdownComponent', () => {
   });
 
   it('Render function keyUpInput() when type is default and include the text', () => {
-    component.items = [{
-      id: 1,
-      disabled: false,
-      title: 'Menu item'
-    },
-    {
-      id: 2,
-      disabled: false,
-      title: 'Menu item 2'
-    }];
+    component.items = dropdownListMock;
     component.type = 'default';
     expect(component.keyUpInput('Menu')).toBeUndefined();
   });
 
   it('Render function keyUpInput() when type is default and include the text', () => {
     component.value = 'label';
-    component.items = [{
-      id: 1,
-      disabled: false,
-      title: 'Menu item'
-    },
-    {
-      id: 2,
-      disabled: false,
-      title: 'Menu item 2'
-    }];
+    component.items = dropdownListMock;
     component.type = 'default';
     expect(component.keyUpInput('Label')).toBeUndefined();
   });
@@ -378,33 +361,31 @@ describe('PackenDropdownComponent', () => {
   it('Render function keyUpInput() when lazy is true', () => {
     component.value = 'label';
     component.lazy = true;
-    component.items = [{
-      id: 1,
-      disabled: false,
-      title: 'Menu item'
-    },
-    {
-      id: 2,
-      disabled: false,
-      title: 'Menu item 2'
-    }];
+    component.items = dropdownListMock;
     component.type = 'default';
     expect(component.keyUpInput('Label')).toBeUndefined();
+  });
+
+  it('Testing method keyUpInput() when lazy is false', () => {
+    component.value = 'label';
+    component.lazy = false;
+    component.items = dropdownLabelListMock;
+    component.type = 'default';
+    expect(component.keyUpInput('Label')).toBeUndefined();
+  });
+
+  it('Testing method keyUpInput() when type is default and not include the text', () => {
+    component.value = 'label';
+    component.items = dropdownListMock;
+    component.type = 'default';
+    component.lazy = false;
+    expect(component.keyUpInput('')).toBeUndefined();
   });
 
   it('Render function keyUpInput() when lazy is true and value length is empty', () => {
     component.value = 'label';
     component.lazy = true;
-    component.items = [{
-      id: 1,
-      disabled: false,
-      title: 'Menu item'
-    },
-    {
-      id: 2,
-      disabled: false,
-      title: 'Menu item 2'
-    }];
+    component.items = dropdownListMock;
     component.type = 'default';
     expect(component.keyUpInput('')).toBeUndefined();
   });
@@ -416,6 +397,26 @@ describe('PackenDropdownComponent', () => {
 
   it('Render function clickOutSideContent', () => {
     component.value = true;
+    expect(component.clickOutsideContent()).toBeUndefined();
+  });
+
+  it('Testing method clickOutSideContent() when is lazy', () => {
+    component.value = true;
+    component.lazy = true;
+    expect(component.clickOutsideContent()).toBeUndefined();
+  });
+
+  it('Testing method clickOutSideContent() when found item is in temporary list', () => {
+    component.temporaryItemsList = [{ id: 1, disabled: false }];
+    component.value = 1;
+    component.lazy = false;
+    expect(component.clickOutsideContent()).toBeUndefined();
+  });
+
+  it('Testing method clickOutSideContent() when found item is not in temporary list', () => {
+    component.temporaryItemsList = [{ id: 1, disabled: false }];
+    component.value = 2;
+    component.lazy = false;
     expect(component.clickOutsideContent()).toBeUndefined();
   });
 

@@ -64,4 +64,10 @@ describe('PackenSelectComponent', () => {
     component.allowSelect = false;
     expect(component.selectOption(selectListMock[0])).toBeUndefined();
   });
+
+  it('Testing method loadDimensions()', () => {
+    component.width = 95;
+    component.height = 56;
+    expect(component.loadDimensions()).toBeUndefined();
+  });
 });
