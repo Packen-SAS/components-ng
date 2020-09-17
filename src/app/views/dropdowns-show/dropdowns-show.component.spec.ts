@@ -55,7 +55,7 @@ describe('DropdownsShowComponent', () => {
   });
 
   it('Testing function changeValue() ', () => {
-    let objDropdownShow: DropdownShowItem = { id: 1, title: 'Test' };
+    const objDropdownShow: DropdownShowItem = { id: 1, title: 'Test' };
     expect(component.changeValue(objDropdownShow)).toBeUndefined();
   });
 });
