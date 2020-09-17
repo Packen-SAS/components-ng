@@ -8,15 +8,16 @@ import { DropdownShowItem } from '../../interfaces/dropdown-show-item';
   templateUrl: './packen-dropdown-show.component.html',
   styleUrls: ['./packen-dropdown-show.component.scss']
 })
-export class PackenInputShowDropdownComponent implements OnInit {
+export class PackenInputShowDropdownComponent implements OnInit, OnChanges {
 
-  @ViewChild('searchIdPacken') searchElement: ElementRef;
+  @ViewChild('searchIdPackenDropdown') searchElement: ElementRef;
   @Input() items: Array<DropdownShowItem> = [];
   @Input() label: string = '';
   @Input() icon: string = '';
   @Input() labelPosition: string = 'bottom';
   @Input() required = false;
   @Output() keyUpValue = new EventEmitter<string>();
+  @Output() changeValue = new EventEmitter<DropdownShowItem>();
 
   showInput: boolean = false;
   showInputChange = new BehaviorSubject<boolean>(false);
@@ -43,6 +44,16 @@ export class PackenInputShowDropdownComponent implements OnInit {
   }
 
   constructor() { }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.value) {
+      this.loadTitleInput();
+    }
+
+    if (changes.items && this.value) {
+      this.loadTitleInput();
+    }
+  }
 
   ngOnInit(): void {
     this.loadTitleInput();
@@ -90,6 +101,7 @@ export class PackenInputShowDropdownComponent implements OnInit {
    */
   selectItem(item: DropdownShowItem) {
     this.value = item.id;
+    this.changeValue.emit(item);
     this.showInput = false;
     this.showInputChange.next(false);
     this.showListItems = false;

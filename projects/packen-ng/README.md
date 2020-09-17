@@ -566,11 +566,7 @@ let radios: Array<RadioItem> = [
 
 ### InputShowComponent
 
-<<<<<<< HEAD
 A special input to show more details.
-=======
-Shows input value
->>>>>>> 1c00a63e42bd4256143ae34f3a75c00996399b61
 
 #### HTML
 
@@ -606,7 +602,7 @@ An alert.
 #### HTML
 
 ``` html
-<lib-alert [color]="'purple'" (clickClose)="closeAlert($event)"
+<lib-alert [color]="'purple'" [(show)]="true" (clickClose)="closeAlert($event)"
     title="Aún faltan documentos para que Andrés pueda rodar con Packen">
 </lib-alert>
 ```
@@ -616,13 +612,13 @@ An alert.
 
 #### Options
 
-<<<<<<< HEAD
 - **color**: Defines alert color `(purple)`.
 - **title**: Defines title to show inside alert `(icon|url)`.
+- **show**: Defines if show or not `(false|true)`.
 
 #### Events
 
-- **clickClose**: Emits when click in the icon close **NOTE**: Event is required.
+- **clickClose**: Emits when click in the icon close **NOTE**: Event not is required.
 
 ### DropdownShowComponent
 
@@ -632,7 +628,8 @@ A special dropdown with more details to show.
 
 ``` html
 <lib-packen-dropdown-show [(value)]="idSelectedDropdown" [items]="listDropdown" [label]="'EPS'"
-    (keyUpValue)="keyUpDropdown($event)" [icon]="'icon-email'" [labelPosition]="'top'" [required]="true">
+    (keyUpValue)="keyUpDropdown($event)" (changeValue)="changeValue($event)" [icon]="'icon-email'" 
+    [labelPosition]="'top'" [required]="true">
 </lib-packen-dropdown-show>
 ```
 
@@ -653,6 +650,7 @@ A special dropdown with more details to show.
 #### Events
 
 - **keyUpValue**: Emits when key up in the input **NOTE**: Event is not required.
+- **changeValue**: Emits when the value changes **NOTE**: Event is not required.
 
 ``` javascript
 interface DropdownShowItem {
@@ -660,10 +658,3 @@ interface DropdownShowItem {
   title?: string;
 }
 ```
-=======
-- **color**: Defines the color of the alert `(purple)`.
-- **title**: Defines the title of the component `(icon | url)`.
-
-#### Events
-- **clickClose**: Triggers when the close icon is clicked **NOTE**: Event is required.
->>>>>>> 1c00a63e42bd4256143ae34f3a75c00996399b61

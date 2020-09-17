@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, SimpleChange } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { DropdownShowItem } from 'dist/packen-ng/interfaces/dropdown-show-item';
@@ -99,4 +99,19 @@ describe('PackenDropdownShowComponent', () => {
   it('Testing function keyUpSearch() ', () => {
     expect(component.keyUpSearch()).toBeUndefined();
   });
+
+  it('Testing function ngOnChanges() ', () => {
+    component.value = 1;
+    component.ngOnChanges({
+      value: new SimpleChange(null, new File([], ''), null),
+      items: new SimpleChange(null, [], null)
+    });
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
+
+  it('Testing function ngOnChanges() when not isset changes', () => {
+    expect(component.ngOnChanges({})).toBeUndefined();
+  });
+
 });

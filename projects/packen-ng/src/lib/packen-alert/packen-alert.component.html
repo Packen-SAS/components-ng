@@ -1,4 +1,4 @@
-<div class="con" [ngClass]="colorContent">
+ <div class="con" [ngClass]="colorContent" *ngIf="show">
     <div class="con__sub-first">
         <span class="con__sub-first__icon icon-alert-circle" [ngClass]="colorIcon"></span>
         <p class="con__sub-first__description" [ngClass]="colorDescription">{{title}}</p>
