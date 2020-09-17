@@ -17,6 +17,7 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
   @Input() labelPosition: string = 'bottom';
   @Input() required = false;
   @Output() keyUpValue = new EventEmitter<string>();
+  @Output() changeValue = new EventEmitter<DropdownShowItem>();
 
   showInput: boolean = false;
   showInputChange = new BehaviorSubject<boolean>(false);
@@ -100,6 +101,7 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
    */
   selectItem(item: DropdownShowItem) {
     this.value = item.id;
+    this.changeValue.emit(item);
     this.showInput = false;
     this.showInputChange.next(false);
     this.showListItems = false;
