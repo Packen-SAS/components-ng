@@ -628,7 +628,8 @@ A special dropdown with more details to show.
 
 ``` html
 <lib-packen-dropdown-show [(value)]="idSelectedDropdown" [items]="listDropdown" [label]="'EPS'"
-    (keyUpValue)="keyUpDropdown($event)" [icon]="'icon-email'" [labelPosition]="'top'" [required]="true">
+    (keyUpValue)="keyUpDropdown($event)" (changeValue)="changeValue($event)" [icon]="'icon-email'" 
+    [labelPosition]="'top'" [required]="true">
 </lib-packen-dropdown-show>
 ```
 
@@ -649,6 +650,7 @@ A special dropdown with more details to show.
 #### Events
 
 - **keyUpValue**: Emits when key up in the input **NOTE**: Event is not required.
+- **changeValue**: Emits when the value changes **NOTE**: Event is not required.
 
 ``` javascript
 interface DropdownShowItem {

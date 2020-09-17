@@ -33,5 +33,13 @@ export class InputsShowDropdownComponent implements OnInit {
       }
     });
   }
+
+  /**
+   * Metodo funciona cuando se selecciona un item del dropdown
+   * @param item objeto del tipo DropdownShowItem
+   */
+  changeValue(item: DropdownShowItem) {
+    console.log(item);
+  }
 }
 
