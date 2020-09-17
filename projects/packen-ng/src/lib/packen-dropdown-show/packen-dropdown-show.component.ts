@@ -8,7 +8,7 @@ import { DropdownShowItem } from '../../interfaces/dropdown-show-item';
   templateUrl: './packen-dropdown-show.component.html',
   styleUrls: ['./packen-dropdown-show.component.scss']
 })
-export class PackenInputShowDropdownComponent implements OnInit, OnChanges {
+export class PackenDropdownShowComponent implements OnInit, OnChanges {
 
   @ViewChild('searchIdPackenDropdown') searchElement: ElementRef;
   @Input() items: Array<DropdownShowItem> = [];

@@ -49,3 +49,18 @@ export const selectListMock = [
         selected: false
     }
 ];
+
+export const selectListActionMock = [
+    {
+        id: 1,
+        name: 'Aprobar',
+        description: 'Aprobar',
+        selected: false
+    },
+    {
+        id: 2,
+        name: 'Rechazar',
+        description: 'Rechazar',
+        selected: false
+    }
+]

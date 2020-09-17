@@ -3,15 +3,15 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { DropdownShowItem } from 'dist/packen-ng/interfaces/dropdown-show-item';
 
-import { PackenInputShowDropdownComponent } from './packen-dropdown-show.component';
+import { PackenDropdownShowComponent } from './packen-dropdown-show.component';
 
 describe('PackenDropdownShowComponent', () => {
-  let component: PackenInputShowDropdownComponent;
-  let fixture: ComponentFixture<PackenInputShowDropdownComponent>;
+  let component: PackenDropdownShowComponent;
+  let fixture: ComponentFixture<PackenDropdownShowComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [PackenInputShowDropdownComponent],
+      declarations: [PackenDropdownShowComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       imports: [
         FormsModule
@@ -21,7 +21,7 @@ describe('PackenDropdownShowComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PackenInputShowDropdownComponent);
+    fixture = TestBed.createComponent(PackenDropdownShowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,10 +1,11 @@
-@import "variables";
+@import "../../assets/styles/colors.scss";
 
 @mixin selected-option {
     cursor: pointer;
     box-sizing: border-box;
-    background: $primary-brand-snow;
-    border: 1px solid $primary-brand-ultra-light;
+    color: $primary_hover;
+    background: $brand_primary_snw;
+    border: 1px solid $brand_primary_ulgt;
     box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.1), 0px 4px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -20,17 +21,15 @@
         letter-spacing: 1px;
         text-transform: uppercase;
         margin: 0 0 3px;
-        color: $color-independence;
+        color: $tertiary_default;
     }
 
-    &__category-ctn {
+    &__option-ctn {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
 
-        &__category {
-            width: 95px;
-            height: 56px;
+        &__option {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -40,21 +39,21 @@
             line-height: 24px;
             border-radius: 4px;
             margin: 10px;
-            background: $color-white;
-            color: $color-independence-light;
+            background: $basic_white_dft;
+            color: $gray;
 
             &--disabled {
                 opacity: 0.5;
                 cursor: not-allowed !important;
             }
 
-            &:hover:not(.box-license__category-ctn__category--disabled) {
+            &:hover:not(.box-license__option-ctn__option--disabled) {
                 @include selected-option;
             }
         }
     }
 }
 
-.category--selected {
+.option--selected {
     @include selected-option;
 }

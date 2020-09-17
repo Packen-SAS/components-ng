@@ -12,18 +12,31 @@ export class PackenSelectComponent implements OnInit, OnChanges {
   @Input() subtitle: string;
   @Input() disabled: boolean;
   @Input() selectedId: number;
+  @Input() width: number;
+  @Input() height: number;
   allowSelect: boolean;
   classDisabled: string;
+  styleBox: object = {};
 
   @Output() outputClick: EventEmitter<SelectItem> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
+    this.loadDimensions();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.applyDisabled(changes.disabled?.currentValue);
+  }
+
+  /**
+   * Método para cargar las dimensiones de las cajas de opciones
+   */
+  loadDimensions() {
+    if (this.width && this.height) {
+      this.styleBox = { 'width': `${this.width}px`, 'height': `${this.height}px` };
+    }
   }
 
   /**
@@ -34,16 +47,16 @@ export class PackenSelectComponent implements OnInit, OnChanges {
     this.allowSelect = true;
     this.classDisabled = '';
     if (disabled) {
-      this.disabledCategory();
+      this.disabledOption();
     }
   }
 
   /**
-   * Método para deshabilitar una caja de categoria
+   * Método para deshabilitar una caja de opcion
    */
-  disabledCategory() {
+  disabledOption() {
     this.allowSelect = false;
-    this.classDisabled = ' box-license__category-ctn__category--disabled';
+    this.classDisabled = ' box-license__option-ctn__option--disabled';
 
     if (this.selectedId) {
       this.setSelectedOption({ id: this.selectedId, name: '', description: '' });
@@ -80,13 +93,13 @@ export class PackenSelectComponent implements OnInit, OnChanges {
    */
   getItemClass(item: SelectItem) {
     if (this.disabled) {
-      this.disabledCategory();
+      this.disabledOption();
     }
 
     if (item.selected) {
-      return 'box-license__category-ctn__category category--selected' + this.classDisabled;
+      return 'box-license__option-ctn__option option--selected' + this.classDisabled;
     }
-    return 'box-license__category-ctn__category' + this.classDisabled;
+    return 'box-license__option-ctn__option' + this.classDisabled;
   }
 
 }

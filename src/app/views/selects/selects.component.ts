@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectItem } from 'projects/packen-ng/src/interfaces/select-item';
-import { selectListMock } from 'src/app/mocks/select.mock';
+import { selectListActionMock, selectListMock } from 'src/app/mocks/select.mock';
 
 @Component({
   selector: 'app-selects',
@@ -12,6 +12,10 @@ export class SelectsComponent implements OnInit {
   selectList: SelectItem[] = selectListMock;
   disabled: boolean = false;
   selectedId: number;
+
+  selectListAction: SelectItem[] = selectListActionMock;
+  disabledAction: boolean = false;
+  selectedIdAction: number;
 
   constructor() { }
 
@@ -37,7 +41,28 @@ export class SelectsComponent implements OnInit {
    * Método para imprimir la opcion elegida
    */
   print() {
-    console.log('Selected option: ', this.selectedId);
+    console.log('Selected option type: ', this.selectedId);
   }
 
+  /**
+   * Método para seleccionar la opcion elegida
+   * @param option La opcion seleccionada
+   */
+  setSelectedOptionAction(option: SelectItem) {
+    this.selectedIdAction = option.id;
+  }
+
+  /**
+   * Método para habilitar o deshabilitar las opciones
+   */
+  disableAction() {
+    this.disabledAction = !this.disabledAction;
+  }
+
+  /**
+   * Método para imprimir la opcion elegida
+   */
+  printAction() {
+    console.log('Selected option action: ', this.selectedIdAction);
+  }
 }
