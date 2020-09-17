@@ -15,9 +15,10 @@ export class PackenInputShowComponent implements OnInit {
   @Input() showSee: boolean = false;
   @Input() showEdit: boolean = false;
   @Input() isDropdown: boolean = false;
-
+  @Input() phantom: boolean = false;
 
   @Input() title: string = '';
+  @Input() description: string = '';
   @Input() label: string = '';
   @Input() message: string = '';
 
@@ -64,7 +65,7 @@ export class PackenInputShowComponent implements OnInit {
   }
 
   /**
-   * Function set width wen the component is for dropdown
+   * Método para definir el ancho cuando es tipo dropdown
    */
   getWidthContentData() {
     if (this.isDropdown) {
@@ -72,6 +73,12 @@ export class PackenInputShowComponent implements OnInit {
     }
   }
 
+  /**
+   * Metodo para definir si el fondo es transparente o no
+   */
+  getBackgroundClass() {
+    return this.phantom ? 'cnt--phantom' : '';
+  }
 }
 
 // Tipos

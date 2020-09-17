@@ -1,0 +1,9 @@
+<div class="box-license">
+    <label>{{ subtitle }}</label>
+
+    <div class="box-license__category-ctn">
+        <div [ngClass]="getItemClass(item)" *ngFor="let item of items" (click)="selectOption(item)">
+            {{ item.name }}
+        </div>
+    </div>
+</div>
