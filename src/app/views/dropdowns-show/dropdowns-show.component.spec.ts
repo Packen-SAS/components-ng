@@ -54,8 +54,4 @@ describe('DropdownsShowComponent', () => {
     expect(spyListHealtEntities).toHaveBeenCalled();
   });
 
-  it('Testing function changeValue() ', () => {
-    const objDropdownShow: DropdownShowItem = { id: 1, title: 'Test' };
-    expect(component.changeValue(objDropdownShow)).toBeUndefined();
-  });
 });
