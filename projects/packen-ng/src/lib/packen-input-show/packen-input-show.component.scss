@@ -10,6 +10,10 @@
     flex-direction: column;
     min-height: 56px;
 
+    &--phantom {
+        background-color: transparent !important;
+    }
+
     &__sub {
         display: flex;
         justify-content: space-between;
@@ -57,11 +61,18 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+
         &__title {
             font-size: 16px;
             line-height: 20px;
             color: $textiary_hover;
             margin-bottom: -3px !important;
+
+            &__desc {
+                margin-left: 5px;
+                font-size: 12px !important;
+                color: $tertiary_default !important;
+            }
         }
 
         &__label {
@@ -113,8 +124,12 @@
     .cnt {
         &__body {
             &__title {
-                font-size: 10px;
+                font-size: 12px;
                 line-height: normal !important;
+
+                &__desc {
+                    font-size: 10px !important;
+                }
             }
 
             &__message {

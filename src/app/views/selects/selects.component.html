@@ -1,0 +1,32 @@
+<h2>Selects</h2>
+<div class="row">
+    <form #formTest="ngForm" class="form-ctn">
+        <div class="col-md-6">
+            <lib-packen-select [subtitle]="'Tipo de licencia'" [width]="95" [height]="56" [items]="selectList"
+                [disabled]="disabled" (outputClick)="setSelectedOption($event)" [selectedId]="selectedId">
+            </lib-packen-select>
+        </div>
+        <div>
+            <button class="btn-p" (click)="disable()">Disable</button>
+            <button class="btn-p" (click)="print()" [disabled]="!formTest.valid || !selectedId">
+                Print Option
+            </button>
+        </div>
+    </form>
+</div>
+
+<div class="row">
+    <form #formTest2="ngForm" class="form-ctn">
+        <div class="col-md-10">
+            <lib-packen-select [subtitle]="'Accion'" [width]="218" [height]="56" [items]="selectListAction"
+                [disabled]="disabledAction" (outputClick)="setSelectedOptionAction($event)" [selectedId]="selectedIdAction">
+            </lib-packen-select>
+        </div>
+        <div>
+            <button class="btn-p" (click)="disableAction()">Disable</button>
+            <button class="btn-p" (click)="printAction()" [disabled]="!formTest2.valid || !selectedIdAction">
+                Print Option
+            </button>
+        </div>
+    </form>
+</div>

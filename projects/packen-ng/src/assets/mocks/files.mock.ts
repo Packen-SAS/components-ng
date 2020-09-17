@@ -16,7 +16,6 @@ export const eventFileMock = {
 
 export const mockFileReader = {
     target: { result: '' },
-    readAsDataURL: (blobInput) => { },
-    onloadend: (value) => { }
+    readAsDataURL: (blobInput) => { }
 };
 

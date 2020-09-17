@@ -27,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputsShowComponent } from './views/inputs-show/inputs-show.component';
 import { AlertsComponent } from './views/alerts/alerts.component';
 import { InputsShowDropdownComponent } from './views/dropdowns-show/dropdowns-show.component';
+import { SelectsComponent } from './views/selects/selects.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { InputsShowDropdownComponent } from './views/dropdowns-show/dropdowns-sh
     DatesComponent,
     InputsShowComponent,
     AlertsComponent,
-    InputsShowDropdownComponent
+    InputsShowDropdownComponent,
+    SelectsComponent
   ],
   imports: [
     HttpClientModule,

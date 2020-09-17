@@ -36,6 +36,7 @@ import {
 The **PackenNgModule** contains the following components:
 
 >
+> * [SelectComponent](#SelectComponent)
 > * [FileComponent](#FileComponent)
 > * [PinMapComponent](#PinMapComponent)
 > * [DateComponent](#DateComponent)
@@ -54,6 +55,44 @@ The **PackenNgModule** contains the following components:
 > * TogglesComponent
 
 ## Components
+
+### SelectComponent
+
+Show an options group to single select option.
+
+#### HTML
+
+``` html
+<lib-packen-select [subtitle]="'Tipo de licencia'" [width]="95" [height]="56" [items]="selectList"
+    [disabled]="disabled" (outputClick)="setSelectedOption($event)" [selectedId]="selectedId">
+</lib-packen-select>
+```
+
+#### Appearance
+
+![](https://packenco.s3.amazonaws.com/packen_ng/packen-select/select-exemple-one.png)
+![](https://packenco.s3.amazonaws.com/packen_ng/packen-select/select-exemple-two.png)
+
+#### Options
+
+ - **subtitle**: Label to show above options group.
+ - **width**: Defines width box option in pixels.
+ - **height**: Defines height box option in pixels.
+ - **items**: Defines options to show in the group. Must have an array of `SelectItem` structure.
+ - **disabled**: Defines option group are enabled or not: `(true|false)`.
+ - **selectedId**: Item id that was selected.
+ - **outputClick**: Action trigered when an option is selected.
+
+#### Option structure 
+
+``` javascript
+class SelectItem {
+    id: number;
+    name: string;
+    description: string;
+    selected?: boolean;
+}
+```
 
 ### FileComponent
 
@@ -573,7 +612,8 @@ A special input to show more details.
 ``` html
 <lib-input-show icon="icon-id" color="yellow-off" type="icon" [title]="'1.018.234.542'" url="httt://image.png"
   label="Documento de identidad" message="Documento a la espera de aprobación" labelPosition="bottom"
-  (clickSee)="clickSeeButton($event)" (clickEdit)="clickEdit($event)" [showEdit]='true' [showSee]="true">
+  (clickSee)="clickSeeButton($event)" (clickEdit)="clickEdit($event)" [showEdit]='true' [showSee]="true"
+  [description]="'(Lado de la fotografia)'" [phantom]="true">
 </lib-input-show>
 ```
 
@@ -590,6 +630,8 @@ A special input to show more details.
 - **labelPosition**: Defines the label position `(top|bottom)` **NOTE**: default value is bottom.
 - **showEdit**: Defines if eye icon is showed or not. `(true|false)` **NOTE**: default value is false.
 - **showSee**: Defines if the pencil icon is showed or not. `(true|false)` **NOTE**: default value is false.
+- **phantom**: Defines if background will be transparent or not.`(true|false)`.
+- **description**: Set a smaller description text side label.
 
 #### Events
 - **clickSee**: Triggers when see icon is clicked **NOTE**: Event is required when **showSee** is **true**.

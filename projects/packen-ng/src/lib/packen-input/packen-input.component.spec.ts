@@ -193,6 +193,9 @@ describe('PackenInputComponent', () => {
   it('Render function ngAfterViewInit() when is lazy is true', () => {
     component.lazy = true;
     expect(component.ngAfterViewInit()).toBeUndefined();
+
+    component.searchinput.nativeElement.dispatchEvent(new KeyboardEvent('keyup', {code: 'ArrowUp'}));
+    fixture.detectChanges();
   });
 
   it('Testing method ngOnChanges() when disabled property does not exit', () => {

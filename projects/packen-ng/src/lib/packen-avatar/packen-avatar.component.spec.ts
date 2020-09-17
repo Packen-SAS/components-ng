@@ -51,9 +51,6 @@ describe('PackenAvatarComponent', () => {
     component.value = new File([], '');
     spyOn<any>(window, 'FileReader').and.returnValue(mockFileReader);
 
-    spyOn(mockFileReader, 'onloadend').and.callFake(() => {
-      return of({ target: {} });
-    });
     expect(component.fileChange(eventFileMock)).toBeUndefined();
   });
 

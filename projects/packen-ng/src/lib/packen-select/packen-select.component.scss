@@ -1,0 +1,59 @@
+@import "../../assets/styles/colors.scss";
+
+@mixin selected-option {
+    cursor: pointer;
+    box-sizing: border-box;
+    color: $primary_hover;
+    background: $brand_primary_snw;
+    border: 1px solid $brand_primary_ulgt;
+    box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.1), 0px 4px 5px rgba(0, 0, 0, 0.1);
+}
+
+.box-license {
+    padding: 5px 10px;
+
+    label {
+        font-family: $font-stack;
+        font-size: 12px;
+        line-height: 16px;
+        font-style: normal;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin: 0 0 3px;
+        color: $tertiary_default;
+    }
+
+    &__option-ctn {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        &__option {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: $font-stack;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 24px;
+            border-radius: 4px;
+            margin: 10px;
+            background: $basic_white_dft;
+            color: $gray;
+
+            &--disabled {
+                opacity: 0.5;
+                cursor: not-allowed !important;
+            }
+
+            &:hover:not(.box-license__option-ctn__option--disabled) {
+                @include selected-option;
+            }
+        }
+    }
+}
+
+.option--selected {
+    @include selected-option;
+}

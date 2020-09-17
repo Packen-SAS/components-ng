@@ -15,5 +15,15 @@
         [label]="'Correo electronico'" [message]="'Correo a la espera de verificación'" [labelPosition]="'bottom'"
         (clickSee)="clickSeeButton($event)" (clickEdit)="clickEdit($event)" [showEdit]="true" [showSee]="true">
     </lib-packen-input-show>
+
+    <br>
+    <lib-packen-input-show [type]="'icon'" [icon]="'icon-doc-front'" [title]="'109702362733'"
+        [label]="'Cedula de ciudadania'" [labelPosition]="'bottom'" [phantom]="true">
+    </lib-packen-input-show>
+
+    <br>
+    <lib-packen-input-show [type]="'icon'" [icon]="'icon-doc-back'" [title]="'Cara 1'" [labelPosition]="'bottom'"
+        [description]="'(Lado de la fotografia)'" [phantom]="true">
+    </lib-packen-input-show>
 </div>
 <br>
