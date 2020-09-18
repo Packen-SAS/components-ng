@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'lib-packen-input-show',
   templateUrl: './packen-input-show.component.html',
   styleUrls: ['./packen-input-show.component.scss']
 })
-export class PackenInputShowComponent implements OnInit {
+export class PackenInputShowComponent implements OnInit, OnChanges {
 
   @Input() icon: string = '';
   @Input() color: StatesColorMessage = '';
@@ -29,6 +29,11 @@ export class PackenInputShowComponent implements OnInit {
   widthContentDataClass: string = '';
 
   constructor() { }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.color) {
+      this.getColorMessage(this.color);
+    }
+  }
 
   ngOnInit(): void {
     this.getColorMessage(this.color);
@@ -43,6 +48,9 @@ export class PackenInputShowComponent implements OnInit {
     switch (color) {
       case StatesColorMessageClass.yellowOff:
         this.colorMessage = StyleColorMessage.yellowOff;
+        break;
+      case StatesColorMessageClass.red:
+        this.colorMessage = StyleColorMessage.red;
         break;
       default:
         this.colorMessage = '';
@@ -82,15 +90,17 @@ export class PackenInputShowComponent implements OnInit {
 }
 
 // Tipos
-type StatesColorMessage = 'yellow-off' | '';
+type StatesColorMessage = 'yellow-off' | 'red' | '';
 type TypeSourceImgIcon = 'icon' | 'url';
 type TypelabelPosition = 'top' | 'bottom';
 
 // Clases
 class StyleColorMessage {
   static readonly yellowOff = 'cnt__body__message--yellow-off';
+  static readonly red = 'cnt__body__message--red';
 }
 
 class StatesColorMessageClass {
   static readonly yellowOff = 'yellow-off';
+  static readonly red = 'red';
 }

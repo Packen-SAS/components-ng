@@ -102,6 +102,10 @@
                 color: $yellow-off;
             }
 
+            &--red {
+                color: $danger_default
+            }
+
             &--bottom {
                 display: none;
             }
