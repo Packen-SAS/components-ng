@@ -29,6 +29,7 @@ export class PackenInputShowComponent implements OnInit, OnChanges {
   widthContentDataClass: string = '';
 
   constructor() { }
+
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.color) {
       this.getColorMessage(this.color);
