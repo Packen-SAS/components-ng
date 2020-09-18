@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PackenInputShowComponent } from './packen-input-show.component';
 
-fdescribe('PackenInputShowComponent', () => {
+describe('PackenInputShowComponent', () => {
   let component: PackenInputShowComponent;
   let fixture: ComponentFixture<PackenInputShowComponent>;
 
