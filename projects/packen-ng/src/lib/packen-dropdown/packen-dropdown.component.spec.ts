@@ -456,7 +456,5 @@ describe('PackenDropdownComponent', () => {
     component.ngOnChanges({
       disabled: new SimpleChange(null, false, false)
     });
-    fixture.detectChanges();
-    expect(component).toBeTruthy();
   });
 });

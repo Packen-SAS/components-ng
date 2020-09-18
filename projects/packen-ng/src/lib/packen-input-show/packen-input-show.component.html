@@ -13,14 +13,14 @@
                         <span *ngIf="description" class="cnt__body__title__desc">{{description}}</span>
                     </p>
                     <p class="cnt__body__label" *ngIf="labelPosition === 'bottom'">{{label}}</p>
-                    <div *ngIf="message !== '' && message !== null" class="cnt__body__message cnt__body__message--top"
+                    <div *ngIf="message" class="cnt__body__message cnt__body__message--top"
                         [ngClass]="colorMessage">
                         <p class="cnt__body__message__icon"><span class="icon-alert-circle"></span></p>
                         <p class="cnt__body__message__msg">{{message}}</p>
                     </div>
                 </div>
             </div>
-            <div *ngIf="message !== '' && message !== null" class="cnt__body__message cnt__body__message--bottom"
+            <div *ngIf="message" class="cnt__body__message cnt__body__message--bottom"
                 [ngClass]="colorMessage">
                 <p class="cnt__body__message__icon"><span class="icon-alert-circle"></span></p>
                 <p class="cnt__body__message__msg">{{message}}</p>

@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InputsShowComponent implements OnInit {
   imgTest: string = 'https://cdn.pixabay.com/photo/2020/08/23/15/32/monkey-5511150_960_720.jpg';
+  testMessage:string = '';
   constructor() { }
 
   ngOnInit(): void {
