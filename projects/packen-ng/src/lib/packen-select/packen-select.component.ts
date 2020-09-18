@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { of } from 'rxjs';
 import { SelectItem } from '../../interfaces/select-item';
 
 @Component({
@@ -59,7 +60,7 @@ export class PackenSelectComponent implements OnInit, OnChanges {
     this.classDisabled = ' box-license__option-ctn__option--disabled';
 
     if (this.selectedId) {
-      this.setSelectedOption({ id: this.selectedId, name: '', description: '' });
+      this.setSelectedOption({ id: this.selectedId, name: of(''), description: '' });
     }
   }
 
