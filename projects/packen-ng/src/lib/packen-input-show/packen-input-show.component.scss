@@ -18,6 +18,8 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
 
         &__child-first {
             display: flex;
