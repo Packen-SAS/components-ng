@@ -1,9 +1,11 @@
+import { Observable } from 'rxjs';
+
 /**
  * Clase que representa la informacion de la estructura de un select
  */
 export class SelectItem {
-    id: number;
-    name: string;
-    description: string;
+    id: any;
+    name: Observable<string>;
+    description?: string;
     selected?: boolean;
 }
