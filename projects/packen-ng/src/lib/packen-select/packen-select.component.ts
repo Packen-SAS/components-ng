@@ -29,6 +29,10 @@ export class PackenSelectComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    if (changes.selectedId) {
+      this.setSelectedOprion();
+    }
+
     this.applyDisabled(changes.disabled?.currentValue);
   }
 

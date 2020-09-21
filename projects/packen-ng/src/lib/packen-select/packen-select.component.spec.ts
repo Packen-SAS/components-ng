@@ -50,6 +50,15 @@ describe('PackenSelectComponent', () => {
     expect(component).toBeDefined();
   });
 
+  it('Testing method ngOnChanges() when selectedId property exits', () => {
+    component.selectedId = null;
+    component.ngOnChanges({
+      selectedId: new SimpleChange(null, true, null)
+    });
+    fixture.detectChanges();
+    expect(component).toBeDefined();
+  });
+
   it('Testing method getItemClass() when disabled is true', () => {
     component.disabled = true;
     expect(component.getItemClass(selectListMock[0])).toBeDefined();
