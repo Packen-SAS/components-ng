@@ -15,7 +15,7 @@ export class SelectsComponent implements OnInit {
 
   selectListAction: SelectItem[] = selectListActionMock;
   disabledAction: boolean = false;
-  selectedIdAction: number;
+  selectedIdAction: number = 1;
 
   constructor() { }
 
