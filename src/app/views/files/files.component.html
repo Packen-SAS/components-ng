@@ -4,7 +4,7 @@
         <div class="col-md">
             <lib-packen-file [disabled]="disabledFile" [uploadedText]="'Archivo cargado'" [noUploadedText]="'Pendiente'"
                 [title]="'Cara 1'" [subtitle]="'(Lado de la fotografia)'" name="lib-file-1" [(value)]="selectedFile"
-                required="true">
+                required="true" [showUploadedText]="[false]">
             </lib-packen-file>
         </div>
         <div class="col-md">
@@ -22,3 +22,8 @@
         </button>
     </div>
 </div>
+
+<lib-packen-file [disabled]="disabledFile" [uploadedText]="'Archivo cargado'" [noUploadedText]="'Pendiente'"
+    [title]="'Cara 1'" [subtitle]="'(Lado de la fotografia)'" name="lib-file-1" [(value)]="selectedFile" required="true"
+    typeSrc="icon">
+</lib-packen-file>

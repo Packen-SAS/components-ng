@@ -18,8 +18,12 @@ export class PackenFileComponent implements OnInit, OnChanges {
   @Input() noUploadedText: string;
   @Input() name: string;
 
-  iconRight: string = 'https://packenco.s3.amazonaws.com/packen_ng/packen_file/right-arrow.svg';
-  iconRightCheck: string = 'https://packenco.s3.amazonaws.com/packen_ng/packen_file/check.svg';
+  @Input() showUploadedText: boolean = true;
+  @Input() typeSrcRight: string = 'img';
+  @Input() iconRight:string = '';
+
+  iconS3Right: string = 'https://packenco.s3.amazonaws.com/packen_ng/packen_file/right-arrow.svg';
+  iconS3RightCheck: string = 'https://packenco.s3.amazonaws.com/packen_ng/packen_file/check.svg';
 
   classInput: string = '';
   classInputPrevious: string = '';
