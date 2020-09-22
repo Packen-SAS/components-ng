@@ -632,11 +632,13 @@ A special input to show more details.
 - **showSee**: Defines if the pencil icon is showed or not. `(true|false)` **NOTE**: default value is false.
 - **phantom**: Defines if background will be transparent or not.`(true|false)`.
 - **description**: Set a smaller description text side label.
+- **isInput**: Defines whether to show input when clicked.
+- **mask**: Input masks for external library [ngx-mask](https://www.npmjs.com/package/ngx-mask)
 
 #### Events
 - **clickSee**: Triggers when see icon is clicked **NOTE**: Event is required when **showSee** is **true**.
 - **clickEdit**: Triggers when see edit is clicked **NOTE**: Event is required when **showEdit** is **true**.
-
+- **keyUpInput** Triggers when change the input value **NOTE**: Event not is required.
 ### AlertComponent
 
 An alert.
