@@ -31,6 +31,10 @@ export class InputsShowComponent implements OnInit {
     console.log(event);
   }
 
+  /**
+   * Método recibe el valor escrito en el input
+   * @param value cadena de caracteres
+   */
   changeValueInput(value: string) {
     this.titleInput = value;
   }

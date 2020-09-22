@@ -33,4 +33,8 @@ describe('InputsShowComponent', () => {
     expect(component.clickEdit('edit')).toBeUndefined();
   });
 
+  it('Testing function changeValueInput() ', () => {
+    expect(component.changeValueInput('Value')).toBeUndefined();
+  });
+
 });
