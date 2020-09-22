@@ -1,6 +1,8 @@
 <div class="ctn">
     <label class="box-file" [ngClass]="classInput" [for]="name">
-        <img class="box-file__icon-left" [src]="iconLeft" />
+        <img *ngIf="typeSrcLeft === 'img'" class="box-file__icon-left" [src]="srcLeft" />
+        <span class="box-file__icon-span-left" *ngIf="typeSrcLeft === 'icon'" [ngClass]="iconLeft"></span>
+
         <div class="box-file__rigth-section">
             <div class="box-file__content">
                 <div class="box-file__content__desc">
@@ -13,9 +15,10 @@
                     {{ noUploadedText }}</div>
             </div>
 
-            <span *ngIf="typeSrcRight === 'icon'" [ngClass]="iconRight"></span>
+            <span class="box-file__icon-span" *ngIf="typeSrcRight === 'icon'" [ngClass]="iconRight"></span>
+
             <img class="box-file__icon-right" [src]="iconS3RightCheck" *ngIf="selectedFile" />
-            <img class="box-file__icon-right" [src]="iconS3Right" *ngIf="!selectedFile" />
+            <img class="box-file__icon-right" [src]="srcRight" *ngIf="!selectedFile && typeSrcRight === 'img'" />
         </div>
     </label>
 

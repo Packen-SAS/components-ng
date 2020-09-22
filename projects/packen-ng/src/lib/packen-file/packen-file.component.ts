@@ -10,7 +10,6 @@ export class PackenFileComponent implements OnInit, OnChanges {
   @Input() size: StatesSizesInput = 'small';
   @Input() disabled: boolean = false;
   @Input() required: boolean = false;
-  @Input() iconLeft: string = '../../assets/icons-test/contact.svg';
 
   @Input() title: string;
   @Input() subtitle: string;
@@ -19,11 +18,16 @@ export class PackenFileComponent implements OnInit, OnChanges {
   @Input() name: string;
 
   @Input() showUploadedText: boolean = true;
-  @Input() typeSrcRight: string = 'img';
-  @Input() iconRight:string = '';
 
-  iconS3Right: string = 'https://packenco.s3.amazonaws.com/packen_ng/packen_file/right-arrow.svg';
-  iconS3RightCheck: string = 'https://packenco.s3.amazonaws.com/packen_ng/packen_file/check.svg';
+  @Input() typeSrcRight: string = TypeSrc.img;
+  @Input() iconRight: string = '';
+  @Input() srcRight: string = Images.arrowRight;
+
+  @Input() typeSrcLeft: string = TypeSrc.img;
+  @Input() iconLeft: string = '';
+  @Input() srcLeft: string = Images.contact;
+
+  iconS3RightCheck: string = Images.check;
 
   classInput: string = '';
   classInputPrevious: string = '';
@@ -113,4 +117,15 @@ class SizesBoxClass {
   static readonly giant = 'box-file__size--giant';
   static readonly error = ' box-file__size--error';
   static readonly disabled = ' box-file--disabled';
+}
+
+class Images {
+  static readonly check = 'https://packenco.s3.amazonaws.com/packen_ng/packen_file/check.svg';
+  static readonly arrowRight = 'https://packenco.s3.amazonaws.com/packen_ng/packen_file/right-arrow.svg';
+  static readonly contact = '../../assets/icons-test/contact.svg';
+}
+
+class TypeSrc {
+  static readonly img = 'img';
+  static readonly icon = 'icon';
 }

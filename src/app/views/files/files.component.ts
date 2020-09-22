@@ -10,6 +10,7 @@ export class FilesComponent implements OnInit {
   selectedFile: File;
   selectedFile2: File;
   disabledFile: boolean = false;
+  imgRoute = 'https://packenco.s3.amazonaws.com/packen_ng/packen_file/right-arrow.svg';
 
   constructor() { }
 
