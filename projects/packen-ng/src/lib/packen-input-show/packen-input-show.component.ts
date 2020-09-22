@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'lib-packen-input-show',
   templateUrl: './packen-input-show.component.html',
   styleUrls: ['./packen-input-show.component.scss']
 })
-export class PackenInputShowComponent implements OnInit, OnChanges {
+export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewInit {
 
   @ViewChild('searchDropdown') searchDropdown: ElementRef;
 
@@ -25,7 +25,6 @@ export class PackenInputShowComponent implements OnInit, OnChanges {
   @Input() label: string = '';
   @Input() message: string = '';
   @Input() mask: string;
-
 
   @Output() clickSee = new EventEmitter<string>();
   @Output() clickEdit = new EventEmitter<string>();
@@ -51,8 +50,15 @@ export class PackenInputShowComponent implements OnInit, OnChanges {
 
   contClass: string = '';
   subContClass: string = '';
+  titleValueInput: string = '';
 
   constructor() { }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.titleValueInput = this.searchDropdown.nativeElement.value;
+    }, 300);
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.color) {
@@ -63,7 +69,6 @@ export class PackenInputShowComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.getColorMessage(this.color);
     this.getWidthContentData();
-
 
     // Estilos variable cont
     this.loadClassWhenIsInput();
@@ -139,9 +144,7 @@ export class PackenInputShowComponent implements OnInit, OnChanges {
         this.searchDropdown.nativeElement.focus();
       }, 100);
     }
-
   }
-
 
   /**
    * Método detecta cuando se da click fuera del contenido
@@ -150,7 +153,16 @@ export class PackenInputShowComponent implements OnInit, OnChanges {
     this.showInput = false;
   }
 
+  /**
+   * Método se ejectuta cuando se ingresa un valor en el input
+   * @param value valor escrito
+   */
   keyUpValue(value: string) {
+    this.titleValueInput = value;
+    if (value.length === 0) {
+      this.titleValueInput = this.title;
+    }
+
     this.keyUpInput.emit(value);
   }
 }

@@ -10,8 +10,10 @@
                 </div>
                 <div class="cnt__body">
                     <p class="cnt__body__label" *ngIf="labelPosition === 'top'">{{label}}</p>
-                    <p class="cnt__body__title">
-                        <span>{{title}}</span>
+                    <p class="cnt__body__title"
+                        [ngClass]="titleValueInput === title && isInput? 'cnt__body__title--placeholder': ''">
+                        <span *ngIf="!isInput">{{title}}</span>
+                        <span *ngIf="isInput">{{titleValueInput}}</span>
                         <span *ngIf="description" class="cnt__body__title__desc">{{description}}</span>
                     </p>
                     <p class="cnt__body__label" *ngIf="labelPosition === 'bottom'">{{label}}</p>

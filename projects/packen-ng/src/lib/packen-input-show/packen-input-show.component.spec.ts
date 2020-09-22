@@ -101,4 +101,8 @@ describe('PackenInputShowComponent', () => {
     component.value = 'Value';
     expect(component.keyUpValue('Value')).toBeUndefined();
   });
-});
+
+  it('Testing function keyUpValue() when value is empty', () => {
+    expect(component.keyUpValue('')).toBeUndefined();
+  });
+})

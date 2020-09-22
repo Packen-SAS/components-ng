@@ -79,6 +79,10 @@
                 font-size: 12px !important;
                 color: $tertiary_default !important;
             }
+
+            &--placeholder {
+                color: rgba(48, 77, 109, 0.6) !important;
+            }
         }
 
         &__label {
@@ -107,7 +111,7 @@
             }
 
             &--red {
-                color: $danger_default
+                color: $danger_default;
             }
 
             &--bottom {
