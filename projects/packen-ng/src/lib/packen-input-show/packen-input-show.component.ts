@@ -18,7 +18,7 @@ export class PackenInputShowComponent implements OnInit, OnChanges {
   @Input() showEdit: boolean = false;
   @Input() isDropdown: boolean = false;
   @Input() phantom: boolean = false;
-  @Input() isInput: boolean = true;
+  @Input() isInput: boolean = false;
 
   @Input() title: string = '';
   @Input() description: string = '';
@@ -133,10 +133,13 @@ export class PackenInputShowComponent implements OnInit, OnChanges {
    * Método oculta o muestra el click, pero cuando isInput es true
    */
   showInputClick() {
-    this.showInput = true;
-    setTimeout(() => {
-      this.searchDropdown.nativeElement.focus();
-    }, 100);
+    if (this.isInput) {
+      this.showInput = true;
+      setTimeout(() => {
+        this.searchDropdown.nativeElement.focus();
+      }, 100);
+    }
+
   }
 
 
