@@ -1,5 +1,8 @@
-<div class="cnt" [ngClass]="getBackgroundClass()">
-    <div class="cnt__sub">
+<div class="cnt" [ngClass]="contClass" (click)="showInputClick()" (clickOutside)="clickOutsideContent()">
+    <input [(ngModel)]="value" class="cnt__input" #searchDropdown autocomplete="off"
+        [ngStyle]="{'display': showInput ? 'block': 'none'}" [mask]="mask" (keyup)="keyUpValue($event.target.value)">
+
+    <div [ngStyle]="{'display': !showInput ? 'block': 'none'}" class="cnt__sub" [ngClass]="subContClass">
         <div class="cnt__sub__child-first" [ngClass]="widthContentDataClass">
             <div class="cnt__first">
                 <div class="cnt__icon">
@@ -13,15 +16,13 @@
                         <span *ngIf="description" class="cnt__body__title__desc">{{description}}</span>
                     </p>
                     <p class="cnt__body__label" *ngIf="labelPosition === 'bottom'">{{label}}</p>
-                    <div *ngIf="message" class="cnt__body__message cnt__body__message--top"
-                        [ngClass]="colorMessage">
+                    <div *ngIf="message" class="cnt__body__message cnt__body__message--top" [ngClass]="colorMessage">
                         <p class="cnt__body__message__icon"><span class="icon-alert-circle"></span></p>
                         <p class="cnt__body__message__msg">{{message}}</p>
                     </div>
                 </div>
             </div>
-            <div *ngIf="message" class="cnt__body__message cnt__body__message--bottom"
-                [ngClass]="colorMessage">
+            <div *ngIf="message" class="cnt__body__message cnt__body__message--bottom" [ngClass]="colorMessage">
                 <p class="cnt__body__message__icon"><span class="icon-alert-circle"></span></p>
                 <p class="cnt__body__message__msg">{{message}}</p>
             </div>

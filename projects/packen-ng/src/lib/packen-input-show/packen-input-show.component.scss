@@ -30,6 +30,10 @@
                 width: calc(100% - 35px);
             }
         }
+
+        &--is-input {
+            cursor: pointer;
+        }
     }
 
     &--dropdown {
@@ -123,6 +127,14 @@
             color: $primary_default;
             cursor: pointer;
         }
+    }
+
+    &__input {
+        outline: none;
+        min-height: 45px;
+        border-color: transparent;
+        border: none;
+        background-color: transparent;
     }
 }
 
