@@ -25,9 +25,14 @@ export class PackenSelectComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.loadDimensions();
+    this.setSelectedOprion();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    if (changes.selectedId) {
+      this.setSelectedOprion();
+    }
+
     this.applyDisabled(changes.disabled?.currentValue);
   }
 
@@ -58,7 +63,13 @@ export class PackenSelectComponent implements OnInit, OnChanges {
   disabledOption() {
     this.allowSelect = false;
     this.classDisabled = ' box-license__option-ctn__option--disabled';
+    this.setSelectedOprion();
+  }
 
+  /**
+   * Método para poner la opcion seleccionada si existe
+   */
+  setSelectedOprion() {
     if (this.selectedId) {
       this.setSelectedOption({ id: this.selectedId, name: of(''), description: '' });
     }
