@@ -10,6 +10,15 @@
     flex-direction: column;
     min-height: 56px;
 
+    &--error {
+        border: 2px solid $danger_default !important;
+    }
+
+    &--disabled {
+        opacity: 0.5;
+        cursor: default !important;
+    }
+
     &--phantom {
         background-color: transparent !important;
     }
@@ -81,7 +90,7 @@
             }
 
             &--placeholder {
-                color: rgba(48, 77, 109, 0.6) !important;
+                color: $disabled_alt_drk_light !important;
             }
         }
 
@@ -139,7 +148,7 @@
         border-color: transparent;
         border: none;
         background-color: transparent;
-        color: #304d6d;
+        color: $textiary_hover;
     }
 }
 

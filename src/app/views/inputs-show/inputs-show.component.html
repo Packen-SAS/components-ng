@@ -1,10 +1,29 @@
 <h2>Input show</h2>
 <div class="col-sm-8">
-    <lib-packen-input-show [color]="'yellow-off'" [title]="titleInput" [(value)]="valueInput" label="Placa del vehículo"
-        labelPosition="bottom" [isInput]="[true]" mask="AAA-000">
-    </lib-packen-input-show>
-    <br>
+    <form #formTestInputShow="ngForm">
+        <lib-packen-input-show [color]="'yellow-off'" [title]="titleInput" required label="Placa del vehículo"
+            labelPosition="bottom" [isInput]="true" [phantom]="true" mask="AAA-000" [required]="true"
+            [disabled]="disabledInput" [pattern]="patterPlate" [(ngModel)]="valueInput" name="valueInput"
+            [(value)]="valueInput" ngDefaultControl autocomplete="off">
+        </lib-packen-input-show>
 
+        <br>
+        <div class="buttons">
+            <button class="btn btn-outline-dark" (click)="disableOrEnableInput()">Disable input</button>
+            <button class="btn btn-primary" (click)="printValue()" [disabled]="!formTestInputShow.valid">
+                Print value
+            </button>
+        </div>
+    </form>
+
+    <br>
+    <lib-packen-input-show [color]="'yellow-off'" [title]="'Titulo'" label="Descripción"
+        message="Sin icono a la izquierda" labelPosition="bottom" (clickSee)="clickSeeButton($event)"
+        (clickEdit)="clickEdit($event)" [showEdit]='true' [showSee]="true" [phantom]="true">
+    </lib-packen-input-show>
+
+
+    <br>
     <lib-packen-input-show icon="icon-id" [color]="'yellow-off'" type="icon" [title]="'1.018.234.542'"
         label="Documento de identidad" message="Documento a la espera de aprobación" labelPosition="bottom"
         (clickSee)="clickSeeButton($event)" (clickEdit)="clickEdit($event)" [showEdit]='true' [showSee]="true">

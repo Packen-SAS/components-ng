@@ -11,6 +11,8 @@ export class InputsShowComponent implements OnInit {
   testMessage: string = '';
   titleInput = 'AAA-000';
   valueInput: string = 'IJU047';
+  patterPlate = /[A-Z]{3}[-]\d{3}/;
+  disabledInput: boolean = false;
 
   constructor() { }
 
@@ -31,6 +33,20 @@ export class InputsShowComponent implements OnInit {
    */
   clickEdit(event) {
     console.log(event);
+  }
+
+  /**
+   * Método deshabilita o habilita el componente
+   */
+  disableOrEnableInput() {
+    this.disabledInput = !this.disabledInput;
+  }
+
+  /**
+   * Método escribe en consola el valor del componente
+   */
+  printValue() {
+    console.log("Valor ", this.valueInput);
   }
 
 }
