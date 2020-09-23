@@ -15,7 +15,7 @@
                     {{ noUploadedText }}</div>
             </div>
 
-            <span class="box-file__icon-span" *ngIf="typeSrcRight === 'icon'" [ngClass]="iconRight"></span>
+            <span class="box-file__icon-span" *ngIf="typeSrcRight === 'icon' && !selectedFile" [ngClass]="iconRight"></span>
 
             <img class="box-file__icon-right" [src]="iconS3RightCheck" *ngIf="selectedFile" />
             <img class="box-file__icon-right" [src]="srcRight" *ngIf="!selectedFile && typeSrcRight === 'img'" />
