@@ -10,7 +10,7 @@ export class InputsShowComponent implements OnInit {
   imgTest: string = 'https://cdn.pixabay.com/photo/2020/08/23/15/32/monkey-5511150_960_720.jpg';
   testMessage: string = '';
   titleInput = 'AAA-000';
-  valueInput: string = 'IJU047';
+  valueInput: string = 'ABC-1';
   patterPlate = /[A-Z]{3}[-]\d{3}/;
   disabledInput: boolean = false;
 
@@ -43,7 +43,7 @@ export class InputsShowComponent implements OnInit {
   }
 
   /**
-   * Método escribe en consola el valor del componente
+   * Método escribe en consola el valor del
    */
   printValue() {
     console.log("Valor ", this.valueInput);
