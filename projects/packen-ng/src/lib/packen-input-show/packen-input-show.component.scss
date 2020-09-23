@@ -30,6 +30,10 @@
                 width: calc(100% - 35px);
             }
         }
+
+        &--is-input {
+            cursor: pointer;
+        }
     }
 
     &--dropdown {
@@ -75,6 +79,10 @@
                 font-size: 12px !important;
                 color: $tertiary_default !important;
             }
+
+            &--placeholder {
+                color: rgba(48, 77, 109, 0.6) !important;
+            }
         }
 
         &__label {
@@ -103,7 +111,7 @@
             }
 
             &--red {
-                color: $danger_default
+                color: $danger_default;
             }
 
             &--bottom {
@@ -123,6 +131,15 @@
             color: $primary_default;
             cursor: pointer;
         }
+    }
+
+    &__input {
+        outline: none;
+        min-height: 45px;
+        border-color: transparent;
+        border: none;
+        background-color: transparent;
+        color: #304d6d;
     }
 }
 

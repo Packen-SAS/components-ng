@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inputs-show.component.scss']
 })
 export class InputsShowComponent implements OnInit {
+
   imgTest: string = 'https://cdn.pixabay.com/photo/2020/08/23/15/32/monkey-5511150_960_720.jpg';
   testMessage: string = '';
+  titleInput = 'AAA-000';
+  valueInput: string = 'IJU047';
+
   constructor() { }
 
   ngOnInit(): void {
@@ -28,4 +32,5 @@ export class InputsShowComponent implements OnInit {
   clickEdit(event) {
     console.log(event);
   }
+
 }

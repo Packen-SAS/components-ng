@@ -1,5 +1,7 @@
-import { SimpleChange } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, SimpleChange } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxMaskModule } from 'ngx-mask';
 
 import { PackenInputShowComponent } from './packen-input-show.component';
 
@@ -9,7 +11,15 @@ describe('PackenInputShowComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [PackenInputShowComponent]
+      declarations: [PackenInputShowComponent],
+      imports: [
+        ReactiveFormsModule,
+        FormsModule,
+        NgxMaskModule.forRoot()
+      ],
+      schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
+      ]
     })
       .compileComponents();
   }));
@@ -47,7 +57,7 @@ describe('PackenInputShowComponent', () => {
 
   it('Testing function getBackgroundClass() when phantom is true', () => {
     component.phantom = true;
-    expect(component.getBackgroundClass()).toEqual('cnt--phantom');
+    expect(component.getBackgroundClass()).toBeUndefined();
   });
 
   it('Testing function when change the color ', () => {
@@ -64,5 +74,33 @@ describe('PackenInputShowComponent', () => {
     });
     fixture.detectChanges();
     expect(component).toBeTruthy();
+  });
+
+  it('Testing function loadClassWhenIsInput()', () => {
+    component.isInput = true;
+    expect(component.loadClassWhenIsInput()).toBeUndefined();
+  });
+
+  it('Testing function showInputClick() when isInput is true', () => {
+    component.isInput = true;
+    expect(component.showInputClick()).toBeUndefined();
+  });
+
+  it('Testing function showInputClick() when isInput is false', () => {
+    component.isInput = false;
+    expect(component.showInputClick()).toBeUndefined();
+  });
+
+  it('Testing function clickOutsideContent()', () => {
+    expect(component.clickOutsideContent()).toBeUndefined();
+  });
+
+  it('Testing function keyUpValue()', () => {
+    component.value = 'Value';
+    expect(component.keyUpValue('Value')).toBeUndefined();
+  });
+
+  it('Testing function keyUpValue() when value is empty', () => {
+    expect(component.keyUpValue('')).toBeUndefined();
   });
 });

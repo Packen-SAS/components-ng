@@ -1,11 +1,13 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'lib-packen-input-show',
   templateUrl: './packen-input-show.component.html',
   styleUrls: ['./packen-input-show.component.scss']
 })
-export class PackenInputShowComponent implements OnInit, OnChanges {
+export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewInit {
+
+  @ViewChild('searchDropdown') searchDropdown: ElementRef;
 
   @Input() icon: string = '';
   @Input() color: StatesColorMessage = '';
@@ -16,19 +18,47 @@ export class PackenInputShowComponent implements OnInit, OnChanges {
   @Input() showEdit: boolean = false;
   @Input() isDropdown: boolean = false;
   @Input() phantom: boolean = false;
+  @Input() isInput: boolean = false;
 
   @Input() title: string = '';
   @Input() description: string = '';
   @Input() label: string = '';
   @Input() message: string = '';
+  @Input() mask: string;
 
   @Output() clickSee = new EventEmitter<string>();
   @Output() clickEdit = new EventEmitter<string>();
+  @Output() keyUpInput = new EventEmitter<string>();
+
+  messageValue: string = '';
+  @Output()
+  valueChange = new EventEmitter<string>();
+
+  @Input()
+  get value() {
+    return this.messageValue;
+  }
+
+  set value(val) {
+    this.messageValue = val;
+    this.valueChange.emit(this.messageValue);
+  }
 
   colorMessage: string = '';
   widthContentDataClass: string = '';
+  showInput: boolean = false;
+
+  contClass: string = '';
+  subContClass: string = '';
+  titleValueInput: string = '';
 
   constructor() { }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.titleValueInput = this.searchDropdown.nativeElement.value;
+    }, 300);
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.color) {
@@ -39,10 +69,23 @@ export class PackenInputShowComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.getColorMessage(this.color);
     this.getWidthContentData();
+
+    // Estilos variable cont
+    this.loadClassWhenIsInput();
+    this.getBackgroundClass();
   }
 
   /**
-   * Metodo asigna el color dependiendo del valor Input(color);
+   * Método carga las clases para el subcontenido
+   */
+  loadClassWhenIsInput() {
+    if (this.isInput) {
+      this.contClass += 'cnt__sub--is-input';
+    }
+  }
+
+  /**
+   * Método asigna el color dependiendo del valor Input(color);
    * @param color del tipo StatesColorMessage
    */
   getColorMessage(color: StatesColorMessage) {
@@ -60,7 +103,7 @@ export class PackenInputShowComponent implements OnInit, OnChanges {
   }
 
   /**
-   * Metodo emite la palabra 'see' cuando da click en el ojo
+   * Método emite la palabra 'see' cuando da click en el ojo
    */
   clickSeeButton() {
     this.clickSee.emit('see');
@@ -83,10 +126,44 @@ export class PackenInputShowComponent implements OnInit, OnChanges {
   }
 
   /**
-   * Metodo para definir si el fondo es transparente o no
+   * Método para definir si el fondo es transparente o no
    */
   getBackgroundClass() {
-    return this.phantom ? 'cnt--phantom' : '';
+    if (this.phantom) {
+      this.contClass += 'cnt--phantom';
+    }
+  }
+
+  /**
+   * Método oculta o muestra el click, pero cuando isInput es true
+   */
+  showInputClick() {
+    if (this.isInput) {
+      this.showInput = true;
+      setTimeout(() => {
+        this.searchDropdown.nativeElement.focus();
+      }, 100);
+    }
+  }
+
+  /**
+   * Método detecta cuando se da click fuera del contenido
+   */
+  clickOutsideContent() {
+    this.showInput = false;
+  }
+
+  /**
+   * Método se ejectuta cuando se ingresa un valor en el input
+   * @param value valor escrito
+   */
+  keyUpValue(value: string) {
+    this.titleValueInput = value;
+    if (value.length === 0) {
+      this.titleValueInput = this.title;
+    }
+
+    this.keyUpInput.emit(value);
   }
 }
 

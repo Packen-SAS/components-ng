@@ -1,5 +1,10 @@
 <h2>Input show</h2>
 <div class="col-sm-8">
+    <lib-packen-input-show [color]="'yellow-off'" [title]="titleInput" [(value)]="valueInput" label="Placa del vehículo"
+        labelPosition="bottom" [isInput]="[true]" mask="AAA-000">
+    </lib-packen-input-show>
+    <br>
+
     <lib-packen-input-show icon="icon-id" [color]="'yellow-off'" type="icon" [title]="'1.018.234.542'"
         label="Documento de identidad" message="Documento a la espera de aprobación" labelPosition="bottom"
         (clickSee)="clickSeeButton($event)" (clickEdit)="clickEdit($event)" [showEdit]='true' [showSee]="true">
