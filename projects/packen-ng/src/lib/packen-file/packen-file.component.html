@@ -1,5 +1,5 @@
 <div class="ctn">
-    <label class="box-file" [ngClass]="classInput" [for]="name">
+    <label [ngStyle]="{'border': setBorder ? '': '1px solid transparent'}" class="box-file" [ngClass]="classInput" [for]="name">
         <img *ngIf="typeSrcLeft === 'img'" class="box-file__icon-left" [src]="srcLeft" />
         <span class="box-file__icon-span-left" *ngIf="typeSrcLeft === 'icon'" [ngClass]="iconLeft"></span>
 

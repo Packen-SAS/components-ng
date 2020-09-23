@@ -18,12 +18,13 @@ export class PackenFileComponent implements OnInit, OnChanges {
   @Input() name: string;
 
   @Input() showUploadedText: boolean = true;
+  @Input() setBorder: boolean = false;
 
-  @Input() typeSrcRight: string = TypeSrc.img;
+  @Input() typeSrcRight: TypesSrc = '';
   @Input() iconRight: string = '';
   @Input() srcRight: string = Images.arrowRight;
 
-  @Input() typeSrcLeft: string = TypeSrc.img;
+  @Input() typeSrcLeft: TypesSrc = '';
   @Input() iconLeft: string = '';
   @Input() srcLeft: string = Images.contact;
 
@@ -125,7 +126,4 @@ class Images {
   static readonly contact = '../../assets/icons-test/contact.svg';
 }
 
-class TypeSrc {
-  static readonly img = 'img';
-  static readonly icon = 'icon';
-}
+type TypesSrc = 'img' | 'icon' | '';
