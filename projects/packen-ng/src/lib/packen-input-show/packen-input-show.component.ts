@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, ElementRef, ViewChild, AfterViewInit} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'lib-packen-input-show',
@@ -84,12 +84,16 @@ export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewIni
     this.loadStylesComponent();
   }
 
+  /**
+   * Método carga los estilos de el componente
+   */
   loadStylesComponent() {
     this.contClass = '';
     this.loadClassWhenIsInput();
     this.getBackgroundClass();
     this.getStylesDisabled();
   }
+
   /**
    * Método carga las clases para el subcontenido
    */
