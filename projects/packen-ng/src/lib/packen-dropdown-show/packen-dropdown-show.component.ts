@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { fromEvent, BehaviorSubject } from 'rxjs';
+import { fromEvent } from 'rxjs';
 import { debounceTime, map } from 'rxjs/operators';
 import { DropdownShowItem } from '../../interfaces/dropdown-show-item';
 
@@ -23,7 +23,6 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
   @Output() changeValue = new EventEmitter<DropdownShowItem>();
 
   showInput: boolean = false;
-  showInputChange = new BehaviorSubject<boolean>(false);
   showListItems: boolean = false;
 
   messageValue: number = null;
@@ -66,7 +65,7 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.loadTitleInput();
-    this.getClassIsPhantom();
+    this.getClassIsPhanthom();
     this.getClassIsDisabled();
     setTimeout(() => {
       this.keyUpSearch();
@@ -79,7 +78,6 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
   clickInputComponent() {
     if (!this.disabled) {
       this.showInput = true;
-      this.showInputChange.next(true);
       this.showListItems = true;
       this.isClicked = true;
       setTimeout(() => {
@@ -93,7 +91,6 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
    */
   clickOutsideContent() {
     this.showInput = false;
-    this.showInputChange.next(false);
     this.showListItems = false;
 
     if (!this.value || this.valueWrittenInput === '') {
@@ -115,7 +112,6 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
     this.value = item.id;
     this.changeValue.emit(item);
     this.showInput = false;
-    this.showInputChange.next(false);
     this.showListItems = false;
     this.loadTitleInput();
     this.classContent = '';
@@ -176,7 +172,7 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
   /**
    * Método asigna la clase phantom cuado la variable phatom es verdadero
    */
-  getClassIsPhantom() {
+  getClassIsPhanthom() {
     if (this.phantom) {
       this.classInputPhantom = ContentClass.phantom;
     }
