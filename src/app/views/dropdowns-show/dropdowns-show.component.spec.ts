@@ -52,4 +52,35 @@ describe('DropdownsShowComponent', () => {
     expect(spyListHealtEntities).toHaveBeenCalled();
   });
 
+  it('Testung function validateDropdown() ', () => {
+    component.idSelectedDropdown = 1;
+    expect(component.validateDropdown()).toBeFalse();
+  });
+
+  it('Testing function printValue() ', () => {
+    expect(component.printValue()).toBeUndefined();
+  });
+
+  it('Testing function disableOrEnableDropdown1()', () => {
+    expect(component.disableOrEnableDropdown1()).toBeUndefined();
+  });
+
+  it('Testing function keyUpDropdown2()', () => {
+    epsListMock.success = false;
+    const spyListHealtEntities = spyOn(api, 'getListHealtEntities').and.callFake(() => {
+      return of(epsListMock);
+    });
+    expect(component.keyUpDropdown2('f'));
+    expect(spyListHealtEntities).toHaveBeenCalled();
+  });
+
+  it('Testing function keyUpDropdown2()', () => {
+    epsListMock.success = true;
+    const spyListHealtEntities = spyOn(api, 'getListHealtEntities').and.callFake(() => {
+      return of(epsListMock);
+    });
+    expect(component.keyUpDropdown2('f'));
+    expect(spyListHealtEntities).toHaveBeenCalled();
+  });
+
 });

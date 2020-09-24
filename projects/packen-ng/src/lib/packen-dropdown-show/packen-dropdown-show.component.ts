@@ -66,7 +66,7 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.loadTitleInput();
-    this.getClassIsPhanthom();
+    this.getClassIsPhantom();
     this.getClassIsDisabled();
     setTimeout(() => {
       this.keyUpSearch();
@@ -176,7 +176,7 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
   /**
    * Método asigna la clase phantom cuado la variable phatom es verdadero
    */
-  getClassIsPhanthom() {
+  getClassIsPhantom() {
     if (this.phantom) {
       this.classInputPhantom = ContentClass.phantom;
     }
