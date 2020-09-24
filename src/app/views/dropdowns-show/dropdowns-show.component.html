@@ -1,7 +1,27 @@
 <h2>Dropdown show</h2>
 <div class="col-sm-8">
-    <lib-packen-dropdown-show [(value)]="idSelectedDropdown" [items]="listDropdown" [label]="'EPS'"
-        (keyUpValue)="keyUpDropdown($event)" [icon]="'icon-phone'" [labelPosition]="'top'" [required]="true">
+    <form #formTestDropdown>
+        <div class="row">
+            <div class="col-sm-8">
+                <lib-packen-dropdown-show [(value)]="idSelectedDropdown" [items]="listDropdown"
+                    [disabled]="disabledDropdown1" [label]="'EPS'" [phantom]="true" (keyUpValue)="keyUpDropdown($event)"
+                    [icon]="'icon-phone'" [labelPosition]="'top'" [required]="true">
+                </lib-packen-dropdown-show>
+            </div>
+            <div class="col-sm-4">
+                <div>
+                    <button class="btn-p" (click)="disableOrEnableDropdown1()">Disable input</button>
+                    <button class="btn-p" (click)="printValue()" [disabled]="validateDropdown()"> 
+                        Print value
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <br>
+    <lib-packen-dropdown-show [(value)]="idSelectedDropdown2" [items]="listDropdown2" [label]="'Dropdown without icon'"
+        (keyUpValue)="keyUpDropdown2($event)" [labelPosition]="'bottom'" [required]="true">
     </lib-packen-dropdown-show>
 </div>
 <br>
