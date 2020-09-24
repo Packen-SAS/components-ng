@@ -85,7 +85,7 @@ export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewIni
   }
 
   /**
-   * Método carga los estilos de el componente
+   * Método carga los estilos del componente
    */
   loadStylesComponent() {
     this.contClass = '';
