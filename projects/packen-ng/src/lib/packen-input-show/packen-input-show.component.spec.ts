@@ -68,6 +68,14 @@ describe('PackenInputShowComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('Testing function when change disabled', () => {
+    component.ngOnChanges({
+      disabled: new SimpleChange(true, true, false)
+    });
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
+
   it('Testing function when change other item ', () => {
     component.ngOnChanges({
       url: new SimpleChange('red', false, false)
@@ -95,6 +103,11 @@ describe('PackenInputShowComponent', () => {
     expect(component.clickOutsideContent()).toBeUndefined();
   });
 
+  it('Testing function clickOutsideContent() when isClicked', () => {
+    component.isClicked = true;
+    expect(component.clickOutsideContent()).toBeUndefined();
+  });
+
   it('Testing function keyUpValue()', () => {
     component.value = 'Value';
     expect(component.keyUpValue('Value')).toBeUndefined();
@@ -102,5 +115,23 @@ describe('PackenInputShowComponent', () => {
 
   it('Testing function keyUpValue() when value is empty', () => {
     expect(component.keyUpValue('')).toBeUndefined();
+  });
+
+  it('Testing function validateInput() when the value is valid', () => {
+    component.value = 'ABC-123';
+    component.pattern = /[A-Z]{3}[-]\d{3}/;
+    expect(component.validateInput()).toBeUndefined();
+  });
+
+  it('Testing function validateInput() when the value is not valid', () => {
+    component.value = 'ABC-123';
+    component.titleValueInput = 'ABC-123';
+    component.pattern = /[A-Z]{3}[-]\d{3}/;
+    expect(component.validateInput()).toBeUndefined();
+  });
+
+  it('Testing function getStylesDisabled() ', () => {
+    component.disabled = true;
+    expect(component.getStylesDisabled()).toBeUndefined();
   });
 });
