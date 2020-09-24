@@ -46,7 +46,6 @@ export class InputsShowComponent implements OnInit {
    * Método escribe en consola el valor del
    */
   printValue() {
-    console.log("Valor ", this.valueInput);
+    console.log('Value: ', this.valueInput);
   }
-
 }
