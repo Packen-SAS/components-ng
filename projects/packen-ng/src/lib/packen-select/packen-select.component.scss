@@ -31,6 +31,7 @@
 
         &__option {
             display: flex;
+            flex-direction: column;        
             justify-content: center;
             align-items: center;
             font-family: $font-stack;
@@ -56,4 +57,9 @@
 
 .option--selected {
     @include selected-option;
+}
+
+.option--selected-bold {
+    @include selected-option;
+    border: 1px solid $primary_default !important;
 }
