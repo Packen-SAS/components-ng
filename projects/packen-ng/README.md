@@ -63,8 +63,9 @@ Show an options group to single select option.
 #### HTML
 
 ``` html
-<lib-packen-select [subtitle]="'Tipo de licencia'" [width]="95" [height]="56" [items]="selectList"
-    [disabled]="disabled" (outputClick)="setSelectedOption($event)" [selectedId]="selectedId">
+<lib-packen-select [subtitle]="'Si/No'" [width]="128" [height]="128" [fontSize]="18" [items]="selectListYes"
+    [boldBorder]="true" [grayBack]="true" [borderRadius]="8" [iconSize]="40" [disabled]="disabledYes"
+    (outputClick)="setSelectedOptionYes($event)" [selectedId]="selectedIdYes">
 </lib-packen-select>
 ```
 
@@ -79,7 +80,12 @@ Show an options group to single select option.
  - **width**: Defines width box option in pixels.
  - **height**: Defines height box option in pixels.
  - **items**: Defines options to show in the group. Must have an array of `SelectItem` structure.
- |
+ - **fontSize**: Defines text option size.
+ - **boldBorder**: Defines if box border will be darker `(true|false)`.
+ - **borderRadius**: Defines box border radius size.
+ - **fontSize**: Defines text option size.
+ - **iconSize**: Defines displayed icon size.
+ - **grayBack**: Defines if background box will be gray `(true|false)`.
  - **selectedId**: Item id that was selected.
  - **outputClick**: Action trigered when an option is selected.
 
