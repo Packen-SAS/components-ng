@@ -64,6 +64,18 @@ describe('PackenSelectComponent', () => {
     expect(component.getItemClass(selectListMock[0])).toBeDefined();
   });
 
+  it('Testing method getItemClass() when boldBorder is true', () => {
+    component.disabled = true;
+    component.boldBorder = true;
+    expect(component.getItemClass(selectListMock[0])).toBeDefined();
+  });
+
+  it('Testing method getItemClass() when grayBack is true', () => {
+    component.disabled = true;
+    component.grayBack = true;
+    expect(component.getItemClass(selectListMock[1])).toBeDefined();
+  });
+
   it('Testing method selectOption() when allowSelect is true', () => {
     component.allowSelect = true;
     expect(component.selectOption(selectListMock[0])).toBeUndefined();
@@ -77,6 +89,20 @@ describe('PackenSelectComponent', () => {
   it('Testing method loadDimensions()', () => {
     component.width = 95;
     component.height = 56;
+    expect(component.loadDimensions()).toBeUndefined();
+  });
+
+  it('Testing method loadDimensions() when font-size exits', () => {
+    component.width = 95;
+    component.height = 56;
+    component.fontSize = 14;
+    expect(component.loadDimensions()).toBeUndefined();
+  });
+
+  it('Testing method loadDimensions() when icon-size exits', () => {
+    component.width = 95;
+    component.height = 56;
+    component.iconSize = 14;
     expect(component.loadDimensions()).toBeUndefined();
   });
 });

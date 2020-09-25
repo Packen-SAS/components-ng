@@ -36,7 +36,7 @@
     <form #formTest3="ngForm" class="form-ctn">
         <div class="col-md-10">
             <lib-packen-select [subtitle]="'Si/No'" [width]="128" [height]="128" [fontSize]="18" [items]="selectListYes"
-                [boldBorder]="true" [icon]="'icon-user-vehicle'" [iconSize]="40" [disabled]="disabledYes"
+                [boldBorder]="true" [grayBack]="true" [borderRadius]="8" [iconSize]="40" [disabled]="disabledYes"
                 (outputClick)="setSelectedOptionYes($event)" [selectedId]="selectedIdYes">
             </lib-packen-select>
         </div>

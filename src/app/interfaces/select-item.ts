@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 export class SelectItem {
     id: any;
     name: Observable<string>;
+    icon?: string;
     description?: string;
     selected?: boolean;
 }

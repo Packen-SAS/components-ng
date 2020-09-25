@@ -12,7 +12,7 @@ export const selectListMock = [
         id: 2,
         name: of('A2'),
         description: 'Motocicletas de más de 125 centímetros cúbicos',
-        selected: false
+        selected: true
     },
     {
         id: 3,

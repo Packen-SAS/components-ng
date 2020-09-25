@@ -4,7 +4,7 @@
     <div class="box-license__option-ctn">
         <div [ngClass]="getItemClass(item)" [ngStyle]="styleBox" *ngFor="let item of items"
             (click)="selectOption(item)">
-            <i *ngIf="icon" [ngClass]="icon" [ngStyle]="styleIcon"></i>
+            <i *ngIf="item.icon" [ngClass]="item.icon" [ngStyle]="styleIcon"></i>
             <div>{{ item.name | async }}</div>
         </div>
     </div>
