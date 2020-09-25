@@ -124,6 +124,14 @@ Input to load a specific file.
  - **uploadedText**: Text to show when a file is uploaded.
  - **value**: Variable where file will be saved.
  - **required**: Defines if a field is required.
+ - **showUploadedText**: Defines show file status.
+ - **setBorder**: Defines show border: `(true|false)`.
+ - **typeSrcRight**: Defines source type: `(icon|img)`.
+ - **iconRight**: Defines icon name.
+ - **srcRight**: Defines image route.
+ - **typeSrcLeft**: Defines source type: `(icon|img)`.
+ - **iconLeft**: Defines icon name.
+ - **srcLeft**: Defines image route.
 
 ### PinMapComponent
 

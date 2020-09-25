@@ -15,15 +15,23 @@
     border: 1px solid $basic_gray_drk;
     background: $white;
     margin-bottom: 0px !important;
+    min-height: 44px;
 
     &__icon-left {
         padding-right: 15px;
+    }
+
+    &__icon-span-left{
+        font-size: 28px;
+        margin-right: 10px;
+        color: $gray_drk;
     }
 
     &__rigth-section {
         width: 100%;
         display: flex;
         justify-content: space-between;
+        align-items: center;
     }
 
     &__content {
@@ -51,6 +59,11 @@
 
     &__icon-right {
         padding: 0px 15px;
+    }
+
+    &__icon-span{
+        font-size: 25px;
+        color: $primary_default;
     }
 
     &__size {
