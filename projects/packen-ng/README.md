@@ -690,8 +690,8 @@ A special dropdown with more details to show.
 - **labelPosition**: Defines label position `(top|bottom)` **NOTE**: default value is bottom.
 - **icon**: Defines icon to show side the name.
 - **required**: Defines if the component is required `(false|true)`.
-- **phantom**: Defines if background will be transparent or not.`(true|false)`.
-- **disabled**: Defines if component are enabled or not: `(true|false)`.
+- **phantom**: Defines if background is transparent.`(true|false)`.
+- **disabled**: Defines if component is enabled: `(true|false)`.
 
 #### Events
 
