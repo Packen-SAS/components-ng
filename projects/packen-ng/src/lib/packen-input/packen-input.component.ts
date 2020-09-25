@@ -238,6 +238,7 @@ export class PackenInputComponent implements OnInit, AfterViewInit, OnChanges {
   clickOutsideContent() {
     if (this.isClickInside) {
       this.changeTextInput(this.value);
+      this.isClickInside = false;
     }
   }
 
