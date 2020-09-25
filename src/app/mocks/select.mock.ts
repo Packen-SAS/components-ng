@@ -67,6 +67,21 @@ export const selectListActionMock = [
     }
 ];
 
+export const selectListYesMock = [
+    {
+        id: 1,
+        name: of('Si'),
+        description: 'Si',
+        selected: false
+    },
+    {
+        id: 2,
+        name: of('No'),
+        description: 'No',
+        selected: false
+    }
+];
+
 export const selectItemMock: SelectItem = {
     id: 1,
     name: of('Somthing'),

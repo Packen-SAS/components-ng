@@ -19,12 +19,30 @@
     <form #formTest2="ngForm" class="form-ctn">
         <div class="col-md-10">
             <lib-packen-select [subtitle]="'Accion'" [width]="218" [height]="56" [items]="selectListAction"
-                [disabled]="disabledAction" (outputClick)="setSelectedOptionAction($event)" [selectedId]="selectedIdAction">
+                [disabled]="disabledAction" (outputClick)="setSelectedOptionAction($event)"
+                [selectedId]="selectedIdAction">
             </lib-packen-select>
         </div>
         <div>
             <button class="btn-p" (click)="disableAction()">Disable</button>
             <button class="btn-p" (click)="printAction()" [disabled]="!formTest2.valid || !selectedIdAction">
+                Print Option
+            </button>
+        </div>
+    </form>
+</div>
+
+<div class="row">
+    <form #formTest3="ngForm" class="form-ctn">
+        <div class="col-md-10">
+            <lib-packen-select [subtitle]="'Si/No'" [width]="128" [height]="128" [fontSize]="18" [items]="selectListYes"
+                [boldBorder]="true" [icon]="'icon-user-vehicle'" [iconSize]="40" [disabled]="disabledYes"
+                (outputClick)="setSelectedOptionYes($event)" [selectedId]="selectedIdYes">
+            </lib-packen-select>
+        </div>
+        <div>
+            <button class="btn-p" (click)="disableYes()">Disable</button>
+            <button class="btn-p" (click)="printYes()" [disabled]="!formTest3.valid || !selectedIdYes">
                 Print Option
             </button>
         </div>

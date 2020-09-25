@@ -15,9 +15,15 @@ export class PackenSelectComponent implements OnInit, OnChanges {
   @Input() selectedId: number;
   @Input() width: number;
   @Input() height: number;
+  @Input() fontSize: number;
+  @Input() boldBorder: boolean;
+  @Input() icon: string;
+  @Input() iconSize: number;
+
   allowSelect: boolean;
   classDisabled: string;
   styleBox: object = {};
+  styleIcon: object = {};
 
   @Output() outputClick: EventEmitter<SelectItem> = new EventEmitter();
 
@@ -40,8 +46,24 @@ export class PackenSelectComponent implements OnInit, OnChanges {
    * Método para cargar las dimensiones de las cajas de opciones
    */
   loadDimensions() {
-    if (this.width && this.height) {
-      this.styleBox = { width: `${this.width}px`, height: `${this.height}px` };
+    if (this.width) {
+      this.styleBox['width'] = `${this.width}px`;
+    }
+
+    if (this.height) {
+      this.styleBox['height'] = `${this.height}px`;
+    }
+
+    if (this.fontSize) {
+      this.styleBox['font-size'] = `${this.fontSize}px`;
+    }
+
+    if (this.boldBorder) {
+      this.styleBox['font-size'] = `${this.fontSize}px`;
+    }
+
+    if (this.iconSize) {
+      this.styleIcon['font-size'] = `${this.iconSize}px`;
     }
   }
 
@@ -109,7 +131,7 @@ export class PackenSelectComponent implements OnInit, OnChanges {
     }
 
     if (item.selected) {
-      return 'box-license__option-ctn__option option--selected' + this.classDisabled;
+      return 'box-license__option-ctn__option ' + (this.boldBorder ? 'option--selected-bold' : 'option--selected') + this.classDisabled;
     }
     return 'box-license__option-ctn__option' + this.classDisabled;
   }

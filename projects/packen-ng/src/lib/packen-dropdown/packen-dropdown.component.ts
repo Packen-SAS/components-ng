@@ -34,6 +34,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
   textInput = '';
   temporaryData = null;
   temporaryChecks = null;
+  isClickInside: boolean = false;
 
   itemSelected: DropdownItem = {
     id: 0,
@@ -69,20 +70,24 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
   // ----------------------------------------------------------------------------------------------
 
   clickInput(): void {
+    this.isClickInside = true;
     if (!this.disabled) {
       this.showMenuList = true;
     }
   }
 
   clickOutsideContent(): void {
-    this.showMenuList = false;
-    if (!this.value) {
-      this.textInput = '';
-    } else {
-      if (!this.lazy) {
-        const property = this.getProperty();
-        this.textInput = this.temporaryItemsList.find(i => i.id === this.value)?.[property];
+    if (this.isClickInside) {
+      this.showMenuList = false;
+      if (!this.value) {
+        this.textInput = '';
+      } else {
+        if (!this.lazy) {
+          const property = this.getProperty();
+          this.textInput = this.temporaryItemsList.find(i => i.id === this.value)?.[property];
+        }
       }
+      this.isClickInside = false;
     }
   }
 
