@@ -16,6 +16,8 @@ export class PackenFileComponent implements OnInit, OnChanges {
   @Input() uploadedText: string;
   @Input() noUploadedText: string;
   @Input() name: string;
+  @Input() fontSizeTitle: number;
+  @Input() boldTitle: boolean = true;
 
   @Input() showUploadedText: boolean = true;
   @Input() setBorder: boolean = false;
@@ -33,6 +35,8 @@ export class PackenFileComponent implements OnInit, OnChanges {
   classInput: string = '';
   classInputPrevious: string = '';
   selectedFile: File;
+  fontSizeTitleStyle: object = {};
+  classBoldTitle: string = '';
 
   @Output()
   valueChange = new EventEmitter<File>();
@@ -54,6 +58,8 @@ export class PackenFileComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.getClassStylesBox(this.size);
     this.getClassDisable(this.disabled);
+    this.loadSizeTitle();
+    this.loadBoldTitle();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -62,6 +68,10 @@ export class PackenFileComponent implements OnInit, OnChanges {
     }
   }
 
+  /**
+   * Método carga el estilo de la caja
+   * @param size valor del tipo StatesSizesInput
+   */
   getClassStylesBox(size: StatesSizesInput) {
     this.classInput = '';
     switch (size) {
@@ -84,6 +94,10 @@ export class PackenFileComponent implements OnInit, OnChanges {
     this.classInputPrevious = this.classInput;
   }
 
+  /**
+   * Método asigna la clase disabled
+   * @param disabled valor del tipo boolean
+   */
   getClassDisable(disabled: boolean) {
     if (disabled) {
       this.classInput += SizesBoxClass.disabled;
@@ -92,6 +106,10 @@ export class PackenFileComponent implements OnInit, OnChanges {
     }
   }
 
+  /**
+   * Método se ejecuta cuando se cambia el valor del componente
+   * @param event evento del input
+   */
   fileChange(event) {
     const file = event.target.files[0];
     if (file) {
@@ -101,9 +119,31 @@ export class PackenFileComponent implements OnInit, OnChanges {
     }
   }
 
+  /**
+   * Método se ejecuta cuando se da click en el input
+   */
   onClick() {
     if (this.required && !this.selectedFile) {
       this.classInput += SizesBoxClass.error;
+    }
+  }
+
+  /**
+   * Método carga el tamaño de fuente
+   */
+  loadSizeTitle() {
+    this.fontSizeTitleStyle = { 'font-size': '12px' };
+    if (this.fontSizeTitle) {
+      this.fontSizeTitleStyle = { 'font-size': this.fontSizeTitle + 'px' };
+    }
+  }
+
+  /**
+   * Método carga la clase para el bold del titulo
+   */
+  loadBoldTitle() {
+    if (!this.boldTitle) {
+      this.classBoldTitle = TitleBoldClass.notBold;
     }
   }
 }
@@ -127,3 +167,7 @@ class Images {
 }
 
 type TypesSrc = 'img' | 'icon' | '';
+
+class TitleBoldClass {
+  static readonly notBold = 'box-file__content__desc__title--not-bold';
+}

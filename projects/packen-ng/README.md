@@ -103,7 +103,7 @@ Input to load a specific file.
 ``` html
 <lib-packen-file [disabled]="disabledFile" [uploadedText]="'Archivo cargado'" [noUploadedText]="'Pendiente'"
     [title]="'Cara 1'" [subtitle]="'(Lado de la fotografia)'" name="lib-file-1" [(value)]="selectedFile"
-    required="true">
+    required="true" [fontSizeTitle]="17" [boldTitle]="false">
 </lib-packen-file>
 ```
 
@@ -132,6 +132,8 @@ Input to load a specific file.
  - **typeSrcLeft**: Defines source type: `(icon|img)`.
  - **iconLeft**: Defines icon name.
  - **srcLeft**: Defines image route.
+ - **fontSizeTitle**: Defines font size title. **NOTE**: value is number.
+ - **boldTitle**: Defines if title is  bold `(true|false)`.  
 
 ### PinMapComponent
 

@@ -109,4 +109,14 @@ describe('PackenFileComponent', () => {
     eventMock.target.files = [];
     expect(component.fileChange(eventMock)).toBeUndefined();
   });
+
+  it('Testing function loadSizeTitle() ', () => {
+    component.fontSizeTitle = 18;
+    expect(component.loadSizeTitle()).toBeUndefined();
+  });
+
+  it('Testing function loadBoldTitle() ', () => {
+    component.boldTitle = false;
+    expect(component.loadBoldTitle()).toBeUndefined();
+  });
 });

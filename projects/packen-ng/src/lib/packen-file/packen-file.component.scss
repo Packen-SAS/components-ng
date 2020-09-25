@@ -21,7 +21,7 @@
         padding-right: 15px;
     }
 
-    &__icon-span-left{
+    &__icon-span-left {
         font-size: 28px;
         margin-right: 10px;
         color: $gray_drk;
@@ -44,6 +44,10 @@
             &__title {
                 font-weight: bold;
                 padding-right: 5px;
+
+                &--not-bold {
+                    font-weight: normal !important;
+                }
             }
         }
 
@@ -61,7 +65,7 @@
         padding: 0px 15px;
     }
 
-    &__icon-span{
+    &__icon-span {
         font-size: 25px;
         color: $primary_default;
     }
