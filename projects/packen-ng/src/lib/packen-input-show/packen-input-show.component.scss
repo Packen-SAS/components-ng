@@ -92,6 +92,10 @@
             &--placeholder {
                 color: $disabled_alt_drk_light !important;
             }
+
+            &__title {
+                color: $disabled;
+            }
         }
 
         &__label {

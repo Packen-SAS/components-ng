@@ -11,7 +11,7 @@
                 </div>
                 <div class="cnt__body">
                     <p class="cnt__body__label" *ngIf="labelPosition === 'top'">{{label}}</p>
-                    <p class="cnt__body__title"
+                    <p class="cnt__body__title cnt__body__title__title" 
                         [ngClass]="titleValueInput === title && isInput? 'cnt__body__title--placeholder': ''">
                         <span *ngIf="!isInput">{{title}}</span>
                         <span *ngIf="isInput">{{titleValueInput}}</span>

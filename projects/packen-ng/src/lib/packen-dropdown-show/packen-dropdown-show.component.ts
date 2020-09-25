@@ -26,7 +26,7 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
   showListItems: boolean = false;
 
   messageValue: number = null;
-  titleInput: string = '';
+  titleInput: string = 'Test de title';
   valueWrittenInput: string = '';
   classInput: string = '';
   classInputPhantom: string = '';
