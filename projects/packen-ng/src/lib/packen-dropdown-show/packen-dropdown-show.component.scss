@@ -9,6 +9,15 @@
         border: 2px solid $danger_default !important;
     }
 
+    &--phantom {
+        background-color: $transparent !important;
+    }
+
+    &--disabled {
+        cursor: default !important;
+        opacity: 0.5;
+    }
+
     p {
         margin: 0;
     }
@@ -23,7 +32,7 @@
             padding: 10px 20px;
             height: 56px;
             font-size: 16px;
-            font-family: 'Muli';
+            font-family: $font-stack;
             color: $tertiary_default;
             background-color: $basic_white_med;
 
@@ -37,7 +46,7 @@
         position: absolute;
         width: 100%;
         z-index: 2;
-        font-family: 'Muli';
+        font-family: $font-stack;
         color: $tertiary_default;
         box-shadow: $box-shadow;
         &__item {

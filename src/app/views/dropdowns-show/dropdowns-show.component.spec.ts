@@ -1,12 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { InputsShowDropdownComponent } from './dropdowns-show.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { of } from 'rxjs';
 import { epsListMock } from 'src/app/mocks/dropdowns.mock';
-import { DropdownShowItem } from 'projects/packen-ng/src/interfaces/dropdown-show-item';
 
 describe('DropdownsShowComponent', () => {
   let component: InputsShowDropdownComponent;
@@ -51,6 +49,37 @@ describe('DropdownsShowComponent', () => {
       return of(epsListMock);
     });
     expect(component.keyUpDropdown('f'));
+    expect(spyListHealtEntities).toHaveBeenCalled();
+  });
+
+  it('Testung function validateDropdown() ', () => {
+    component.idSelectedDropdown = 1;
+    expect(component.validateDropdown()).toBeFalse();
+  });
+
+  it('Testing function printValue() ', () => {
+    expect(component.printValue()).toBeUndefined();
+  });
+
+  it('Testing function disableOrEnableDropdown1()', () => {
+    expect(component.disableOrEnableDropdown1()).toBeUndefined();
+  });
+
+  it('Testing function keyUpDropdown2()', () => {
+    epsListMock.success = false;
+    const spyListHealtEntities = spyOn(api, 'getListHealtEntities').and.callFake(() => {
+      return of(epsListMock);
+    });
+    expect(component.keyUpDropdown2('f'));
+    expect(spyListHealtEntities).toHaveBeenCalled();
+  });
+
+  it('Testing function keyUpDropdown2()', () => {
+    epsListMock.success = true;
+    const spyListHealtEntities = spyOn(api, 'getListHealtEntities').and.callFake(() => {
+      return of(epsListMock);
+    });
+    expect(component.keyUpDropdown2('f'));
     expect(spyListHealtEntities).toHaveBeenCalled();
   });
 

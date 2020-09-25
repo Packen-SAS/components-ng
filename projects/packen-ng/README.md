@@ -79,7 +79,7 @@ Show an options group to single select option.
  - **width**: Defines width box option in pixels.
  - **height**: Defines height box option in pixels.
  - **items**: Defines options to show in the group. Must have an array of `SelectItem` structure.
- - **disabled**: Defines option group are enabled or not: `(true|false)`.
+ |
  - **selectedId**: Item id that was selected.
  - **outputClick**: Action trigered when an option is selected.
 
@@ -99,7 +99,7 @@ class SelectItem {
 Input to load a specific file.
 
 #### HTML
-
+|
 ``` html
 <lib-packen-file [disabled]="disabledFile" [uploadedText]="'Archivo cargado'" [noUploadedText]="'Pendiente'"
     [title]="'Cara 1'" [subtitle]="'(Lado de la fotografia)'" name="lib-file-1" [(value)]="selectedFile"
@@ -673,7 +673,7 @@ A special dropdown with more details to show.
 ``` html
 <lib-packen-dropdown-show [(value)]="idSelectedDropdown" [items]="listDropdown" [label]="'EPS'"
     (keyUpValue)="keyUpDropdown($event)" (changeValue)="changeValue($event)" [icon]="'icon-email'" 
-    [labelPosition]="'top'" [required]="true">
+    [labelPosition]="'top'" [required]="true" [phantom]="true" [disabled]="true">
 </lib-packen-dropdown-show>
 ```
 
@@ -690,6 +690,8 @@ A special dropdown with more details to show.
 - **labelPosition**: Defines label position `(top|bottom)` **NOTE**: default value is bottom.
 - **icon**: Defines icon to show side the name.
 - **required**: Defines if the component is required `(false|true)`.
+- **phantom**: Defines if background is transparent.`(true|false)`.
+- **disabled**: Defines if component is enabled: `(true|false)`.
 
 #### Events
 

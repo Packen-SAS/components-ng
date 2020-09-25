@@ -34,6 +34,11 @@ describe('PackenDropdownShowComponent', () => {
     expect(component.clickInputComponent()).toBeUndefined();
   });
 
+  it('Testing function clickInputComponent() and disabled is true', () => {
+    component.disabled = true;
+    expect(component.clickInputComponent()).toBeUndefined();
+  });
+
   it('Testing function clickOutsideContent()', () => {
     expect(component.clickOutsideContent()).toBeUndefined();
   });
@@ -112,11 +117,12 @@ describe('PackenDropdownShowComponent', () => {
     fixture.detectChanges();
   });
 
-  it('Testing function ngOnChanges() ', () => {
+  it('Testing function ngOnChanges()', () => {
     component.value = 1;
     component.ngOnChanges({
       value: new SimpleChange(null, new File([], ''), null),
-      items: new SimpleChange(null, [], null)
+      items: new SimpleChange(null, [], null),
+      disabled: new SimpleChange(true, true, null)
     });
     fixture.detectChanges();
     expect(component).toBeTruthy();
@@ -126,4 +132,13 @@ describe('PackenDropdownShowComponent', () => {
     expect(component.ngOnChanges({})).toBeUndefined();
   });
 
+  it('Testing function getClassIsPhantom()', () => {
+    component.phantom = true;
+    expect(component.getClassIsPhantom()).toBeUndefined();
+  });
+
+  it('Testing function getClassIsDisabled()', () => {
+    component.disabled = true;
+    expect(component.getClassIsDisabled()).toBeUndefined();
+  });
 });

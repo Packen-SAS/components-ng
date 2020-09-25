@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { fromEvent, BehaviorSubject } from 'rxjs';
+import { fromEvent } from 'rxjs';
 import { debounceTime, map } from 'rxjs/operators';
 import { DropdownShowItem } from '../../interfaces/dropdown-show-item';
 
@@ -16,18 +16,22 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
   @Input() icon: string = '';
   @Input() labelPosition: string = 'bottom';
   @Input() required = false;
+  @Input() phantom: boolean = false;
+  @Input() disabled: boolean = false;
+
   @Output() keyUpValue = new EventEmitter<string>();
   @Output() changeValue = new EventEmitter<DropdownShowItem>();
 
   showInput: boolean = false;
-  showInputChange = new BehaviorSubject<boolean>(false);
   showListItems: boolean = false;
 
   messageValue: number = null;
   titleInput: string = '';
   valueWrittenInput: string = '';
   classInput: string = '';
+  classInputPhantom: string = '';
   classContent: string = '';
+  classContentDisabled: string = '';
 
   isClicked: boolean = false;
   @Output()
@@ -53,10 +57,16 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
     if (changes.items && this.value) {
       this.loadTitleInput();
     }
+
+    if (changes.disabled) {
+      this.getClassIsDisabled();
+    }
   }
 
   ngOnInit(): void {
     this.loadTitleInput();
+    this.getClassIsPhantom();
+    this.getClassIsDisabled();
     setTimeout(() => {
       this.keyUpSearch();
     }, 100);
@@ -66,13 +76,14 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
    * Metodo funciona cuando se da click en el componente
    */
   clickInputComponent() {
-    this.showInput = true;
-    this.showInputChange.next(true);
-    this.showListItems = true;
-    this.isClicked = true;
-    setTimeout(() => {
-      this.searchElement.nativeElement.focus();
-    }, 100);
+    if (!this.disabled) {
+      this.showInput = true;
+      this.showListItems = true;
+      this.isClicked = true;
+      setTimeout(() => {
+        this.searchElement.nativeElement.focus();
+      }, 100);
+    }
   }
 
   /**
@@ -80,18 +91,16 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
    */
   clickOutsideContent() {
     this.showInput = false;
-    this.showInputChange.next(false);
     this.showListItems = false;
 
-    this.classContent = '';
     if (!this.value || this.valueWrittenInput === '') {
       if (this.isClicked) {
-        this.classContent = 'cont--required';
+        this.classContent = '';
+        this.classContent = ContentClass.required;
         this.valueWrittenInput = '';
         this.titleInput = '';
         this.isClicked = false;
       }
-
     }
   }
 
@@ -103,9 +112,10 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
     this.value = item.id;
     this.changeValue.emit(item);
     this.showInput = false;
-    this.showInputChange.next(false);
     this.showListItems = false;
     this.loadTitleInput();
+    this.classContent = '';
+    this.clickOutsideContent();
   }
 
   /**
@@ -132,7 +142,7 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
    */
   getClassIsSelected(item: DropdownShowItem): string {
     if (item.id === this.value) {
-      return 'cont__options__item--selected';
+      return ContentClass.itemSelected;
     }
     return '';
   }
@@ -155,7 +165,35 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
   validateRequiredInput() {
     this.classInput = '';
     if (this.valueWrittenInput.length === 0 && this.required && this.classContent !== 'cont--required') {
-      this.classInput = 'cont__component__input--required';
+      this.classInput = ContentClass.requiredInput;
     }
   }
+
+  /**
+   * Método asigna la clase phantom cuado la variable phatom es verdadero
+   */
+  getClassIsPhantom() {
+    if (this.phantom) {
+      this.classInputPhantom = ContentClass.phantom;
+    }
+  }
+
+  /**
+   * Método asigna la clase disabled si
+   */
+  getClassIsDisabled() {
+    this.classContentDisabled = '';
+    if (this.disabled) {
+      this.classContentDisabled = ContentClass.disabled;
+    }
+  }
+}
+
+// Clases del contenido
+class ContentClass {
+  static readonly required = 'cont--required';
+  static readonly phantom = 'cont--phantom';
+  static readonly disabled = 'cont--disabled';
+  static readonly requiredInput = 'cont__component__input--required';
+  static readonly itemSelected = 'cont__options__item--selected';
 }
