@@ -18,7 +18,7 @@ export class PackenFileComponent implements OnInit, OnChanges {
   @Input() name: string;
   @Input() fontSizeTitle: number;
   @Input() boldTitle: boolean = true;
-  @Input() opacityRequired: boolean = false;
+  @Input() opacity: boolean = false;
 
   @Input() showUploadedText: boolean = true;
   @Input() setBorder: boolean = false;
@@ -153,7 +153,7 @@ export class PackenFileComponent implements OnInit, OnChanges {
    * Método asigna la opacidad a la información cuando el componente lo requiere
    */
   validateOpacityRequired() {
-    if (this.opacityRequired && !this.value) {
+    if (this.opacity && !this.value) {
       return ContentInfo.opactity;
     }
     return '';

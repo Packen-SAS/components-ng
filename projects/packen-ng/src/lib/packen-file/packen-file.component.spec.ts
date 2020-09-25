@@ -122,7 +122,7 @@ describe('PackenFileComponent', () => {
 
   it('Testing function validateOpacityRequired()', () => {
     component.value = null;
-    component.opacityRequired = true;
+    component.opacity = true;
     expect(component.validateOpacityRequired()).toEqual('box-file__content--opacity');
   });
 });
