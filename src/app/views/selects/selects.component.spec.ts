@@ -53,4 +53,16 @@ describe('SelectsComponent', () => {
   it('Testing method printAction()', () => {
     expect(component.printAction()).toBeUndefined();
   });
+
+  it('Testing method setSelectedOptionYes()', () => {
+    expect(component.setSelectedOptionYes(selectItemMock)).toBeUndefined();
+  });
+
+  it('Testing method disableYes()', () => {
+    expect(component.disableYes()).toBeUndefined();
+  });
+
+  it('Testing method printYes()', () => {
+    expect(component.printYes()).toBeUndefined();
+  });
 });

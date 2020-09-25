@@ -71,12 +71,14 @@ export const selectListYesMock = [
     {
         id: 1,
         name: of('Si'),
+        icon: 'icon-user-vehicle',
         description: 'Si',
         selected: false
     },
     {
         id: 2,
         name: of('No'),
+        icon: 'icon-user-alone',
         description: 'No',
         selected: false
     }
