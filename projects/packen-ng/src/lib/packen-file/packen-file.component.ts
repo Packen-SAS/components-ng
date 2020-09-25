@@ -18,6 +18,7 @@ export class PackenFileComponent implements OnInit, OnChanges {
   @Input() name: string;
   @Input() fontSizeTitle: number;
   @Input() boldTitle: boolean = true;
+  @Input() opacityRequired: boolean = false;
 
   @Input() showUploadedText: boolean = true;
   @Input() setBorder: boolean = false;
@@ -37,6 +38,7 @@ export class PackenFileComponent implements OnInit, OnChanges {
   selectedFile: File;
   fontSizeTitleStyle: object = {};
   classBoldTitle: string = '';
+  classContentData: string = '';
 
   @Output()
   valueChange = new EventEmitter<File>();
@@ -146,6 +148,16 @@ export class PackenFileComponent implements OnInit, OnChanges {
       this.classBoldTitle = TitleBoldClass.notBold;
     }
   }
+
+  /**
+   * Método asigna la opacidad a la información cuando el componente lo requiere
+   */
+  validateOpacityRequired() {
+    if (this.opacityRequired && !this.value) {
+      return ContentInfo.opactity;
+    }
+    return '';
+  }
 }
 
 type StatesSizesInput = 'tiny' | 'small' | 'medium' | 'large' | 'giant';
@@ -170,4 +182,8 @@ type TypesSrc = 'img' | 'icon' | '';
 
 class TitleBoldClass {
   static readonly notBold = 'box-file__content__desc__title--not-bold';
+}
+
+class ContentInfo {
+  static readonly opactity = 'box-file__content--opacity';
 }

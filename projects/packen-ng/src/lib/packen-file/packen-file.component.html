@@ -5,7 +5,7 @@
         <span class="box-file__icon-span-left" *ngIf="typeSrcLeft === 'icon'" [ngClass]="iconLeft"></span>
 
         <div class="box-file__rigth-section">
-            <div class="box-file__content">
+            <div class="box-file__content" [ngClass]="validateOpacityRequired()">
                 <div class="box-file__content__desc">
                     <span class="box-file__content__desc__title" [ngClass]="classBoldTitle"
                         [ngStyle]="fontSizeTitleStyle">{{ title }}</span>

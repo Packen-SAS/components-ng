@@ -59,6 +59,10 @@
                 color: $basic_gray_drk;
             }
         }
+
+        &--opacity {
+            opacity: 0.5;
+        }
     }
 
     &__icon-right {

@@ -110,13 +110,19 @@ describe('PackenFileComponent', () => {
     expect(component.fileChange(eventMock)).toBeUndefined();
   });
 
-  it('Testing function loadSizeTitle() ', () => {
+  it('Testing function loadSizeTitle()', () => {
     component.fontSizeTitle = 18;
     expect(component.loadSizeTitle()).toBeUndefined();
   });
 
-  it('Testing function loadBoldTitle() ', () => {
+  it('Testing function loadBoldTitle()', () => {
     component.boldTitle = false;
     expect(component.loadBoldTitle()).toBeUndefined();
+  });
+
+  it('Testing function validateOpacityRequired()', () => {
+    component.value = null;
+    component.opacityRequired = true;
+    expect(component.validateOpacityRequired()).toEqual('box-file__content--opacity');
   });
 });

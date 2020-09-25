@@ -15,7 +15,6 @@
             </lib-packen-file>
         </div>
     </form>
-
     <div>
         <button class="btn-p" (click)="disable()">Disable</button>
         <button class="btn-p" (click)="printFiles()" [disabled]="!formTest.valid || !selectedFile || !selectedFile2">
@@ -29,7 +28,8 @@
         <div class="col-md">
             <lib-packen-file [uploadedText]="'Archivo cargado'" [noUploadedText]="'Pendiente'" [title]="'Cara 3'"
                 [subtitle]="'(Lado de la fotografia)'" name="lib-file-3" [(value)]="selectedFile3" required="true"
-                typeSrcRight="img" [srcRight]="imgRoute" typeSrcLeft="icon" iconLeft="icon-email" [setBorder]="[true]">
+                typeSrcRight="img" [srcRight]="imgRoute" typeSrcLeft="icon" iconLeft="icon-email" [setBorder]="true"
+                [opacityRequired]="true">
             </lib-packen-file>
         </div>
         <div class="col-md">
