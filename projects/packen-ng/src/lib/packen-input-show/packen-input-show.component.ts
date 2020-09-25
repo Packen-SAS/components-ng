@@ -19,6 +19,9 @@ export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewIni
   @Input() isDropdown: boolean = false;
   @Input() phantom: boolean = false;
   @Input() isInput: boolean = false;
+  @Input() required: boolean = false;
+  @Input() pattern: any = null;
+  @Input() disabled: boolean = false;
 
   @Input() title: string = '';
   @Input() description: string = '';
@@ -50,7 +53,10 @@ export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewIni
 
   contClass: string = '';
   subContClass: string = '';
+  contError: string = '';
   titleValueInput: string = '';
+
+  isClicked: boolean = false;
 
   constructor() { }
 
@@ -64,6 +70,10 @@ export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewIni
     if (changes.color) {
       this.getColorMessage(this.color);
     }
+
+    if (changes.disabled) {
+      this.loadStylesComponent();
+    }
   }
 
   ngOnInit(): void {
@@ -71,8 +81,17 @@ export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewIni
     this.getWidthContentData();
 
     // Estilos variable cont
+    this.loadStylesComponent();
+  }
+
+  /**
+   * Método carga los estilos del componente
+   */
+  loadStylesComponent() {
+    this.contClass = '';
     this.loadClassWhenIsInput();
     this.getBackgroundClass();
+    this.getStylesDisabled();
   }
 
   /**
@@ -80,7 +99,7 @@ export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewIni
    */
   loadClassWhenIsInput() {
     if (this.isInput) {
-      this.contClass += 'cnt__sub--is-input';
+      this.contClass += StatesContentClass.isInput;
     }
   }
 
@@ -121,7 +140,7 @@ export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewIni
    */
   getWidthContentData() {
     if (this.isDropdown) {
-      this.widthContentDataClass = 'cnt__sub__child-first--dropdown';
+      this.widthContentDataClass = StatesContentClass.isDropdown;
     }
   }
 
@@ -130,7 +149,7 @@ export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewIni
    */
   getBackgroundClass() {
     if (this.phantom) {
-      this.contClass += 'cnt--phantom';
+      this.contClass += StatesContentClass.phantom;
     }
   }
 
@@ -138,8 +157,9 @@ export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewIni
    * Método oculta o muestra el click, pero cuando isInput es true
    */
   showInputClick() {
-    if (this.isInput) {
+    if (this.isInput && !this.disabled) {
       this.showInput = true;
+      this.isClicked = true;
       setTimeout(() => {
         this.searchDropdown.nativeElement.focus();
       }, 100);
@@ -151,6 +171,10 @@ export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewIni
    */
   clickOutsideContent() {
     this.showInput = false;
+    if (this.isClicked) {
+      this.isClicked = false;
+      this.validateInput();
+    }
   }
 
   /**
@@ -162,8 +186,32 @@ export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewIni
     if (value.length === 0) {
       this.titleValueInput = this.title;
     }
-
     this.keyUpInput.emit(value);
+    this.validateInput();
+  }
+
+  /**
+   * Método valida las reglas que se asignen
+   */
+  validateInput() {
+    this.contError = '';
+    if (!this.value) {
+      this.contError += StatesContentClass.error;
+    }
+    if (this.value && this.value.length > 0 && this.pattern) {
+      if (!this.pattern.test(this.titleValueInput)) {
+        this.contError += StatesContentClass.error;
+      }
+    }
+  }
+
+  /**
+   * Método carga los estilos disabled si disabled is true
+   */
+  getStylesDisabled() {
+    if (this.disabled) {
+      this.contClass += StatesContentClass.disabled;
+    }
   }
 }
 
@@ -181,4 +229,12 @@ class StyleColorMessage {
 class StatesColorMessageClass {
   static readonly yellowOff = 'yellow-off';
   static readonly red = 'red';
+}
+
+class StatesContentClass {
+  static readonly error = ' cnt--error';
+  static readonly disabled = ' cnt--disabled';
+  static readonly phantom = ' cnt--phantom';
+  static readonly isInput = ' cnt__sub--is-input';
+  static readonly isDropdown = 'cnt__sub__child-first--dropdown';
 }
