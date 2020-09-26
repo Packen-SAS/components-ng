@@ -18,6 +18,7 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
   @Input() required = false;
   @Input() phantom: boolean = false;
   @Input() disabled: boolean = false;
+  @Input() title: string = '';
 
   @Output() keyUpValue = new EventEmitter<string>();
   @Output() changeValue = new EventEmitter<DropdownShowItem>();
@@ -34,6 +35,8 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
   classContentDisabled: string = '';
 
   isClicked: boolean = false;
+  placeholderInputShow: boolean = true;
+
   @Output()
   valueChange = new EventEmitter<any>();
 
@@ -64,6 +67,7 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
+    this.titleInput = this.title;
     this.loadTitleInput();
     this.getClassIsPhantom();
     this.getClassIsDisabled();
@@ -98,7 +102,8 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
         this.classContent = '';
         this.classContent = ContentClass.required;
         this.valueWrittenInput = '';
-        this.titleInput = '';
+        this.titleInput = this.title;
+        this.placeholderInputShow = true;
         this.isClicked = false;
       }
     }
@@ -116,6 +121,7 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
     this.loadTitleInput();
     this.classContent = '';
     this.clickOutsideContent();
+    this.placeholderInputShow = false;
   }
 
   /**
@@ -155,6 +161,7 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
       if (item.id === this.value) {
         this.titleInput = item.title;
         this.valueWrittenInput = item.title;
+        this.placeholderInputShow = false;
       }
     });
   }

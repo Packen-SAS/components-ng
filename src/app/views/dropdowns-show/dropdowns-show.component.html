@@ -5,13 +5,13 @@
             <div class="col-sm-8">
                 <lib-packen-dropdown-show [(value)]="idSelectedDropdown" [items]="listDropdown"
                     [disabled]="disabledDropdown1" [label]="'EPS'" [phantom]="true" (keyUpValue)="keyUpDropdown($event)"
-                    [icon]="'icon-phone'" [labelPosition]="'top'" [required]="true">
+                    [icon]="'icon-phone'" [labelPosition]="'bottom'" [title]="'Placeholder'" [required]="true">
                 </lib-packen-dropdown-show>
             </div>
             <div class="col-sm-4">
                 <div>
                     <button class="btn-p" (click)="disableOrEnableDropdown1()">Disable input</button>
-                    <button class="btn-p" (click)="printValue()" [disabled]="validateDropdown()"> 
+                    <button class="btn-p" (click)="printValue()" [disabled]="validateDropdown()">
                         Print value
                     </button>
                 </div>
