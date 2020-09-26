@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { of } from 'rxjs';
-import { SelectItem } from '../../interfaces/select-item';
+import { SelectItem, StyleBoxSelect, StyleIconSelect } from '../../interfaces/select-item';
 
 @Component({
   selector: 'lib-packen-select',
@@ -15,9 +15,16 @@ export class PackenSelectComponent implements OnInit, OnChanges {
   @Input() selectedId: number;
   @Input() width: number;
   @Input() height: number;
+  @Input() fontSize: number;
+  @Input() boldBorder: boolean;
+  @Input() borderRadius: number = 4;
+  @Input() iconSize: number;
+  @Input() grayBack: boolean;
+
   allowSelect: boolean;
   classDisabled: string;
-  styleBox: object = {};
+  styleBox: StyleBoxSelect = new StyleBoxSelect();
+  styleIcon: StyleIconSelect = new StyleIconSelect();
 
   @Output() outputClick: EventEmitter<SelectItem> = new EventEmitter();
 
@@ -40,8 +47,22 @@ export class PackenSelectComponent implements OnInit, OnChanges {
    * Método para cargar las dimensiones de las cajas de opciones
    */
   loadDimensions() {
-    if (this.width && this.height) {
-      this.styleBox = { width: `${this.width}px`, height: `${this.height}px` };
+    this.styleBox['border-radius'] = `${this.borderRadius}px`;
+
+    if (this.fontSize) {
+      this.styleBox['font-size'] = `${this.fontSize}px`;
+    }
+
+    if (this.width) {
+      this.styleBox.width = `${this.width}px`;
+    }
+
+    if (this.height) {
+      this.styleBox.height = `${this.height}px`;
+    }
+
+    if (this.iconSize) {
+      this.styleIcon['font-size'] = `${this.iconSize}px`;
     }
   }
 
@@ -109,9 +130,9 @@ export class PackenSelectComponent implements OnInit, OnChanges {
     }
 
     if (item.selected) {
-      return 'box-license__option-ctn__option option--selected' + this.classDisabled;
+      return 'box-license__option-ctn__option ' + (this.boldBorder ? 'option--selected-bold' : 'option--selected') + this.classDisabled;
     }
-    return 'box-license__option-ctn__option' + this.classDisabled;
+    return 'box-license__option-ctn__option ' + (this.grayBack ? 'option--gray ' : '') + this.classDisabled;
   }
 
 }

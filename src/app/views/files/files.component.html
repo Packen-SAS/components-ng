@@ -3,8 +3,8 @@
     <form #formTest="ngForm">
         <div class="col-md">
             <lib-packen-file [disabled]="disabledFile" [uploadedText]="'Archivo cargado'" [noUploadedText]="'Pendiente'"
-                [title]="'Cara 1'" [subtitle]="'(Lado de la fotografia)'" name="lib-file-1" [(value)]="selectedFile"
-                required="true">
+                [title]="'Cara 1'" [typeSrcLeft]="'img'" [subtitle]="'(Lado de la fotografia)'" name="lib-file-1" [(value)]="selectedFile"
+                required="true" [showUploadedText]="false" [setBorder]="true" [typeSrcRight]="'img'">
             </lib-packen-file>
         </div>
         <div class="col-md">
@@ -21,4 +21,21 @@
             Print files
         </button>
     </div>
+</div>
+
+<div class="row cnt-files" >
+    <form #formTest2="ngForm">
+        <div class="col-md">
+            <lib-packen-file [uploadedText]="'Archivo cargado'" [noUploadedText]="'Pendiente'" [title]="'Cara 3'"
+                [subtitle]="'(Lado de la fotografia)'" name="lib-file-3" [(value)]="selectedFile3" required="true"
+                typeSrcRight="img" [srcRight]="imgRoute" typeSrcLeft="icon" iconLeft="icon-email" [setBorder]="[true]">
+            </lib-packen-file>
+        </div>
+        <div class="col-md">
+            <lib-packen-file [showUploadedText]="false" [title]="'Foto frente'"
+                 name="lib-file-4" [(value)]="selectedFile4" required="true"
+                [iconRight]="'icon-car'" [typeSrcRight]="'icon'">
+            </lib-packen-file>
+        </div>
+    </form>
 </div>

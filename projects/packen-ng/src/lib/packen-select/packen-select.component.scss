@@ -31,15 +31,15 @@
 
         &__option {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            background: $basic_white_dft;
             font-family: $font-stack;
             font-weight: 600;
             font-size: 14px;
             line-height: 24px;
-            border-radius: 4px;
             margin: 10px;
-            background: $basic_white_dft;
             color: $gray;
 
             &--disabled {
@@ -54,6 +54,15 @@
     }
 }
 
+.option--gray {
+    background: $basic_gray_lgt;
+}
+
 .option--selected {
     @include selected-option;
+}
+
+.option--selected-bold {
+    @include selected-option;
+    border: 1px solid $primary_default !important;
 }

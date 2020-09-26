@@ -390,23 +390,32 @@ describe('PackenDropdownComponent', () => {
     expect(component.keyUpInput('')).toBeUndefined();
   });
 
+  it('Testing method clickOutsideContent() when it is clicked', () => {
+    component.isClickInside = true;
+    expect(component.clickOutsideContent()).toBeUndefined();
+  });
+
   it('Render function clickOutSideContent', () => {
+    component.isClickInside = true;
     component.value = false;
     expect(component.clickOutsideContent()).toBeUndefined();
   });
 
   it('Render function clickOutSideContent', () => {
+    component.isClickInside = true;
     component.value = true;
     expect(component.clickOutsideContent()).toBeUndefined();
   });
 
   it('Testing method clickOutSideContent() when is lazy', () => {
+    component.isClickInside = true;
     component.value = true;
     component.lazy = true;
     expect(component.clickOutsideContent()).toBeUndefined();
   });
 
   it('Testing method clickOutSideContent() when found item is in temporary list', () => {
+    component.isClickInside = true;
     component.temporaryItemsList = [{ id: 1, disabled: false }];
     component.value = 1;
     component.lazy = false;
@@ -414,6 +423,7 @@ describe('PackenDropdownComponent', () => {
   });
 
   it('Testing method clickOutSideContent() when found item is not in temporary list', () => {
+    component.isClickInside = true;
     component.temporaryItemsList = [{ id: 1, disabled: false }];
     component.value = 2;
     component.lazy = false;
