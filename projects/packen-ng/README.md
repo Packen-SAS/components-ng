@@ -131,16 +131,13 @@ Input to load a specific file.
  - **value**: Variable where file will be saved.
  - **required**: Defines if a field is required.
  - **showUploadedText**: Defines show file status.
- - **setBorder**: Defines show border: `(true|false)`.
- - **typeSrcRight**: Defines source type: `(icon|img)`.
- - **iconRight**: Defines icon name.
- - **srcRight**: Defines image route.
- - **typeSrcLeft**: Defines source type: `(icon|img)`.
- - **iconLeft**: Defines icon name.
- - **srcLeft**: Defines image route.
- - **fontSizeTitle**: Defines font size title. **NOTE**: value is number.
- - **boldTitle**: Defines if title is  bold `(true|false)`.
- - **opacity**: Defines if data component has opacity when not has value: `(true|false)`
+ - **setBorder**: Defines if gray border border will be shown: `(true|false)`.
+ - **typeSrcRight**: Defines right side icon type: `(icon|img)`.
+ - **iconRight**: Defines right side icon name (from some font).
+ - **srcRight**: Defines right side url image when `typeSrcRight` is `img` .
+ - **typeSrcLeft**: Defines left side icon type: `(icon|img)`.
+ - **iconLeft**: Defines left side icon name (from some font).
+ - **srcLeft**: Defines left side url image `typeSrcLeft` is `img` .
 
 ### PinMapComponent
 
