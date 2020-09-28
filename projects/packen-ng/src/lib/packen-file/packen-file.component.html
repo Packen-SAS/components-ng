@@ -1,12 +1,14 @@
 <div class="ctn">
-    <label [ngStyle]="{'border': setBorder ? '': '1px solid transparent'}" class="box-file" [ngClass]="classInput" [for]="name">
+    <label [ngStyle]="{'border': setBorder ? '': '1px solid transparent'}" class="box-file" [ngClass]="classInput"
+        [for]="name">
         <img *ngIf="typeSrcLeft === 'img'" class="box-file__icon-left" [src]="srcLeft" />
         <span class="box-file__icon-span-left" *ngIf="typeSrcLeft === 'icon'" [ngClass]="iconLeft"></span>
 
         <div class="box-file__rigth-section">
-            <div class="box-file__content">
+            <div class="box-file__content" [ngClass]="validateOpacityRequired()">
                 <div class="box-file__content__desc">
-                    <span class="box-file__content__desc__title">{{ title }}</span>
+                    <span class="box-file__content__desc__title" [ngClass]="classBoldTitle"
+                        [ngStyle]="fontSizeTitleStyle">{{ title }}</span>
                     <span>{{ subtitle }}</span>
                 </div>
                 <div class="box-file__content__state--uploaded" *ngIf="selectedFile && showUploadedText">
@@ -15,7 +17,8 @@
                     {{ noUploadedText }}</div>
             </div>
 
-            <span class="box-file__icon-span" *ngIf="typeSrcRight === 'icon' && !selectedFile" [ngClass]="iconRight"></span>
+            <span class="box-file__icon-span" *ngIf="typeSrcRight === 'icon' && !selectedFile"
+                [ngClass]="iconRight"></span>
 
             <img class="box-file__icon-right" [src]="iconS3RightCheck" *ngIf="selectedFile" />
             <img class="box-file__icon-right" [src]="srcRight" *ngIf="!selectedFile && typeSrcRight === 'img'" />

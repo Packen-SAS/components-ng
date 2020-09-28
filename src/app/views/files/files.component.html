@@ -3,8 +3,9 @@
     <form #formTest="ngForm">
         <div class="col-md">
             <lib-packen-file [disabled]="disabledFile" [uploadedText]="'Archivo cargado'" [noUploadedText]="'Pendiente'"
-                [title]="'Cara 1'" [typeSrcLeft]="'img'" [subtitle]="'(Lado de la fotografia)'" name="lib-file-1" [(value)]="selectedFile"
-                required="true" [showUploadedText]="false" [setBorder]="true" [typeSrcRight]="'img'">
+                [title]="'Cara 1'" [typeSrcLeft]="'img'" [subtitle]="'(Lado de la fotografia)'" name="lib-file-1"
+                [(value)]="selectedFile" required="true" [showUploadedText]="false" [setBorder]="true"
+                [typeSrcRight]="'img'">
             </lib-packen-file>
         </div>
         <div class="col-md">
@@ -14,7 +15,6 @@
             </lib-packen-file>
         </div>
     </form>
-
     <div>
         <button class="btn-p" (click)="disable()">Disable</button>
         <button class="btn-p" (click)="printFiles()" [disabled]="!formTest.valid || !selectedFile || !selectedFile2">
@@ -23,18 +23,19 @@
     </div>
 </div>
 
-<div class="row cnt-files" >
+<div class="row cnt-files">
     <form #formTest2="ngForm">
         <div class="col-md">
             <lib-packen-file [uploadedText]="'Archivo cargado'" [noUploadedText]="'Pendiente'" [title]="'Cara 3'"
                 [subtitle]="'(Lado de la fotografia)'" name="lib-file-3" [(value)]="selectedFile3" required="true"
-                typeSrcRight="img" [srcRight]="imgRoute" typeSrcLeft="icon" iconLeft="icon-email" [setBorder]="[true]">
+                typeSrcRight="img" [srcRight]="imgRoute" typeSrcLeft="icon" iconLeft="icon-email" [setBorder]="true"
+                [opacity]="true">
             </lib-packen-file>
         </div>
         <div class="col-md">
-            <lib-packen-file [showUploadedText]="false" [title]="'Foto frente'"
-                 name="lib-file-4" [(value)]="selectedFile4" required="true"
-                [iconRight]="'icon-car'" [typeSrcRight]="'icon'">
+            <lib-packen-file [showUploadedText]="false" [title]="'Foto frente'" name="lib-file-4"
+                [(value)]="selectedFile4" required="true" [iconRight]="'icon-camera'" [typeSrcRight]="'icon'"
+                [boldTitle]="false" [fontSizeTitle]="17" [opacity]="true">
             </lib-packen-file>
         </div>
     </form>

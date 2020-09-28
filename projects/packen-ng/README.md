@@ -109,7 +109,7 @@ Input to load a specific file.
 ``` html
 <lib-packen-file [disabled]="disabledFile" [uploadedText]="'Archivo cargado'" [noUploadedText]="'Pendiente'"
     [title]="'Cara 1'" [subtitle]="'(Lado de la fotografia)'" name="lib-file-1" [(value)]="selectedFile"
-    required="true">
+    required="true" [fontSizeTitle]="17" [boldTitle]="false" [opacity]="true">
 </lib-packen-file>
 ```
 
