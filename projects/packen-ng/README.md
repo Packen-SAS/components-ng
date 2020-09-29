@@ -648,7 +648,7 @@ A special input to show more details.
 - **description**: Set a smaller description text side label.
 - **isInput**: Defines whether to show input when clicked.
 - **mask**: Input masks for external library [ngx-mask](https://www.npmjs.com/package/ngx-mask)
-- **isPlaceholder**: Defines if the title show styles placeholder **NOTE** Only is used when component is child.
+- **isPlaceholder**: Defines if the title shows style placeholder. **NOTE** Only used when the component is a child.
 
 #### Events
 - **clickSee**: Triggers when see icon is clicked **NOTE**: Event is required when **showSee** is **true**.
