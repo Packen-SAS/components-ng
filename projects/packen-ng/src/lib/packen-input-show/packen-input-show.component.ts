@@ -67,6 +67,9 @@ export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewIni
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.titleValueInput = this.searchDropdown.nativeElement.value;
+      if (!this.titleValueInput) {
+        this.titleValueInput = this.title;
+      }
     }, 300);
   }
 
