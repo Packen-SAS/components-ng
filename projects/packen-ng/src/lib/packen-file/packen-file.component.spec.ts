@@ -125,4 +125,9 @@ describe('PackenFileComponent', () => {
     component.opacity = true;
     expect(component.validateOpacityRequired()).toEqual('box-file__content--opacity');
   });
+
+  it('Testing function loadClassPhatom() ', () => {
+    component.phantom = true;
+    expect(component.loadClassPhantom()).toBeUndefined();
+  });
 });
