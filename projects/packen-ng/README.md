@@ -627,7 +627,7 @@ A special input to show more details.
 <lib-input-show icon="icon-id" color="yellow-off" type="icon" [title]="'1.018.234.542'" url="httt://image.png"
   label="Documento de identidad" message="Documento a la espera de aprobación" labelPosition="bottom"
   (clickSee)="clickSeeButton($event)" (clickEdit)="clickEdit($event)" [showEdit]='true' [showSee]="true"
-  [description]="'(Lado de la fotografia)'" [phantom]="true">
+  [description]="'(Lado de la fotografia)'" [phantom]="true" [isPlaceholder]="false">
 </lib-input-show>
 ```
 
@@ -648,11 +648,12 @@ A special input to show more details.
 - **description**: Set a smaller description text side label.
 - **isInput**: Defines whether to show input when clicked.
 - **mask**: Input masks for external library [ngx-mask](https://www.npmjs.com/package/ngx-mask)
+- **isPlaceholder**: Defines if the title shows style placeholder. **NOTE** Only used when the component is a child.
 
 #### Events
 - **clickSee**: Triggers when see icon is clicked **NOTE**: Event is required when **showSee** is **true**.
 - **clickEdit**: Triggers when see edit is clicked **NOTE**: Event is required when **showEdit** is **true**.
-- **keyUpInput** Triggers when the input value is changed. **NOTE**:  Event is not required.
+- **keyUpInput** Triggers when the input value is changed **NOTE**:  Event is not required.
 ### AlertComponent
 
 An alert.

@@ -2,7 +2,7 @@
     <div class="cont__component" [ngClass]="classContentDisabled" (click)="clickInputComponent()">
         <div [ngStyle]="{'display': !showInput ? 'block': 'none'}">
             <lib-packen-input-show [color]="'yellow-off'" [title]="titleInput" [label]="label" [phantom]="phantom"
-                [labelPosition]="labelPosition" [isDropdown]="true" [icon]="icon" ngDefaultControl>
+                [labelPosition]="labelPosition" [isDropdown]="true" [isPlaceholder]="placeholderInputShow" [icon]="icon" ngDefaultControl>
             </lib-packen-input-show>
         </div>
         <div [ngStyle]="{display: showInput ? 'block': 'none'}">

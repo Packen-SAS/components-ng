@@ -76,6 +76,14 @@ describe('PackenInputShowComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('Testing function when change isPlaceholder', () => {
+    component.ngOnChanges({
+      isPlaceholder: new SimpleChange(true, true, false)
+    });
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
+
   it('Testing function when change other item ', () => {
     component.ngOnChanges({
       url: new SimpleChange('red', false, false)
@@ -130,8 +138,13 @@ describe('PackenInputShowComponent', () => {
     expect(component.validateInput()).toBeUndefined();
   });
 
-  it('Testing function getStylesDisabled() ', () => {
+  it('Testing function getStylesDisabled()', () => {
     component.disabled = true;
     expect(component.getStylesDisabled()).toBeUndefined();
+  });
+
+  it('Testing funtion getColorTitlePlaceholder()', () => {
+    component.isPlaceholder = true;
+    expect(component.getColorTitlePlaceholder()).toBeUndefined();
   });
 });

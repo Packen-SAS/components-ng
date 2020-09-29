@@ -29,6 +29,9 @@ export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewIni
   @Input() message: string = '';
   @Input() mask: string;
 
+  // Esta entrada es cuando el componente es hijo del dropdown
+  @Input() isPlaceholder: boolean = false;
+
   @Output() clickSee = new EventEmitter<string>();
   @Output() clickEdit = new EventEmitter<string>();
   @Output() keyUpInput = new EventEmitter<string>();
@@ -55,6 +58,7 @@ export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewIni
   subContClass: string = '';
   contError: string = '';
   titleValueInput: string = '';
+  classTitleInputDisabled: string = '';
 
   isClicked: boolean = false;
 
@@ -73,6 +77,10 @@ export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewIni
 
     if (changes.disabled) {
       this.loadStylesComponent();
+    }
+
+    if (changes.isPlaceholder) {
+      this.getColorTitlePlaceholder();
     }
   }
 
@@ -213,6 +221,16 @@ export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewIni
       this.contClass += StatesContentClass.disabled;
     }
   }
+
+  /**
+   * Método cambia el color del titulo
+   */
+  getColorTitlePlaceholder() {
+    this.classTitleInputDisabled = '';
+    if (this.isPlaceholder) {
+      this.classTitleInputDisabled = TitlePlaceholder.placeholder;
+    }
+  }
 }
 
 // Tipos
@@ -237,4 +255,8 @@ class StatesContentClass {
   static readonly phantom = ' cnt--phantom';
   static readonly isInput = ' cnt__sub--is-input';
   static readonly isDropdown = 'cnt__sub__child-first--dropdown';
+}
+
+class TitlePlaceholder {
+  static readonly placeholder = 'cnt__body__title--placeholder';
 }
