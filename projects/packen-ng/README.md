@@ -653,7 +653,7 @@ A special input to show more details.
 #### Events
 - **clickSee**: Triggers when see icon is clicked **NOTE**: Event is required when **showSee** is **true**.
 - **clickEdit**: Triggers when see edit is clicked **NOTE**: Event is required when **showEdit** is **true**.
-- **keyUpInput** Triggers when the input value is changed. **NOTE**:  Event is not required.
+- **keyUpInput** Triggers when the input value is changed **NOTE**:  Event is not required.
 ### AlertComponent
 
 An alert.
