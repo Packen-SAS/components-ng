@@ -11,10 +11,10 @@ export class ApiService {
   ) { }
 
   sesion = {
-    client: '',
+    client: 'SbRAQAS1gp-_BK9Hgnnk5w',
     keepSession: true,
-    token: '',
-    uid: ''
+    token: 'Uor_iQP8T_PY9Ye-eO5kYQ',
+    uid: 'german@packen.co'
   };
 
   /**
