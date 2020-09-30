@@ -5,10 +5,6 @@
     position: relative;
     min-height: 56px;
 
-    &--required {
-        border: 2px solid $danger_default !important;
-    }
-
     &--phantom {
         background-color: $transparent !important;
     }
@@ -25,11 +21,13 @@
     &__component {
         min-height: 56px;
         cursor: pointer;
+
         &__input {
+            width: 98%;
             border: none;
-            width: 100%;
             outline: none;
             padding: 10px 20px;
+            margin: 5px 10px;
             height: 56px;
             font-size: 16px;
             font-family: $font-stack;
@@ -49,6 +47,7 @@
         font-family: $font-stack;
         color: $tertiary_default;
         box-shadow: $box-shadow;
+
         &__item {
             min-height: 40px;
             background-color: $basic_white_dft;

@@ -31,7 +31,7 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
   valueWrittenInput: string = '';
   classInput: string = '';
   classInputPhantom: string = '';
-  classContent: string = '';
+  inputChildRequired: boolean = false;
   classContentDisabled: string = '';
 
   isClicked: boolean = false;
@@ -97,10 +97,9 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
     this.showInput = false;
     this.showListItems = false;
 
-    if (!this.value || this.valueWrittenInput === '') {
+    if (!this.value || !this.valueWrittenInput) {
       if (this.isClicked) {
-        this.classContent = '';
-        this.classContent = ContentClass.required;
+        this.inputChildRequired = true;
         this.valueWrittenInput = '';
         this.titleInput = this.title;
         this.placeholderInputShow = true;
@@ -119,9 +118,9 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
     this.showInput = false;
     this.showListItems = false;
     this.loadTitleInput();
-    this.classContent = '';
     this.clickOutsideContent();
     this.placeholderInputShow = false;
+    this.inputChildRequired = false;
   }
 
   /**
@@ -140,6 +139,16 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
         this.validateRequiredInput();
       }
     });
+  }
+
+  /**
+   * Metodo coloca la clase requerido al input cuando lo requiere
+   */
+  validateRequiredInput() {
+    this.classInput = '';
+    if (!this.valueWrittenInput) {
+      this.classInput = ContentClass.requiredInput;
+    }
   }
 
   /**
@@ -167,16 +176,6 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
   }
 
   /**
-   * Metodo coloca la clase requerido al input cuando lo requiere
-   */
-  validateRequiredInput() {
-    this.classInput = '';
-    if (this.valueWrittenInput.length === 0 && this.required && this.classContent !== 'cont--required') {
-      this.classInput = ContentClass.requiredInput;
-    }
-  }
-
-  /**
    * Método asigna la clase phantom cuado la variable phatom es verdadero
    */
   getClassIsPhantom() {
@@ -198,7 +197,6 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
 
 // Clases del contenido
 class ContentClass {
-  static readonly required = 'cont--required';
   static readonly phantom = 'cont--phantom';
   static readonly disabled = 'cont--disabled';
   static readonly requiredInput = 'cont__component__input--required';

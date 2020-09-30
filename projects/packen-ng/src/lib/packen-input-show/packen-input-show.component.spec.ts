@@ -92,6 +92,22 @@ describe('PackenInputShowComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('Testing function when change inputChildRequired is false', () => {
+    component.ngOnChanges({
+      inputChildRequired: new SimpleChange(false, false, false)
+    });
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
+
+  it('Testing function when change inputChildRequired is true', () => {
+    component.ngOnChanges({
+      inputChildRequired: new SimpleChange(false, true, false)
+    });
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
+
   it('Testing function loadClassWhenIsInput()', () => {
     component.isInput = true;
     expect(component.loadClassWhenIsInput()).toBeUndefined();
