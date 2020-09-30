@@ -78,6 +78,10 @@ export class PackenDateComponent implements OnInit, OnChanges {
     if (this.border) {
       this.classStyle = 'with-border';
     }
+
+    if (this.phantom) {
+      this.classStyle += ' phantom';
+    }
   }
 
 }

@@ -176,7 +176,7 @@ Custom date input.
 
 ``` html
 <lib-packen-date [disabled]="disabledDate" [required]="true" [border]="false" [placeholder]="'DD/MM/YYYY'"
-    [minDate]="dateToday" [isMobile]="false" [(value)]="dateSelected"
+    [minDate]="dateToday" [isMobile]="false" [(value)]="dateSelected" [phantom]="true"
     [label]="'Fecha de vencimiento de la licencia'">
 </lib-packen-date>
 ```
@@ -196,6 +196,7 @@ Custom date input.
  - **isMobile**: Responsive display for popup calendar.
  - **value**: Variable where selected date will be saved.
  - **label**: Text label to show under the date.
+ - **phantom**: Defines if background will be transparent or not.`(true|false)`.
 
 ### TableComponent
 
