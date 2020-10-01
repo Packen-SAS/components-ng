@@ -56,4 +56,9 @@ describe('PackenDateComponent', () => {
     component.border = false;
     expect(component.getStyleInputCalendar()).toBeUndefined();
   });
+
+  it('Testing method getStyleInputCalendar() when phantom is true', () => {
+    component.phantom = true;
+    expect(component.getStyleInputCalendar()).toBeUndefined();
+  });
 });

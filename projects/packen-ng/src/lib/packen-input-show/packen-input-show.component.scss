@@ -2,8 +2,8 @@
 
 .cnt {
     font-family: $font-stack;
-    width: 100%;
     background-color: $basic_white_med;
+    margin: 5px 10px;
     padding: 5px 15px;
     display: flex;
     justify-content: center;
@@ -24,11 +24,12 @@
     }
 
     &__sub {
-        display: flex;
-        justify-content: space-between;
         width: 100%;
+        display: flex;
         overflow-x: auto;
         overflow-y: hidden;
+        min-height: 40px;
+        justify-content: space-between;
 
         &__child-first {
             display: flex;
@@ -143,10 +144,9 @@
     }
 
     &__input {
-        outline: none;
-        min-height: 45px;
-        border-color: transparent;
         border: none;
+        outline: none;
+        border-color: transparent;
         background-color: transparent;
         color: $textiary_hover;
     }

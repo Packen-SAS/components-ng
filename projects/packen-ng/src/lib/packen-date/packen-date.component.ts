@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'lib-packen-date',
@@ -15,6 +15,7 @@ export class PackenDateComponent implements OnInit, OnChanges {
   @Input() minDate: Date;
   @Input() maxDate: Date;
   @Input() label: string;
+  @Input() phantom: boolean = false;
 
   @Input() idiom: any = {
     firstDayOfWeek: 0,
@@ -76,6 +77,10 @@ export class PackenDateComponent implements OnInit, OnChanges {
     this.classStyle = 'without-border';
     if (this.border) {
       this.classStyle = 'with-border';
+    }
+
+    if (this.phantom) {
+      this.classStyle += ' phantom';
     }
   }
 

@@ -19,6 +19,7 @@ export class PackenFileComponent implements OnInit, OnChanges {
   @Input() fontSizeTitle: number;
   @Input() boldTitle: boolean = true;
   @Input() opacity: boolean = false;
+  @Input() phantom: boolean = false;
 
   @Input() showUploadedText: boolean = true;
   @Input() setBorder: boolean = false;
@@ -39,6 +40,7 @@ export class PackenFileComponent implements OnInit, OnChanges {
   fontSizeTitleStyle: object = {};
   classBoldTitle: string = '';
   classContentData: string = '';
+  classPhantom: string = '';
 
   @Output()
   valueChange = new EventEmitter<File>();
@@ -62,6 +64,7 @@ export class PackenFileComponent implements OnInit, OnChanges {
     this.getClassDisable(this.disabled);
     this.loadSizeTitle();
     this.loadBoldTitle();
+    this.loadClassPhantom();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -157,6 +160,15 @@ export class PackenFileComponent implements OnInit, OnChanges {
       return ContentInfo.opactity;
     }
     return '';
+  }
+
+  /**
+   * Método carga la clase que vuelve transparente el fondo
+   */
+  loadClassPhantom() {
+    if (this.phantom) {
+      this.classPhantom = 'box-file--phantom';
+    }
   }
 }
 

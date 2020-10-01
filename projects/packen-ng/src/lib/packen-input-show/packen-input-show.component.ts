@@ -22,6 +22,7 @@ export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewIni
   @Input() required: boolean = false;
   @Input() pattern: any = null;
   @Input() disabled: boolean = false;
+  @Input() inputChildRequired: boolean = false;
 
   @Input() title: string = '';
   @Input() description: string = '';
@@ -59,7 +60,6 @@ export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewIni
   contError: string = '';
   titleValueInput: string = '';
   classTitleInputDisabled: string = '';
-
   isClicked: boolean = false;
 
   constructor() { }
@@ -67,6 +67,9 @@ export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewIni
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.titleValueInput = this.searchDropdown.nativeElement.value;
+      if (!this.titleValueInput) {
+        this.titleValueInput = this.title;
+      }
     }, 300);
   }
 
@@ -81,6 +84,14 @@ export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewIni
 
     if (changes.isPlaceholder) {
       this.getColorTitlePlaceholder();
+    }
+
+    if (changes.inputChildRequired) {
+      if (changes.inputChildRequired.currentValue) {
+        this.contError = StatesContentClass.error;
+      } else {
+        this.contError = '';
+      }
     }
   }
 
@@ -204,11 +215,11 @@ export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewIni
   validateInput() {
     this.contError = '';
     if (!this.value) {
-      this.contError += StatesContentClass.error;
+      this.contError = StatesContentClass.error;
     }
-    if (this.value && this.value.length > 0 && this.pattern) {
+    if (this.pattern && this.value) {
       if (!this.pattern.test(this.titleValueInput)) {
-        this.contError += StatesContentClass.error;
+        this.contError = StatesContentClass.error;
       }
     }
   }

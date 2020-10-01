@@ -41,6 +41,10 @@
         }
     }
 
+    ::ng-deep p-calendar > span > input.phantom {
+        background: transparent !important;
+    }
+
     ::ng-deep p-calendar > span > input.with-border {
         width: 100% !important;
         border: 1px solid #a6a6a6 !important;

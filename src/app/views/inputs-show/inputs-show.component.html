@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-sm-8">
             <form #formTestInputShow="ngForm">
-                <lib-packen-input-show [color]="'yellow-off'" [title]="titleInput" required label="Placa del vehículo"
+                <lib-packen-input-show [color]="'yellow-off'" [title]="titleInput" label="Placa del vehículo"
                     labelPosition="bottom" [isInput]="true" [phantom]="true" mask="AAA-000" [required]="true"
                     [disabled]="disabledInput" [pattern]="patterPlate" [(ngModel)]="valueInput" name="valueInput"
                     [(value)]="valueInput" ngDefaultControl autocomplete="off">
@@ -21,36 +21,29 @@
         </div>
     </div>
 
-    <br>
     <lib-packen-input-show [color]="'yellow-off'" [title]="'Titulo'" label="Descripción"
         message="Sin icono a la izquierda" labelPosition="bottom" (clickSee)="clickSeeButton($event)"
         (clickEdit)="clickEdit($event)" [showEdit]='true' [showSee]="true" [phantom]="true">
     </lib-packen-input-show>
 
-
-    <br>
     <lib-packen-input-show icon="icon-id" [color]="'yellow-off'" type="icon" [title]="'1.018.234.542'"
         label="Documento de identidad" message="Documento a la espera de aprobación" labelPosition="bottom"
         (clickSee)="clickSeeButton($event)" (clickEdit)="clickEdit($event)" [showEdit]='true' [showSee]="true">
     </lib-packen-input-show>
 
-    <br>
     <lib-packen-input-show [icon]="'icon-phone'" [color]="'red'" [type]="'icon'" [title]="'312 789 12  45'"
         [label]="'Número de celular'" [labelPosition]="'top'" (clickEdit)="clickEdit($event)" [showEdit]="true">
     </lib-packen-input-show>
 
-    <br>
     <lib-packen-input-show [icon]="'icon-email'" [color]="'red'" [type]="'icon'" [title]="'andrespaez@gmail.com'"
         [label]="'Correo electronico'" [message]="'Correo a la espera de verificación'" [labelPosition]="'bottom'"
         (clickSee)="clickSeeButton($event)" (clickEdit)="clickEdit($event)" [showEdit]="true" [showSee]="true">
     </lib-packen-input-show>
 
-    <br>
     <lib-packen-input-show [type]="'icon'" [icon]="'icon-doc-front'" [title]="'109702362733'"
         [label]="'Cedula de ciudadania'" [labelPosition]="'bottom'" [phantom]="true">
     </lib-packen-input-show>
 
-    <br>
     <lib-packen-input-show [type]="'icon'" [icon]="'icon-doc-back'" [title]="'Cara 1'" [labelPosition]="'bottom'"
         [description]="'(Lado de la fotografia)'" [phantom]="true">
     </lib-packen-input-show>

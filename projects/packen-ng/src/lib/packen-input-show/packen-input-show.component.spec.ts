@@ -1,5 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, SimpleChange } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, tick } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
 
@@ -92,6 +92,22 @@ describe('PackenInputShowComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('Testing function when change inputChildRequired is false', () => {
+    component.ngOnChanges({
+      inputChildRequired: new SimpleChange(false, false, false)
+    });
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
+
+  it('Testing function when change inputChildRequired is true', () => {
+    component.ngOnChanges({
+      inputChildRequired: new SimpleChange(false, true, false)
+    });
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
+
   it('Testing function loadClassWhenIsInput()', () => {
     component.isInput = true;
     expect(component.loadClassWhenIsInput()).toBeUndefined();
@@ -146,5 +162,10 @@ describe('PackenInputShowComponent', () => {
   it('Testing funtion getColorTitlePlaceholder()', () => {
     component.isPlaceholder = true;
     expect(component.getColorTitlePlaceholder()).toBeUndefined();
+  });
+
+  it('Testing function ngAfterViewInit() when value input is valid ', () => {
+    component.searchDropdown.nativeElement = { value: 'Value' };
+    expect(component.ngAfterViewInit()).toBeUndefined();
   });
 });

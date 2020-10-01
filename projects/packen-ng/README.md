@@ -109,7 +109,7 @@ Input to load a specific file.
 ``` html
 <lib-packen-file [disabled]="disabledFile" [uploadedText]="'Archivo cargado'" [noUploadedText]="'Pendiente'"
     [title]="'Cara 1'" [subtitle]="'(Lado de la fotografia)'" name="lib-file-1" [(value)]="selectedFile"
-    required="true" [fontSizeTitle]="17" [boldTitle]="false" [opacity]="true">
+    required="true" [fontSizeTitle]="17" [boldTitle]="false" [opacity]="true" [phantom]="true">
 </lib-packen-file>
 ```
 
@@ -134,10 +134,11 @@ Input to load a specific file.
  - **setBorder**: Defines if gray border border will be shown: `(true|false)`.
  - **typeSrcRight**: Defines right side icon type: `(icon|img)`.
  - **iconRight**: Defines right side icon name (from some font).
- - **srcRight**: Defines right side url image when `typeSrcRight` is `img` .
+ - **srcRight**: Defines right side url image when `typeSrcRight` is `img`.
  - **typeSrcLeft**: Defines left side icon type: `(icon|img)`.
  - **iconLeft**: Defines left side icon name (from some font).
- - **srcLeft**: Defines left side url image `typeSrcLeft` is `img` .
+ - **srcLeft**: Defines left side url image `typeSrcLeft` is `img`.
+ - **phantom**: Defines if background will be transparent or not.`(true|false)`.
 
 ### PinMapComponent
 
@@ -175,7 +176,7 @@ Custom date input.
 
 ``` html
 <lib-packen-date [disabled]="disabledDate" [required]="true" [border]="false" [placeholder]="'DD/MM/YYYY'"
-    [minDate]="dateToday" [isMobile]="false" [(value)]="dateSelected"
+    [minDate]="dateToday" [isMobile]="false" [(value)]="dateSelected" [phantom]="true"
     [label]="'Fecha de vencimiento de la licencia'">
 </lib-packen-date>
 ```
@@ -195,6 +196,7 @@ Custom date input.
  - **isMobile**: Responsive display for popup calendar.
  - **value**: Variable where selected date will be saved.
  - **label**: Text label to show under the date.
+ - **phantom**: Defines if background will be transparent or not.`(true|false)`.
 
 ### TableComponent
 
@@ -639,6 +641,7 @@ A special input to show more details.
 - **color**: Defines the message color `(yellow-off)`.
 - **type**: Defines if the icon is a icon name or image `(icon|url)`.
 - **icon**: Defines icon to show side the name **NOTE**: this item is required when type is icon.
+- **title**: Defines title to show.
 - **url**: Defines the image url to show in icon **NOTE**: this item is required when type is url.
 - **label**: Defines the label field to show.
 - **labelPosition**: Defines the label position `(top|bottom)` **NOTE**: default value is bottom.

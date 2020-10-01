@@ -17,6 +17,10 @@
     margin-bottom: 0px !important;
     min-height: 44px;
 
+    &--phantom {
+        background-color: transparent !important;
+    }
+
     &__icon-left {
         padding-right: 15px;
     }
