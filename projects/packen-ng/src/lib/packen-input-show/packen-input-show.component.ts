@@ -30,8 +30,8 @@ export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewIni
   @Input() label: string = '';
   @Input() message: string = '';
   @Input() mask: string;
-  @Input() maxLengthInput: number;
-  @Input() minLengthInput: number;
+  @Input() maxlength: number = 0;
+  @Input() minlength: number = 0;
 
   // Esta entrada es cuando el componente es hijo del dropdown
   @Input() isPlaceholder: boolean = false;
