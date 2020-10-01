@@ -3,12 +3,12 @@
         <div [ngStyle]="{'display': !showInput ? 'block': 'none'}">
             <lib-packen-input-show [color]="'yellow-off'" [title]="titleInput" [label]="label" [phantom]="phantom"
                 [labelPosition]="labelPosition" [isDropdown]="true" [isPlaceholder]="placeholderInputShow" [icon]="icon"
-                [inputChildRequired]="inputChildRequired" ngDefaultControl>
+                [inputChildRequired]="inputChildRequired" ngDefaultControl >
             </lib-packen-input-show>
         </div>
         <div [ngStyle]="{display: showInput ? 'block': 'none'}">
             <input [(ngModel)]="valueWrittenInput" #searchIdPackenDropdown class="cont__component__input"
-                [required]="required" [ngClass]="[classInput, classInputPhantom]" autocomplete="off">
+                [required]="required" [ngClass]="[classInput, classInputPhantom]" autocomplete="off" [type]="inputType">
         </div>
     </div>
 

@@ -23,6 +23,7 @@ export class PackenInputShowComponent implements OnInit, OnChanges, AfterViewIni
   @Input() pattern: any = null;
   @Input() disabled: boolean = false;
   @Input() inputChildRequired: boolean = false;
+  @Input() inputType: string = 'text';
 
   @Input() title: string = '';
   @Input() description: string = '';
