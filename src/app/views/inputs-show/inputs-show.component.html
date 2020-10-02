@@ -21,14 +21,6 @@
         </div>
     </div>
 
-    <lib-packen-input-show [color]="'yellow-off'" [title]="titleInput" label="Placa del aaaa" labelPosition="bottom"
-        [isInput]="true" [phantom]="true" [required]="true" [disabled]="disabledInput" [pattern]="patterPlate"
-        [(ngModel)]="valueInput" name="valueInput" [(value)]="valueInput" ngDefaultControl autocomplete="off"
-        [maxlength]="10" [minlength]="5">
-
-
-    </lib-packen-input-show>
-
     <lib-packen-input-show [color]="'yellow-off'" [title]="'Titulo'" label="Descripción"
         message="Sin icono a la izquierda" labelPosition="bottom" (clickSee)="clickSeeButton($event)"
         (clickEdit)="clickEdit($event)" [showEdit]='true' [showSee]="true" [phantom]="true">
