@@ -19,6 +19,7 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
   @Input() phantom: boolean = false;
   @Input() disabled: boolean = false;
   @Input() title: string = '';
+  @Input() inputType: string = 'text';
 
   @Output() keyUpValue = new EventEmitter<string>();
   @Output() changeValue = new EventEmitter<DropdownShowItem>();

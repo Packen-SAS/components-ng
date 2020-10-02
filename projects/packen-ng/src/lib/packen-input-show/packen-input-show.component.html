@@ -1,7 +1,8 @@
 <div class="cnt" [ngClass]="[contClass, contError]" (click)="showInputClick()" (clickOutside)="clickOutsideContent()">
     <input name="packenInputShow" [(ngModel)]="value" class="cnt__input" #searchDropdown autocomplete="off"
         [required]="required === true? required: false" [ngStyle]="{'display': showInput ? 'block': 'none'}"
-        [mask]="mask" (keyup)="keyUpValue($event.target.value)">
+        [mask]="mask" (keyup)="keyUpValue($event.target.value)" [type]="inputType"
+        [attr.maxlength]="maxlength > 0 ? maxlength: false" [attr.minlength]="minlength > 0 ? minlength: false">
     <div [ngStyle]="{'display': !showInput ? 'flex': 'none'}" class="cnt__sub" [ngClass]="subContClass">
         <div class="cnt__sub__child-first" [ngClass]="widthContentDataClass">
             <div class="cnt__first">
@@ -11,7 +12,7 @@
                 </div>
                 <div class="cnt__body">
                     <p class="cnt__body__label" *ngIf="labelPosition === 'top'">{{label}}</p>
-                    <p class="cnt__body__title"  
+                    <p class="cnt__body__title"
                         [ngClass]="[titleValueInput === title && isInput? 'cnt__body__title--placeholder': '', classTitleInputDisabled]">
                         <span *ngIf="!isInput">{{title}}</span>
                         <span *ngIf="isInput">{{titleValueInput}}</span>
