@@ -78,31 +78,14 @@ p {
   border: 0;
   line-height: 1;
   outline: none;
-  &--btnDanger {
-    color: $white;
-    background-color: $danger_default;
-  }
 
-  &--btnDanger:hover {
-    background-color: $danger_hover;
-  }
-
-  &--btnGhost {
-    color: $tertiary_default;
-    background-color: $ghost_default;
-  }
-
-  &--btnGhost:hover {
-    background-color: $ghost_hover;
-  }
-
-  &--btnTertiary {
-    background-color: $tertiary_default;
+  &--btnPrimary {
+    background-color: $primary_default;
     color: $white;
   }
 
-  &--btnTertiary:hover {
-    background-color: $textiary_hover;
+  &--btnPrimary:hover {
+    background-color: $primary_hover;
   }
 
   &--btnSecondary {
@@ -114,13 +97,22 @@ p {
     background-color: $secondary_hover;
   }
 
-  &--btnPrimary {
-    background-color: $primary_default;
+  &--btnTertiary {
+    background-color: $tertiary_default;
     color: $white;
   }
 
-  &--btnPrimary:hover {
-    background-color: $primary_hover;
+  &--btnTertiary:hover {
+    background-color: $textiary_hover;
+  }
+
+  &--btnGhost {
+    color: $tertiary_default;
+    background-color: $ghost_default;
+  }
+
+  &--btnGhost:hover {
+    background-color: $ghost_hover;
   }
 
   &--btnGhostOutline {
@@ -130,6 +122,34 @@ p {
   }
 
   &--btnGhostOutline:hover {
+    background-color: $ghost_hover;
+  }
+
+  &--btnDanger {
+    color: $white;
+    background-color: $danger_default;
+  }
+
+  &--btnDanger:hover {
+    background-color: $danger_hover;
+  }
+
+  &--btnDangerGhost {
+    color: $danger_default;
+    background-color: $ghost_default;
+  }
+
+  &--btnDangerGhost:hover {
+    background-color: $ghost_hover;
+  }
+
+  &--btnDangerGhostOutline {
+    color: $danger_default;
+    background-color: $ghost_default;
+    border: 1px solid $danger_default;
+  }
+
+  &--btnDangerGhostOutline:hover {
     background-color: $ghost_hover;
   }
 }
