@@ -109,6 +109,30 @@ describe('PackenButtonComponent', () => {
     expect(component.loadLevelButton()).toBeTrue();
   });
 
+  it('render when level of button is danger-ghost and disabled is false', () => {
+    component.disabled = false;
+    component.level = 'danger-ghost';
+    expect(component.loadLevelButton()).toBeTrue();
+  });
+
+  it('render when level of button is danger-ghost-outline and disabled is true', () => {
+    component.disabled = true;
+    component.level = 'danger-ghost-outline';
+    expect(component.loadLevelButton()).toBeTrue();
+  });
+
+  it('render when level of button is danger-ghost-outline and disabled is false', () => {
+    component.disabled = false;
+    component.level = 'danger-ghost-outline';
+    expect(component.loadLevelButton()).toBeTrue();
+  });
+
+  it('render when level of button is danger-ghost and disabled is true', () => {
+    component.disabled = true;
+    component.level = 'danger-ghost';
+    expect(component.loadLevelButton()).toBeTrue();
+  });
+
   it('render when level of button is ghost and disabled is false', () => {
     component.disabled = false;
     component.level = 'ghost';
