@@ -6,8 +6,8 @@
                 [inputChildRequired]="inputChildRequired" ngDefaultControl >
             </lib-packen-input-show>
         </div>
-        <div [ngStyle]="{display: showInput ? 'block': 'none'}">
-            <input [(ngModel)]="valueWrittenInput" #searchIdPackenDropdown class="cont__component__input"
+        <div class="cont__component__input-box" [ngStyle]="{display: showInput ? 'block': 'none'}">
+            <input [(ngModel)]="valueWrittenInput" #searchIdPackenDropdown class="cont__component__input-box__input"
                 [required]="required" [ngClass]="[classInput, classInputPhantom]" autocomplete="off" [type]="inputType">
         </div>
     </div>

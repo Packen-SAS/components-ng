@@ -4,8 +4,15 @@
         <div class="row">
             <div class="col-sm-8">
                 <lib-packen-dropdown-show [(value)]="idSelectedDropdown" [items]="listDropdown"
-                    [disabled]="disabledDropdown1" [label]="'EPS'" [phantom]="true" (keyUpValue)="keyUpDropdown($event)"
-                    [icon]="'icon-phone'" [labelPosition]="'bottom'" [title]="'Placeholder'" [required]="true" [inputType]="'number'">
+                    [disabled]="disabledDropdown1" [label]="'EPS'" [phantom]="false" (keyUpValue)="keyUpDropdown($event)"
+                    [icon]="'icon-phone'" [labelPosition]="'bottom'" [title]="'Placeholder'" [required]="true"
+                    [inputType]="'number'">
+                </lib-packen-dropdown-show>
+
+                <lib-packen-dropdown-show [(value)]="idSelectedDropdown" [items]="listDropdown"
+                    [disabled]="disabledDropdown1" [label]="'EPS'" [phantom]="false" (keyUpValue)="keyUpDropdown($event)"
+                    [icon]="'icon-phone'" [labelPosition]="'top'" [title]="'Placeholder'" [required]="true"
+                    [inputType]="'number'">
                 </lib-packen-dropdown-show>
             </div>
             <div class="col-sm-4">

@@ -22,20 +22,23 @@
         min-height: 56px;
         cursor: pointer;
 
-        &__input {
-            width: 98%;
-            border: none;
-            outline: none;
-            padding: 10px 20px;
+        &__input-box {
             margin: 5px 10px;
-            min-height: 56px;
-            font-size: 16px;
-            font-family: $font-stack;
-            color: $tertiary_default;
-            background-color: $basic_white_med;
 
-            &--required {
-                border: 2px solid $danger_default !important;
+            &__input {
+                width: 100%;
+                border: none;
+                outline: none;
+                padding: 10px 20px;
+                min-height: 56px;
+                font-size: 16px;
+                font-family: $font-stack;
+                color: $tertiary_default;
+                background-color: $basic_white_med;
+
+                &--required {
+                    border: 2px solid $danger_default !important;
+                }
             }
         }
     }
