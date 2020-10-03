@@ -98,7 +98,7 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
     this.showInput = false;
     this.showListItems = false;
 
-    if (!this.value || !this.valueWrittenInput) {
+    if (!this.value) {
       if (this.isClicked) {
         this.inputChildRequired = true;
         this.valueWrittenInput = '';
