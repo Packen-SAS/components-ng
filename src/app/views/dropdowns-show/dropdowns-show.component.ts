@@ -88,4 +88,9 @@ export class InputsShowDropdownComponent implements OnInit {
     }
     return true;
   }
+
+
+  changeValueTest(data){
+    console.log("TEst ", data);
+  }
 }

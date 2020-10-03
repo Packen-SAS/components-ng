@@ -105,6 +105,7 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
         this.titleInput = this.title;
         this.placeholderInputShow = true;
         this.isClicked = false;
+        this.changeValue.emit(null);
       }
     }
   }

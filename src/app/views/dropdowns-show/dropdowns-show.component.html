@@ -3,7 +3,7 @@
     <form #formTestDropdown>
         <div class="row">
             <div class="col-sm-8">
-                <lib-packen-dropdown-show [(value)]="idSelectedDropdown" [items]="listDropdown"
+                <lib-packen-dropdown-show [(value)]="idSelectedDropdown" [items]="listDropdown" (changeValue)="changeValueTest($event)"
                     [disabled]="disabledDropdown1" [label]="'EPS'" [phantom]="true" (keyUpValue)="keyUpDropdown($event)"
                     [icon]="'icon-phone'" [labelPosition]="'bottom'" [title]="'Placeholder'" [required]="true" [inputType]="'number'">
                 </lib-packen-dropdown-show>
