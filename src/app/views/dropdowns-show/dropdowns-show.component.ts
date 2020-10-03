@@ -89,8 +89,12 @@ export class InputsShowDropdownComponent implements OnInit {
     return true;
   }
 
-
-  changeValueTest(data){
-    console.log("TEst ", data);
+  /**
+   * Método que se dispara cuando el valor cambia
+   * @param data Dato a mostrar
+   */
+  changeValueTest(data) {
+    console.log("Change value ", data);
   }
+
 }

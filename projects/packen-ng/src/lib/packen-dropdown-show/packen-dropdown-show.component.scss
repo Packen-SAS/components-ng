@@ -40,45 +40,44 @@
                     border: 2px solid $danger_default !important;
                 }
             }
-        }
-    }
 
-    &__options {
-        position: absolute;
-        width: 98%;
-        z-index: 2;
-        font-family: $font-stack;
-        color: $tertiary_default;
-        box-shadow: $box-shadow;
-        margin: 0px 10px;
-        margin-top: -5px;
-        max-height: 250px;
-        overflow-y: auto;    
+            &__options {
+                position: absolute;
+                width: 96%;
+                z-index: 2;
+                font-family: $font-stack;
+                color: $tertiary_default;
+                box-shadow: $box-shadow;
+                max-height: 250px;
+                overflow-y: auto;
 
-        &__item {
-            min-height: 40px;
-            background-color: $basic_white_dft;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 5px 20px;
-            cursor: pointer;
+                &__item {
+                    min-height: 40px;
+                    background-color: $basic_white_dft;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 5px 20px;
+                    cursor: pointer;
 
-            &--selected {
-                background-color: $brand_primary_drk;
-                span {
-                    color: $basic_white_dft;
+                    &--selected {
+                        background-color: $brand_primary_drk;
+                        span {
+                            color: $basic_white_dft;
+                        }
+                        p {
+                            color: $basic_white_dft;
+                        }
+                    }
+
+                    &__icon {
+                        font-size: 20px;
+                    }
+
+                    &:not(.cont__component__input-box__options__item--selected):hover {
+                        background-color: $brand_primary_snw;
+                    }
                 }
-                p {
-                    color: $basic_white_dft;
-                }
-            }
-            &__icon {
-                font-size: 20px;
-            }
-
-            &:not(.cont__options__item--selected):hover {
-                background-color: $brand_primary_snw;
             }
         }
     }

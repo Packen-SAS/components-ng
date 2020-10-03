@@ -202,5 +202,5 @@ class ContentClass {
   static readonly phantom = 'cont--phantom';
   static readonly disabled = 'cont--disabled';
   static readonly requiredInput = 'cont__component__input--required';
-  static readonly itemSelected = 'cont__options__item--selected';
+  static readonly itemSelected = 'cont__component__input-box__options__item--selected';
 }
