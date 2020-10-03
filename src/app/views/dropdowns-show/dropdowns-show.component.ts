@@ -94,7 +94,7 @@ export class InputsShowDropdownComponent implements OnInit {
    * @param data Dato a mostrar
    */
   selectItem(data) {
-    console.log("Change value ", data);
+    console.log('Selected value ', data);
   }
 
 }
