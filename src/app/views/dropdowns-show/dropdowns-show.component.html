@@ -3,10 +3,10 @@
     <form #formTestDropdown>
         <div class="row">
             <div class="col-sm-8">
-                <lib-packen-dropdown-show [(value)]="idSelectedDropdown" [items]="listDropdown"
-                    (changeValue)="changeValueTest($event)" [disabled]="disabledDropdown1" [label]="'EPS'"
-                    [phantom]="true" (keyUpValue)="keyUpDropdown($event)" [icon]="'icon-phone'"
-                    [labelPosition]="'bottom'" [title]="'Placeholder'" [required]="true" [inputType]="'number'">
+                <lib-packen-dropdown-show [(value)]="idSelectedDropdown" [items]="listDropdown" [phantom]="true"
+                    (selectValue)="selectItem($event)" [disabled]="disabledDropdown1" [label]="'EPS'"
+                    (keyUpValue)="keyUpDropdown($event)" [icon]="'icon-phone'" [labelPosition]="'bottom'"
+                    [title]="'Placeholder'" [required]="true" [inputType]="'number'">
                 </lib-packen-dropdown-show>
             </div>
             <div class="col-sm-4">

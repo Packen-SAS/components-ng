@@ -22,7 +22,7 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
   @Input() inputType: string = 'text';
 
   @Output() keyUpValue = new EventEmitter<string>();
-  @Output() changeValue = new EventEmitter<DropdownShowItem>();
+  @Output() selectValue = new EventEmitter<DropdownShowItem>();
 
   showInput: boolean = false;
   showListItems: boolean = false;
@@ -105,7 +105,6 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
         this.titleInput = this.title;
         this.placeholderInputShow = true;
         this.isClicked = false;
-        this.changeValue.emit(null);
       }
     }
   }
@@ -116,13 +115,13 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
    */
   selectItem(item: DropdownShowItem) {
     this.value = item.id;
-    this.changeValue.emit(item);
     this.showInput = false;
     this.showListItems = false;
     this.loadTitleInput();
     this.clickOutsideContent();
     this.placeholderInputShow = false;
     this.inputChildRequired = false;
+    this.selectValue.emit(item);
   }
 
   /**
