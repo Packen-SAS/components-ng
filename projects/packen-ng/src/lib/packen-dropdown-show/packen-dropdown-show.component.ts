@@ -22,7 +22,7 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
   @Input() inputType: string = 'text';
 
   @Output() keyUpValue = new EventEmitter<string>();
-  @Output() changeValue = new EventEmitter<DropdownShowItem>();
+  @Output() selectValue = new EventEmitter<DropdownShowItem>();
 
   showInput: boolean = false;
   showListItems: boolean = false;
@@ -98,7 +98,7 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
     this.showInput = false;
     this.showListItems = false;
 
-    if (!this.value || !this.valueWrittenInput) {
+    if (!this.value) {
       if (this.isClicked) {
         this.inputChildRequired = true;
         this.valueWrittenInput = '';
@@ -115,13 +115,13 @@ export class PackenDropdownShowComponent implements OnInit, OnChanges {
    */
   selectItem(item: DropdownShowItem) {
     this.value = item.id;
-    this.changeValue.emit(item);
     this.showInput = false;
     this.showListItems = false;
     this.loadTitleInput();
     this.clickOutsideContent();
     this.placeholderInputShow = false;
     this.inputChildRequired = false;
+    this.selectValue.emit(item);
   }
 
   /**
@@ -201,5 +201,5 @@ class ContentClass {
   static readonly phantom = 'cont--phantom';
   static readonly disabled = 'cont--disabled';
   static readonly requiredInput = 'cont__component__input--required';
-  static readonly itemSelected = 'cont__options__item--selected';
+  static readonly itemSelected = 'cont__component__input-box__options__item--selected';
 }

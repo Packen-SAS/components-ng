@@ -3,20 +3,21 @@
         <div [ngStyle]="{'display': !showInput ? 'block': 'none'}">
             <lib-packen-input-show [color]="'yellow-off'" [title]="titleInput" [label]="label" [phantom]="phantom"
                 [labelPosition]="labelPosition" [isDropdown]="true" [isPlaceholder]="placeholderInputShow" [icon]="icon"
-                [inputChildRequired]="inputChildRequired" ngDefaultControl >
+                [inputChildRequired]="inputChildRequired" ngDefaultControl>
             </lib-packen-input-show>
         </div>
-        <div [ngStyle]="{display: showInput ? 'block': 'none'}">
-            <input [(ngModel)]="valueWrittenInput" #searchIdPackenDropdown class="cont__component__input"
+        <div class="cont__component__input-box" [ngStyle]="{display: showInput ? 'block': 'none'}">
+            <input [(ngModel)]="valueWrittenInput" #searchIdPackenDropdown class="cont__component__input-box__input"
                 [required]="required" [ngClass]="[classInput, classInputPhantom]" autocomplete="off" [type]="inputType">
-        </div>
-    </div>
 
-    <div class="cont__options" *ngIf="showListItems">
-        <div *ngFor="let i of items" [ngClass]="getClassIsSelected(i)" class="cont__options__item"
-            (click)="selectItem(i)">
-            <p>{{i.title}}</p>
-            <span *ngIf="i.id === value" class="cont__options__item__icon icon-checkmark"></span>
+            <div class="cont__component__input-box__options" *ngIf="showListItems">
+                <div *ngFor="let i of items" [ngClass]="getClassIsSelected(i)"
+                    class="cont__component__input-box__options__item" (click)="selectItem(i)">
+                    <p>{{i.title}}</p>
+                    <span *ngIf="i.id === value"
+                        class="cont__component__input-box__options__item__icon icon-checkmark"></span>
+                </div>
+            </div>
         </div>
     </div>
 </div>

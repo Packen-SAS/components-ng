@@ -52,7 +52,7 @@ describe('DropdownsShowComponent', () => {
     expect(spyListHealtEntities).toHaveBeenCalled();
   });
 
-  it('Testung function validateDropdown() ', () => {
+  it('Testing function validateDropdown() ', () => {
     component.idSelectedDropdown = 1;
     expect(component.validateDropdown()).toBeFalse();
   });
@@ -81,6 +81,10 @@ describe('DropdownsShowComponent', () => {
     });
     expect(component.keyUpDropdown2('f'));
     expect(spyListHealtEntities).toHaveBeenCalled();
+  });
+
+  it('Testing function selectItem() ', () => {
+    expect(component.selectItem({ id: 1, name: 'Something'})).toBeUndefined();
   });
 
 });

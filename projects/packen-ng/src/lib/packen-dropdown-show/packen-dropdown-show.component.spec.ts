@@ -74,7 +74,7 @@ describe('PackenDropdownShowComponent', () => {
   it('Testing function getClassIsSelected() when isset id', () => {
     component.value = 1;
     const itemDropdown: DropdownShowItem = { id: 1, title: 'Entidad de salud' };
-    expect(component.getClassIsSelected(itemDropdown)).toEqual('cont__options__item--selected');
+    expect(component.getClassIsSelected(itemDropdown)).toEqual('cont__component__input-box__options__item--selected');
   });
 
   it('Testing function loadTitleInput()', () => {
