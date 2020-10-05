@@ -53,19 +53,19 @@ export class PackenButtonComponent implements OnInit, OnChanges {
 
   loadStylesButtonsIcon = () => {
     switch (this.size) {
-      case 'tiny':
+      case SizeButton.tiny:
         this.classButton += 'sizeButtonIcon--buttonTiny';
         this.classIcon += 'sizeIconTiny';
         break;
-      case 'small':
+      case SizeButton.small:
         this.classButton += 'sizeButtonIcon--buttonSmall';
         this.classIcon += 'sizeIconSmall';
         break;
-      case 'medium':
+      case SizeButton.medium:
         this.classButton += 'sizeButtonIcon--butonMedium';
         this.classIcon += 'sizeIconMedium';
         break;
-      case 'large':
+      case SizeButton.large:
         this.classButton += 'sizeButtonIcon--buttonLarge';
         this.classIcon += 'sizeIconLarge';
         break;
@@ -76,49 +76,60 @@ export class PackenButtonComponent implements OnInit, OnChanges {
 
   loadLevelButton = () => {
     switch (this.level) {
-      case 'danger':
-        if (this.disabled) {
-          this.classButton += ' buttonDisabled buttonDisabled--btnDangerDisabled';
-        } else {
-          this.classButton += ' button button--btnDanger';
-        }
-        break;
-      case 'ghost':
-        if (this.disabled) {
-          this.classButton += ' buttonDisabled buttonDisabled--btnGhostDisabled';
-        } else {
-          this.classButton += ' button button--btnGhost';
-        }
-        break;
-      case 'tertiary':
-        if (this.disabled) {
-          this.classButton += ' buttonDisabled buttonDisabled--btnTertiaryDisabled';
-        } else {
-          this.classButton += ' button button--btnTertiary';
-        }
-        break;
-
-      case 'secondary':
-        if (this.disabled) {
-          this.classButton += ' buttonDisabled buttonDisabled--btnSecondaryDisabled';
-        } else {
-          this.classButton += ' button button--btnSecondary';
-        }
-        break;
-
-      case 'primary':
+      case LevelButton.primary:
         if (this.disabled) {
           this.classButton += ' buttonDisabled buttonDisabled--btnPrimaryDisabled';
         } else {
           this.classButton += ' button button--btnPrimary';
         }
         break;
-
-      case 'ghost-outline':
+      case LevelButton.secondary:
+        if (this.disabled) {
+          this.classButton += ' buttonDisabled buttonDisabled--btnSecondaryDisabled';
+        } else {
+          this.classButton += ' button button--btnSecondary';
+        }
+        break;
+      case LevelButton.tertiary:
+        if (this.disabled) {
+          this.classButton += ' buttonDisabled buttonDisabled--btnTertiaryDisabled';
+        } else {
+          this.classButton += ' button button--btnTertiary';
+        }
+        break;
+      case LevelButton.ghost:
+        if (this.disabled) {
+          this.classButton += ' buttonDisabled buttonDisabled--btnGhostDisabled';
+        } else {
+          this.classButton += ' button button--btnGhost';
+        }
+        break;
+      case LevelButton.ghostOutline:
         if (this.disabled) {
           this.classButton += ' buttonDisabled--btnGhostOutlineDisabled';
         } else {
           this.classButton += ' button button--btnGhostOutline';
+        }
+        break;
+      case LevelButton.danger:
+        if (this.disabled) {
+          this.classButton += ' buttonDisabled buttonDisabled--btnDangerDisabled';
+        } else {
+          this.classButton += ' button button--btnDanger';
+        }
+        break;
+      case LevelButton.dangerGhost:
+        if (this.disabled) {
+          this.classButton += ' buttonDisabled buttonDisabled--btnDangerDisabled';
+        } else {
+          this.classButton += ' button button--btnDangerGhost';
+        }
+        break;
+      case LevelButton.dangerGhostOutline:
+        if (this.disabled) {
+          this.classButton += ' buttonDisabled buttonDisabled--btnDangerDisabled';
+        } else {
+          this.classButton += ' button button--btnDangerGhostOutline';
         }
         break;
     }
@@ -128,19 +139,19 @@ export class PackenButtonComponent implements OnInit, OnChanges {
 
   loadStylesButtonsRegular = () => {
     switch (this.size) {
-      case 'tiny':
+      case SizeButton.tiny:
         this.classButton += 'sizeButtonRegular--buttonTiny';
         break;
-      case 'small':
+      case SizeButton.small:
         this.classButton += 'sizeButtonRegular--buttonSmall';
         break;
-      case 'medium':
+      case SizeButton.medium:
         this.classButton += 'sizeButtonRegular--buttonMedium';
         break;
-      case 'large':
+      case SizeButton.large:
         this.classButton += 'sizeButtonRegular--buttonLarge';
         break;
-      case 'giant':
+      case SizeButton.giant:
         this.classButton += 'sizeButtonRegular--buttonGiant';
         break;
     }
@@ -150,19 +161,19 @@ export class PackenButtonComponent implements OnInit, OnChanges {
     let margin = 0;
     if (this.type === 'regular') {
       switch (this.size) {
-        case 'tiny':
+        case SizeButton.tiny:
           margin = 10;
           break;
-        case 'small':
+        case SizeButton.small:
           margin = 13;
           break;
-        case 'medium':
+        case SizeButton.medium:
           margin = 14;
           break;
-        case 'large':
+        case SizeButton.large:
           margin = 16;
           break;
-        case 'giant':
+        case SizeButton.giant:
           margin = 22;
           break;
         default:
@@ -181,15 +192,15 @@ export class PackenButtonComponent implements OnInit, OnChanges {
 
   getWidthIconRegular = () => {
     switch (this.size) {
-      case 'tiny':
+      case SizeButton.tiny:
         return 15;
-      case 'small':
+      case SizeButton.small:
         return 20;
-      case 'medium':
+      case SizeButton.medium:
         return 23;
-      case 'large':
+      case SizeButton.large:
         return 25;
-      case 'giant':
+      case SizeButton.giant:
         return 30;
       default:
         return 11;
@@ -198,13 +209,13 @@ export class PackenButtonComponent implements OnInit, OnChanges {
 
   getWithIcon = () => {
     switch (this.size) {
-      case 'tiny':
+      case SizeButton.tiny:
         return 11;
-      case 'small':
+      case SizeButton.small:
         return 16;
-      case 'medium':
+      case SizeButton.medium:
         return 20;
-      case 'large':
+      case SizeButton.large:
         return 24;
       default:
         return 16;
@@ -216,4 +227,23 @@ export class PackenButtonComponent implements OnInit, OnChanges {
       this.stylesButton = { 'min-width': `${this.minWidth}px` };
     }
   }
+}
+
+class SizeButton {
+  static readonly tiny = 'tiny';
+  static readonly small = 'small';
+  static readonly medium = 'medium';
+  static readonly large = 'large';
+  static readonly giant = 'giant';
+}
+
+class LevelButton {
+  static readonly primary = 'primary';
+  static readonly secondary = 'secondary';
+  static readonly tertiary = 'tertiary';
+  static readonly ghost = 'ghost';
+  static readonly ghostOutline = 'ghost-outline';
+  static readonly danger = 'danger';
+  static readonly dangerGhost = 'danger-ghost';
+  static readonly dangerGhostOutline = 'danger-ghost-outline';
 }
