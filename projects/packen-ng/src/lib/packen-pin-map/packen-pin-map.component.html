@@ -1,32 +1,17 @@
 <div class="content">
-    <div class="content__iconAndPoint" *ngIf="iconPosition == 'left'">
-        <div class="content__iconAndPoint__contentIcon" [ngClass]="getColorContentIcon(type)">
-            <p class="content__iconAndPoint__contentIcon__text">
-                <img *ngIf="typeIcon == 'default'" style="width: 25px;" src="../../../assets/images/icons/cube.svg" />
-                <span *ngIf="typeIcon == 'icon'" [ngClass]="getColorIcon(type)" [class]="icon"></span>
-                <span *ngIf="typeIcon == 'letter'" [ngClass]="getColorIcon(type)" class="letter">{{letter}}</span>
-            </p>
-        </div>
-        <div class="content__iconAndPoint__point" [ngClass]="getClassPointPosition(dotPosition)"></div>
-    </div>
+    <!-- Caja de icono -->
+    <div class="content__iconbox" [ngClass]="getClassIconBox()">
+        <span *ngIf="typeIcon == 'default'" [ngClass]="getColorIcon()" class="icon-home"></span>
+        <span *ngIf="typeIcon == 'icon'" [ngClass]="getColorIcon()" [class]="icon"></span>
+        <span *ngIf="typeIcon == 'letter'" [ngClass]="getColorIcon()" class="letter">{{letter}}</span>
 
-    <div class="content__direction" *ngIf="label != '' || direction != ''"
-        [ngClass]="getClassTypeContentDirection(type)">
-        <p class="content__direction__text ">
-            <span [ngClass]="getClassLabel(type)">{{label}}</span>
-            <span style="margin-left: 3px;">{{direction}}</span>
-        </p>
-    </div>
-
-    <div class="content__iconAndPoint" *ngIf="iconPosition == 'right'">
-        <div class="content__iconAndPoint__contentIcon" [ngClass]="getColorContentIcon(type)">
-            <p class="content__iconAndPoint__contentIcon__text">
-                <img *ngIf="typeIcon == 'default'" style="width: 25px;" src="../../../assets/images/icons/cube.svg" />
-                <span *ngIf="typeIcon == 'icon'" [ngClass]="getColorIcon(type)" [class]="icon"></span>
-                <span *ngIf="typeIcon == 'letter'" [ngClass]="getColorIcon(type)" class="letter">{{letter}}</span>
-            </p>
+        <!-- Caja de direccion -->
+        <div class="content__address" *ngIf="label != '' || direction != ''" [ngClass]="getClassAddress()">
+            <div [ngClass]="getClassLabel()">{{ label }}</div>
+            <div class="content__address__description">{{ direction }}</div>
         </div>
 
-        <div class="content__iconAndPoint__point" [ngClass]="getClassPointPosition(dotPosition)"></div>
+        <!-- Punto -->
+        <div class="content__point" [ngClass]="getClassPointPosition(dotPosition)"></div>
     </div>
 </div>

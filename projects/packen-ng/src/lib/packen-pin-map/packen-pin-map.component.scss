@@ -1,127 +1,128 @@
 @import "../../assets/styles/colors.scss";
 
 .content {
-  height: 50px;
   display: flex;
   position: relative;
-  width: fit-content;
-  font-family: Muli;
+  font-family: $font-stack;
 
-  &__direction {
+  &__iconbox {
+    width: 32px;
     height: 32px;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $base_default_alt;
 
-    &--default {
-      color: #304d6d;
-      background-color: white;
-      box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1), 0px 3px 14px rgba(0, 0, 0, 0.1);
+    &--icon {
+      font-size: 16px;
+      color: $brand_primary_dft;
+
+      &--refresh {
+        color: $basic_white_dft !important;
+      }
     }
 
-    &--active {
-      color: white;
-      background-color: #0d73ff;
+    &--refresh {
+      background-color: $brand_secondary_dft;
     }
 
-    &__text {
-      font-family: Muli;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 12px;
-      line-height: 16px;
-      margin-left: 12px;
-      margin-right: 12px;
-      margin-top: 9px;
+    &--top {
+      transform: translateY(-50%);
+    }
 
-      &--labelActive {
-        color: #00e5ff;
-      }
+    &--bottom {
+      transform: translateY(50%);
+    }
 
-      &--labelDefault {
-        color: #304d6d;
-      }
+    &--right {
+      transform: translateX(50%);
+    }
+
+    &--left {
+      transform: translateX(-50%);
     }
   }
 
-  &__iconAndPoint {
-    position: relative;
-    height: fit-content;
+  &__address {
+    height: 32px;
+    padding: 0px 10px;
+    font-size: 12px;
+    line-height: 16px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1), 0px 3px 14px rgba(0, 0, 0, 0.1);
 
-    &__contentIcon {
-      width: 32px;
-      height: 32px;
-      position: relative;
-      background-color: #304d6d;
-
-      &--refresh {
-        background-color: #0d73ff;
+    &__text {
+      &--labelActive {
+        font-weight: bold;
+        color: $brand_primary_dft;
       }
 
-      &__text {
-        top: 50%;
-        transform: translateY(-50%);
-        position: absolute;
-        width: 100%;
-        text-align: center;
-
-        &--icon {
-          font-size: 16px;
-          color: #00e5ff;
-
-          &--refresh {
-            color: white !important;
-          }
-        }
+      &--labelDefault {
+        font-weight: bold;
+        color: $base_default_alt;
       }
     }
 
-    &__point {
-      width: 7px;
-      height: 7px;
-      border: 2px solid #000;
-      background-color: #00e5ff;
-      border-radius: 50%;
-      position: absolute;
+    &__description {
+      margin-left: 8px;
+      white-space: nowrap;  
+    }
 
-      &--down {
-        top: 130%;
-        transform: translateY(-130%);
-        margin-left: 14px;
-        margin-top: 3px;
-      }
+    &--default {
+      color: $base_default_alt;
+      background-color: $basic_white_dft;
+    }
 
-      &--right {
-        top: 50%;
-        right: 0;
-        margin-right: -10px;
-        transform: translateY(-50%);
-      }
+    &--active {
+      color: $basic_white_dft;
+      background-color: $brand_secondary_dft;
+    }
 
-      &--top {
-        top: 0%;
-        margin-top: -8px;
-        margin-left: 14px;
-        transform: translateY(-0%);
-      }
+    &--right {
+      left: 32px;
+    }
 
-      &--left {
-        top: 50%;
-        transform: translateY(-50%);
-        margin-left: -10px;
-      }
+    &--left {
+      right: 32px;
+    }
+  }
 
-      &--none {
-        display: none;
-      }
+  &__point {
+    width: 7px;
+    height: 7px;
+    border: 2px solid $basic_black_dft;
+    background-color: $brand_primary_dft;
+    border-radius: 50%;
+    position: absolute;
+
+    &--top {
+      transform: translateY(-23px);
+    }
+
+    &--bottom {
+      transform: translateY(23px);
+    }
+
+    &--right {
+      transform: translateX(23px);
+    }
+
+    &--left {
+      transform: translateX(-23px);
+    }
+
+    &--none {
+      display: none;
     }
   }
 }
 
 .letter {
   font-size: 16px;
-  color: #00e5ff;
   font-weight: bold;
-}
-
-p {
-  margin: 0;
+  color: $brand_primary_dft;
 }
