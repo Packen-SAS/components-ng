@@ -5,6 +5,16 @@
     flex-direction: column;
 
     &__item {
-        height: 56px;
+        &--xs {
+            height: 50px;
+        }
+
+        &--sm {
+            height: 56px;
+        }
+
+        &--lg {
+            height: 80px;
+        }
     }
 }
