@@ -1,0 +1,20 @@
+.cont {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    &__item {
+        &--xs {
+            height: 50px;
+        }
+
+        &--sm {
+            height: 56px;
+        }
+
+        &--lg {
+            height: 80px;
+        }
+    }
+}
