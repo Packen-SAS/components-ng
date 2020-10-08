@@ -23,6 +23,9 @@ export class PackenPinMapComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Método para obtener los estilos a aplicar a la caja principal
+   */
   getClassIconBox() {
     let styles = '';
     if (this.type === TypeColor.refresh) {
@@ -42,6 +45,9 @@ export class PackenPinMapComponent implements OnInit {
     return styles;
   }
 
+  /**
+   * Método para obtener el color del icono de la caja principal
+   */
   getColorIcon() {
     if (this.type === TypeColor.refresh) {
       return IconColorStyles.refresh;
@@ -49,6 +55,9 @@ export class PackenPinMapComponent implements OnInit {
     return IconColorStyles.default;
   }
 
+  /**
+   * Método para obtener los estilos a aplicar a la seccion de la descripción de la dirección
+   */
   getClassAddress() {
     let styles = '';
     if (this.type === TypeColor.active) {
@@ -66,6 +75,9 @@ export class PackenPinMapComponent implements OnInit {
     return styles;
   }
 
+  /**
+   * Método para obtener los estilos a aplicar al texto de la izquierda de la dirección
+   */
   getClassLabel() {
     if (this.type === TypeColor.active) {
       return ClassLabelStyles.active;
@@ -74,8 +86,11 @@ export class PackenPinMapComponent implements OnInit {
     }
   }
 
-  getClassPointPosition(position) {
-    switch (position) {
+  /**
+   * Método para obtener los estilos de la ubicación del punto de la coordenada
+   */
+  getClassPointPosition() {
+    switch (this.dotPosition) {
       case TypePointPosition.left:
         return PositionPointStyle.left;
       case TypePointPosition.top:
@@ -90,7 +105,7 @@ export class PackenPinMapComponent implements OnInit {
   }
 
 }
-class PositionPointStyle {
+export class PositionPointStyle {
   static readonly left = 'content__point--left';
   static readonly right = 'content__point--right';
   static readonly top = 'content__point--top';
@@ -98,49 +113,49 @@ class PositionPointStyle {
   static readonly none = 'content__point--none';
 }
 
-class ContentColor {
+export class ContentColor {
   static readonly active = 'content__address--active';
   static readonly default = 'content__address--default';
 }
 
-class ContentDirection {
+export class ContentDirection {
   static readonly right = 'content__address--right';
   static readonly left = 'content__address--left';
 }
 
-class ClassLabelStyles {
+export class ClassLabelStyles {
   static readonly active = 'content__address__text--labelActive';
   static readonly default = 'content__address__text--labelDefault';
 }
 
-class IconColorStyles {
+export class IconColorStyles {
   static readonly refresh = 'content__iconbox--icon--refresh';
   static readonly default = 'content__iconbox--icon';
 }
 
-class ColorContentIcon {
+export class ColorContentIcon {
   static readonly refresh = 'content__iconbox--refresh';
 }
 
-class PositionContentIcon {
+export class PositionContentIcon {
   static readonly top = 'content__iconbox--top';
   static readonly bottom = 'content__iconbox--bottom';
   static readonly right = 'content__iconbox--right';
   static readonly left = 'content__iconbox--left';
 }
 
-class TypeColor {
+export class TypeColor {
   static readonly active = 'active';
   static readonly refresh = 'refresh';
   static readonly default = 'default';
 }
 
-class TypeIconPosition {
+export class TypeIconPosition {
   static readonly left = 'left';
   static readonly right = 'right';
 }
 
-class TypePointPosition {
+export class TypePointPosition {
   static readonly left = 'left';
   static readonly right = 'right';
   static readonly top = 'top';

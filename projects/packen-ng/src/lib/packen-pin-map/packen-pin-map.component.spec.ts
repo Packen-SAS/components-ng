@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
-
 import { PackenPinMapComponent } from './packen-pin-map.component';
+import { ColorContentIcon, PositionContentIcon, TypeColor, TypePointPosition, IconColorStyles, ContentColor, ContentDirection, TypeIconPosition, ClassLabelStyles, PositionPointStyle } from './packen-pin-map.component';
 
 describe('PackenPinMapComponent', () => {
   let component: PackenPinMapComponent;
@@ -28,56 +28,89 @@ describe('PackenPinMapComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('render classStyles content direction when type is active', () => {
-    expect(component.getClassTypeContentDirection('active')).toEqual('content__direction--active');
+  describe('Testing method getClassIconBox()', () => {
+    it('When type is refresh and dotPosition is bottom', () => {
+      component.type = TypeColor.refresh;
+      component.dotPosition = TypePointPosition.bottom;
+      expect(component.getClassIconBox()).toEqual(ColorContentIcon.refresh + ' ' + PositionContentIcon.top);
+    });
+
+    it('When type is refresh and dotPosition is top', () => {
+      component.type = TypeColor.refresh;
+      component.dotPosition = TypePointPosition.top;
+      expect(component.getClassIconBox()).toEqual(ColorContentIcon.refresh + ' ' + PositionContentIcon.bottom);
+    });
+
+    it('When type is refresh and dotPosition is right', () => {
+      component.type = TypeColor.refresh;
+      component.dotPosition = TypePointPosition.right;
+      expect(component.getClassIconBox()).toEqual(ColorContentIcon.refresh + ' ' + PositionContentIcon.left);
+    });
   });
 
-  it('render classStyles content direction when type is active', () => {
-    expect(component.getClassTypeContentDirection('refresh')).toEqual('content__direction--default');
+  describe('Testing method getColorIcon()', () => {
+    it('When type is refresh', () => {
+      component.type = TypeColor.refresh;
+      expect(component.getColorIcon()).toEqual(IconColorStyles.refresh);
+    });
+
+    it('When type is default', () => {
+      component.type = TypeColor.default;
+      expect(component.getColorIcon()).toEqual(IconColorStyles.default);
+    });
   });
 
-  it('render classStyles content direction when type is other', () => {
-    expect(component.getClassTypeContentDirection('other')).toEqual('content__direction--default');
+  describe('Testing method getClassAddress()', () => {
+    it('When type is active and iconPosition is right', () => {
+      component.type = TypeColor.active;
+      component.iconPosition = TypeIconPosition.right;
+      expect(component.getClassAddress()).toEqual(ContentColor.active + ' ' + ContentDirection.left);
+    });
+
+    it('When type is active and iconPosition is left', () => {
+      component.type = TypeColor.active;
+      component.iconPosition = TypeIconPosition.left;
+      expect(component.getClassAddress()).toEqual(ContentColor.active + ' ' + ContentDirection.right);
+    });
+
+    it('When type is default and iconPosition is right', () => {
+      component.type = TypeColor.default;
+      component.iconPosition = TypeIconPosition.right;
+      expect(component.getClassAddress()).toEqual(ContentColor.default + ' ' + ContentDirection.left);
+    });
   });
 
-  it('render classStyles label when type is active', () => {
-    expect(component.getClassLabel('active')).toEqual('content__direction__text--labelActive');
+  describe('Testing method getClassLabel()', () => {
+    it('When type is active', () => {
+      component.type = TypeColor.active;
+      expect(component.getClassLabel()).toEqual(ClassLabelStyles.active);
+    });
+
+    it('When type is default', () => {
+      component.type = TypeColor.default;
+      expect(component.getClassLabel()).toEqual(ClassLabelStyles.default);
+    });
   });
 
-  it('render classStyles label when type different to active', () => {
-    expect(component.getClassLabel('other')).toEqual('content__direction__text--labelDefault');
-  });
+  describe('Testing method getClassPointPosition()', () => {
+    it('When dotPosition is left', () => {
+      component.dotPosition = TypePointPosition.left;
+      expect(component.getClassPointPosition()).toEqual(PositionPointStyle.left);
+    });
 
-  it('render the class of point position when icon is left', () => {
-    expect(component.getClassPointPosition('left')).toEqual('content__iconAndPoint__point--left');
-  });
+    it('When dotPosition is top', () => {
+      component.dotPosition = TypePointPosition.top;
+      expect(component.getClassPointPosition()).toEqual(PositionPointStyle.top);
+    });
 
-  it('render the class of point position when icon is top', () => {
-    expect(component.getClassPointPosition('top')).toEqual('content__iconAndPoint__point--top');
-  });
+    it('When dotPosition is bottom', () => {
+      component.dotPosition = TypePointPosition.bottom;
+      expect(component.getClassPointPosition()).toEqual(PositionPointStyle.bottom);
+    });
 
-  it('render the class of point position when icon is down', () => {
-    expect(component.getClassPointPosition('down')).toEqual('content__iconAndPoint__point--down');
+    it('When dotPosition is right', () => {
+      component.dotPosition = TypePointPosition.right;
+      expect(component.getClassPointPosition()).toEqual(PositionPointStyle.right);
+    });
   });
-
-  it('render the class of point position when icon is right', () => {
-    expect(component.getClassPointPosition('right')).toEqual('content__iconAndPoint__point--right');
-  });
-
-  it('render the class of point position when icon is right', () => {
-    expect(component.getClassPointPosition('none')).toEqual('content__iconAndPoint__point--none');
-  });
-
-  it('render the class of point position when icon is other', () => {
-    expect(component.getClassPointPosition('other')).toEqual('content__iconAndPoint__point--none');
-  });
-
-  it('render color contentIcon when type is refresh ', () => {
-    expect(component.getColorContentIcon('refresh')).toEqual('content__iconAndPoint__contentIcon--refresh');
-  });
-
-  it('render color icon when type is refresh ', () => {
-    expect(component.getColorIcon('refresh')).toEqual('content__iconAndPoint__contentIcon__text--icon--refresh');
-  });
-
 });
