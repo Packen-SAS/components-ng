@@ -148,7 +148,8 @@ A map marker.
 #### HTML
 
 ``` html
-<lib-packen-pin-map typeIcon="default" icon="icon-keypad" type="active" [label]="'somelabel" [direction]="somedescription" iconPosition="left" dotPosition="down">
+<lib-packen-pin-map typeIcon="icon" icon="icon-keypad" type="default" label="DE:" direction="Calle 72 #12-81"
+    iconPosition="left" dotPosition="top" radar="blue">
 </lib-packen-pin-map>
 ```
 
@@ -167,6 +168,7 @@ A map marker.
  - **label**: Prefix for the content that will show in the largest box.
  - **direction**: Content that will show in the largest box. **NOTE**: If this and `letter` values are empty, the largest box does not appear.
  - **letter**: Content that will show in the largest box. **NOTE**: If this  and `direction` values are empty, the largest box does not appear.
+ - **radar**: Difines if radar location will be showed. Value to pass is the radar color `(green|blue)`.
 
 ### DateComponent
 

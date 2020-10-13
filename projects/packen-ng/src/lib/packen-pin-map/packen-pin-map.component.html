@@ -12,6 +12,11 @@
         </div>
 
         <!-- Punto -->
-        <div class="content__point" [ngClass]="getClassPointPosition()"></div>
+        <div class="content__point" [ngClass]="getClassPointPosition()">
+        </div>
     </div>
+
+    <!-- Punto de radar -->
+    <div *ngIf="radar" class="content__point-aux" [ngClass]="getClassAuxPointPosition()"></div>
+    <div *ngIf="radar" class="content__radar" [ngClass]="getColorRadar()"></div>
 </div>
