@@ -12,6 +12,7 @@ export class PackenPinMapComponent implements OnInit {
   @Input() label: string = '';
   @Input() direction: string = '';
   @Input() radar: RadarOptions;
+  @Input() opacity: number = 0.1;
 
   @Input() type: string = 'default';
   @Input() typeIcon: string = 'icon';
@@ -113,10 +114,19 @@ export class PackenPinMapComponent implements OnInit {
 
     switch (this.dotPosition) {
       case TypePointPosition.left:
-        styles += ' ' + PositionAuxPointStyle.adjust;
+        styles += ' ' + PositionPointStyle.left;
+        break;
+      case TypePointPosition.top:
+        styles += ' ' + PositionPointStyle.top;
+        break;
+      case TypePointPosition.bottom:
+        styles += ' ' + PositionPointStyle.bottom;
         break;
       case TypePointPosition.right:
-        styles += ' ' + PositionAuxPointStyle.adjust;
+        styles += ' ' + PositionPointStyle.right;
+        break;
+      default:
+        styles += ' ' + PositionPointStyle.none;
         break;
     }
 
@@ -150,10 +160,6 @@ export class PositionPointStyle {
   static readonly top = 'content__point--top';
   static readonly bottom = 'content__point--bottom';
   static readonly none = 'content__point--none';
-}
-
-export class PositionAuxPointStyle {
-  static readonly adjust = 'content__point-aux--adjust';
 }
 
 export class RadarColor {
