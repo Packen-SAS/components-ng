@@ -11,6 +11,8 @@ export class PackenPinMapComponent implements OnInit {
   @Input() letter: string = '';
   @Input() label: string = '';
   @Input() direction: string = '';
+  @Input() radar: RadarOptions;
+  @Input() opacity: number = 0.1;
 
   @Input() type: string = 'default';
   @Input() typeIcon: string = 'icon';
@@ -104,6 +106,53 @@ export class PackenPinMapComponent implements OnInit {
     }
   }
 
+  /**
+   * Método para obtener los estilos de la ubicación del punto auxiliar de la coordenada
+   */
+  getClassAuxPointPosition() {
+    let styles = '';
+
+    switch (this.dotPosition) {
+      case TypePointPosition.left:
+        styles += ' ' + PositionPointStyle.left;
+        break;
+      case TypePointPosition.top:
+        styles += ' ' + PositionPointStyle.top;
+        break;
+      case TypePointPosition.bottom:
+        styles += ' ' + PositionPointStyle.bottom;
+        break;
+      case TypePointPosition.right:
+        styles += ' ' + PositionPointStyle.right;
+        break;
+      default:
+        styles += ' ' + PositionPointStyle.none;
+        break;
+    }
+
+    switch (this.radar) {
+      case TypeRadarOptions.green:
+        styles += ' ' + RadarColor.green;
+        break;
+      case TypeRadarOptions.blue:
+        styles += ' ' + RadarColor.blue;
+        break;
+    }
+
+    return styles;
+  }
+
+  /**
+   * Método para obtener los estilos cuando el radar ista activo
+   */
+  getColorRadar() {
+    switch (this.radar) {
+      case TypeRadarOptions.green:
+        return RadarColor.green;
+      case TypeRadarOptions.blue:
+        return RadarColor.blue;
+    }
+  }
 }
 export class PositionPointStyle {
   static readonly left = 'content__point--left';
@@ -111,6 +160,11 @@ export class PositionPointStyle {
   static readonly top = 'content__point--top';
   static readonly bottom = 'content__point--bottom';
   static readonly none = 'content__point--none';
+}
+
+export class RadarColor {
+  static readonly blue = 'radar-color--blue';
+  static readonly green = 'radar-color--green';
 }
 
 export class ContentColor {
@@ -163,5 +217,11 @@ export class TypePointPosition {
   static readonly none = 'none';
 }
 
+export class TypeRadarOptions {
+  static readonly blue = 'blue';
+  static readonly green = 'green';
+}
+
 type PointPosition = 'left' | 'top' | 'right' | 'bottom' | 'none';
 type IconPosition = 'left' | 'right';
+type RadarOptions = 'blue' | 'green';

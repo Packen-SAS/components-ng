@@ -29,19 +29,19 @@
     }
 
     &--top {
-      transform: translate(-20%, -60%);
+      transform: translate(-20%, -62%);
     }
 
     &--bottom {
-      transform: translate(-20%, 85%);
+      transform: translate(-20%, 87%);
     }
 
     &--right {
-      transform: translate(50%, 15%);
+      transform: translate(52%, 15%);
     }
 
     &--left {
-      transform: translate(-95%, 15%);
+      transform: translate(-97%, 15%);
     }
   }
 
@@ -100,25 +100,58 @@
     border-radius: 50%;
     position: absolute;
 
+    &--aux {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      z-index: -1;
+      position: absolute;
+      border: 2px solid $basic_white_dft;
+    }
+
     &--top {
-      transform: translateY(-23px);
+      transform: translateY(-25px);
     }
 
     &--bottom {
-      transform: translateY(23px);
+      transform: translateY(25px);
     }
 
     &--right {
-      transform: translateX(23px);
+      transform: translateX(25px);
     }
 
     &--left {
-      transform: translateX(-23px);
+      transform: translateX(-25px);
     }
 
     &--none {
       display: none;
     }
+  }
+
+  &__radar {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    opacity: 0.3;
+    z-index: -2;
+    position: absolute;
+    transform: translate(7px, 17px);
+
+    animation-name: point-animation;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+}
+
+.radar-color {
+  &--blue {
+    background: $brand_primary_ulgt;
+  }
+  &--green {
+    background: $success_default;
   }
 }
 
@@ -126,4 +159,21 @@
   font-size: 16px;
   font-weight: bold;
   color: $brand_primary_dft;
+}
+
+// ----------------------------------------------------------------------------------------
+// Animation 'looking for vehicle'
+// ----------------------------------------------------------------------------------------
+
+@keyframes point-animation {
+  from {
+    width: 7px;
+    height: 7px;
+    transform: translate(7px, 17px);
+  }
+  to {
+    width: 112px;
+    height: 112px;
+    transform: translate(-46px, -34px);
+  }
 }

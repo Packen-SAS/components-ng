@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
-import { PackenPinMapComponent } from './packen-pin-map.component';
+import { PackenPinMapComponent, RadarColor, TypeRadarOptions } from './packen-pin-map.component';
 import { ColorContentIcon, PositionContentIcon, TypeColor, TypePointPosition, IconColorStyles, ContentColor, ContentDirection, TypeIconPosition, ClassLabelStyles, PositionPointStyle } from './packen-pin-map.component';
 
 describe('PackenPinMapComponent', () => {
@@ -111,6 +111,50 @@ describe('PackenPinMapComponent', () => {
     it('When dotPosition is right', () => {
       component.dotPosition = TypePointPosition.right;
       expect(component.getClassPointPosition()).toEqual(PositionPointStyle.right);
+    });
+  });
+
+  describe('Testing method getClassAuxPointPosition()', () => {
+    it('When dotPosition is left', () => {
+      component.dotPosition = TypePointPosition.left;
+      component.radar = TypeRadarOptions.green;
+      expect(component.getClassAuxPointPosition()).toEqual(' ' + PositionPointStyle.left + ' ' + RadarColor.green);
+    });
+
+    it('When dotPosition is top', () => {
+      component.dotPosition = TypePointPosition.top;
+      component.radar = TypeRadarOptions.green;
+      expect(component.getClassAuxPointPosition()).toEqual(' ' + PositionPointStyle.top + ' ' + RadarColor.green);
+    });
+
+    it('When dotPosition is bottom', () => {
+      component.dotPosition = TypePointPosition.bottom;
+      component.radar = TypeRadarOptions.blue;
+      expect(component.getClassAuxPointPosition()).toEqual(' ' + PositionPointStyle.bottom + ' ' + RadarColor.blue);
+    });
+
+    it('When dotPosition is right', () => {
+      component.dotPosition = TypePointPosition.right;
+      component.radar = TypeRadarOptions.blue;
+      expect(component.getClassAuxPointPosition()).toEqual(' ' + PositionPointStyle.right + ' ' + RadarColor.blue);
+    });
+
+    it('When dotPosition is none', () => {
+      component.dotPosition = TypePointPosition.none;
+      component.radar = TypeRadarOptions.blue;
+      expect(component.getClassAuxPointPosition()).toEqual(' ' + PositionPointStyle.none + ' ' + RadarColor.blue);
+    });
+  });
+
+  describe('Testing method getColorRadar()', () => {
+    it('When radar is green', () => {
+      component.radar = TypeRadarOptions.green;
+      expect(component.getColorRadar()).toEqual(RadarColor.green);
+    });
+
+    it('When radar is blue', () => {
+      component.radar = TypeRadarOptions.blue;
+      expect(component.getColorRadar()).toEqual(RadarColor.blue);
     });
   });
 });
