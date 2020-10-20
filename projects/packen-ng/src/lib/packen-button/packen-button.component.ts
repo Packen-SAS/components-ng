@@ -139,7 +139,7 @@ export class PackenButtonComponent implements OnInit, OnChanges {
         break;
       case LevelButton.white:
         if (this.disabled) {
-          this.classButton += ' buttonDisabled buttonDisabled--btnGhostDisabled';
+          this.classButton += ' buttonDisabled buttonDisabled--btnWhiteDisabled';
         } else {
           this.classButton += ' button button--btnWhite';
         }
