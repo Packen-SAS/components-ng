@@ -168,8 +168,8 @@ A map marker.
  - **label**: Prefix for the content that will show in the largest box.
  - **direction**: Content that will show in the largest box. **NOTE**: If this and `letter` values are empty, the largest box does not appear.
  - **letter**: Content that will show in the largest box. **NOTE**: If this  and `direction` values are empty, the largest box does not appear.
- - **radar**: Difines if radar location will be showed. Value to pass is the radar color `(green|blue)`.
- - **opacity**: Difines if opacity of radar color. `(0.1 - 1.0)`.
+ - **radar**: Defines if radar location will be showed. Value to pass is the radar color `(green|blue)`.
+ - **opacity**: Defines opacity of radar color. `(0.1 - 1.0)`.
 
 ### DateComponent
 
