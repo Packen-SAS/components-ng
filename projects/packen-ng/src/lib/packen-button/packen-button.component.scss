@@ -83,6 +83,10 @@ p {
     box-shadow: $box-shadow;
   }
 
+  &__radius {
+    border-radius: 50%;
+  }
+
   &--btnPrimary {
     background-color: $primary_default;
     color: $white;
@@ -163,7 +167,7 @@ p {
   }
 
   &--btnWhite:hover {
-    background-color: $ghost_hover;
+    background-color: $basic_white_drk;
   }
 }
 

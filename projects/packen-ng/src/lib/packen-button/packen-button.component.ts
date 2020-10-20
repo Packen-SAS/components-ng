@@ -18,6 +18,7 @@ export class PackenButtonComponent implements OnInit, OnChanges {
   @Input() minWidth: number = null;
   @Input() colorText: string = null;
   @Input() shadow: boolean = false;
+  @Input() radius: boolean = false;
   @Output() outputClick = new EventEmitter<any>();
 
   classButton: any = '';
@@ -46,6 +47,7 @@ export class PackenButtonComponent implements OnInit, OnChanges {
     this.loadLevelButton();
     this.loadMinWidthButton();
     this.loadBoxShadow();
+    this.loadRadiusButton();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -241,6 +243,12 @@ export class PackenButtonComponent implements OnInit, OnChanges {
   loadBoxShadow() {
     if (this.shadow) {
       this.classButton += ' button__shadow';
+    }
+  }
+
+  loadRadiusButton() {
+    if (this.radius) {
+      this.classButton += ' button__radius';
     }
   }
 }
