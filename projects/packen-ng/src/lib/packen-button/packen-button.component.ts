@@ -16,6 +16,9 @@ export class PackenButtonComponent implements OnInit, OnChanges {
   @Input() title: any = '';
   @Input() fullwidth: boolean = false;
   @Input() minWidth: number = null;
+  @Input() colorText: string = null;
+  @Input() shadow: boolean = false;
+  @Input() radius: boolean = false;
   @Output() outputClick = new EventEmitter<any>();
 
   classButton: any = '';
@@ -43,6 +46,8 @@ export class PackenButtonComponent implements OnInit, OnChanges {
 
     this.loadLevelButton();
     this.loadMinWidthButton();
+    this.loadBoxShadow();
+    this.loadRadiusButton();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -130,6 +135,13 @@ export class PackenButtonComponent implements OnInit, OnChanges {
           this.classButton += ' buttonDisabled buttonDisabled--btnDangerDisabled';
         } else {
           this.classButton += ' button button--btnDangerGhostOutline';
+        }
+        break;
+      case LevelButton.white:
+        if (this.disabled) {
+          this.classButton += ' buttonDisabled buttonDisabled--btnWhiteDisabled';
+        } else {
+          this.classButton += ' button button--btnWhite';
         }
         break;
     }
@@ -227,6 +239,18 @@ export class PackenButtonComponent implements OnInit, OnChanges {
       this.stylesButton = { 'min-width': `${this.minWidth}px` };
     }
   }
+
+  loadBoxShadow() {
+    if (this.shadow) {
+      this.classButton += ' button__shadow';
+    }
+  }
+
+  loadRadiusButton() {
+    if (this.radius) {
+      this.classButton += ' button__radius';
+    }
+  }
 }
 
 class SizeButton {
@@ -246,4 +270,5 @@ class LevelButton {
   static readonly danger = 'danger';
   static readonly dangerGhost = 'danger-ghost';
   static readonly dangerGhostOutline = 'danger-ghost-outline';
+  static readonly white = 'white';
 }

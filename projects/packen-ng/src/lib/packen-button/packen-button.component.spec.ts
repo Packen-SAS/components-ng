@@ -193,6 +193,17 @@ describe('PackenButtonComponent', () => {
     expect(component.loadLevelButton()).toBeTrue();
   });
 
+  it('testung function loadLevelButton() when level is white', () => {
+    component.level = 'white';
+    expect(component.loadLevelButton()).toBeTrue();
+  });
+
+  it('testung function loadLevelButton() when level is white and is disabled', () => {
+    component.level = 'white';
+    component.disabled = true;
+    expect(component.loadLevelButton()).toBeTrue();
+  });
+
   // Styles of regulars buttons
   it('render styles of button when size is tiny', () => {
     component.size = 'tiny';
@@ -386,5 +397,14 @@ describe('PackenButtonComponent', () => {
     expect(component.loadMinWidthButton()).toBeUndefined();
   });
 
+  it('Testing function loadBoxShadow when shadow is true', () => {
+    component.shadow = true;
+    expect(component.loadBoxShadow()).toBeUndefined();
+  });
+
+  it('Testing function loadRadiusButton when radios is true', () => {
+    component.radius = true;
+    expect(component.loadRadiusButton()).toBeUndefined();
+  });
 
 });

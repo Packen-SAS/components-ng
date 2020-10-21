@@ -79,6 +79,14 @@ p {
   line-height: 1;
   outline: none;
 
+  &__shadow {
+    box-shadow: $box-shadow;
+  }
+
+  &__radius {
+    border-radius: 50%;
+  }
+
   &--btnPrimary {
     background-color: $primary_default;
     color: $white;
@@ -152,6 +160,15 @@ p {
   &--btnDangerGhostOutline:hover {
     background-color: $ghost_hover;
   }
+
+  &--btnWhite {
+    color: $brand_primary_drk;
+    background-color: $basic_white_dft;
+  }
+
+  &--btnWhite:hover {
+    background-color: $basic_white_drk;
+  }
 }
 
 .buttonDisabled {
@@ -188,5 +205,10 @@ p {
     background-color: $ghost_default;
     color: $disabled_alt;
     border: 1px solid $secondary_hover;
+  }
+
+  &--btnWhiteDisabled {
+    background-color: $white;
+    color: $disabled;
   }
 }

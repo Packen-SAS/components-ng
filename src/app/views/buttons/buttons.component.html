@@ -7,11 +7,11 @@
             </lib-packen-button>
 
             <lib-packen-button type="icon" level="primary" icon="icon-arrow-circle-right" size="small"
-                (outputClick)="clickButton()">
+                (outputClick)="clickButton()" [radius]="true" [shadow]="true">
             </lib-packen-button>
 
             <lib-packen-button type="icon" level="primary" icon="icon-arrow-circle-right" size="medium"
-                (outputClick)="clickButton()">
+                (outputClick)="clickButton()" [shadow]="true">
             </lib-packen-button>
 
             <lib-packen-button type="icon" level="primary" icon="icon-arrow-circle-right" size="large"
@@ -55,11 +55,11 @@
             </lib-packen-button>
 
             <lib-packen-button type="icon" level="secondary" icon="icon-arrow-circle-right" size="small"
-                (outputClick)="clickButton()">
+                (outputClick)="clickButton()" [radius]="true" [shadow]="true">
             </lib-packen-button>
 
             <lib-packen-button type="icon" level="secondary" icon="icon-arrow-circle-right" size="medium"
-                (outputClick)="clickButton()">
+                (outputClick)="clickButton()" [shadow]="true">
             </lib-packen-button>
 
             <lib-packen-button type="icon" level="secondary" icon="icon-arrow-circle-right" size="large"
@@ -103,11 +103,11 @@
             </lib-packen-button>
 
             <lib-packen-button type="icon" level="danger" icon="icon-arrow-circle-right" size="small"
-                (outputClick)="clickButton()">
+                (outputClick)="clickButton()" [radius]="true" [shadow]="true">
             </lib-packen-button>
 
             <lib-packen-button type="icon" level="danger" icon="icon-arrow-circle-right" size="medium"
-                (outputClick)="clickButton()">
+                (outputClick)="clickButton()" [shadow]="true">
             </lib-packen-button>
 
             <lib-packen-button type="icon" level="danger" icon="icon-arrow-circle-right" size="large"
@@ -131,8 +131,8 @@
                 (outputClick)="clickButton()" positionIcon="left">
             </lib-packen-button>
 
-            <lib-packen-button type="regular" level="danger-ghost-outline" size="large" title="Button" icon="icon-arrow-right"
-                (outputClick)="clickButton()" positionIcon="right">
+            <lib-packen-button type="regular" level="danger-ghost-outline" size="large" title="Button"
+                icon="icon-arrow-right" (outputClick)="clickButton()" positionIcon="right">
             </lib-packen-button>
 
             <lib-packen-button type="regular" level="danger" size="giant" title="Button" icon="icon-arrow-left"
@@ -150,11 +150,11 @@
             </lib-packen-button>
 
             <lib-packen-button type="icon" level="ghost" icon="icon-arrow-circle-right" size="small"
-                (outputClick)="clickButton()">
+                (outputClick)="clickButton()" [radius]="true" [shadow]="true">
             </lib-packen-button>
 
             <lib-packen-button type="icon" level="ghost" icon="icon-arrow-circle-right" size="medium"
-                (outputClick)="clickButton()">
+                (outputClick)="clickButton()" [shadow]="true">
             </lib-packen-button>
 
             <lib-packen-button type="icon" level="ghost" icon="icon-arrow-circle-right" size="large"
@@ -197,11 +197,11 @@
             </lib-packen-button>
 
             <lib-packen-button type="icon" level="tertiary" icon="icon-arrow-circle-right" size="small"
-                (outputClick)="clickButton()">
+                (outputClick)="clickButton()" [radius]="true" [shadow]="true">
             </lib-packen-button>
 
             <lib-packen-button type="icon" level="tertiary" icon="icon-arrow-circle-right" size="medium"
-                (outputClick)="clickButton()">
+                (outputClick)="clickButton()" [shadow]="true">
             </lib-packen-button>
 
             <lib-packen-button type="icon" level="tertiary" icon="icon-arrow-circle-right" size="large"
@@ -209,7 +209,8 @@
             </lib-packen-button>
 
             <lib-packen-button type="icon" level="tertiary" icon="icon-arrow-circle-right" size="large"
-                [disabled]="true" (outputClick)="clickButton()"></lib-packen-button>
+                [disabled]="true" (outputClick)="clickButton()">
+            </lib-packen-button>
             <hr />
 
             <lib-packen-button type="regular" level="tertiary" size="tiny" title="Button" icon="icon-arrow-left"
@@ -233,6 +234,54 @@
             </lib-packen-button>
 
             <lib-packen-button type="regular" level="tertiary" size="giant" title="Button" icon="icon-arrow-right"
+                (outputClick)="clickButton()" positionIcon="right" [disabled]="true">
+            </lib-packen-button>
+        </div>
+
+        <div class="col-sm">
+            <h2>Buttons white</h2>
+            <lib-packen-button type="icon" level="white" icon="icon-arrow-circle-right" size="tiny"
+                (outputClick)="clickButton()">
+            </lib-packen-button>
+
+            <lib-packen-button type="icon" level="white" icon="icon-arrow-circle-right" size="small"
+                (outputClick)="clickButton()" [radius]="true" [shadow]="true">
+            </lib-packen-button>
+
+            <lib-packen-button type="icon" level="white" icon="icon-arrow-circle-right" size="medium"
+                (outputClick)="clickButton()" [shadow]="true">
+            </lib-packen-button>
+
+            <lib-packen-button type="icon" level="white" icon="icon-arrow-circle-right" size="large"
+                (outputClick)="clickButton()">
+            </lib-packen-button>
+
+            <lib-packen-button type="icon" level="white" icon="icon-arrow-circle-right" size="large" [disabled]="true"
+                (outputClick)="clickButton()">
+            </lib-packen-button>
+            <hr />
+
+            <lib-packen-button type="regular" level="white" size="tiny" title="Button" icon="icon-arrow-left"
+                (outputClick)="clickButton()" positionIcon="left">
+            </lib-packen-button>
+
+            <lib-packen-button type="regular" level="white" size="small" title="Button" icon="icon-arrow-right"
+                (outputClick)="clickButton()" positionIcon="right">
+            </lib-packen-button>
+
+            <lib-packen-button type="regular" level="white" size="medium" title="Button" icon="icon-arrow-left"
+                (outputClick)="clickButton()" positionIcon="left">
+            </lib-packen-button>
+
+            <lib-packen-button type="regular" level="white" size="large" title="Button" icon="icon-arrow-right"
+                (outputClick)="clickButton()" positionIcon="right">
+            </lib-packen-button>
+
+            <lib-packen-button type="regular" level="white" size="giant" title="Button" icon="icon-arrow-left"
+                (outputClick)="clickButton()" positionIcon="left" [colorText]="'#556D87'" [shadow]="true">
+            </lib-packen-button>
+
+            <lib-packen-button type="regular" level="white" size="giant" title="Button" icon="icon-arrow-right"
                 (outputClick)="clickButton()" positionIcon="right" [disabled]="true">
             </lib-packen-button>
         </div>
