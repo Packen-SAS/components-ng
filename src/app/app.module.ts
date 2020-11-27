@@ -28,6 +28,7 @@ import { InputsShowComponent } from './views/inputs-show/inputs-show.component';
 import { AlertsComponent } from './views/alerts/alerts.component';
 import { InputsShowDropdownComponent } from './views/dropdowns-show/dropdowns-show.component';
 import { SelectsComponent } from './views/selects/selects.component';
+import { IconMapComponent } from './views/icon-map/icon-map.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { SelectsComponent } from './views/selects/selects.component';
     InputsShowComponent,
     AlertsComponent,
     InputsShowDropdownComponent,
-    SelectsComponent
+    SelectsComponent,
+    IconMapComponent
   ],
   imports: [
     HttpClientModule,
