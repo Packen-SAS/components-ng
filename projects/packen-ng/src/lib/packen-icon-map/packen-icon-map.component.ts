@@ -12,7 +12,7 @@ export class PackenIconMapComponent implements OnInit {
   @Input() label: string = '';
   @Input() value: string = '';
 
-  colorObject: Object = {};
+  colorObject: object = {};
 
   constructor() { }
 
@@ -26,7 +26,7 @@ export class PackenIconMapComponent implements OnInit {
    * Método carga el color del icono
    */
   loadColor() {
-    this.colorObject = { color: this.color }
+    this.colorObject = { color: this.color };
   }
 }
 

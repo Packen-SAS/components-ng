@@ -8,9 +8,9 @@ describe('IconMapComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IconMapComponent ]
-    })
-    .compileComponents();
+      declarations: [IconMapComponent]
+    }).compileComponents();
+
   }));
 
   beforeEach(() => {

@@ -8,9 +8,9 @@ describe('PackenIconMapComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PackenIconMapComponent ]
+      declarations: [PackenIconMapComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,5 +21,10 @@ describe('PackenIconMapComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Testing fuction ngOnInit()', () => {
+    component.color = '#ff0000';
+    expect(component.ngOnInit()).toBeUndefined();
   });
 });
