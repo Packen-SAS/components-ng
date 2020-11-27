@@ -728,3 +728,27 @@ interface DropdownShowItem {
   title?: string;
 }
 ```
+
+### IconMapComponent
+
+A icon to show on the map
+
+#### HTML 
+
+``` html
+<lib-packen-icon-map [value]="'$25.000'" [label]="'Peaje'" [icon]="'icon-toll'" [color]="'#0D73FF'">
+</lib-packen-icon-map>
+```
+
+
+#### Appearance
+![](https://packenco.s3.amazonaws.com/packen_ng/packen-icon-map/packen-icon-map.png)
+
+#### Options
+
+- **value**: Defines value to show.
+- **label**: Defines label to show.
+- **icon**: Defines icon to show.
+- **color**: Defiles content color.
+
+
