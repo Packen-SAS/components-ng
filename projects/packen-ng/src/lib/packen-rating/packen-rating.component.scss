@@ -1,0 +1,19 @@
+@import "../../assets/styles/colors.scss";
+
+.stars {
+    display: flex;
+    flex-flow: wrap;
+
+    &__item {
+        margin-right: 1px;
+        font-size: 10px;
+
+        &--editable {
+            cursor: pointer;
+        }
+
+        &--selected {
+            color: $yellow;
+        }
+    }
+}

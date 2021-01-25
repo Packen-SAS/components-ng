@@ -1,0 +1,4 @@
+<div class="stars" (mouseleave)="removeColorStar()">
+    <i *ngFor="let s of stars" (mouseenter)="setColorStar(s.position)" [ngClass]="[s.class, classEditableStar]"
+        [ngStyle]="stylesStart" class="icon-star stars__item" (click)="selectStarValue(s.position)"></i>
+</div>

@@ -24,6 +24,7 @@ import { PackenAlertComponent } from './packen-alert/packen-alert.component';
 import { PackenDropdownShowComponent } from './packen-dropdown-show/packen-dropdown-show.component';
 import { PackenSelectComponent } from './packen-select/packen-select.component';
 import { PackenIconMapComponent } from './packen-icon-map/packen-icon-map.component';
+import { PackenRatingComponent } from './packen-rating/packen-rating.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { PackenIconMapComponent } from './packen-icon-map/packen-icon-map.compon
     PackenAlertComponent,
     PackenDropdownShowComponent,
     PackenSelectComponent,
-    PackenIconMapComponent
+    PackenIconMapComponent,
+    PackenRatingComponent
   ],
   imports: [
     FormsModule,
@@ -73,7 +75,8 @@ import { PackenIconMapComponent } from './packen-icon-map/packen-icon-map.compon
     PackenAlertComponent,
     PackenDropdownShowComponent,
     PackenSelectComponent,
-    PackenIconMapComponent
+    PackenIconMapComponent,
+    PackenRatingComponent
   ]
 })
 export class PackenNgModule { }
