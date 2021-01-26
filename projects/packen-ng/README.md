@@ -36,6 +36,7 @@ import {
 The **PackenNgModule** contains the following components:
 
 >
+> * [RatingComponent](#RatingComponent)
 > * [SelectComponent](#SelectComponent)
 > * [FileComponent](#FileComponent)
 > * [PinMapComponent](#PinMapComponent)
@@ -56,6 +57,29 @@ The **PackenNgModule** contains the following components:
 > * TogglesComponent
 
 ## Components
+
+### RatingComponent
+
+Show a component to rate with stars
+
+#### HTML 
+
+``` html
+<lib-packen-rating [fontSize]="25" [paddingRight]="3" [(value)]="valueVariable" [readonly]="true"  [numberStars]="5">
+</lib-packen-rating>
+```
+
+#### Appearance
+
+![](https://packenco.s3.amazonaws.com/packen_ng/packen-rating/Screenshot+from+2021-01-26+09-27-23.png)
+
+#### Options
+
+- **fontSize**: Defines font size stars.
+- **paddingRight**: Defines padding between stars.
+- **value**: Defines value.
+- **readonly**: Defines if the component is read-only `(true|false)`.
+- **numberStars**: Defines the number stars to show.
 
 ### SelectComponent
 

@@ -9,7 +9,7 @@ export class PackenRatingComponent implements OnInit {
   @Input() fontSize: number = 10;
   @Input() paddingRight: number = 3;
   @Input() readonly: boolean = false;
-  @Input() numberStarts: number = 5;
+  @Input() numberStars: number = 5;
 
   // Administración de la variable value
   temporaryValue: number;
@@ -22,7 +22,6 @@ export class PackenRatingComponent implements OnInit {
   }
 
   @Output() valueChange = new EventEmitter<any>();
-  // Administración de la variable value
 
   stylesStart: object = {};
   classEditableStar: string = '';
@@ -32,7 +31,7 @@ export class PackenRatingComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    for (let index = 1; index <= this.numberStarts; index++) {
+    for (let index = 1; index <= this.numberStars; index++) {
       const objStar = { position: index, class: '' };
       this.stars.push(objStar);
     }
