@@ -65,7 +65,7 @@ Show a component to rate with stars
 #### HTML 
 
 ``` html
-<lib-packen-rating [fontSize]="25" [paddingRight]="3" [(value)]="valueVariable" [readonly]="true"  [numberStars]="5">
+<lib-packen-rating [fontSize]="25" [paddingRight]="3" [(value)]="valueVariable" [readonly]="true"  [numberStars]="5" (valueChange)="valueStarChange($event)">
 </lib-packen-rating>
 ```
 
@@ -80,6 +80,9 @@ Show a component to rate with stars
 - **value**: Defines value.
 - **readonly**: Defines if the component is read-only `(true|false)`.
 - **numberStars**: Defines the number stars to show.
+
+#### Events
+ - **valueChage**: Emits when value is changed **NOTE**: this event is optional.
 
 ### SelectComponent
 

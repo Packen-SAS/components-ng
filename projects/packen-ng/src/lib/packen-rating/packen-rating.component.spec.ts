@@ -27,7 +27,7 @@ describe('PackenRatingComponent', () => {
 
   it('Testing function ngOnInit() when isset a value', () => {
     component.value = 3;
-    component.numberStarts = 5;
+    component.numberStars = 5;
     expect(component.ngOnInit()).toBeUndefined();
   });
 
