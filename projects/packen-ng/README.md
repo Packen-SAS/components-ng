@@ -36,6 +36,7 @@ import {
 The **PackenNgModule** contains the following components:
 
 >
+> * [RatingComponent](#RatingComponent)
 > * [SelectComponent](#SelectComponent)
 > * [FileComponent](#FileComponent)
 > * [PinMapComponent](#PinMapComponent)
@@ -49,12 +50,39 @@ The **PackenNgModule** contains the following components:
 > * [InputShowComponent](#InputShowComponent)
 > * [AlertComponent](#AlertComponent)
 > * [DropdownShowComponent](#DropdownShowComponent)
+> * [IconMapComponent](#IconMapComponent)
 > * ButtonsComponent
 > * DividersComponent
 > * TabsComponent
 > * TogglesComponent
 
 ## Components
+
+### RatingComponent
+
+Show a component to rate with stars
+
+#### HTML 
+
+``` html
+<lib-packen-rating [fontSize]="25" [paddingRight]="3" [(value)]="valueVariable" [readonly]="true"  [numberStars]="5" (valueChange)="valueStarChange($event)">
+</lib-packen-rating>
+```
+
+#### Appearance
+
+![](https://packenco.s3.amazonaws.com/packen_ng/packen-rating/Screenshot+from+2021-01-26+09-27-23.png)
+
+#### Options
+
+- **fontSize**: Defines font size stars.
+- **paddingRight**: Defines padding between stars.
+- **value**: Defines value.
+- **readonly**: Defines if the component is read-only `(true|false)`.
+- **numberStars**: Defines the number stars to show.
+
+#### Events
+ - **valueChage**: Emits when value is changed **NOTE**: this event is optional.
 
 ### SelectComponent
 
@@ -728,3 +756,27 @@ interface DropdownShowItem {
   title?: string;
 }
 ```
+
+### IconMapComponent
+
+A icon to show on the map
+
+#### HTML 
+
+``` html
+<lib-packen-icon-map [value]="'$25.000'" [label]="'Peaje'" [icon]="'icon-toll'" [color]="'#0D73FF'">
+</lib-packen-icon-map>
+```
+
+
+#### Appearance
+![](https://packenco.s3.amazonaws.com/packen_ng/packen-icon-map/packen-icon-map.png)
+
+#### Options
+
+- **value**: Defines value to show.
+- **label**: Defines label to show.
+- **icon**: Defines icon to show.
+- **color**: Defiles content color.
+
+

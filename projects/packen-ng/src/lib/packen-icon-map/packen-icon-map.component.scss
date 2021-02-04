@@ -1,0 +1,26 @@
+@import "../../assets/styles/colors.scss";
+
+.toll {
+    font-family: $font-stack;
+    position: relative;
+    width: 1px;
+    height: 1px;
+    color: $brand_secondary_dft;
+
+    &__body {
+        position: absolute;
+        transform: translate(-92px, -30px);
+        width: 200px;
+        text-align: center;
+
+        &__icon {
+            font-size: 26px;
+        }
+
+        &__label {
+            font-size: 11px;
+            margin: 0;
+            margin-bottom: 2px;
+        }
+    }
+}
