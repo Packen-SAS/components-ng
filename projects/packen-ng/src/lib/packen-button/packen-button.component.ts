@@ -19,6 +19,7 @@ export class PackenButtonComponent implements OnInit, OnChanges {
   @Input() colorText: string = null;
   @Input() shadow: boolean = false;
   @Input() radius: boolean = false;
+  @Input() uppercase: boolean = true;
   @Output() outputClick = new EventEmitter<any>();
 
   classButton: any = '';
@@ -142,6 +143,14 @@ export class PackenButtonComponent implements OnInit, OnChanges {
           this.classButton += ' buttonDisabled buttonDisabled--btnWhiteDisabled';
         } else {
           this.classButton += ' button button--btnWhite';
+        }
+        break;
+
+      case LevelButton.whiteOutline:
+        if (this.disabled) {
+          this.classButton += ' buttonDisabled buttonDisabled--btnWhiteOutlineDisabled';
+        } else {
+          this.classButton += ' button button--btnWhiteOutline';
         }
         break;
     }
@@ -271,4 +280,5 @@ class LevelButton {
   static readonly dangerGhost = 'danger-ghost';
   static readonly dangerGhostOutline = 'danger-ghost-outline';
   static readonly white = 'white';
+  static readonly whiteOutline = 'white-outline';
 }

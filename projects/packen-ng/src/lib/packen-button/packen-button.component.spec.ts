@@ -204,6 +204,18 @@ describe('PackenButtonComponent', () => {
     expect(component.loadLevelButton()).toBeTrue();
   });
 
+  it('testing function loadLevelButton() when level is white-outline', () => {
+    component.level = 'white-outline';
+    component.disabled = false;
+    expect(component.loadLevelButton()).toBeTrue();
+  });
+
+  it('testing function loadLevelButton() when level is white-outline and is disabled', () => {
+    component.level = 'white-outline';
+    component.disabled = true;
+    expect(component.loadLevelButton()).toBeTrue();
+  });
+
   // Styles of regulars buttons
   it('render styles of button when size is tiny', () => {
     component.size = 'tiny';
