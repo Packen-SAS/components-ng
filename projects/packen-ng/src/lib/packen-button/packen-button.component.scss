@@ -18,6 +18,11 @@
   font-weight: bold;
   font-style: normal;
   margin: 0px 5px;
+
+  &--no-uppercase {
+    text-transform: inherit !important;
+    font-weight: 400 !important;
+  }
 }
 
 p {
@@ -169,6 +174,12 @@ p {
   &--btnWhite:hover {
     background-color: $basic_white_drk;
   }
+
+  &--btnWhiteOutline {
+    color: $white;
+    background-color: transparent;
+    border: 1px solid $white;
+  }
 }
 
 .buttonDisabled {
@@ -210,5 +221,11 @@ p {
   &--btnWhiteDisabled {
     background-color: $white;
     color: $disabled;
+  }
+
+  &--btnWhiteOutlineDisabled {
+    background-color: $transparent;
+    color: $white_outline_disabled;
+    border: 1px solid $white_outline_disabled;
   }
 }

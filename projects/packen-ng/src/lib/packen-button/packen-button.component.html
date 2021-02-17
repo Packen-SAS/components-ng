@@ -4,7 +4,7 @@
     <div class="btn-box__ctn" [ngStyle]="{color: colorText}">
         <span [class]="icon" *ngIf="icon && type === 'regular' && positionIcon === 'left'" [ngClass]="classIcon"
             [style.font-size.px]="getWidthIconRegular()"></span>
-        <p class="titleButton">{{title}}</p>
+        <p class="titleButton" [ngClass]="!uppercase? 'titleButton--no-uppercase': ''">{{title}}</p>
         <span [class]="icon" [ngClass]="classIcon" *ngIf="icon && type === 'regular' && positionIcon === 'right'"
             [style.font-size.px]="getWidthIconRegular()"></span>
     </div>

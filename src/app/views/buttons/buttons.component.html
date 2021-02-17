@@ -284,7 +284,17 @@
             <lib-packen-button type="regular" level="white" size="giant" title="Button" icon="icon-arrow-right"
                 (outputClick)="clickButton()" positionIcon="right" [disabled]="true">
             </lib-packen-button>
+
+            <div class="btns-outline-white">
+                <p class="title-buttons-outline">Buttons white outline</p>
+                <lib-packen-button type="regular" level="white-outline" size="large" title="Button"
+                    (outputClick)="clickButton()">
+                </lib-packen-button>
+
+                <lib-packen-button type="regular" [uppercase]="false" level="white-outline" size="large" title="Btn disabled"
+                    (outputClick)="clickButton()" [disabled]="true">
+                </lib-packen-button>
+            </div>
         </div>
     </div>
-
 </div>
