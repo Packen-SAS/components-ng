@@ -16,7 +16,7 @@ export class PackenButtonComponent implements OnInit, OnChanges {
   @Input() title: any = '';
   @Input() fullwidth: boolean = false;
   @Input() minWidth: number = null;
-  @Input() colorText: string = null;
+  @Input() color: string = null;
   @Input() shadow: boolean = false;
   @Input() radius: boolean = false;
   @Input() uppercase: boolean = true;

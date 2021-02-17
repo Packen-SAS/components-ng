@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { PackenNgModule } from 'projects/packen-ng/src/public-api';
 
 import { RatingComponent } from './rating.component';
 
@@ -8,9 +9,14 @@ describe('RatingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RatingComponent ]
+      imports: [
+        PackenNgModule,
+      ],
+      declarations: [
+        RatingComponent
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
