@@ -474,6 +474,8 @@ A dropdown.
  - **size**: Size of the dropdown: `(tiny|small|medium|large|giant)`.
  - **label**: Label or title of dropdown.
  - **type**: Type of dropdown: `(default|checkbox|radio)`.
+ - **centerTitle**: Defines title centered: `(true|false)`.
+ - **level** Dropdown theme: `(primary)`.
 
 #### Dropdown Structures
 
