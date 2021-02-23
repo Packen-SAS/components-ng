@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, ChangeDetectorRef } from '@angular/core';
 import { DropdownItem } from '../../interfaces/dropdown-item';
+import { RadioItem } from '../../interfaces/radio-item';
 
 @Component({
   selector: 'lib-packen-dropdown',
@@ -16,6 +17,8 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
   @Input() lazy: boolean = false;
   @Input() placeholder: string = '';
   @Input() label: string = '';
+  @Input() level: string = '';
+  @Input() centerTitle: boolean = false;
 
   @Output() outputChangeItem = new EventEmitter<any>();
   @Output() changeCheckbox = new EventEmitter<any>();
@@ -48,7 +51,20 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
   hoverItem: string = '';
   temporaryItemsList: DropdownItem[] = [];
 
-  constructor() { }
+  // Variable maneja el estado del item(selected, disabled, normal)
+  stateClassItem: string = '';
+
+  // Dropdown con estilo
+  sizeDropdownClass: string = '';
+  contentListItemsClass: string = '';
+  contentAllClass: string = '';
+  centerTitleClass: string = '';
+
+  // Estilos del radio
+  contentRadio: string = '';
+
+  constructor() {
+  }
 
   ngOnInit(): void {
     this.temporaryItemsList = this.items;
@@ -62,6 +78,22 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
     }
     if (changes.disabled) {
       this.disabled = changes.disabled.currentValue === true ? true : false;
+    }
+
+    if (changes.size) {
+      this.loadSizeDropdownStyle();
+    }
+
+    if (changes.level) {
+      this.loadStyleContent();
+    }
+
+    if (changes.type) {
+      this.loadStylesContentRadio();
+    }
+
+    if (changes.centerTitle) {
+      this.loadStyleContentTitle();
     }
   }
 
@@ -146,7 +178,14 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
     this.outputChangeItem.emit(data);
   }
 
-  changeRadio(radio) {
+  /**
+   * Método se ejecuta cuando cambia el radio
+   * @param radio objeto del tipo RadioItem
+   */
+  changeRadio(radio: RadioItem) {
+    this.itemSelected = radio;
+    this.itemSelected.title = radio.label;
+
     this.textInput = radio.label;
     this.showMenuList = false;
   }
@@ -156,15 +195,35 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
   // ----------------------------------------------------------------------------------------------
 
   getClassItem(i: DropdownItem): string {
+    let classLevelItem = '';
+    switch (this.level) {
+      case 'primary':
+        classLevelItem = ContentItemClass.primary;
+        break;
+    }
+
     if (i.disabled) {
-      return ItemStyles.disabled;
+      switch (this.level) {
+        case 'primary':
+          return classLevelItem + " " + ContentItemClass.primaryDisabled;
+      }
+
+      return classLevelItem + ItemStyles.disabled;
+      //return ItemStyles.disabled;
     }
 
     if (!i.info) {
       if (i.id === this.value) {
-        return ItemStyles.selected;
+        if (this.level) {
+          switch (this.level) {
+            case 'primary':
+              return classLevelItem + " " + ItemStyles.selectedPrimary;
+          }
+        }
+        return classLevelItem + " " + ItemStyles.selected;
       }
     }
+    return classLevelItem;
   }
 
   getClassTitle(i: DropdownItem): string {
@@ -176,6 +235,11 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
   }
 
   getClassText(i: DropdownItem): string {
+    switch (this.level) {
+      case 'primary':
+        return '';
+    }
+
     if (i.disabled) {
       return ContentTextStyles.disabled;
     }
@@ -190,6 +254,13 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
   }
 
   getColorIconWhenItemIsSelected(i: DropdownItem): string {
+    let levelClassStyle = '';
+    switch (this.level) {
+      case 'primary':
+        levelClassStyle = IconStyles.primary;
+        break;
+    }
+
     if (i.disabled) {
       return IconStyles.disabled;
     }
@@ -197,17 +268,113 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
     if (i.id === this.value) {
       return IconStyles.selected;
     }
+
+    return levelClassStyle;
   }
 
   getOpacityImageItemDisabled(i: DropdownItem): string {
-    if (i.disabled) {
-      return AvatarStyles.disabled;
+    let levelClass = '';
+    switch (this.level) {
+      case 'primary':
+        levelClass = AvatarStyles.primary;
+        break;
     }
+
+    if (i.disabled) {
+      return levelClass ? levelClass : AvatarStyles.disabled;
+    }
+
+    return levelClass;
   }
 
   getColorInfoType(i: DropdownItem): string {
     if (i.typeInfo === 'active') {
       return InfoStyles.active;
+    }
+  }
+
+  //-----------------------------------------------------------------------------
+  // Estilos del dropdown cuando es tipo de nivel o color
+  //-----------------------------------------------------------------------------
+
+  /**
+   * Método carga el tamaño de dropdown con tipo estilo
+   */
+  loadSizeDropdownStyle() {
+    switch (this.size) {
+      case 'tiny':
+        this.sizeDropdownClass = SizeDropdownStyle.tiny;
+        break;
+      case 'small':
+        this.sizeDropdownClass = SizeDropdownStyle.small;
+        break;
+      case 'medium':
+        this.sizeDropdownClass = SizeDropdownStyle.medium;
+        break;
+      case 'large':
+        this.sizeDropdownClass = SizeDropdownStyle.large;
+        break;
+      case 'giant':
+        this.sizeDropdownClass = SizeDropdownStyle.giant;
+        break;
+    }
+  }
+
+  /**
+   * Método carga los estilos del contenido del listado de las opciones
+   */
+  loadStyleContentListItems() {
+    switch (this.level) {
+      case 'primary':
+        this.contentListItemsClass = ContentListItemsClass.primary;
+        break;
+    }
+  }
+
+  /**
+   * Método obtiene el texto de los estilos por el nivel
+   */
+  getContentText() {
+    switch (this.level) {
+      case 'primary':
+        return ContentText.primary;
+    }
+  }
+
+  /**
+   * Método carga la clase del color del contenido
+   */
+  loadStyleContent() {
+    switch (this.level) {
+      case 'primary':
+        this.contentAllClass = AllContentClass.primary;
+        break;
+    }
+  }
+
+  /**
+   * Método centra el titulo si la variable centerTitle es true
+   */
+  loadStyleContentTitle() {
+    if (this.centerTitle) {
+      this.centerTitleClass = 'select__center-title';
+    }
+  }
+
+  //-----------------------------------------------------------------------------
+  // Estilos del radio cuando es tipo de nivel o color
+  //-----------------------------------------------------------------------------
+
+  /**
+   * Método carga los estilos del contenido del radio
+   */
+  loadStylesContentRadio() {
+    if (this.type === 'radio') {
+      switch (this.level) {
+        case 'primary':
+          this.contentRadio = ContentRadioLevel.primary;
+          break;
+      }
     }
   }
 }
@@ -218,6 +385,7 @@ type StatesSizesInput = 'tiny' | 'small' | 'medium' | 'large' | 'giant';
 class ItemStyles {
   static readonly disabled = 'content__item content__item--disabled';
   static readonly selected = 'content__item content__item--selected';
+  static readonly selectedPrimary = 'content__item--selected--primary';
 }
 
 class TitleStyles {
@@ -235,8 +403,39 @@ class ContentTextStyles {
 class IconStyles {
   static readonly selected = 'content__item__icon--selected';
   static readonly disabled = 'content__item__icon--disabled';
+  static readonly primary = 'content__item__icon--primary';
 }
 
 class AvatarStyles {
   static readonly disabled = 'content__item__avatar--disabled';
+  static readonly primary = 'content__item__avatar--primary';
+}
+
+class SizeDropdownStyle {
+  static readonly tiny = 'select__size--tiny';
+  static readonly small = 'select__size--small';
+  static readonly medium = 'select__size--medium';
+  static readonly large = 'select__size--large';
+  static readonly giant = 'select__size--giant';
+}
+
+class ContentListItemsClass {
+  static readonly primary = 'content--primary';
+}
+
+class ContentItemClass {
+  static readonly primary = 'content__item--primary';
+  static readonly primaryDisabled = 'content__item--primary--disabled';
+}
+
+class AllContentClass {
+  static readonly primary = 'select__style--primary';
+}
+
+class ContentText {
+  static readonly primary = 'content__item__contentText--primary';
+}
+
+class ContentRadioLevel {
+  static readonly primary = 'radio__level--primary';
 }

@@ -1,11 +1,29 @@
 <div class="all" clickOutside (clickOutside)="clickOutsideContent()">
-    <lib-packen-input [size]="size" [label]="label" [placeholder]="placeholder" icon="icon-arrow-ios-down" type="text"
-        textArea="false" [required]="type !== 'checkbox' && required === true? required: false" themeMessage="warning"
-        [disabled]="disabled" (click)="clickInput()" (keyUpInput)="keyUpInput($event)" [(value)]="textInput"
-        [lazy]="lazy" [isDropdown]="true">
-    </lib-packen-input>
+    <div *ngIf="!level">
+        <lib-packen-input [size]="size" [label]="label" [placeholder]="placeholder" icon="icon-arrow-ios-down"
+            type="text" textArea="false" [required]="type !== 'checkbox' && required === true? required: false"
+            themeMessage="warning" [disabled]="disabled" (click)="clickInput()" (keyUpInput)="keyUpInput($event)"
+            [(value)]="textInput" [lazy]="lazy" [isDropdown]="true">
+        </lib-packen-input>
+    </div>
 
-    <div class="content animated fadeIn fast" *ngIf="showMenuList">
+    <div *ngIf="level" class="select" (click)="clickInput()" [ngClass]="[sizeDropdownClass,contentAllClass, centerTitleClass]">
+        <div class="select__info">
+
+            <!-- Icono izquierdo -->
+            <span *ngIf="itemSelected.left && itemSelected.left.type == 'icon'" [ngClass]="itemSelected.left.name"
+                class="select__info__icon">
+            </span>
+            <!-- Imagen izquierda -->
+            <img class="select__info__img" *ngIf="itemSelected.left && itemSelected.left.type == 'avatar'"
+                [src]="itemSelected.left.src">
+
+            <p class="select__info__label">{{itemSelected.title}}</p>
+        </div>
+        <span class="select__icon--arrow icon-arrow-ios-down"></span>
+    </div>
+
+    <div class="content animated fadeIn fast" [ngClass]="contentListItemsClass" *ngIf="showMenuList">
         <!-- Default type -->
         <div *ngIf="type === 'default'">
             <div class="content__item" *ngFor="let i of temporaryItemsList" [ngClass]="getClassItem(i)"
@@ -25,10 +43,9 @@
                 </div>
 
                 <!-- content -->
-                <div class="content__item__contentText">
+                <div [ngClass]="getContentText()" class="content__item__contentText">
                     <p class="content__item__contentText__textP" [ngClass]="getClassText(i)">
-                        <span class="content__item__contentText__textP__title" [ngClass]="getClassTitle(i)"
-                            *ngIf="i.title">
+                        <span class="" [ngClass]="getClassTitle(i)" *ngIf="i.title">
                             {{i.title}}
                         </span>
 
@@ -46,7 +63,7 @@
                 </div>
 
                 <!-- right icon -->
-                <span *ngIf="i.right" class="content__item__icon content__item__icon--right"
+                <span *ngIf="i.right && i.right.type == 'icon'" class="content__item__icon content__item__icon--right"
                     [ngClass]="getColorIconWhenItemIsSelected(i) + ' '+ i.right.name">
                 </span>
 
@@ -64,9 +81,9 @@
         </div>
 
         <!-- Radio type -->
-        <div *ngIf="type == 'radio'" style="margin-top: 10px; margin-left: 10px;">
+        <div *ngIf="type == 'radio'" class="radio" [ngClass]="contentRadio">
             <lib-packen-radio [radios]="temporaryItemsList" (changeRadio)="changeRadio($event)" [(value)]="value"
-                orientation="vertical">
+                orientation="vertical" [level]="level">
             </lib-packen-radio>
         </div>
     </div>

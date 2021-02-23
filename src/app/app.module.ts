@@ -30,7 +30,6 @@ import { InputsShowDropdownComponent } from './views/dropdowns-show/dropdowns-sh
 import { SelectsComponent } from './views/selects/selects.component';
 import { IconMapComponent } from './views/icon-map/icon-map.component';
 import { RatingComponent } from './views/rating/rating.component';
-import { DropdownComponentComponent } from './views/dropdown-component/dropdown-component.component';
 
 @NgModule({
   declarations: [
@@ -53,8 +52,7 @@ import { DropdownComponentComponent } from './views/dropdown-component/dropdown-
     InputsShowDropdownComponent,
     SelectsComponent,
     IconMapComponent,
-    RatingComponent,
-    DropdownComponentComponent
+    RatingComponent
   ],
   imports: [
     HttpClientModule,

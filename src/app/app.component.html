@@ -1,11 +1,15 @@
 <div class="container mt-3">
-    <div style="width: 100%; height: 100px; background-color: #085ACB;">
-        <app-dropdown-component [size]="'medium'" [level]="'primary'" [(value)]="selectedMenu2" [items]="itemsMenu2"
+    <div style="width: 100%;">
+        <lib-packen-dropdown [size]="'medium'" [level]="'primary'" [(value)]="selectedMenu2" [items]="itemsMenu2"
             type="default">
-        </app-dropdown-component>
+        </lib-packen-dropdown>
+
+        <lib-packen-dropdown [centerTitle]="true" [level]="'primary'" [required]="true" placeholder="--"
+            [items]="radios" [(value)]="selectMenuRadio" size="medium" type="radio">
+        </lib-packen-dropdown>
     </div>
 
-    <!-- <app-rating></app-rating>
+    <!--  <app-rating></app-rating>
     <app-icon-map></app-icon-map>
     <app-selects></app-selects>
     <app-inputs-show-dropdown></app-inputs-show-dropdown>

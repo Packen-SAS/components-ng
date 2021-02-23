@@ -1,5 +1,4 @@
 @import "../../assets/styles/colors.scss";
-
 .all {
   width: 100%;
   position: relative;
@@ -19,24 +18,46 @@
   &__item {
     width: 100%;
     position: relative;
-    display: inline-flex;
+    display: flex;
     padding-top: 5px;
     padding-bottom: 5px;
     background-color: $white;
     cursor: pointer;
 
-    &--selected {
-      background-color: $primary_default;
+    span {
+      height: min-content;
+      margin: auto;
     }
 
-    &--disabled {
-      cursor: default !important;
-      background-color: $white;
+    &--primary {
+      background-color: $brand_secondary_drk;
+      color: $white !important;
+
+      &:hover:not([disabled]):not([enabled]) {
+        background-color: $brand_secondary_drk_hvr !important;
+      }
+
+      &--disabled {
+        cursor: default !important;
+      }
+    }
+
+    &--selected {
+      display: flex;
+      background-color: $primary_default;
+
+      &--primary {
+        background-color: $brand_secondary_drk_hvr;
+      }
     }
 
     &__icon {
       font-size: 25px;
       color: $basic_independece_dft;
+
+      &--primary {
+        color: $white;
+      }
 
       &--right {
         position: absolute;
@@ -44,11 +65,11 @@
         transform: translateY(-50%);
         float: right;
         right: 0;
-        margin-right: 10px;
+        margin-right: 10px !important;
       }
 
       &--left {
-        margin-left: 10px;
+        margin-left: 10px !important;
       }
 
       &--selected {
@@ -69,6 +90,11 @@
       top: 50%;
       transform: translateY(-50%);
 
+      &--primary {
+        width: 25px;
+        height: 25px;
+      }
+
       &--disabled {
         opacity: 0.3;
       }
@@ -82,6 +108,11 @@
       font-style: normal;
       font-weight: normal;
       line-height: 15px;
+      color: $tertiary_default;
+
+      &--primary {
+        color: $white;
+      }
 
       &__textP {
         position: inherit;
@@ -97,14 +128,8 @@
         }
 
         &__title {
-          color: $tertiary_default;
-
           &--selected {
             color: $white !important;
-          }
-
-          &--selectedMenuItem {
-            color: yellow;
           }
         }
 
@@ -137,6 +162,124 @@
     background-color: $brand_primary_snw;
   }
 }
+
+.select {
+  width: 96%;
+  display: flex;
+  color: $white;
+  cursor: pointer;
+  padding-left: 8px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  justify-content: space-between;
+
+  &__style {
+    &--primary {
+      background-color: #085acb;
+    }
+  }
+
+  &__center-title {
+    justify-content: center;
+
+    span {
+      margin-left: 15px;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+
+  &__icon {
+    font-size: 17px;
+
+    &--arrow {
+      margin-top: 3px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+
+    &__img {
+      width: 24px;
+    }
+
+    &__icon {
+      font-size: 25px;
+      color: $white;
+    }
+
+    &__label {
+      margin-left: 5px !important;
+    }
+  }
+
+  &__size {
+    &--tiny {
+      font-size: 12px;
+      padding-bottom: 7px;
+      padding-top: 7px;
+      line-height: 16px;
+      padding-right: 25px;
+    }
+
+    &--small {
+      font-size: 14px;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      line-height: 18px;
+      padding-right: 30px;
+    }
+
+    &--medium {
+      font-size: 16px;
+      padding-top: 13px;
+      padding-bottom: 13px;
+      padding-right: 35px;
+      line-height: 20px;
+    }
+
+    &--large {
+      font-size: 16px;
+      padding-top: 17px;
+      padding-bottom: 17px;
+      line-height: 20px;
+      padding-right: 35px;
+    }
+
+    &--giant {
+      font-size: 16px;
+      padding-top: 17px;
+      padding-bottom: 17px;
+      line-height: 20px;
+      padding-right: 35px;
+    }
+  }
+
+  &__color {
+    &__primary {
+      background-color: transparent;
+    }
+  }
+}
+
+.radio {
+  padding-top: 10px;
+  padding-left: 10px;
+
+  &__level {
+    &--primary {
+      background-color: #094aa3;
+    }
+  }
+}
+
+//-------------------------------------------------------
+// ANIMACIONES
+//-------------------------------------------------------
 
 .animated {
   -webkit-animation-duration: 1s;
