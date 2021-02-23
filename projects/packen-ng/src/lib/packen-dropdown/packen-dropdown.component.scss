@@ -175,7 +175,7 @@
 
   &__style {
     &--primary {
-      background-color: #085acb;
+      background-color: $brand_secondary_medium_dark;
     }
   }
 
@@ -272,7 +272,7 @@
 
   &__level {
     &--primary {
-      background-color: #094aa3;
+      background-color: $brand_secondary_drk;
     }
   }
 }
