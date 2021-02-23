@@ -74,28 +74,28 @@ export class PackenRadioComponent implements OnInit, OnChanges {
     if (this.level) {
       switch (this.level) {
         case 'primary':
-          classLevel = "contentRadio__label__level--color";
+          classLevel = StyleLabelRadio.primary;
           break;
       }
     }
 
     if (radio.disabled) {
-      return classLevel + " " + "contentRadio__label--disabled";
+      return classLevel + " " + StyleLabelRadio.disabled;
     }
     return classLevel;
   }
 
   /**
-   * Método 
+   * Método obtiene el color del borde del radio
    */
-  getClassRadioLavelBorder() {
+  getClassRadioLabelBorder() {
     switch (this.level) {
       case 'primary':
-        return "contentRadio__radio__level__primary";
+        return StyleRadioBorder.primary;
     }
   }
-
 }
+
 class StyleCursor {
   static readonly cursorCheckboxDisabled = 'contentRadio--disabled';
   static readonly cursorCheckboxEnabled = 'contentRadio--default';
@@ -108,3 +108,11 @@ class StylesRadio {
   static readonly checkboxDefaultNotDisabled = 'contentRadio__radio contentRadio__radio--default';
 }
 
+class StyleLabelRadio {
+  static readonly primary = 'contentRadio__label__level--color';
+  static readonly disabled = 'contentRadio__label--disabled'
+}
+
+class StyleRadioBorder {
+  static readonly primary = 'contentRadio__radio__level__primary';
+}

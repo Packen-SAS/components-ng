@@ -209,7 +209,6 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
       }
 
       return classLevelItem + ItemStyles.disabled;
-      //return ItemStyles.disabled;
     }
 
     if (!i.info) {
@@ -226,6 +225,10 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
     return classLevelItem;
   }
 
+  /**
+   * Método obtiene la clase del titulo
+   * @param i objeto del tipo DropdownItem
+   */
   getClassTitle(i: DropdownItem): string {
     if (!i.info) {
       if (i.id === this.value) {
@@ -234,6 +237,9 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
     }
   }
 
+  /**
+   * Método obtiene la clase del texto dependiendo del nivel
+   */
   getClassText(i: DropdownItem): string {
     switch (this.level) {
       case 'primary':
@@ -357,7 +363,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
    */
   loadStyleContentTitle() {
     if (this.centerTitle) {
-      this.centerTitleClass = 'select__center-title';
+      this.centerTitleClass = ContentTitle.center;
     }
   }
 
@@ -438,4 +444,8 @@ class ContentText {
 
 class ContentRadioLevel {
   static readonly primary = 'radio__level--primary';
+}
+
+class ContentTitle {
+  static readonly center = 'select__center-title';
 }

@@ -6,7 +6,7 @@
             <div *ngIf="!level" class="contentRadio__radio contentRadio__radio--selected" [ngClass]="getClassRadio(r)">
             </div>
 
-            <div [ngClass]="getClassRadioLavelBorder()" class="contentRadio__radio__level" *ngIf="level">
+            <div [ngClass]="getClassRadioLabelBorder()" class="contentRadio__radio__level" *ngIf="level">
                 <div class="point" *ngIf="value === r.id"></div>
             </div>
             <p class="contentRadio__label" [ngClass]="getClassStyleLabel(r.disabled)">{{ r.label }} <span

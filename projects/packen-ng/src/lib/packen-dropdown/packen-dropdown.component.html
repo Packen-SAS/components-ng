@@ -18,7 +18,7 @@
             <img class="select__info__img" *ngIf="itemSelected.left && itemSelected.left.type == 'avatar'"
                 [src]="itemSelected.left.src">
 
-            <p class="select__info__label">{{itemSelected.title}}</p>
+            <p class="select__info__label">{{itemSelected.title ? itemSelected.title : placeholder}}</p>
         </div>
         <span class="select__icon--arrow icon-arrow-ios-down"></span>
     </div>

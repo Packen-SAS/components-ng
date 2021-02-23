@@ -39,6 +39,18 @@
             type="checkbox" (keyUp)="keyUpDropdown($event)" [lazy]="false">
         </lib-packen-dropdown>
         <br>
+
+        <!-- Dropdown default primary -->
+        <lib-packen-dropdown [level]="'primary'" [(value)]="selectedMenuPrimary" [items]="itemsMenuPrimary" size="medium" type="default">
+        </lib-packen-dropdown>
+
+        <br>
+
+        <!-- Dropdown radio primary -->
+        <lib-packen-dropdown [required]="true" [level]="'primary'" placeholder="--" [items]="radios" [(value)]="selectMenuRadio"
+            size="large" label="Dropdown Radios" type="radio">
+        </lib-packen-dropdown>
+        <br>
     </div>
 
     <div class="col-sm"></div>

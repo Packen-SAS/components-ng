@@ -106,6 +106,28 @@ export class DropdownsComponent implements OnInit {
     }
   ];
 
+  selectedMenuPrimary: number = 1;
+  itemsMenuPrimary: Array<DropdownItem> = [
+    {
+      id: 1,
+      left: {
+        type: 'avatar',
+        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/1024px-Missing_avatar.svg.png'
+      },
+      disabled: false,
+      title: 'Title 1'
+    },
+    {
+      id: 2,
+      left: {
+        type: 'avatar',
+        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/1024px-Missing_avatar.svg.png'
+      },
+      disabled: false,
+      title: 'Title 2'
+    }
+  ];
+
   itemsMenu4: Array<DropdownItem> = [
     {
       id: 1,

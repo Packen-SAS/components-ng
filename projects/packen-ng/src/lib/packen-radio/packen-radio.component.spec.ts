@@ -106,4 +106,15 @@ describe('PackenRadioComponent', () => {
     fixture.detectChanges();
     expect(component).toBeTruthy();
   });
+
+  it('Testing function getClassStyleLabel() when isset level and is disabled', () => {
+    let objRadio: RadioItem = { id: 1, label: 'Label', disabled: true };
+    component.level = 'primary';
+    expect(component.getClassStyleLabel(objRadio)).toEqual('contentRadio__label__level--color contentRadio__label--disabled');
+  });
+
+  it('Testing function getClassRadioLabel() when level is primary', () => {
+    component.level = 'primary';
+    expect(component.getClassRadioLabelBorder()).toEqual('contentRadio__radio__level__primary');
+  });
 });
