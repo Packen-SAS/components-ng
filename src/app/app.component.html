@@ -1,5 +1,11 @@
 <div class="container mt-3">
-    <app-rating></app-rating>
+    <div style="width: 100%; height: 100px; background-color: #085ACB;">
+        <app-dropdown-component [size]="'medium'" [level]="'primary'" [(value)]="selectedMenu2" [items]="itemsMenu2"
+            type="default">
+        </app-dropdown-component>
+    </div>
+
+    <!-- <app-rating></app-rating>
     <app-icon-map></app-icon-map>
     <app-selects></app-selects>
     <app-inputs-show-dropdown></app-inputs-show-dropdown>
@@ -17,5 +23,5 @@
     <app-dividers></app-dividers>
     <app-avatars></app-avatars>
     <app-buttons></app-buttons>
-    <app-table></app-table>
+    <app-table></app-table> -->
 </div>
