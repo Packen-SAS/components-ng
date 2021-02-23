@@ -166,7 +166,7 @@ describe('PackenDropdownComponent', () => {
       id: 1, disabled: false,
       info: null, title: 'Title'
     };
-    component.level = 'primary'
+    component.level = 'primary';
     component.value = 1;
 
     expect(component.getClassItem(objDropdown)).toEqual('content__item--primary content__item--selected--primary');

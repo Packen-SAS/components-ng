@@ -205,7 +205,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
     if (i.disabled) {
       switch (this.level) {
         case 'primary':
-          return classLevelItem + " " + ContentItemClass.primaryDisabled;
+          return classLevelItem + ' ' + ContentItemClass.primaryDisabled;
       }
 
       return classLevelItem + ItemStyles.disabled;
@@ -216,10 +216,10 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
         if (this.level) {
           switch (this.level) {
             case 'primary':
-              return classLevelItem + " " + ItemStyles.selectedPrimary;
+              return classLevelItem + ' ' + ItemStyles.selectedPrimary;
           }
         }
-        return classLevelItem + " " + ItemStyles.selected;
+        return classLevelItem + ' ' + ItemStyles.selected;
       }
     }
     return classLevelItem;
@@ -299,9 +299,9 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
     }
   }
 
-  //-----------------------------------------------------------------------------
+  // -----------------------------------------------------------------------------
   // Estilos del dropdown cuando es tipo de nivel o color
-  //-----------------------------------------------------------------------------
+  // -----------------------------------------------------------------------------
 
   /**
    * Método carga el tamaño de dropdown con tipo estilo
@@ -367,9 +367,9 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
     }
   }
 
-  //-----------------------------------------------------------------------------
+  // -----------------------------------------------------------------------------
   // Estilos del radio cuando es tipo de nivel o color
-  //-----------------------------------------------------------------------------
+  // -----------------------------------------------------------------------------
 
   /**
    * Método carga los estilos del contenido del radio

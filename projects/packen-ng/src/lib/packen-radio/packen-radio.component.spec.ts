@@ -108,7 +108,7 @@ describe('PackenRadioComponent', () => {
   });
 
   it('Testing function getClassStyleLabel() when isset level and is disabled', () => {
-    let objRadio: RadioItem = { id: 1, label: 'Label', disabled: true };
+    const objRadio: RadioItem = { id: 1, label: 'Label', disabled: true };
     component.level = 'primary';
     expect(component.getClassStyleLabel(objRadio)).toEqual('contentRadio__label__level--color contentRadio__label--disabled');
   });

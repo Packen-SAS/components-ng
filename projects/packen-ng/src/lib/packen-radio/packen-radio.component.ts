@@ -80,7 +80,7 @@ export class PackenRadioComponent implements OnInit, OnChanges {
     }
 
     if (radio.disabled) {
-      return classLevel + " " + StyleLabelRadio.disabled;
+      return classLevel + ' ' + StyleLabelRadio.disabled;
     }
     return classLevel;
   }
@@ -110,7 +110,7 @@ class StylesRadio {
 
 class StyleLabelRadio {
   static readonly primary = 'contentRadio__label__level--color';
-  static readonly disabled = 'contentRadio__label--disabled'
+  static readonly disabled = 'contentRadio__label--disabled';
 }
 
 class StyleRadioBorder {
