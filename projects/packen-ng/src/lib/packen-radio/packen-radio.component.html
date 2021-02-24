@@ -2,11 +2,11 @@
     <label *ngIf="label" class="ctn-box__title">{{ label }}</label>
     <div [ngStyle]="orientation == 'horizontal' && {'display' : 'flex', 'flex-wrap': 'wrap'}">
         <div class="contentRadio" *ngFor="let r of radios" (click)="selectRadio(r)"
-            [ngClass]="getClassTypeCursor(r.disabled)">
-            <div *ngIf="!level" class="contentRadio__radio contentRadio__radio--selected" [ngClass]="getClassRadio(r)">
+            [ngClass]="getClassTypeCursor(r.disabled)" [attr.disabled]="r.disabled">
+            <div *ngIf="!theme" class="contentRadio__radio contentRadio__radio--selected" [ngClass]="getClassRadio(r)">
             </div>
 
-            <div [ngClass]="getClassRadioLabelBorder()" class="contentRadio__radio__level" *ngIf="level">
+            <div [ngClass]="getClassRadioLabelBorder()" class="contentRadio__radio__level" *ngIf="theme">
                 <div class="point" *ngIf="value === r.id"></div>
             </div>
             <p class="contentRadio__label" [ngClass]="getClassStyleLabel(r.disabled)">{{ r.label }} <span

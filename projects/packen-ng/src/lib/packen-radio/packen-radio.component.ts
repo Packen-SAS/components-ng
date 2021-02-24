@@ -14,7 +14,7 @@ export class PackenRadioComponent implements OnInit, OnChanges {
   @Input() orientation: string = 'vertical';
   @Input() disabled: boolean = false;
   @Input() label: string;
-  @Input() level: string = '';
+  @Input() theme: string = '';
 
   @Output() changeRadio = new EventEmitter<any>();
   @Output() valueChange = new EventEmitter<any>();
@@ -62,7 +62,18 @@ export class PackenRadioComponent implements OnInit, OnChanges {
   }
 
   getClassTypeCursor = (disabled: boolean): string => {
-    return disabled || this.disabled ? StyleCursor.cursorCheckboxDisabled : StyleCursor.cursorCheckboxEnabled;
+    if (disabled || this.disabled) {
+      return StyleCursor.cursorCheckboxDisabled;
+    }
+
+    let classHover = '';
+    switch (this.theme) {
+      case 'primary':
+        classHover = 'contentRadio__primary-hover';
+        break;
+    }
+
+    return StyleCursor.cursorCheckboxEnabled + ' ' + classHover;
   }
 
   /**
@@ -71,8 +82,8 @@ export class PackenRadioComponent implements OnInit, OnChanges {
    */
   getClassStyleLabel(radio: RadioItem) {
     let classLevel = '';
-    if (this.level) {
-      switch (this.level) {
+    if (this.theme) {
+      switch (this.theme) {
         case 'primary':
           classLevel = StyleLabelRadio.primary;
           break;
@@ -89,7 +100,7 @@ export class PackenRadioComponent implements OnInit, OnChanges {
    * Método obtiene el color del borde del radio
    */
   getClassRadioLabelBorder() {
-    switch (this.level) {
+    switch (this.theme) {
       case 'primary':
         return StyleRadioBorder.primary;
     }

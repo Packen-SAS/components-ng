@@ -6,9 +6,9 @@
 
 .content {
   z-index: 1;
-  width: 96%;
-  margin-top: -5px;
+  width: calc(100% - 20px);
   margin-left: 10px;
+  margin-top: -5px;
   max-height: 200px;
   overflow-y: auto;
   position: absolute;
@@ -163,17 +163,61 @@
   }
 }
 
+.text-select {
+  font-family: $font-stack;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 0 3px;
+  color: $secondary_default_drk;
+  margin-left: 10px;
+
+  &--tiny {
+    font-size: 10px;
+    line-height: 12px;
+  }
+
+  &--small {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  &--medium {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  &--large {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  &--giant {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
 .select {
-  width: 96%;
+  width: calc(100% - 20px);
+  margin-left: 10px;
   display: flex;
   color: $white;
   cursor: pointer;
   padding-left: 8px;
-  margin-left: 10px;
   margin-bottom: 5px;
   justify-content: space-between;
 
   &__style {
+    &--default {
+      color: $base_default_alt;
+
+      span {
+        color: $primary_default;
+      }
+    }
+
     &--primary {
       background-color: $brand_secondary_medium_dark;
     }
@@ -267,9 +311,6 @@
 }
 
 .radio {
-  padding-top: 10px;
-  padding-left: 10px;
-
   &__level {
     &--primary {
       background-color: $brand_secondary_drk;

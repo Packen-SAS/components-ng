@@ -1,5 +1,5 @@
 <div class="all" clickOutside (clickOutside)="clickOutsideContent()">
-    <div *ngIf="!level">
+    <div *ngIf="autocomplete">
         <lib-packen-input [size]="size" [label]="label" [placeholder]="placeholder" icon="icon-arrow-ios-down"
             type="text" textArea="false" [required]="type !== 'checkbox' && required === true? required: false"
             themeMessage="warning" [disabled]="disabled" (click)="clickInput()" (keyUpInput)="keyUpInput($event)"
@@ -7,7 +7,8 @@
         </lib-packen-input>
     </div>
 
-    <div *ngIf="level" class="select" (click)="clickInput()" [ngClass]="[sizeDropdownClass,contentAllClass, centerTitleClass]">
+    <p class="text-select" [ngClass]="sizeTitle" *ngIf="!autocomplete">{{label}}</p>
+    <div *ngIf="!autocomplete" class="select" (click)="clickInput()" [ngClass]="[sizeDropdownClass,contentAllClass, centerTitleClass]">
         <div class="select__info">
 
             <!-- Icono izquierdo -->
@@ -83,7 +84,7 @@
         <!-- Radio type -->
         <div *ngIf="type == 'radio'" class="radio" [ngClass]="contentRadio">
             <lib-packen-radio [radios]="temporaryItemsList" (changeRadio)="changeRadio($event)" [(value)]="value"
-                orientation="vertical" [level]="level">
+                orientation="vertical" [theme]="theme">
             </lib-packen-radio>
         </div>
     </div>

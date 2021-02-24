@@ -17,8 +17,9 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
   @Input() lazy: boolean = false;
   @Input() placeholder: string = '';
   @Input() label: string = '';
-  @Input() level: string = '';
+  @Input() theme: string = '';
   @Input() centerTitle: boolean = false;
+  @Input() autocomplete: boolean = true;
 
   @Output() outputChangeItem = new EventEmitter<any>();
   @Output() changeCheckbox = new EventEmitter<any>();
@@ -59,6 +60,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
   contentListItemsClass: string = '';
   contentAllClass: string = '';
   centerTitleClass: string = '';
+  sizeTitle: string = '';
 
   // Estilos del radio
   contentRadio: string = '';
@@ -69,6 +71,13 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.temporaryItemsList = this.items;
     this.getItemSelected();
+    this.loadSizeLabelSelect();
+
+    if (!this.theme) {
+      this.loadStyleContent();
+    }
+
+
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -84,7 +93,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
       this.loadSizeDropdownStyle();
     }
 
-    if (changes.level) {
+    if (changes.theme) {
       this.loadStyleContent();
     }
 
@@ -196,14 +205,14 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
 
   getClassItem(i: DropdownItem): string {
     let classLevelItem = '';
-    switch (this.level) {
+    switch (this.theme) {
       case 'primary':
         classLevelItem = ContentItemClass.primary;
         break;
     }
 
     if (i.disabled) {
-      switch (this.level) {
+      switch (this.theme) {
         case 'primary':
           return classLevelItem + ' ' + ContentItemClass.primaryDisabled;
       }
@@ -213,8 +222,8 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
 
     if (!i.info) {
       if (i.id === this.value) {
-        if (this.level) {
-          switch (this.level) {
+        if (this.theme) {
+          switch (this.theme) {
             case 'primary':
               return classLevelItem + ' ' + ItemStyles.selectedPrimary;
           }
@@ -241,7 +250,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
    * Método obtiene la clase del texto dependiendo del nivel
    */
   getClassText(i: DropdownItem): string {
-    switch (this.level) {
+    switch (this.theme) {
       case 'primary':
         return '';
     }
@@ -261,7 +270,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
 
   getColorIconWhenItemIsSelected(i: DropdownItem): string {
     let levelClassStyle = '';
-    switch (this.level) {
+    switch (this.theme) {
       case 'primary':
         levelClassStyle = IconStyles.primary;
         break;
@@ -280,7 +289,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
 
   getOpacityImageItemDisabled(i: DropdownItem): string {
     let levelClass = '';
-    switch (this.level) {
+    switch (this.theme) {
       case 'primary':
         levelClass = AvatarStyles.primary;
         break;
@@ -330,7 +339,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
    * Método carga los estilos del contenido del listado de las opciones
    */
   loadStyleContentListItems() {
-    switch (this.level) {
+    switch (this.theme) {
       case 'primary':
         this.contentListItemsClass = ContentListItemsClass.primary;
         break;
@@ -341,7 +350,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
    * Método obtiene el texto de los estilos por el nivel
    */
   getContentText() {
-    switch (this.level) {
+    switch (this.theme) {
       case 'primary':
         return ContentText.primary;
     }
@@ -351,10 +360,41 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
    * Método carga la clase del color del contenido
    */
   loadStyleContent() {
-    switch (this.level) {
+    switch (this.theme) {
       case 'primary':
         this.contentAllClass = AllContentClass.primary;
         break;
+      default:
+        console.log('Defalt');
+        this.contentAllClass = AllContentClass.default;
+        break;
+    }
+  }
+
+  /**
+   * Método carga el tamaño del titulo cuando
+   * el dropdown es select
+   */
+  loadSizeLabelSelect() {
+    switch (this.size) {
+      case 'tiny':
+        this.sizeTitle = 'text-select--tiny';
+        break;
+      case 'small':
+        this.sizeTitle = 'text-select--small';
+        break;
+      case 'medium':
+        this.sizeTitle = 'text-select--medium';
+        break;
+      case 'large':
+        this.sizeTitle = 'text-select--large';
+        break;
+
+      case 'giant':
+        this.sizeTitle = 'text-select--large';
+        break;
+      default:
+        this.sizeTitle = 'text-select--small';
     }
   }
 
@@ -376,7 +416,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
    */
   loadStylesContentRadio() {
     if (this.type === 'radio') {
-      switch (this.level) {
+      switch (this.theme) {
         case 'primary':
           this.contentRadio = ContentRadioLevel.primary;
           break;
@@ -436,6 +476,7 @@ class ContentItemClass {
 
 class AllContentClass {
   static readonly primary = 'select__style--primary';
+  static readonly default = 'select__style--default';
 }
 
 class ContentText {
