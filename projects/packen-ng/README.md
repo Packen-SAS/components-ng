@@ -476,6 +476,7 @@ A dropdown.
  - **type**: Type of dropdown: `(default|checkbox|radio)`.
  - **centerTitle**: Defines title centered: `(true|false)`.
  - **level** Dropdown theme: `(primary)`.
+ - **autocomplete**: Defines if input autocomplete showed or not
 
 #### Dropdown Structures
 
