@@ -365,7 +365,6 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
         this.contentAllClass = AllContentClass.primary;
         break;
       default:
-        console.log('Defalt');
         this.contentAllClass = AllContentClass.default;
         break;
     }

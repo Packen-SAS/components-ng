@@ -211,6 +211,7 @@
 
   &__style {
     &--default {
+      border: 1px solid $base_default_alt;
       color: $base_default_alt;
 
       span {
