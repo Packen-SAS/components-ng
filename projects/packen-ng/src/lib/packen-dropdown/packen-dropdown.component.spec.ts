@@ -627,32 +627,32 @@ describe('PackenDropdownComponent', () => {
     expect(component.loadStylesContentRadio()).toBeUndefined();
   });
 
-  it('Testing function loadSizeLabelSelect() when size is small', () =>{
+  it('Testing function loadSizeLabelSelect() when size is small', () => {
     component.size = 'small';
     expect(component.loadSizeLabelSelect()).toBeUndefined();
   });
 
-  it('Testing function loadSizeLabelSelect() when size is medium', () =>{
+  it('Testing function loadSizeLabelSelect() when size is medium', () => {
     component.size = 'medium';
     expect(component.loadSizeLabelSelect()).toBeUndefined();
   });
 
-  it('Testing function loadSizeLabelSelect() when size is large', () =>{
+  it('Testing function loadSizeLabelSelect() when size is large', () => {
     component.size = 'large';
     expect(component.loadSizeLabelSelect()).toBeUndefined();
   });
 
-  it('Testing function loadSizeLabelSelect() when size is giant', () =>{
+  it('Testing function loadSizeLabelSelect() when size is giant', () => {
     component.size = 'giant';
     expect(component.loadSizeLabelSelect()).toBeUndefined();
   });
 
-  it('Testing function loadSizeLabelSelect() when size is null', () =>{
+  it('Testing function loadSizeLabelSelect() when size is null', () => {
     component.size = null;
     expect(component.loadSizeLabelSelect()).toBeUndefined();
   });
 
-  it('Testing function ngOnInit() and not isset theme', () =>{
+  it('Testing function ngOnInit() and not isset theme', () => {
     component.theme = 'primary';
     expect(component.ngOnInit()).toBeUndefined();
   });
