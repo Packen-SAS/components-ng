@@ -76,8 +76,6 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
     if (!this.theme) {
       this.loadStyleContent();
     }
-
-
   }
 
   ngOnChanges(changes: SimpleChanges): void {

@@ -81,7 +81,12 @@ describe('PackenRadioComponent', () => {
   });
 
   it('render the class style of cursor when radio is not disabled ', () => {
-    expect(component.getClassTypeCursor(false)).toEqual('contentRadio--default');
+    expect(component.getClassTypeCursor(false)).toEqual('contentRadio--default ');
+  });
+
+  it('render the class style of cursor when radio is not disabled ', () => {
+    component.theme = 'primary';
+    expect(component.getClassTypeCursor(false)).toEqual('contentRadio--default contentRadio__primary-hover');
   });
 
   it('Testing method ngOnChanges() when disabled property does not exit', () => {
@@ -109,12 +114,12 @@ describe('PackenRadioComponent', () => {
 
   it('Testing function getClassStyleLabel() when isset level and is disabled', () => {
     const objRadio: RadioItem = { id: 1, label: 'Label', disabled: true };
-    component.level = 'primary';
+    component.theme = 'primary';
     expect(component.getClassStyleLabel(objRadio)).toEqual('contentRadio__label__level--color contentRadio__label--disabled');
   });
 
   it('Testing function getClassRadioLabel() when level is primary', () => {
-    component.level = 'primary';
+    component.theme = 'primary';
     expect(component.getClassRadioLabelBorder()).toEqual('contentRadio__radio__level__primary');
   });
 });

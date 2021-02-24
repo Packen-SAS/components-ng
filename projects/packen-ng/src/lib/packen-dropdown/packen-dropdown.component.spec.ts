@@ -157,7 +157,7 @@ describe('PackenDropdownComponent', () => {
       id: 1, disabled: true,
       info: null, title: 'Title'
     };
-    component.level = 'primary';
+    component.theme = 'primary';
     expect(component.getClassItem(objDropdown)).toEqual('content__item--primary content__item--primary--disabled');
   });
 
@@ -166,7 +166,7 @@ describe('PackenDropdownComponent', () => {
       id: 1, disabled: false,
       info: null, title: 'Title'
     };
-    component.level = 'primary';
+    component.theme = 'primary';
     component.value = 1;
 
     expect(component.getClassItem(objDropdown)).toEqual('content__item--primary content__item--selected--primary');
@@ -231,7 +231,7 @@ describe('PackenDropdownComponent', () => {
     const objDropdown: DropdownItem = {
       id: 1, disabled: false, title: 'title'
     };
-    component.level = 'primary';
+    component.theme = 'primary';
     expect(component.getClassText(objDropdown)).toEqual('');
   });
 
@@ -303,7 +303,7 @@ describe('PackenDropdownComponent', () => {
       id: 2, disabled: false,
       info: 'Info text', title: 'title'
     };
-    component.level = 'primary';
+    component.theme = 'primary';
     expect(component.getColorIconWhenItemIsSelected(objDropdown)).toEqual('content__item__icon--primary');
   });
 
@@ -329,7 +329,7 @@ describe('PackenDropdownComponent', () => {
       id: 2, disabled: true,
       info: 'Info text', title: 'title'
     };
-    component.level = 'primary';
+    component.theme = 'primary';
     expect(component.getOpacityImageItemDisabled(objDropdown)).toEqual('content__item__avatar--primary');
   });
 
@@ -513,6 +513,15 @@ describe('PackenDropdownComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('Testing method ngOnChanges() when property theme exits and it is true', () => {
+    component.disabled = true;
+    component.ngOnChanges({
+      theme: new SimpleChange(null, true, null)
+    });
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
+
   it('Testing method ngOnChanges() when disabled property exits and it is false', () => {
     component.disabled = false;
     component.ngOnChanges({
@@ -583,17 +592,17 @@ describe('PackenDropdownComponent', () => {
   });
 
   it('Testing function loadStyleCOntentListItems() when level is primary', () => {
-    component.level = 'primary';
+    component.theme = 'primary';
     expect(component.loadStyleContentListItems()).toBeUndefined();
   });
 
   it('Testing function getContentText()', () => {
-    component.level = 'primary';
+    component.theme = 'primary';
     expect(component.getContentText()).toEqual('content__item__contentText--primary');
   });
 
   it('Testing function loadStyleContent() when level is primary', () => {
-    component.level = 'primary';
+    component.theme = 'primary';
     expect(component.loadStyleContent()).toBeUndefined();
   });
 
@@ -609,12 +618,42 @@ describe('PackenDropdownComponent', () => {
 
   it('Testing function loadStylesContentRadio() when type is radio and isset level', () => {
     component.type = 'radio';
-    component.level = 'primary';
+    component.theme = 'primary';
     expect(component.loadStylesContentRadio()).toBeUndefined();
   });
 
   it('Testing function loadStylesContentRadio() when type is default', () => {
     component.type = 'default';
     expect(component.loadStylesContentRadio()).toBeUndefined();
+  });
+
+  it('Testing function loadSizeLabelSelect() when size is small', () =>{
+    component.size = 'small';
+    expect(component.loadSizeLabelSelect()).toBeUndefined();
+  });
+
+  it('Testing function loadSizeLabelSelect() when size is medium', () =>{
+    component.size = 'medium';
+    expect(component.loadSizeLabelSelect()).toBeUndefined();
+  });
+
+  it('Testing function loadSizeLabelSelect() when size is large', () =>{
+    component.size = 'large';
+    expect(component.loadSizeLabelSelect()).toBeUndefined();
+  });
+
+  it('Testing function loadSizeLabelSelect() when size is giant', () =>{
+    component.size = 'giant';
+    expect(component.loadSizeLabelSelect()).toBeUndefined();
+  });
+
+  it('Testing function loadSizeLabelSelect() when size is null', () =>{
+    component.size = null;
+    expect(component.loadSizeLabelSelect()).toBeUndefined();
+  });
+
+  it('Testing function ngOnInit() and not isset theme', () =>{
+    component.theme = 'primary';
+    expect(component.ngOnInit()).toBeUndefined();
   });
 });
