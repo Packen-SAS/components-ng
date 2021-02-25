@@ -2,14 +2,6 @@
 <div class="row">
     <div class="col-sm-5">
 
-        <div style="width: 180px;">
-            <!-- Paises -->
-            <lib-packen-dropdown [autocomplete]="false" [theme]="'primary'" [(value)]="selectedMenuCountry"
-                [items]="countries" size="small" type="default" [adaptMobile]="true" [widthList]="160">
-            </lib-packen-dropdown>
-        </div>
-
-
         <!-- Dropdowns Default -->
         <lib-packen-dropdown [(value)]="selectedMenuEager" [items]="itemsMenu1" size="medium"
             label="Dropdown Default (Eager)" type="default" [lazy]="false" [required]="true" [disabled]="true">
@@ -64,19 +56,17 @@
         <br>
 
         <!-- Dropdown input theme - img -->
-        <!-- <lib-packen-dropdown [autocomplete]="true" [theme]="'primary'" [(value)]="selectedMenuPrimary"
+        <lib-packen-dropdown [autocomplete]="true" [theme]="'primary'" [(value)]="selectedMenuPrimary"
             [items]="itemsMenuPrimary" size="small" [label]="'Dropdown input theme - img'" type="default">
-        </lib-packen-dropdown> -->
+        </lib-packen-dropdown>
         <br>
 
 
         <!-- Dropdown input theme - radio -->
-        <!-- <lib-packen-dropdown [required]="true" [adaptMobile]="false" [theme]="'primary'" placeholder="--" [items]="radios"
+        <lib-packen-dropdown [required]="true" [adaptMobile]="false" [theme]="'primary'" placeholder="--" [items]="radios"
             [(value)]="selectMenuRadio" [adaptMobile]="false" [autocomplete]="true" size="giant" label="Dropdown input theme - radio"
             type="radio">
-        </lib-packen-dropdown> -->
+        </lib-packen-dropdown>
         <br>
-
-
     </div>
 </div>

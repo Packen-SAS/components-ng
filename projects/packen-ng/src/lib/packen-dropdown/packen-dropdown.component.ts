@@ -108,6 +108,10 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
     if (changes.centerTitle) {
       this.loadStyleContentTitle();
     }
+
+    if (changes.value) {
+      this.getItemSelected();
+    }
   }
 
   // ----------------------------------------------------------------------------------------------
@@ -150,9 +154,11 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
         if (radio) {
           this.textInput = radio.label;
 
-          if(this.type === 'radio'){
+          if (this.type === 'radio') {
+            console.log("If radio");
             this.itemSelected = radio;
             this.itemSelected.title = radio.label;
+            console.log("Obj radio ", this.itemSelected);
           }
         }
       }
