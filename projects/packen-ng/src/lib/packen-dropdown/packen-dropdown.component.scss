@@ -204,6 +204,8 @@
   width: calc(100% - 20px);
   margin-left: 10px;
   display: flex;
+  text-align: center;
+  align-items: center;
   color: $white;
   cursor: pointer;
   padding-left: 8px;
@@ -269,36 +271,31 @@
   &__size {
     &--tiny {
       font-size: 12px;
-      padding-bottom: 7px;
-      padding-top: 7px;
+      height: 32px;
       line-height: 16px;
     }
 
     &--small {
       font-size: 14px;
-      padding-bottom: 10px;
-      padding-top: 10px;
+      height: 40px;
       line-height: 18px;
     }
 
     &--medium {
       font-size: 16px;
-      padding-top: 13px;
-      padding-bottom: 13px;
+      height: 48px;
       line-height: 20px;
     }
 
     &--large {
       font-size: 16px;
-      padding-top: 17px;
-      padding-bottom: 17px;
+      height: 56px;
       line-height: 20px;
     }
 
     &--giant {
       font-size: 16px;
-      padding-top: 17px;
-      padding-bottom: 17px;
+      height: 56px;
       line-height: 20px;
     }
   }

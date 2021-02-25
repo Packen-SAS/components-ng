@@ -8,7 +8,8 @@
     </div>
 
     <p class="text-select" [ngClass]="sizeTitle" *ngIf="!autocomplete">{{label}}</p>
-    <div *ngIf="!autocomplete" class="select" (click)="clickInput()" [ngClass]="[sizeDropdownClass,contentAllClass, centerTitleClass]">
+    <div *ngIf="!autocomplete" class="select" (click)="clickInput()"
+        [ngClass]="[sizeDropdownClass,contentAllClass, centerTitleClass]">
         <div class="select__info">
 
             <!-- Icono izquierdo -->
@@ -23,8 +24,8 @@
         </div>
         <span class="select__icon--arrow icon-arrow-ios-down"></span>
     </div>
-
-    <div class="content animated fadeIn fast" [ngClass]="contentListItemsClass" *ngIf="showMenuList">
+    <div class="content animated fadeIn fast" [ngStyle]="{'margin-left': marginLeftList+'px', 'width': widthList+'px'}"
+        [ngClass]="contentListItemsClass" *ngIf="showMenuList">
         <!-- Default type -->
         <div *ngIf="type === 'default'">
             <div class="content__item" *ngFor="let i of temporaryItemsList" [ngClass]="getClassItem(i)"
@@ -69,7 +70,7 @@
                 </span>
 
                 <!-- check icon -->
-                <span *ngIf="!i.left && !i.right && i.id == value"
+                <span *ngIf="!theme && !i.left && !i.right && i.id == value"
                     class="icon-checkmark content__item__icon content__item__icon--right content__item__icon--selected">
                 </span>
             </div>

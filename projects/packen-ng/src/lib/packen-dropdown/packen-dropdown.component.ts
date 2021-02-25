@@ -20,6 +20,8 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
   @Input() theme: string = '';
   @Input() centerTitle: boolean = false;
   @Input() autocomplete: boolean = true;
+  @Input() widthList: number = null;
+  @Input() marginLeftList: number = null;
 
   @Output() outputChangeItem = new EventEmitter<any>();
   @Output() changeCheckbox = new EventEmitter<any>();
