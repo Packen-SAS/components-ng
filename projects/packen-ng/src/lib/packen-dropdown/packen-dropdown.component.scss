@@ -346,3 +346,27 @@
 .fadeIn {
   animation-name: fadeIn;
 }
+
+// -----------------------------------------------------
+// DISEÑOS RESPONSIVOS
+// -----------------------------------------------------
+
+@media screen and (max-width: 660px) {
+  .select {
+    &__info {
+      &__label {
+        &__adapt-mobile {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .select-mobile {
+    width: max-content;
+
+    span{
+      margin-left: 5px;
+    }
+  }
+}

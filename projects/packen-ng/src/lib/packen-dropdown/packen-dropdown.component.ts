@@ -22,6 +22,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
   @Input() autocomplete: boolean = true;
   @Input() widthList: number = null;
   @Input() marginLeftList: number = null;
+  @Input() adaptMobile: boolean = false;
 
   @Output() outputChangeItem = new EventEmitter<any>();
   @Output() changeCheckbox = new EventEmitter<any>();
@@ -63,6 +64,8 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
   contentAllClass: string = '';
   centerTitleClass: string = '';
   sizeTitle: string = '';
+  adaptMobileClass: string = '';
+  adaptMobileSelectClass: string = '';
 
   // Estilos del radio
   contentRadio: string = '';
@@ -74,6 +77,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
     this.temporaryItemsList = this.items;
     this.getItemSelected();
     this.loadSizeLabelSelect();
+    this.loadClassAdapatMobile();
 
     if (!this.theme) {
       this.loadStyleContent();
@@ -145,6 +149,11 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
         const radio = this.items.find(i => i.id === this.value);
         if (radio) {
           this.textInput = radio.label;
+
+          if(this.type === 'radio'){
+            this.itemSelected = radio;
+            this.itemSelected.title = radio.label;
+          }
         }
       }
     }
@@ -406,6 +415,17 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
     }
   }
 
+  /**
+   * Método carga la clase para que el componente
+   * sea responsive
+   */
+  loadClassAdapatMobile() {
+    if (this.adaptMobile === true) {
+      this.adaptMobileClass = SelectTitleClass.responsiveTitle;
+      this.adaptMobileSelectClass = SelectTitleClass.responsiveSelect;
+    }
+  }
+
   // -----------------------------------------------------------------------------
   // Estilos del radio cuando es tipo de nivel o color
   // -----------------------------------------------------------------------------
@@ -488,4 +508,9 @@ class ContentRadioLevel {
 
 class ContentTitle {
   static readonly center = 'select__center-title';
+}
+
+class SelectTitleClass {
+  static readonly responsiveTitle = 'select__info__label__adapt-mobile';
+  static readonly responsiveSelect = 'select-mobile';
 }

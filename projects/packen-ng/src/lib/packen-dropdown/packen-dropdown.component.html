@@ -9,7 +9,7 @@
 
     <p class="text-select" [ngClass]="sizeTitle" *ngIf="!autocomplete">{{label}}</p>
     <div *ngIf="!autocomplete" class="select" (click)="clickInput()"
-        [ngClass]="[sizeDropdownClass,contentAllClass, centerTitleClass]">
+        [ngClass]="[sizeDropdownClass,contentAllClass, centerTitleClass,adaptMobileSelectClass]">
         <div class="select__info">
 
             <!-- Icono izquierdo -->
@@ -20,7 +20,7 @@
             <img class="select__info__img" *ngIf="itemSelected.left && itemSelected.left.type == 'avatar'"
                 [src]="itemSelected.left.src">
 
-            <p class="select__info__label">{{itemSelected.title ? itemSelected.title : placeholder}}</p>
+            <p class="select__info__label" [ngClass]="adaptMobileClass">{{itemSelected.title ? itemSelected.title : placeholder}}</p>
         </div>
         <span class="select__icon--arrow icon-arrow-ios-down"></span>
     </div>
