@@ -220,6 +220,7 @@ export class DropdownsComponent implements OnInit {
   }
 
   changeRadio = (data): void => {
+    console.log('Change', data);
     this.selectIdRadio = data;
   }
 

@@ -210,7 +210,7 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
 
     this.textInput = radio.label;
     this.showMenuList = false;
-    this.outputChangeItem.next(radio.id);
+    this.outputChangeItem.emit(radio.id);
   }
 
   // ----------------------------------------------------------------------------------------------

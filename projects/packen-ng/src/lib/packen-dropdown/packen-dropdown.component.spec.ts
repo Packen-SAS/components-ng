@@ -102,6 +102,23 @@ describe('PackenDropdownComponent', () => {
     expect(component.getItemSelected()).toBeUndefined();
   });
 
+  it('render item selected when the type is checkbox', () => {
+    component.items = [{
+      id: 1,
+      disabled: false,
+      title: 'Menu item'
+    },
+    {
+      id: 2,
+      disabled: false,
+      title: 'Menu item 2'
+    }];
+
+    component.type = 'checkbox';
+    component.value = 1;
+    expect(component.getItemSelected()).toBeUndefined();
+  });
+
   it('render item selected when the type is radio and not isset the radio selected', () => {
     component.items = [{
       id: 1,
@@ -566,6 +583,13 @@ describe('PackenDropdownComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('Testing function ngOnChanges() when isset property value', () => {
+    component.ngOnChanges({
+      value: new SimpleChange(null, false, false)
+    });
+    expect(component).toBeTruthy();
+  });
+
   it('Testing function loadSizeDropdownStyle() when size is tiny', () => {
     component.size = 'tiny';
     expect(component.loadSizeDropdownStyle()).toBeUndefined();
@@ -655,5 +679,10 @@ describe('PackenDropdownComponent', () => {
   it('Testing function ngOnInit() and not isset theme', () => {
     component.theme = 'primary';
     expect(component.ngOnInit()).toBeUndefined();
+  });
+
+  it('Testing function loadClassAdaptMobile()', () => {
+    component.adaptMobile = true;
+    expect(component.loadClassAdapatMobile()).toBeUndefined();
   });
 });
