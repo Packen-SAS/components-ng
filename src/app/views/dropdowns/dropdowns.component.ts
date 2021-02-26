@@ -161,7 +161,7 @@ export class DropdownsComponent implements OnInit {
     { id: 3, label: 'Label 3', state: 'unchecked', disabled: true }
   ];
 
-  selectMenuRadio:number = 1;
+  selectMenuRadio: number = 1;
   selectIdRadio = 1;
 
   radios: Array<RadioItem> = [

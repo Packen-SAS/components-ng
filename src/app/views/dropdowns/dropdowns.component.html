@@ -51,7 +51,7 @@
         <!-- Dropdown theme - radio -->
         <lib-packen-dropdown [adaptMobile]="false" [required]="true" [theme]="'primary'" placeholder="--"
             [items]="radios" [(value)]="selectMenuRadio" size="small" label="Dropdown theme - radio"
-            [autocomplete]="false" type="radio">
+            [autocomplete]="false" type="radio" (outputChangeItem)="changeRadio($event)">
         </lib-packen-dropdown>
         <br>
 
