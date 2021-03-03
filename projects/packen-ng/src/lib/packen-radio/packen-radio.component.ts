@@ -14,6 +14,7 @@ export class PackenRadioComponent implements OnInit, OnChanges {
   @Input() orientation: string = 'vertical';
   @Input() disabled: boolean = false;
   @Input() label: string;
+  @Input() theme: string = '';
 
   @Output() changeRadio = new EventEmitter<any>();
   @Output() valueChange = new EventEmitter<any>();
@@ -61,9 +62,51 @@ export class PackenRadioComponent implements OnInit, OnChanges {
   }
 
   getClassTypeCursor = (disabled: boolean): string => {
-    return disabled || this.disabled ? StyleCursor.cursorCheckboxDisabled : StyleCursor.cursorCheckboxEnabled;
+    if (disabled || this.disabled) {
+      return StyleCursor.cursorCheckboxDisabled;
+    }
+
+    let classHover = '';
+    switch (this.theme) {
+      case 'primary':
+        classHover = 'contentRadio__primary-hover';
+        break;
+    }
+
+    return StyleCursor.cursorCheckboxEnabled + ' ' + classHover;
+  }
+
+  /**
+   * Método obtiene los estilos del label
+   * @param radio objeto del tipo RadioItem
+   */
+  getClassStyleLabel(radio: RadioItem) {
+    let classLevel = '';
+    if (this.theme) {
+      switch (this.theme) {
+        case 'primary':
+          classLevel = StyleLabelRadio.primary;
+          break;
+      }
+    }
+
+    if (radio.disabled) {
+      return classLevel + ' ' + StyleLabelRadio.disabled;
+    }
+    return classLevel;
+  }
+
+  /**
+   * Método obtiene el color del borde del radio
+   */
+  getClassRadioLabelBorder() {
+    switch (this.theme) {
+      case 'primary':
+        return StyleRadioBorder.primary;
+    }
   }
 }
+
 class StyleCursor {
   static readonly cursorCheckboxDisabled = 'contentRadio--disabled';
   static readonly cursorCheckboxEnabled = 'contentRadio--default';
@@ -76,3 +119,11 @@ class StylesRadio {
   static readonly checkboxDefaultNotDisabled = 'contentRadio__radio contentRadio__radio--default';
 }
 
+class StyleLabelRadio {
+  static readonly primary = 'contentRadio__label__level--color';
+  static readonly disabled = 'contentRadio__label--disabled';
+}
+
+class StyleRadioBorder {
+  static readonly primary = 'contentRadio__radio__level__primary';
+}

@@ -1,6 +1,7 @@
 <h2>Dropdowns</h2>
 <div class="row">
     <div class="col-sm-5">
+
         <!-- Dropdowns Default -->
         <lib-packen-dropdown [(value)]="selectedMenuEager" [items]="itemsMenu1" size="medium"
             label="Dropdown Default (Eager)" type="default" [lazy]="false" [required]="true" [disabled]="true">
@@ -39,7 +40,33 @@
             type="checkbox" (keyUp)="keyUpDropdown($event)" [lazy]="false">
         </lib-packen-dropdown>
         <br>
-    </div>
 
-    <div class="col-sm"></div>
+        <!-- Dropdown theme - img -->
+        <lib-packen-dropdown [adaptMobile]="false" [autocomplete]="false" [(value)]="selectedMenuPrimary"
+            [items]="itemsMenuPrimary" [label]="'Dropdown theme - img'" size="small" type="default">
+        </lib-packen-dropdown>
+        <br>
+
+
+        <!-- Dropdown theme - radio -->
+        <lib-packen-dropdown [adaptMobile]="false" [required]="true" [theme]="'primary'" placeholder="--"
+            [items]="radios" [(value)]="selectMenuRadio" size="small" label="Dropdown theme - radio"
+            [autocomplete]="false" type="radio" (outputChangeItem)="changeRadio($event)">
+        </lib-packen-dropdown>
+        <br>
+
+        <!-- Dropdown input theme - img -->
+        <lib-packen-dropdown [autocomplete]="true" [theme]="'primary'" [(value)]="selectedMenuPrimary"
+            [items]="itemsMenuPrimary" size="small" [label]="'Dropdown input theme - img'" type="default">
+        </lib-packen-dropdown>
+        <br>
+
+
+        <!-- Dropdown input theme - radio -->
+        <lib-packen-dropdown [required]="true" [adaptMobile]="false" [theme]="'primary'" placeholder="--" [items]="radios"
+            [(value)]="selectMenuRadio" [adaptMobile]="false" [autocomplete]="true" size="giant" label="Dropdown input theme - radio"
+            type="radio">
+        </lib-packen-dropdown>
+        <br>
+    </div>
 </div>

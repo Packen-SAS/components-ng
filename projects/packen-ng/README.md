@@ -474,6 +474,12 @@ A dropdown.
  - **size**: Size of the dropdown: `(tiny|small|medium|large|giant)`.
  - **label**: Label or title of dropdown.
  - **type**: Type of dropdown: `(default|checkbox|radio)`.
+ - **centerTitle**: Defines title centered: `(true|false)`.
+ - **level** Dropdown theme: `(primary)`.
+ - **autocomplete**: Defines if input autocomplete showed or not
+ - **widthList**: Defines the width size of list options **NOTE**:  this option is a number and is not required.
+ - **marginLeftList**: Defines the margin-left of list options **NOTE**: this option is a number and is not required.
+ - **adaptMobile**: Defines if the title component adapts when the screen is mobile **NOTE**: this option is boolean and is not required.
 
 #### Dropdown Structures
 

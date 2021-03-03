@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { PackenNgModule } from 'projects/packen-ng/src/public-api';
 
 import { IconMapComponent } from './icon-map.component';
 
@@ -8,7 +9,12 @@ describe('IconMapComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [IconMapComponent]
+      imports: [
+        PackenNgModule
+      ],
+      declarations: [
+        IconMapComponent
+      ]
     }).compileComponents();
 
   }));

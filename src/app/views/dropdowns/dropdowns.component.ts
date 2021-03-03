@@ -106,6 +106,28 @@ export class DropdownsComponent implements OnInit {
     }
   ];
 
+  selectedMenuPrimary: number = 1;
+  itemsMenuPrimary: Array<DropdownItem> = [
+    {
+      id: 1,
+      left: {
+        type: 'avatar',
+        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/1024px-Missing_avatar.svg.png'
+      },
+      disabled: false,
+      title: 'Title 1'
+    },
+    {
+      id: 2,
+      left: {
+        type: 'avatar',
+        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/1024px-Missing_avatar.svg.png'
+      },
+      disabled: false,
+      title: 'Title 2'
+    }
+  ];
+
   itemsMenu4: Array<DropdownItem> = [
     {
       id: 1,
@@ -139,14 +161,40 @@ export class DropdownsComponent implements OnInit {
     { id: 3, label: 'Label 3', state: 'unchecked', disabled: true }
   ];
 
-  selectMenuRadio;
+  selectMenuRadio: number = 1;
   selectIdRadio = 1;
 
   radios: Array<RadioItem> = [
     { id: 1, label: 'Label 1', disabled: false },
     { id: 2, label: 'Label 2', disabled: false },
-    { id: 3, label: 'Label 3', disabled: false },
-    { id: 4, label: 'Label 4', disabled: true }
+    { id: 3, label: 'Label 3', disabled: false }
+  ];
+
+  selectedMenuCountry: number = 1;
+  countries: Array<DropdownItem> = [
+    {
+      id: 1,
+      disabled: false,
+      title: 'Selecciona tu país'
+    },
+    {
+      id: 2,
+      left: {
+        type: 'avatar',
+        src: 'https://packenco.s3.amazonaws.com/web_assets/icons/flags/flag-col.svg'
+      },
+      disabled: false,
+      title: 'Colombia'
+    },
+    {
+      id: 3,
+      left: {
+        type: 'avatar',
+        src: 'https://packenco.s3.amazonaws.com/web_assets/icons/flags/flag-ecu.svg'
+      },
+      disabled: false,
+      title: 'Ecuador'
+    }
   ];
 
   constructor(public api: ApiService) { }
@@ -172,6 +220,7 @@ export class DropdownsComponent implements OnInit {
   }
 
   changeRadio = (data): void => {
+    console.log('Change', data);
     this.selectIdRadio = data;
   }
 

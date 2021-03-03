@@ -1,10 +1,14 @@
 @import "../../assets/styles/colors.scss";
+.all {
+  width: 100%;
+  position: relative;
+}
 
 .content {
   z-index: 1;
-  width: 96%;
-  margin-top: -5px;
+  width: calc(100% - 20px);
   margin-left: 10px;
+  margin-top: -5px;
   max-height: 200px;
   overflow-y: auto;
   position: absolute;
@@ -14,24 +18,47 @@
   &__item {
     width: 100%;
     position: relative;
-    display: inline-flex;
+    display: flex;
     padding-top: 5px;
     padding-bottom: 5px;
     background-color: $white;
     cursor: pointer;
 
-    &--selected {
-      background-color: $primary_default;
+    span {
+      height: min-content;
+      margin: auto;
     }
 
-    &--disabled {
-      cursor: default !important;
-      background-color: $white;
+    &--primary {
+      font-size: 14px;
+      background-color: $brand_secondary_drk;
+      color: $white !important;
+
+      &:hover:not([disabled]):not([enabled]) {
+        background-color: $brand_secondary_drk_hvr !important;
+      }
+
+      &--disabled {
+        cursor: default !important;
+      }
+    }
+
+    &--selected {
+      display: flex;
+      background-color: $primary_default;
+
+      &--primary {
+        background-color: $brand_secondary_drk_hvr;
+      }
     }
 
     &__icon {
       font-size: 25px;
       color: $basic_independece_dft;
+
+      &--primary {
+        color: $white;
+      }
 
       &--right {
         position: absolute;
@@ -39,11 +66,11 @@
         transform: translateY(-50%);
         float: right;
         right: 0;
-        margin-right: 10px;
+        margin-right: 10px !important;
       }
 
       &--left {
-        margin-left: 10px;
+        margin-left: 10px !important;
       }
 
       &--selected {
@@ -64,6 +91,11 @@
       top: 50%;
       transform: translateY(-50%);
 
+      &--primary {
+        width: 25px;
+        height: 25px;
+      }
+
       &--disabled {
         opacity: 0.3;
       }
@@ -77,6 +109,11 @@
       font-style: normal;
       font-weight: normal;
       line-height: 15px;
+      color: $tertiary_default;
+
+      &--primary {
+        color: $white;
+      }
 
       &__textP {
         position: inherit;
@@ -92,14 +129,8 @@
         }
 
         &__title {
-          color: $tertiary_default;
-
           &--selected {
             color: $white !important;
-          }
-
-          &--selectedMenuItem {
-            color: yellow;
           }
         }
 
@@ -133,6 +164,161 @@
   }
 }
 
+.text-select {
+  font-family: $font-stack;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 0 3px;
+  color: $secondary_default_drk;
+  margin-left: 10px;
+
+  &--tiny {
+    font-size: 10px;
+    line-height: 12px;
+  }
+
+  &--small {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  &--medium {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  &--large {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  &--giant {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+.select {
+  width: calc(100% - 20px);
+  margin-left: 10px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  color: $white;
+  cursor: pointer;
+  padding-left: 8px;
+  padding-right: 10px;
+  margin-bottom: 5px;
+  justify-content: space-between;
+
+  &__style {
+    &--default {
+      border: 1px solid $base_default_alt;
+      color: $base_default_alt;
+
+      span {
+        color: $primary_default;
+      }
+    }
+
+    &--primary {
+      background-color: $brand_secondary_medium_dark;
+    }
+  }
+
+  &__center-title {
+    justify-content: center;
+
+    span {
+      margin-left: 15px;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+
+  &__icon {
+    font-size: 17px;
+
+    &--arrow {
+      margin-top: 3px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+
+    &__img {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+    }
+
+    &__icon {
+      font-size: 25px;
+      color: $white;
+    }
+
+    &__label {
+      margin-left: 5px !important;
+    }
+  }
+
+  &__size {
+    &--tiny {
+      font-size: 12px;
+      height: 32px;
+      line-height: 16px;
+    }
+
+    &--small {
+      font-size: 14px;
+      height: 40px;
+      line-height: 18px;
+    }
+
+    &--medium {
+      font-size: 16px;
+      height: 48px;
+      line-height: 20px;
+    }
+
+    &--large {
+      font-size: 16px;
+      height: 56px;
+      line-height: 20px;
+    }
+
+    &--giant {
+      font-size: 16px;
+      height: 56px;
+      line-height: 20px;
+    }
+  }
+
+  &__color {
+    &__primary {
+      background-color: transparent;
+    }
+  }
+}
+
+.radio {
+  &__level {
+    &--primary {
+      background-color: $brand_secondary_drk;
+    }
+  }
+}
+
+//-------------------------------------------------------
+// ANIMACIONES
+//-------------------------------------------------------
+
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -159,4 +345,28 @@
 
 .fadeIn {
   animation-name: fadeIn;
+}
+
+// -----------------------------------------------------
+// DISEÑOS RESPONSIVOS
+// -----------------------------------------------------
+
+@media screen and (max-width: 660px) {
+  .select {
+    &__info {
+      &__label {
+        &__adapt-mobile {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .select-mobile {
+    width: max-content;
+
+    span{
+      margin-left: 5px;
+    }
+  }
 }
