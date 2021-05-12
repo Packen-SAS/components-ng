@@ -105,4 +105,17 @@ describe('PackenSelectComponent', () => {
     component.iconSize = 14;
     expect(component.loadDimensions()).toBeUndefined();
   });
+
+  it('Testing function getItemClass when isset the property outline', () => {
+    component.outline = true;
+    expect(component.getItemClass(selectListMock[0])).toBeDefined();
+  });
+
+  it('Testing method loadDimensions() when icon-size exits and when isset propery fulWidth', () => {
+    component.width = 95;
+    component.height = 56;
+    component.iconSize = 14;
+    component.fullWidth = true;
+    expect(component.loadDimensions()).toBeUndefined();
+  });
 });

@@ -116,7 +116,9 @@ Show an options group to single select option.
  - **grayBack**: Defines if background box will be gray `(true|false)`.
  - **selectedId**: Item id that was selected.
  - **outputClick**: Action trigered when an option is selected.
-
+ - **outline**: Defines if box border not selected is gray `(true|false)`.
+ - **direction**: Defines the directions of items `(row|column)`.
+ - **fullWidth**: Defines if option has full width `(true|false)`.
 #### Option structure 
 
 ``` javascript
