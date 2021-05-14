@@ -30,6 +30,10 @@ export class PackenInputComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() rows: number = 4;
   @Input() isDropdown: boolean = false;
 
+  // Atributos para ngx-mask
+  @Input() prefix: string;
+  @Input() thousandSeparator: string = '.';
+
   @Output() keyUpInput = new EventEmitter<any>();
 
   messageValue: string = '';

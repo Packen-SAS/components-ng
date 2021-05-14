@@ -362,7 +362,8 @@ For input or textarea.
  - **messageErrorPattern**: Message to show for invalid patterns.
  - **pattern**: Pattern (regex) to validate a value. `Examples:('/\d/', '/^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/', etc)`.
  - **mask**: Input masks for external library [ngx-mask](https://www.npmjs.com/package/ngx-mask)
-
+ - **prefix**: Add suffix to masked value.
+ - **thousandSeparator**: Change default separator to a custom.
 
 ### RadioComponent
 
