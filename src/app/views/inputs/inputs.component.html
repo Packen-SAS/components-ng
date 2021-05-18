@@ -6,13 +6,13 @@
             placeholder="0-000-000-000" type="text" [textArea]="false" [required]="true" mask="0-000-000-000"
             messageErrorValidation="Error de validación" themeMessage="warning" iconMessage="icon-info"
             [disabled]="false" messageErrorPattern="Error de pattern" [pattern]="patternTest" [lazy]="true"
-            [maxlength]="15" (keyUpInput)="testKeyUp($event)">
+            [maxlength]="15" (keyUpInput)="testKeyUp($event)" [comment]="'Máximo $200,000 COP por envío'">
         </lib-packen-input>
         <br>
 
         <lib-packen-input size="small" label="Normal tiny required" icon="icon-lock" [(value)]="valueTest"
             placeholder="placeholder" [required]="true" type="text" [textArea]="false" themeMessage="warning"
-            iconMessage="icon-info" [disabled]="false">
+            iconMessage="icon-info" [disabled]="false" [maxWidth]="100">
         </lib-packen-input>
         <br>
 

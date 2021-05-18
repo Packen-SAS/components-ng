@@ -364,6 +364,8 @@ For input or textarea.
  - **mask**: Input masks for external library [ngx-mask](https://www.npmjs.com/package/ngx-mask)
  - **prefix**: Add suffix to masked value.
  - **thousandSeparator**: Change default separator to a custom.
+ - **maxWidth**: Defines max-width input. **NOTE**: this option not is required and is number.
+ - **comment**: Defines a comment or help text for the input.
 
 ### RadioComponent
 
