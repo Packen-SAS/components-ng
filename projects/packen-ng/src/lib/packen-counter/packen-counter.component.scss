@@ -1,0 +1,37 @@
+@import "../../assets/styles/colors.scss";
+
+.con {
+    display: flex;
+    width: max-content;
+
+    &__item {
+        font-size: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &--number {
+            color: $base_default_alt;
+            font-size: 14px;
+            padding: 0 10px;
+            cursor: default;
+        }
+
+        &--action {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            background-color: $brand_primary_ulgt;
+            color: $tertiary_default;
+        }
+    }
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
