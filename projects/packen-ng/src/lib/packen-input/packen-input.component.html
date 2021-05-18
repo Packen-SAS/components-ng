@@ -1,12 +1,16 @@
 <div class="content">
-    <label name="packenInput" class="content__title" [ngClass]="getClassStylesLable(size)">{{label}}</label>
+    <div class="content__cnt-title">
+        <label name="packenInput" class="content__title" [ngClass]="getClassStylesLable(size)">{{label}}</label>
+        <p class="content__help" *ngIf="comment">{{comment}}</p>
+    </div>
     <div *ngIf="textArea != true" class="content__input-container" (click)="clickInsideContent()" clickOutside
-        (clickOutside)="clickOutsideContent()">
+        (clickOutside)="clickOutsideContent()" [style.max-width.px]="maxWidth? maxWidth: null">
         <input #searchinput name="packenInput" class="content__input-container__input" [ngClass]="classInput"
-            [type]="type" [mask]="mask" [(ngModel)]="value" [placeholder]="placeholder"
-            (keyup)="changeTextInput($event.target.value)" [attr.disabled]="disabled == true ? true : null"
-            [attr.maxlength]="maxlength > 0 ? maxlength: false" [attr.minlength]="minlength > 0 ? minlength: false"
-            [required]="required === true? required: false" autocomplete="off">
+            [type]="type" [mask]="mask" [prefix]="value ? prefix || '': ''" [thousandSeparator]="thousandSeparator"
+            [(ngModel)]="value" [placeholder]="placeholder" (keyup)="changeTextInput($event.target.value)"
+            [attr.disabled]="disabled == true ? true : null" [attr.maxlength]="maxlength > 0 ? maxlength: false"
+            [attr.minlength]="minlength > 0 ? minlength: false" [required]="required === true? required: false"
+            autocomplete="off">
         <span [ngClass]="getClassSizeIconRight(size)" class="content__input-container__icon"></span>
     </div>
 

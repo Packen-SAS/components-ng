@@ -20,6 +20,9 @@ export class PackenSelectComponent implements OnInit, OnChanges {
   @Input() borderRadius: number = 4;
   @Input() iconSize: number;
   @Input() grayBack: boolean;
+  @Input() outline: boolean = false;
+  @Input() direction: TypeOptionsDirections = 'row';
+  @Input() fullWidth: boolean = false;
 
   allowSelect: boolean;
   classDisabled: string;
@@ -55,6 +58,10 @@ export class PackenSelectComponent implements OnInit, OnChanges {
 
     if (this.width) {
       this.styleBox.width = `${this.width}px`;
+    }
+
+    if (this.fullWidth) {
+      this.styleBox.width = '100%';
     }
 
     if (this.height) {
@@ -129,10 +136,18 @@ export class PackenSelectComponent implements OnInit, OnChanges {
       this.disabledOption();
     }
 
+    // Clase para borde
+    let classOutline = '';
+    if (this.outline) {
+      classOutline += 'option--outline ';
+    }
+
     if (item.selected) {
       return 'box-license__option-ctn__option ' + (this.boldBorder ? 'option--selected-bold' : 'option--selected') + this.classDisabled;
     }
-    return 'box-license__option-ctn__option ' + (this.grayBack ? 'option--gray ' : '') + this.classDisabled;
+    return 'box-license__option-ctn__option ' + classOutline + (this.grayBack ? 'option--gray ' : '') + this.classDisabled;
   }
 
 }
+
+type TypeOptionsDirections = 'column' | 'row';
