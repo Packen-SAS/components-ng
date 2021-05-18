@@ -51,12 +51,34 @@ The **PackenNgModule** contains the following components:
 > * [AlertComponent](#AlertComponent)
 > * [DropdownShowComponent](#DropdownShowComponent)
 > * [IconMapComponent](#IconMapComponent)
+> * [CounterComponent](#CounterComponent)
 > * ButtonsComponent
 > * DividersComponent
 > * TabsComponent
 > * TogglesComponent
 
 ## Components
+
+### CounterComponent
+
+Show a counter for add or subtract value
+
+#### HTML
+
+```html
+<lib-packen-counter [max]="10" [min]="1" [(value)]="counter">
+</lib-packen-counter>
+```
+
+#### Appearance
+
+![](https://packenco.s3.amazonaws.com/packen_ng/packen_counter/counter.png)
+
+### Options
+
+- **value**: Defines value.
+- **max**: Defines the maximum allowed value.
+- **min**: Defines the minimum value allowed
 
 ### RatingComponent
 
