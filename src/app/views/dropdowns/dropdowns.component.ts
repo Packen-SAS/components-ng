@@ -197,6 +197,39 @@ export class DropdownsComponent implements OnInit {
     }
   ];
 
+  selectedMenuCars: number = 1;
+  itemsMenuCars: Array<DropdownItem> = [
+    {
+      id: 1,
+      left: {
+        type: 'avatar',
+        src: 'https://packenco.s3.amazonaws.com/web_assets/vehicle_icons/moto+2.png'
+      },
+      disabled: false,
+      title: 'Moto'
+    },
+    {
+      id: 2,
+      left: {
+        type: 'avatar',
+        src: 'https://packenco.s3.amazonaws.com/web_assets/vehicle_icons/van+3.png'
+      },
+      disabled: false,
+      title: 'Carry'
+    },
+    {
+      id: 3,
+      left: {
+        type: 'avatar',
+        src: 'https://packenco.s3.amazonaws.com/web_assets/vehicle_icons/Luv+2.png'
+      },
+      disabled: false,
+      title: 'Luv'
+    }
+        
+  ];
+
+
   constructor(public api: ApiService) { }
 
   ngOnInit(): void {

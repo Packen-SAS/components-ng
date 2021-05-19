@@ -1,14 +1,15 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, ChangeDetectorRef } from '@angular/core';
-import { DropdownItem } from '../../interfaces/dropdown-item';
-import { RadioItem } from '../../interfaces/radio-item';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { DropdownItem } from 'projects/packen-ng/src/interfaces/dropdown-item';
+import { RadioItem } from 'projects/packen-ng/src/interfaces/radio-item';
 
 @Component({
-  selector: 'lib-packen-dropdown',
-  templateUrl: './packen-dropdown.component.html',
-  styleUrls: ['./packen-dropdown.component.scss']
+  selector: 'app-dropdown-test',
+  templateUrl: './dropdown-test.component.html',
+  styleUrls: ['./dropdown-test.component.scss']
 })
-export class PackenDropdownComponent implements OnInit, OnChanges {
+export class DropdownTestComponent implements OnInit {
 
+  
   @Input() items: Array<DropdownItem> = [];
   @Input() type: DropdownType = 'default';
   @Input() size: StatesSizesInput = 'tiny';
@@ -448,7 +449,9 @@ export class PackenDropdownComponent implements OnInit, OnChanges {
       }
     }
   }
+
 }
+
 
 type DropdownType = 'default' | 'radio' | 'checkbox';
 type StatesSizesInput = 'tiny' | 'small' | 'medium' | 'large' | 'giant';
