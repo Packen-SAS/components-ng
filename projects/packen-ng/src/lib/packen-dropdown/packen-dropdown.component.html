@@ -13,17 +13,18 @@
         <div class="select__info">
 
             <!-- Icono izquierdo -->
-            <span *ngIf="itemSelected.left && itemSelected.left.type == 'icon'" [ngClass]="itemSelected.left.name"
+            <span *ngIf="itemSelected?.left && itemSelected.left.type == 'icon'" [ngClass]="itemSelected.left.name"
                 class="select__info__icon">
             </span>
             <!-- Imagen izquierda -->
-            <img class="select__info__img" [ngClass]="[!borderRadius && 'select__info__img--no-radius']"
-                *ngIf="itemSelected.left && itemSelected.left.type == 'avatar'" [src]="itemSelected.left.src">
+            <img class="select__info__img" [ngClass]="[!borderRadius? 'select__info__img--no-radius': '']"
+                *ngIf="itemSelected?.left && itemSelected.left.type == 'avatar'" [src]="itemSelected.left.src">
 
-            <p class="select__info__label" [ngClass]="adaptMobileClass">{{itemSelected.title ? itemSelected.title :
+            <p class="select__info__label" [ngClass]="adaptMobileClass">{{itemSelected?.title ? itemSelected.title :
                 placeholder}}</p>
         </div>
-        <div>
+        <div class="select__left">
+            <p class="select__left__capacity">{{itemSelected?.right?.label ? itemSelected.right.label :subLabel}}</p>
             <span class="select__icon--arrow icon-arrow-ios-down"></span>
         </div>
     </div>
@@ -72,6 +73,10 @@
                 <span *ngIf="i.right && i.right.type == 'icon'" class="content__item__icon content__item__icon--right"
                     [ngClass]="getColorIconWhenItemIsSelected(i) + ' '+ i.right.name">
                 </span>
+
+                <!-- Right text -->
+                <p *ngIf="i.right && i.right.type === 'text'" class="content__item__text"
+                    [ngClass]="getColorIconWhenItemIsSelected(i)">{{i.right.label}}</p>
 
                 <!-- check icon -->
                 <span *ngIf="!theme && !i.left && !i.right && i.id == value"

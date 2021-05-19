@@ -1,4 +1,6 @@
 @import "../../assets/styles/colors.scss";
+
+
 .all {
   width: 100%;
   position: relative;
@@ -83,6 +85,14 @@
       }
     }
 
+    &__text {
+      margin: 0;
+      width: 140px;
+      margin-top: 8px;
+      color: gray;
+      font-size: 15px;
+    }
+
     &__avatar {
       width: 40px;
       height: auto;
@@ -101,7 +111,7 @@
         opacity: 0.3;
       }
 
-      &--no-radius{
+      &--no-radius {
         border-radius: 0;
       }
     }
@@ -312,6 +322,16 @@
   &__color {
     &__primary {
       background-color: transparent;
+    }
+  }
+
+  &__left {
+    display: flex;
+
+    &__capacity {
+      font-size: 12px;
+      color: $secondary_hover;
+      margin-right: 10px !important;
     }
   }
 }
