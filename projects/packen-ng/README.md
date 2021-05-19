@@ -507,6 +507,8 @@ A dropdown.
  - **widthList**: Defines the width size of list options **NOTE**:  this option is a number and is not required.
  - **marginLeftList**: Defines the margin-left of list options **NOTE**: this option is a number and is not required.
  - **adaptMobile**: Defines if the title component adapts when the screen is mobile **NOTE**: this option is boolean and is not required.
+ - **subLabel**: Defines the secondary menu label to the right of the component.
+ - **borderRadius**: Defines if the images has border-radius: `(true|false)`.
 
 #### Dropdown Structures
 
@@ -527,6 +529,7 @@ interface IconItem {
     type: string;
     name?: string;
     src?: string;
+    label?:string;
 }
 
 interface RadioItem {
