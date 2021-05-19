@@ -31,7 +31,6 @@ import { SelectsComponent } from './views/selects/selects.component';
 import { IconMapComponent } from './views/icon-map/icon-map.component';
 import { RatingComponent } from './views/rating/rating.component';
 import { CountersComponent } from './views/counters/counters.component';
-import { DropdownTestComponent } from './views/dropdown-test/dropdown-test.component';
 
 @NgModule({
   declarations: [
@@ -55,8 +54,7 @@ import { DropdownTestComponent } from './views/dropdown-test/dropdown-test.compo
     SelectsComponent,
     IconMapComponent,
     RatingComponent,
-    CountersComponent,
-    DropdownTestComponent
+    CountersComponent
   ],
   imports: [
     HttpClientModule,

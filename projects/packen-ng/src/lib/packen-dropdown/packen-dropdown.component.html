@@ -8,7 +8,7 @@
     </div>
 
     <p class="text-select" [ngClass]="sizeTitle" *ngIf="!autocomplete">{{label}}</p>
-    <div *ngIf="!autocomplete" class="select" (click)="clickInput()"
+    <div *ngIf="!autocomplete" [style.background]="backgroundColor" class="select" (click)="clickInput()"
         [ngClass]="[sizeDropdownClass,contentAllClass, centerTitleClass,adaptMobileSelectClass]">
         <div class="select__info">
 

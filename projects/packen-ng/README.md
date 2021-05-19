@@ -509,6 +509,7 @@ A dropdown.
  - **adaptMobile**: Defines if the title component adapts when the screen is mobile **NOTE**: this option is boolean and is not required.
  - **subLabel**: Defines the secondary menu label to the right of the component.
  - **borderRadius**: Defines if the images has border-radius: `(true|false)`.
+ - **backgroundColor**: Defines the background-color of component.
 
 #### Dropdown Structures
 
