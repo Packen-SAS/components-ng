@@ -118,4 +118,9 @@ describe('PackenSelectComponent', () => {
     component.fullWidth = true;
     expect(component.loadDimensions()).toBeUndefined();
   });
+
+  it('Testing method unselectAllOptions()', () => {
+    component.items = selectListMock;
+    expect(component.unselectAllOptions()).toBeUndefined();
+  });
 });

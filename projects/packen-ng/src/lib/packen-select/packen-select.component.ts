@@ -100,6 +100,8 @@ export class PackenSelectComponent implements OnInit, OnChanges {
   setSelectedOprion() {
     if (this.selectedId) {
       this.setSelectedOption({ id: this.selectedId, name: of(''), description: '' });
+    } else {
+      this.unselectAllOptions();
     }
   }
 
@@ -124,6 +126,15 @@ export class PackenSelectComponent implements OnInit, OnChanges {
       if (item.id === itemSel.id) {
         item.selected = true;
       }
+    });
+  }
+
+  /**
+   * Función quita la selección de las opciones
+   */
+  unselectAllOptions() {
+    this.items.forEach(item => {
+      item.selected = false;
     });
   }
 
