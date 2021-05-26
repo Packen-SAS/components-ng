@@ -52,6 +52,7 @@ The **PackenNgModule** contains the following components:
 > * [DropdownShowComponent](#DropdownShowComponent)
 > * [IconMapComponent](#IconMapComponent)
 > * [CounterComponent](#CounterComponent)
+> * CheckboxSingleComponent
 > * ButtonsComponent
 > * DividersComponent
 > * TabsComponent
