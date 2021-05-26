@@ -20,6 +20,8 @@ export class PackenCheckboxSingleComponent implements OnInit {
   }
 
   @Input() label: string;
+  @Output() changeValue = new EventEmitter<string>();
+
 
   constructor() { }
 
@@ -38,6 +40,8 @@ export class PackenCheckboxSingleComponent implements OnInit {
     } else {
       this.value = 'unchecked';
     }
+
+    console.log("Change =>",this.value);
   }
 
 }
