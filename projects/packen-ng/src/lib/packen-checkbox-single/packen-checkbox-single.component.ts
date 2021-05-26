@@ -40,8 +40,7 @@ export class PackenCheckboxSingleComponent implements OnInit {
     } else {
       this.value = 'unchecked';
     }
-
-    console.log("Change =>",this.value);
+    this.changeValue.emit(this.value);
   }
 
 }
