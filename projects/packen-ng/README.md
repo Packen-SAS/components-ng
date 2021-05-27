@@ -391,6 +391,8 @@ For input or textarea.
  - **comment**: Defines a comment or help text for the input.
  - **name**: Name of input to define.
 
+#### Events
+ - **outputClickOutside**:  Emits when is clicked outside input but input is clicked **NOTE**: this event is optional.
 ### RadioComponent
 
 A radio button.

@@ -38,6 +38,7 @@ export class PackenInputComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() thousandSeparator: string = '.';
 
   @Output() keyUpInput = new EventEmitter<any>();
+  @Output() outputClickOutside = new EventEmitter<boolean>();
 
   messageValue: string = '';
 
@@ -245,6 +246,7 @@ export class PackenInputComponent implements OnInit, AfterViewInit, OnChanges {
     if (this.isClickInside) {
       this.changeTextInput(this.value);
       this.isClickInside = false;
+      this.outputClickOutside.emit(true);
     }
   }
 
