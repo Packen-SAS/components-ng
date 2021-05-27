@@ -54,7 +54,6 @@ export class PackenInputComponent implements OnInit, AfterViewInit, OnChanges {
 
   set value(val) {
     this.messageValue = val;
-    this.valueChange.emit(this.messageValue);
   }
 
   // Class inputs
