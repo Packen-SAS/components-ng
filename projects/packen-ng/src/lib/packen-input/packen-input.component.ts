@@ -31,7 +31,7 @@ export class PackenInputComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() isDropdown: boolean = false;
   @Input() maxWidth: number = null;
   @Input() comment: string;
-  @Input() name: string;
+  @Input() name: string = 'packenInput';
 
   // Atributos para ngx-mask
   @Input() prefix: string;
