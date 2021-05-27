@@ -8,21 +8,25 @@
     </div>
 
     <p class="text-select" [ngClass]="sizeTitle" *ngIf="!autocomplete">{{label}}</p>
-    <div *ngIf="!autocomplete" class="select" (click)="clickInput()"
+    <div *ngIf="!autocomplete" [style.background]="backgroundColor" class="select" (click)="clickInput()"
         [ngClass]="[sizeDropdownClass,contentAllClass, centerTitleClass,adaptMobileSelectClass]">
         <div class="select__info">
 
             <!-- Icono izquierdo -->
-            <span *ngIf="itemSelected.left && itemSelected.left.type == 'icon'" [ngClass]="itemSelected.left.name"
+            <span *ngIf="itemSelected?.left && itemSelected.left.type == 'icon'" [ngClass]="itemSelected.left.name"
                 class="select__info__icon">
             </span>
             <!-- Imagen izquierda -->
-            <img class="select__info__img" *ngIf="itemSelected.left && itemSelected.left.type == 'avatar'"
-                [src]="itemSelected.left.src">
+            <img class="select__info__img" [ngClass]="[!borderRadius? 'select__info__img--no-radius': '']"
+                *ngIf="itemSelected?.left && itemSelected.left.type == 'avatar'" [src]="itemSelected.left.src">
 
-            <p class="select__info__label" [ngClass]="adaptMobileClass">{{itemSelected.title ? itemSelected.title : placeholder}}</p>
+            <p class="select__info__label" [ngClass]="adaptMobileClass">{{itemSelected?.title ? itemSelected.title :
+                placeholder}}</p>
         </div>
-        <span class="select__icon--arrow icon-arrow-ios-down"></span>
+        <div class="select__left">
+            <p class="select__left__capacity">{{itemSelected?.right?.label ? itemSelected.right.label :subLabel}}</p>
+            <span class="select__icon--arrow icon-arrow-ios-down"></span>
+        </div>
     </div>
     <div class="content animated fadeIn fast" [ngStyle]="{'margin-left': marginLeftList+'px', 'width': widthList+'px'}"
         [ngClass]="contentListItemsClass" *ngIf="showMenuList">
@@ -40,7 +44,8 @@
 
                 <!-- avatar -->
                 <div>
-                    <img *ngIf="i.left && i.left.type == 'avatar'" [ngClass]="getOpacityImageItemDisabled(i)"
+                    <img *ngIf="i.left && i.left.type == 'avatar'"
+                        [ngClass]="[getOpacityImageItemDisabled(i), !borderRadius && 'select__info__img--no-radius']"
                         class="content__item__avatar" [src]="i.left.src">
                 </div>
 
@@ -68,6 +73,10 @@
                 <span *ngIf="i.right && i.right.type == 'icon'" class="content__item__icon content__item__icon--right"
                     [ngClass]="getColorIconWhenItemIsSelected(i) + ' '+ i.right.name">
                 </span>
+
+                <!-- Right text -->
+                <p *ngIf="i.right && i.right.type === 'text'" class="content__item__text"
+                    [ngClass]="getColorIconWhenItemIsSelected(i)">{{i.right.label}}</p>
 
                 <!-- check icon -->
                 <span *ngIf="!theme && !i.left && !i.right && i.id == value"

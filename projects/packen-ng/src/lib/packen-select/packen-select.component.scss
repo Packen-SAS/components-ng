@@ -66,3 +66,11 @@
     @include selected-option;
     border: 1px solid $primary_default !important;
 }
+
+.option--outline {
+    border: 1px solid $gray_alt;
+}
+
+.option-ctn--column {
+    flex-direction: column;
+}

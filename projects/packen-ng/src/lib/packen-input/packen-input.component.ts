@@ -29,8 +29,16 @@ export class PackenInputComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() lazy: boolean = false;
   @Input() rows: number = 4;
   @Input() isDropdown: boolean = false;
+  @Input() maxWidth: number = null;
+  @Input() comment: string;
+  @Input() name: string = 'packenInput';
+
+  // Atributos para ngx-mask
+  @Input() prefix: string;
+  @Input() thousandSeparator: string = '.';
 
   @Output() keyUpInput = new EventEmitter<any>();
+  @Output() outputClickOutside = new EventEmitter<boolean>();
 
   messageValue: string = '';
 
@@ -47,7 +55,6 @@ export class PackenInputComponent implements OnInit, AfterViewInit, OnChanges {
 
   set value(val) {
     this.messageValue = val;
-    this.valueChange.emit(this.messageValue);
   }
 
   // Class inputs
@@ -239,6 +246,7 @@ export class PackenInputComponent implements OnInit, AfterViewInit, OnChanges {
     if (this.isClickInside) {
       this.changeTextInput(this.value);
       this.isClickInside = false;
+      this.outputClickOutside.emit(true);
     }
   }
 

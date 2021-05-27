@@ -51,12 +51,35 @@ The **PackenNgModule** contains the following components:
 > * [AlertComponent](#AlertComponent)
 > * [DropdownShowComponent](#DropdownShowComponent)
 > * [IconMapComponent](#IconMapComponent)
+> * [CounterComponent](#CounterComponent)
+> * CheckboxSingleComponent
 > * ButtonsComponent
 > * DividersComponent
 > * TabsComponent
 > * TogglesComponent
 
 ## Components
+
+### CounterComponent
+
+Show a counter for add or subtract value
+
+#### HTML
+
+```html
+<lib-packen-counter [max]="10" [min]="1" [(value)]="counter">
+</lib-packen-counter>
+```
+
+#### Appearance
+
+![](https://packenco.s3.amazonaws.com/packen_ng/packen_counter/counter.png)
+
+### Options
+
+- **value**: Defines value.
+- **max**: Defines the maximum allowed value.
+- **min**: Defines the minimum value allowed
 
 ### RatingComponent
 
@@ -116,7 +139,9 @@ Show an options group to single select option.
  - **grayBack**: Defines if background box will be gray `(true|false)`.
  - **selectedId**: Item id that was selected.
  - **outputClick**: Action trigered when an option is selected.
-
+ - **outline**: Defines if box border not selected is gray `(true|false)`.
+ - **direction**: Defines the directions of items `(row|column)`.
+ - **fullWidth**: Defines if option has full width `(true|false)`.
 #### Option structure 
 
 ``` javascript
@@ -360,8 +385,14 @@ For input or textarea.
  - **messageErrorPattern**: Message to show for invalid patterns.
  - **pattern**: Pattern (regex) to validate a value. `Examples:('/\d/', '/^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/', etc)`.
  - **mask**: Input masks for external library [ngx-mask](https://www.npmjs.com/package/ngx-mask)
+ - **prefix**: Add suffix to masked value.
+ - **thousandSeparator**: Change default separator to a custom.
+ - **maxWidth**: Defines max-width input. **NOTE**: this option not is required and is number.
+ - **comment**: Defines a comment or help text for the input.
+ - **name**: Name of input to define.
 
-
+#### Events
+ - **outputClickOutside**:  Emits when is clicked outside input but input is clicked **NOTE**: this event is optional.
 ### RadioComponent
 
 A radio button.
@@ -480,6 +511,9 @@ A dropdown.
  - **widthList**: Defines the width size of list options **NOTE**:  this option is a number and is not required.
  - **marginLeftList**: Defines the margin-left of list options **NOTE**: this option is a number and is not required.
  - **adaptMobile**: Defines if the title component adapts when the screen is mobile **NOTE**: this option is boolean and is not required.
+ - **subLabel**: Defines the secondary menu label to the right of the component.
+ - **borderRadius**: Defines if the images has border-radius: `(true|false)`.
+ - **backgroundColor**: Defines the background-color of component.
 
 #### Dropdown Structures
 
@@ -500,6 +534,7 @@ interface IconItem {
     type: string;
     name?: string;
     src?: string;
+    label?:string;
 }
 
 interface RadioItem {

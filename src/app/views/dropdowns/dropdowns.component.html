@@ -1,6 +1,10 @@
 <h2>Dropdowns</h2>
 <div class="row">
     <div class="col-sm-5">
+        <lib-packen-dropdown [autocomplete]="false" [(value)]="selectedMenuCars" [items]="itemsMenuCars"
+            [label]="'Vehículo'" [subLabel]="'Capacidad2'" size="medium" type="default" [borderRadius]="false"
+            [placeholder]="'Vehículo'" [backgroundColor]="'white'">
+        </lib-packen-dropdown>
 
         <!-- Dropdowns Default -->
         <lib-packen-dropdown [(value)]="selectedMenuEager" [items]="itemsMenu1" size="medium"
@@ -63,9 +67,9 @@
 
 
         <!-- Dropdown input theme - radio -->
-        <lib-packen-dropdown [required]="true" [adaptMobile]="false" [theme]="'primary'" placeholder="--" [items]="radios"
-            [(value)]="selectMenuRadio" [adaptMobile]="false" [autocomplete]="true" size="giant" label="Dropdown input theme - radio"
-            type="radio">
+        <lib-packen-dropdown [required]="true" [adaptMobile]="false" [theme]="'primary'" placeholder="--"
+            [items]="radios" [(value)]="selectMenuRadio" [adaptMobile]="false" [autocomplete]="true" size="giant"
+            label="Dropdown input theme - radio" type="radio">
         </lib-packen-dropdown>
         <br>
     </div>

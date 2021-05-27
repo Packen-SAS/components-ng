@@ -25,6 +25,8 @@ import { PackenDropdownShowComponent } from './packen-dropdown-show/packen-dropd
 import { PackenSelectComponent } from './packen-select/packen-select.component';
 import { PackenIconMapComponent } from './packen-icon-map/packen-icon-map.component';
 import { PackenRatingComponent } from './packen-rating/packen-rating.component';
+import { PackenCounterComponent } from './packen-counter/packen-counter.component';
+import { PackenCheckboxSingleComponent } from './packen-checkbox-single/packen-checkbox-single.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { PackenRatingComponent } from './packen-rating/packen-rating.component';
     PackenDropdownShowComponent,
     PackenSelectComponent,
     PackenIconMapComponent,
-    PackenRatingComponent
+    PackenRatingComponent,
+    PackenCounterComponent,
+    PackenCheckboxSingleComponent
   ],
   imports: [
     FormsModule,
@@ -76,7 +80,9 @@ import { PackenRatingComponent } from './packen-rating/packen-rating.component';
     PackenDropdownShowComponent,
     PackenSelectComponent,
     PackenIconMapComponent,
-    PackenRatingComponent
+    PackenRatingComponent,
+    PackenCounterComponent,
+    PackenCheckboxSingleComponent
   ]
 })
 export class PackenNgModule { }

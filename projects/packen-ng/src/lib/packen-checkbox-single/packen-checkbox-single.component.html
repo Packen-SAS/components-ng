@@ -1,0 +1,8 @@
+<div class="con noselect" (click)="checkedUncheckBox()">
+    <div class="con__box con__box--unchecked"
+        [ngClass]="[value === 'checked'? 'con__box--checked': 'con__box--unchecked']">
+        <span class="con__box__icon icon-checkmark"></span>
+
+    </div>
+    <p class="con__label">{{label}}</p>
+</div>

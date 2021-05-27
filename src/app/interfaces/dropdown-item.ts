@@ -14,4 +14,5 @@ export interface IconItem {
     type: string;
     name?: string;
     src?: string;
+    label?: string;
 }
