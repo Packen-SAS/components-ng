@@ -389,6 +389,7 @@ For input or textarea.
  - **thousandSeparator**: Change default separator to a custom.
  - **maxWidth**: Defines max-width input. **NOTE**: this option not is required and is number.
  - **comment**: Defines a comment or help text for the input.
+ - **name**: Name of input to define.
 
 ### RadioComponent
 

@@ -5,7 +5,7 @@
     </div>
     <div *ngIf="textArea != true" class="content__input-container" (click)="clickInsideContent()" clickOutside
         (clickOutside)="clickOutsideContent()" [style.max-width.px]="maxWidth? maxWidth: null">
-        <input #searchinput name="packenInput" class="content__input-container__input" [ngClass]="classInput"
+        <input #searchinput [name]="name ? name: 'packenInput'" class="content__input-container__input" [ngClass]="classInput"
             [type]="type" [mask]="mask" [prefix]="value ? prefix || '': ''" [thousandSeparator]="thousandSeparator"
             [(ngModel)]="value" [placeholder]="placeholder" (keyup)="changeTextInput($event.target.value)"
             [attr.disabled]="disabled == true ? true : null" [attr.maxlength]="maxlength > 0 ? maxlength: false"
